@@ -1,0 +1,28 @@
+
+[workspace]
+
+members = [
+    "fbw-a21n/src/wasm/systems/a320_systems",
+    "fbw-a21n/src/wasm/systems/a320_systems_wasm",
+    "fbw-a318/src/wasm/systems/a320_systems",
+    "fbw-a318/src/wasm/systems/a320_systems_wasm",
+    "fbw-a319/src/wasm/systems/a320_systems",
+    "fbw-a319/src/wasm/systems/a320_systems_wasm",
+    "fbw-a21n/src/wasm/systems/a320_hydraulic_simulation_graphs",
+    "fbw-a318/src/wasm/systems/a320_hydraulic_simulation_graphs",
+    "fbw-a319/src/wasm/systems/a320_hydraulic_simulation_graphs",
+    "fbw-common/src/wasm/systems/systems",
+    "fbw-common/src/wasm/systems/systems_wasm",
+]
+
+[profile.release]
+lto = true
+strip = true
+
+[profile.test]
+# We enable some basic optimization to prevent stack overflows during testing (flybywiresim/a32nx#7631)
+# However, if this interferes with your ability to debug locally you can disable it here
+opt-level=1
+lto = false
+debug-assertions=true
+debug=true
