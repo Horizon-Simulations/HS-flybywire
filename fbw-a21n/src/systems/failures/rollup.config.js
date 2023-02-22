@@ -42,7 +42,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'fbw-a32nx/out/flybywire-aircraft-a320-neo/html_ui/JS/failures/failures.js'),
+        file: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/failures/failures.js'),
         format: 'umd',
         name: 'Failures',
     },

@@ -1,4 +1,4 @@
-import { ComponentProps, DisplayComponent, FSComponent, VNode } from './FSComponent';
+import { FSComponent, DisplayComponent, ComponentProps, VNode } from './FSComponent';
 
 /** The value retured when we add a item to the collection. */
 export type CollectionComponentItemRef = string;

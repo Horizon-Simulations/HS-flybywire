@@ -1,6 +1,6 @@
 {
   "name": "msfssdk",
-  "version": "0.3.0",
+  "version": "0.1.0",
   "description": "HTML and Typescript SDK for MSFS Coherent based instruments and aircraft development.",
   "main": "msfssdk.js",
   "scripts": {

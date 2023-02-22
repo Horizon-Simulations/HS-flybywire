@@ -9,11 +9,11 @@ export function getInstrumentsIgniterTasks() {
 
     return baseInstruments.map(({ name }) => new ExecTask(
         name,
-        `cd fbw-a32nx && mach build -f ${name}`,
+        `cd fbw-a21n && mach build -f ${name}`,
         [
-            join('fbw-a32nx/src/systems/instruments/src', name),
-            'fbw-a32nx/src/systems/instruments/src/Common',
-            join('fbw-a32nx/out/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/A32NX', name),
+            join('fbw-a21n/src/systems/instruments/src', name),
+            'fbw-a21n/src/systems/instruments/src/Common',
+            join('fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/Pages/VCockpit/Instruments/A21N', name),
         ],
     ));
 }

@@ -5,11 +5,12 @@
   "scripts": {
     "====== A321neo =================": "==========================================",
 
-    "build-a21n:copy-base-package": "mkdir -p out/lvfr-horizonsim-a21n-fbw && (rsync -a fbw-a21n/src/base/lvfr-horizonsim-a21n-fbw out/ || cp -a -u fbw-a21n/src/base/lvfr-horizonsim-a21n-fbw out/)",
+    "build-a21n:copy-base-package": "mkdir -p fbw-a21n/out/lvfr-horizonsim-a21n-fbw && (rsync -a fbw-a21n/src/base/lvfr-horizonsim-a21n-fbw fbw-a21n/out/ || cp -a -u fbw-a21n/src/base/lvfr-horizonsim-a21n-fbw fbw-a21n/out/)",
     "build-a21n:copy-base-files": "npm run build-a21n:copy-base-package",
     "build-a21n:efb-translation": "cd fbw-a21n/src/systems/instruments/src/EFB/Localization && node build-translation.js",
 
     "build-a21n:model": "node fbw-a21n/src/model/build.js",
+    "build-a21n:model-variants": "", 
     "build-a21n:behavior": "node fbw-a21n/src/behavior/build.js",
 
     "build-a21n:atsu": "rollup -c fbw-a21n/src/systems/atsu/rollup.config.js",
@@ -19,31 +20,115 @@
     "build-a21n:simbridge-client": "rollup -c fbw-a21n/src/systems/simbridge-client/rollup.config.js",
     "build-a21n:tcas": "rollup -c fbw-a21n/src/systems/tcas/rollup.config.js",
 
-    "=======deprecated=========": "===========================",
+    "=======a21n-deprecated=========": "===========================",
     "build-a21n:pfd": "cd fbw-a21n/src/systems/instruments/src/PFD && rollup -c",
     "build-a21n:clock": "cd fbw-a21n/src/systems/instruments/src/Clock && rollup -c",
     "build-a21n:ewd": "cd fbw-a21n/src/systems/instruments/src/EWD && rollup -c",
 
     "build-a21n:instruments": "mach build --config fbw-a21n/mach.config.js --work-in-config-dir",
 
-    "build-a21n:systems": "cargo build -p a21n_systems_wasm --target wasm32-wasi --release && wasm-opt -O1 -o ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/systems.wasm  ./target/wasm32-wasi/release/a21n_systems_wasm.wasm",
-    "build-a21n:fadec": "cd fbw-a21n/src/wasm/fadec_a21n && sh ./build.sh && wasm-opt -O1 -o ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm",
-    "build-a21n:fbw": "cd fbw-a21n/src/wasm/fbw_a21n && ./build.sh && wasm-opt -O1 -o ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm",
-    "build-a21n:flypad-backend": "cd fbw-a21n/src/wasm/flypad-backend && ./build.sh && wasm-opt -O1 -o ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm",
-    "build-a21n:wasm-variants": "cp -r ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/*.wasm ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/aircrafta321neolrLEAP/panel/ ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/aircrafta321neolrPW/panel/ ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/aircrafta321neopw/panel/",
-    "build-a21n:wasm": "npm run build-a21n:systems && npm run build-a21n:fadec && npm run build-a21n:fbw, npm run build-a21n:flypad-backend && npm run build-a21n:wasm-variants",
+    "build-a21n:systems": "cargo build -p a21n_systems_wasm --target wasm32-wasi --release && wasm-opt -O1 -o ./fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/systems.wasm  ./target/wasm32-wasi/release/a21n_systems_wasm.wasm",
+    "build-a21n:fadec": "cd fbw-a21n/src/wasm/fadec_a21n && sh ./build.sh && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm /external/fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm",
+    "build-a21n:fbw": "cd fbw-a21n/src/wasm/fbw_a21n && ./build.sh && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm /external/fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm",
+    "build-a21n:flypad-backend": "cd fbw-a21n/src/wasm/flypad-backend && ./build.sh && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm /external/fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm",
+    "build-a21n:wasm-variants": "cp -r ./fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/systems.wasm ./fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/aircrafta321neolrLEAP/panel/ && cp -r ./fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/systems.wasm ./fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/aircrafta321neolrPW/panel/ && cp -r ./fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/systems.wasm ./fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/aircrafta321neopw/panel/",
 
-    "build-a21n:metadata": "node scripts/metadata.js out/lvfr-horizonsim-a21n-fbw a21n",
+    "build-a21n:metadata": "node scripts/metadata.js fbw-a21n/out/lvfr-horizonsim-a21n-fbw a21n",
     "build-a21n:manifest": "node scripts/build_a21n.js",
 
 
-    "serve:efb": "cd fbw-a21n/src/systems/instruments/src/EFB/ && vite --port 9696",
-    "build:ace": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c .\\src\\systems\\instruments\\buildSrc\\aceBuild.mjs",
-    "watch:ace": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -wc .\\src\\systems\\instruments\\buildSrc\\aceBuild.mjs",
-    "build:instruments": "rollup --max-old-space-size=8192 -c src/systems/instruments/buildSrc/simulatorBuild.mjs",
-    "watch:instruments": "rollup --max-old-space-size=8192 -wc src/systems/instruments/buildSrc/simulatorBuild.mjs",
+    "serve-a21n:efb": "cd fbw-a21n/src/systems/instruments/src/EFB/ && vite --port 9696",
+    "build-a21n:ace": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c .\\src\\systems\\instruments\\buildSrc\\aceBuild.mjs",
+    "watch-a21n:ace": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -wc .\\src\\systems\\instruments\\buildSrc\\aceBuild.mjs",
+    "build-a21n-js:instruments": "rollup --max-old-space-size=8192 -c src/systems/instruments/buildSrc/simulatorBuild.mjs",
+    "watch-a21n-js:instruments": "rollup --max-old-space-size=8192 -wc src/systems/instruments/buildSrc/simulatorBuild.mjs",
 
-    "build-a21n:all": "npm run build-a21n:copy-base-files && npm run build-a21n:efb-translation && npm run build-a21n:model && npm run build-a21n:behavior && npm run build-a21n:atsu && npm run build-a21n:failures && npm run build-a21n:fmgc && npm run build-a21n:sentry-client && npm run build-a21n:simbridge-client && npm run build-a21n:tcas && npm run build-a21n:pfd && npm run build-a21n:systems && npm run build-a21n:fadec && npm run build-a21n:fbw && npm run build-a21n:flypad-backend && npm run build-a21n:metadata && npm run build-a21n:manifest",
+    "build-a21n:all-no-wasm": "npm run build-a21n:copy-base-files && npm run build-a21n:efb-translation && npm run build-a21n:model && npm run build-a21n:behavior && npm run build-a21n:atsu && npm run build-a21n:failures && npm run build-a21n:fmgc && npm run build-a21n:sentry-client && npm run build-a21n:simbridge-client && npm run build-a21n:tcas && npm run build-a21n:systems && npm run build-a21n:wasm-variants && npm run build-a21n:metadata && npm run build-a21n:manifest",
+    "build-a21n:all": "npm run build-a21n:copy-base-files && npm run build-a21n:efb-translation && npm run build-a21n:model && npm run build-a21n:behavior && npm run build-a21n:atsu && npm run build-a21n:failures && npm run build-a21n:fmgc && npm run build-a21n:sentry-client && npm run build-a21n:simbridge-client && npm run build-a21n:tcas && npm run build-a21n:pfd && npm run build-a21n:systems && npm run build-a21n:fadec && npm run build-a21n:fbw && npm run build-a21n:flypad-backend && npm run build-a21n:wasm-variants && npm run build-a21n:metadata && npm run build-a21n:manifest",
+
+    "====== A318ceo =================": "==========================================",
+
+    "build-a318:copy-base-package": "mkdir -p out/lvfr-horizonsim-a318-fbw && (rsync -a fbw-a318/src/base/lvfr-horizonsim-a318-fbw out/ || cp -a -u fbw-a318/src/base/lvfr-horizonsim-a318-fbw out/)",
+    "build-a318:copy-base-files": "npm run build-a318:copy-base-package",
+    "build-a318:efb-translation": "cd fbw-a318/src/systems/instruments/src/EFB/Localization && node build-translation.js",
+
+    "build-a318:model": "node fbw-a318/src/model/build.js",
+    "build-a318:behavior": "node fbw-a318/src/behavior/build.js",
+
+    "build-a318:atsu": "rollup -c fbw-a318/src/systems/atsu/rollup.config.js",
+    "build-a318:failures": "rollup -c fbw-a318/src/systems/failures/rollup.config.js",
+    "build-a318:fmgc": "rollup -c fbw-a318/src/systems/fmgc/rollup.config.js",
+    "build-a318:sentry-client": "rollup -c fbw-a318/src/systems/sentry-client/rollup.config.js",
+    "build-a318:simbridge-client": "rollup -c fbw-a318/src/systems/simbridge-client/rollup.config.js",
+    "build-a318:tcas": "rollup -c fbw-a318/src/systems/tcas/rollup.config.js",
+
+    "=======a318-deprecated=========": "===========================",
+    "build-a318:pfd": "cd fbw-a318/src/systems/instruments/src/PFD && rollup -c",
+    "build-a318:clock": "cd fbw-a318/src/systems/instruments/src/Clock && rollup -c",
+    "build-a318:ewd": "cd fbw-a318/src/systems/instruments/src/EWD && rollup -c",
+
+    "build-a318:instruments": "mach build --config fbw-a318/mach.config.js --work-in-config-dir",
+
+    "build-a318:systems": "cargo build -p a318_systems_wasm --target wasm32-wasi --release && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a318-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/systems.wasm  ./target/wasm32-wasi/release/a318_systems_wasm.wasm",
+    "build-a318:fadec": "cd fbw-a318/src/wasm/fadec_a318 && sh ./build.sh && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a318-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm /external/fbw-a21n/out/lvfr-horizonsim-a318-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm",
+    "build-a318:fbw": "cd fbw-a318/src/wasm/fbw_a318 && ./build.sh && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a318-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm /external/fbw-a21n/out/lvfr-horizonsim-a318-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm",
+    "build-a318:flypad-backend": "cd fbw-a318/src/wasm/flypad-backend && ./build.sh && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a318-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm /external/fbw-a21n/out/lvfr-horizonsim-a318-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm",
+    "build-a318:wasm-variants": "cp -r /external/fbw-a21n/out/lvfr-horizonsim-a318-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/*.wasm /external/fbw-a21n/out/lvfr-horizonsim-a318-fbw/SimObjects/AirPlanes/aircrafta321neolrLEAP/panel/ /external/fbw-a21n/out/lvfr-horizonsim-a318-fbw/SimObjects/AirPlanes/aircrafta321neolrPW/panel/ /external/fbw-a21n/out/lvfr-horizonsim-a318-fbw/SimObjects/AirPlanes/aircrafta321neopw/panel/",
+    "build-a318:wasm": "npm run build-a318:systems && npm run build-a318:fadec && npm run build-a318:fbw, npm run build-a318:flypad-backend && npm run build-a318:wasm-variants",
+
+    "build-a318:metadata": "node scripts/metadata.js out/lvfr-horizonsim-a318-fbw a318",
+    "build-a318:manifest": "node scripts/build_a318.js",
+
+
+    "serve-a318:efb": "cd fbw-a318/src/systems/instruments/src/EFB/ && vite --port 9696",
+    "build-a318:ace": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c .\\src\\systems\\instruments\\buildSrc\\aceBuild.mjs",
+    "watch-a318:ace": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -wc .\\src\\systems\\instruments\\buildSrc\\aceBuild.mjs",
+    "build-a318-js:instruments": "rollup --max-old-space-size=8192 -c src/systems/instruments/buildSrc/simulatorBuild.mjs",
+    "watch-a318-js:instruments": "rollup --max-old-space-size=8192 -wc src/systems/instruments/buildSrc/simulatorBuild.mjs",
+
+    "build-a318:all": "npm run build-a318:copy-base-files && npm run build-a318:efb-translation && npm run build-a318:model && npm run build-a318:behavior && npm run build-a318:atsu && npm run build-a318:failures && npm run build-a318:fmgc && npm run build-a318:sentry-client && npm run build-a318:simbridge-client && npm run build-a318:tcas && npm run build-a318:pfd && npm run build-a318:systems && npm run build-a318:fadec && npm run build-a318:fbw && npm run build-a318:flypad-backend && npm run build-a318:metadata && npm run build-a318:manifest",
+
+    "====== A319ceo =================": "==========================================",
+
+    "build-a319:copy-base-package": "mkdir -p out/lvfr-horizonsim-a319-fbw && (rsync -a fbw-a319/src/base/lvfr-horizonsim-a319-fbw out/ || cp -a -u fbw-a319/src/base/lvfr-horizonsim-a319-fbw out/)",
+    "build-a319:copy-base-files": "npm run build-a319:copy-base-package",
+    "build-a319:efb-translation": "cd fbw-a319/src/systems/instruments/src/EFB/Localization && node build-translation.js",
+
+    "build-a319:model": "node fbw-a319/src/model/build.js",
+    "build-a319:behavior": "node fbw-a319/src/behavior/build.js",
+
+    "build-a319:atsu": "rollup -c fbw-a319/src/systems/atsu/rollup.config.js",
+    "build-a319:failures": "rollup -c fbw-a319/src/systems/failures/rollup.config.js",
+    "build-a319:fmgc": "rollup -c fbw-a319/src/systems/fmgc/rollup.config.js",
+    "build-a319:sentry-client": "rollup -c fbw-a319/src/systems/sentry-client/rollup.config.js",
+    "build-a319:simbridge-client": "rollup -c fbw-a319/src/systems/simbridge-client/rollup.config.js",
+    "build-a319:tcas": "rollup -c fbw-a319/src/systems/tcas/rollup.config.js",
+
+    "=======a319-deprecated=========": "===========================",
+    "build-a319:pfd": "cd fbw-a319/src/systems/instruments/src/PFD && rollup -c",
+    "build-a319:clock": "cd fbw-a319/src/systems/instruments/src/Clock && rollup -c",
+    "build-a319:ewd": "cd fbw-a319/src/systems/instruments/src/EWD && rollup -c",
+
+    "build-a319:instruments": "mach build --config fbw-a319/mach.config.js --work-in-config-dir",
+
+    "build-a319:systems": "cargo build -p a319_systems_wasm --target wasm32-wasi --release && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a319-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/systems.wasm  ./target/wasm32-wasi/release/a319_systems_wasm.wasm",
+    "build-a319:fadec": "cd fbw-a319/src/wasm/fadec_a319 && sh ./build.sh && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a319-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm /external/fbw-a21n/out/lvfr-horizonsim-a319-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm",
+    "build-a319:fbw": "cd fbw-a319/src/wasm/fbw_a319 && ./build.sh && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a319-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm /external/fbw-a21n/out/lvfr-horizonsim-a319-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm",
+    "build-a319:flypad-backend": "cd fbw-a319/src/wasm/flypad-backend && ./build.sh && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a319-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm /external/fbw-a21n/out/lvfr-horizonsim-a319-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm",
+    "build-a319:wasm-variants": "cp -r /external/fbw-a21n/out/lvfr-horizonsim-a319-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/*.wasm /external/fbw-a21n/out/lvfr-horizonsim-a319-fbw/SimObjects/AirPlanes/aircrafta321neolrLEAP/panel/ /external/fbw-a21n/out/lvfr-horizonsim-a319-fbw/SimObjects/AirPlanes/aircrafta321neolrPW/panel/ /external/fbw-a21n/out/lvfr-horizonsim-a319-fbw/SimObjects/AirPlanes/aircrafta321neopw/panel/",
+    "build-a319:wasm": "npm run build-a319:systems && npm run build-a319:fadec && npm run build-a319:fbw, npm run build-a319:flypad-backend && npm run build-a319:wasm-variants",
+
+    "build-a319:metadata": "node scripts/metadata.js out/lvfr-horizonsim-a319-fbw a319",
+    "build-a319:manifest": "node scripts/build_a319.js",
+
+
+    "serve-a319:efb": "cd fbw-a319/src/systems/instruments/src/EFB/ && vite --port 9696",
+    "build-a319:ace": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c .\\src\\systems\\instruments\\buildSrc\\aceBuild.mjs",
+    "watch-a319:ace": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -wc .\\src\\systems\\instruments\\buildSrc\\aceBuild.mjs",
+    "build-a319-js:instruments": "rollup --max-old-space-size=8192 -c src/systems/instruments/buildSrc/simulatorBuild.mjs",
+    "watch-a319-js:instruments": "rollup --max-old-space-size=8192 -wc src/systems/instruments/buildSrc/simulatorBuild.mjs",
+
+    "build-a319:all": "npm run build-a319:copy-base-files && npm run build-a319:efb-translation && npm run build-a319:model && npm run build-a319:behavior && npm run build-a319:atsu && npm run build-a319:failures && npm run build-a319:fmgc && npm run build-a319:sentry-client && npm run build-a319:simbridge-client && npm run build-a319:tcas && npm run build-a319:pfd && npm run build-a319:systems && npm run build-a319:fadec && npm run build-a319:fbw && npm run build-a319:flypad-backend && npm run build-a319:metadata && npm run build-a319:manifest",
 
     "====== INGAMEPANELS CHECKLIST FIX ====": "==========================================",
 
@@ -156,7 +241,7 @@
     "immer": "^9.0.3",
     "lodash": "^4.17.20",
     "msfs-geo": "^0.1.0-alpha3",
-    "msfssdk": "file:fbw-common/msfs-avionics-mirror/src/sdk/build/msfssdk-0.3.0.tgz",
+    "msfssdk": "file:fbw-common/msfs-avionics-mirror/src/sdk/build/msfssdk-0.1.0.tgz",
     "nanoid": "^3.3.1",
     "network": "^0.6.1",
     "pdf-to-printer": "^5.1.1",
