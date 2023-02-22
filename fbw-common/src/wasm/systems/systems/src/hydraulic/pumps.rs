@@ -22,6 +22,46 @@ impl PumpCharacteristics {
     const AIR_PRESSURE_BREAKPTS_PSI: [f64; 9] = [0., 5., 10., 15., 20., 30., 50., 70., 100.];
     const AIR_PRESSURE_CARAC_RATIO: [f64; 9] = [0.0, 0.1, 0.6, 0.8, 0.9, 1., 1., 1., 1.];
 
+    const A319_EDP_DISPLACEMENT_BREAKPTS_PSI: [f64; 9] = [
+        0.0, 500.0, 1000.0, 1500.0, 2800.0, 2910.0, 3025.0, 3050.0, 3500.0,
+    ];
+    const A319_EDP_DISPLACEMENT_MAP_CUBIC_INCH: [f64; 9] =
+        [2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 0.0, 0.0, 0.0];
+
+    const A319_EPUMP_REGULATED_SPEED_RPM: f64 = 7600.0;
+
+    const A319_EPUMP_DISPLACEMENT_BREAKPTS_PSI: [f64; 9] = [
+        0.0, 500.0, 1000.0, 1500.0, 2175.0, 2850.0, 3080.0, 3100.0, 3500.0,
+    ];
+    const A319_EPUMP_DISPLACEMENT_MAP_CUBIC_INCH: [f64; 9] =
+        [0.263, 0.263, 0.263, 0.263, 0.263, 0.2, 0.0, 0.0, 0.0];
+
+    const A319_RAT_DISPLACEMENT_BREAKPTS_PSI: [f64; 9] = [
+        0.0, 500.0, 1000.0, 1500.0, 2100.0, 2300.0, 2600.0, 2700.0, 3500.0,
+    ];
+    const A319_RAT_DISPLACEMENT_MAP_CUBIC_INCH: [f64; 9] =
+        [0.5, 0.8, 1.15, 1.15, 1.15, 0.8, 0.3, 0.0, 0.0];
+
+    const A318_EDP_DISPLACEMENT_BREAKPTS_PSI: [f64; 9] = [
+        0.0, 500.0, 1000.0, 1500.0, 2800.0, 2910.0, 3025.0, 3050.0, 3500.0,
+    ];
+    const A318_EDP_DISPLACEMENT_MAP_CUBIC_INCH: [f64; 9] =
+        [2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 0.0, 0.0, 0.0];
+
+    const A318_EPUMP_REGULATED_SPEED_RPM: f64 = 7600.0;
+
+    const A318_EPUMP_DISPLACEMENT_BREAKPTS_PSI: [f64; 9] = [
+        0.0, 500.0, 1000.0, 1500.0, 2175.0, 2850.0, 3080.0, 3100.0, 3500.0,
+    ];
+    const A318_EPUMP_DISPLACEMENT_MAP_CUBIC_INCH: [f64; 9] =
+        [0.263, 0.263, 0.263, 0.263, 0.263, 0.2, 0.0, 0.0, 0.0];
+
+    const A318_RAT_DISPLACEMENT_BREAKPTS_PSI: [f64; 9] = [
+        0.0, 500.0, 1000.0, 1500.0, 2100.0, 2300.0, 2600.0, 2700.0, 3500.0,
+    ];
+    const A318_RAT_DISPLACEMENT_MAP_CUBIC_INCH: [f64; 9] =
+        [0.5, 0.8, 1.15, 1.15, 1.15, 0.8, 0.3, 0.0, 0.0];
+
     const A320_EDP_DISPLACEMENT_BREAKPTS_PSI: [f64; 9] = [
         0.0, 500.0, 1000.0, 1500.0, 2800.0, 2910.0, 3025.0, 3050.0, 3500.0,
     ];
@@ -40,6 +80,26 @@ impl PumpCharacteristics {
         0.0, 500.0, 1000.0, 1500.0, 2100.0, 2300.0, 2600.0, 2700.0, 3500.0,
     ];
     const A320_RAT_DISPLACEMENT_MAP_CUBIC_INCH: [f64; 9] =
+        [0.5, 0.8, 1.15, 1.15, 1.15, 0.8, 0.3, 0.0, 0.0];
+    
+    const A21N_EDP_DISPLACEMENT_BREAKPTS_PSI: [f64; 9] = [
+        0.0, 500.0, 1000.0, 1500.0, 2800.0, 2910.0, 3025.0, 3050.0, 3500.0,
+    ];
+    const A21N_EDP_DISPLACEMENT_MAP_CUBIC_INCH: [f64; 9] =
+        [2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 0.0, 0.0, 0.0];
+
+    const A21N_EPUMP_REGULATED_SPEED_RPM: f64 = 7600.0;
+
+    const A21N_EPUMP_DISPLACEMENT_BREAKPTS_PSI: [f64; 9] = [
+        0.0, 500.0, 1000.0, 1500.0, 2175.0, 2850.0, 3080.0, 3100.0, 3500.0,
+    ];
+    const A21N_EPUMP_DISPLACEMENT_MAP_CUBIC_INCH: [f64; 9] =
+        [0.263, 0.263, 0.263, 0.263, 0.263, 0.2, 0.0, 0.0, 0.0];
+
+    const A21N_RAT_DISPLACEMENT_BREAKPTS_PSI: [f64; 9] = [
+        0.0, 500.0, 1000.0, 1500.0, 2100.0, 2300.0, 2600.0, 2700.0, 3500.0,
+    ];
+    const A21N_RAT_DISPLACEMENT_MAP_CUBIC_INCH: [f64; 9] =
         [0.5, 0.8, 1.15, 1.15, 1.15, 0.8, 0.3, 0.0, 0.0];
 
     const A380_EDP_DISPLACEMENT_BREAKPTS_PSI: [f64; 9] = [
@@ -103,6 +163,102 @@ impl PumpCharacteristics {
             Self::AIR_PRESSURE_CARAC_RATIO,
             Some(AngularVelocity::new::<revolution_per_minute>(
                 Self::A320_EPUMP_REGULATED_SPEED_RPM,
+            )),
+        )
+    }
+
+    pub fn a318_edp() -> Self {
+        PumpCharacteristics::new(
+            Self::A318_EDP_DISPLACEMENT_BREAKPTS_PSI,
+            Self::A318_EDP_DISPLACEMENT_MAP_CUBIC_INCH,
+            Self::AIR_PRESSURE_BREAKPTS_PSI,
+            Self::AIR_PRESSURE_CARAC_RATIO,
+            None,
+        )
+    }
+
+    pub fn a318_rat() -> Self {
+        PumpCharacteristics::new(
+            Self::A318_RAT_DISPLACEMENT_BREAKPTS_PSI,
+            Self::A318_RAT_DISPLACEMENT_MAP_CUBIC_INCH,
+            Self::AIR_PRESSURE_BREAKPTS_PSI,
+            Self::AIR_PRESSURE_CARAC_RATIO,
+            None,
+        )
+    }
+
+    pub fn a318_electric_pump() -> Self {
+        PumpCharacteristics::new(
+            Self::A318_EPUMP_DISPLACEMENT_BREAKPTS_PSI,
+            Self::A318_EPUMP_DISPLACEMENT_MAP_CUBIC_INCH,
+            Self::AIR_PRESSURE_BREAKPTS_PSI,
+            Self::AIR_PRESSURE_CARAC_RATIO,
+            Some(AngularVelocity::new::<revolution_per_minute>(
+                Self::A318_EPUMP_REGULATED_SPEED_RPM,
+            )),
+        )
+    }
+
+    pub fn a319_edp() -> Self {
+        PumpCharacteristics::new(
+            Self::A319_EDP_DISPLACEMENT_BREAKPTS_PSI,
+            Self::A319_EDP_DISPLACEMENT_MAP_CUBIC_INCH,
+            Self::AIR_PRESSURE_BREAKPTS_PSI,
+            Self::AIR_PRESSURE_CARAC_RATIO,
+            None,
+        )
+    }
+
+    pub fn a319_rat() -> Self {
+        PumpCharacteristics::new(
+            Self::A319_RAT_DISPLACEMENT_BREAKPTS_PSI,
+            Self::A319_RAT_DISPLACEMENT_MAP_CUBIC_INCH,
+            Self::AIR_PRESSURE_BREAKPTS_PSI,
+            Self::AIR_PRESSURE_CARAC_RATIO,
+            None,
+        )
+    }
+
+    pub fn a319_electric_pump() -> Self {
+        PumpCharacteristics::new(
+            Self::A319_EPUMP_DISPLACEMENT_BREAKPTS_PSI,
+            Self::A319_EPUMP_DISPLACEMENT_MAP_CUBIC_INCH,
+            Self::AIR_PRESSURE_BREAKPTS_PSI,
+            Self::AIR_PRESSURE_CARAC_RATIO,
+            Some(AngularVelocity::new::<revolution_per_minute>(
+                Self::A319_EPUMP_REGULATED_SPEED_RPM,
+            )),
+        )
+    }
+
+    pub fn a21n_edp() -> Self {
+        PumpCharacteristics::new(
+            Self::A21N_EDP_DISPLACEMENT_BREAKPTS_PSI,
+            Self::A21N_EDP_DISPLACEMENT_MAP_CUBIC_INCH,
+            Self::AIR_PRESSURE_BREAKPTS_PSI,
+            Self::AIR_PRESSURE_CARAC_RATIO,
+            None,
+        )
+    }
+
+    pub fn a21n_rat() -> Self {
+        PumpCharacteristics::new(
+            Self::A21N_RAT_DISPLACEMENT_BREAKPTS_PSI,
+            Self::A21N_RAT_DISPLACEMENT_MAP_CUBIC_INCH,
+            Self::AIR_PRESSURE_BREAKPTS_PSI,
+            Self::AIR_PRESSURE_CARAC_RATIO,
+            None,
+        )
+    }
+
+    pub fn a21n_electric_pump() -> Self {
+        PumpCharacteristics::new(
+            Self::A21N_EPUMP_DISPLACEMENT_BREAKPTS_PSI,
+            Self::A21N_EPUMP_DISPLACEMENT_MAP_CUBIC_INCH,
+            Self::AIR_PRESSURE_BREAKPTS_PSI,
+            Self::AIR_PRESSURE_CARAC_RATIO,
+            Some(AngularVelocity::new::<revolution_per_minute>(
+                Self::A21N_EPUMP_REGULATED_SPEED_RPM,
             )),
         )
     }
