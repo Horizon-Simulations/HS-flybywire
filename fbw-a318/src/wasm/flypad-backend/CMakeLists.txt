@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(flybywire-a32nx-flypad-backend)
+project(horizonsim-a318-flypad-backend)
 
 set(CMAKE_CXX_STANDARD 20)
 set(MSFS_SDK "C:\\MSFS SDK")
@@ -18,7 +18,7 @@ include_directories(
         ${FBW_ROOT}/fbw-common/src/wasm/fbw_common/src/inih
 )
 
-add_executable(flybywire-a32nx-flypad-backend
+add_executable(horizonsim-a318-flypad-backend
         ./src/FlyPadBackend.cpp
         ./src/Aircraft/AircraftPreset.cpp
         ./src/Lighting/LightPreset.cpp

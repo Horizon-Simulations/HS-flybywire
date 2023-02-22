@@ -2,7 +2,7 @@
 # through the code in an IDE. It is not used for building the project.
 
 cmake_minimum_required(VERSION 3.19)
-project(flybywire-a32nx-fbw)
+project(horizonsim-a21n-fbw)
 
 set(CMAKE_CXX_STANDARD 20)
 set(MSFS_SDK "C:\\MSFS SDK")
@@ -30,7 +30,7 @@ include_directories(
         ${FBW_ROOT}/fbw-common/src/wasm/fbw-common/src
 )
 
-add_executable(flybywire-a32nx-fbw
+add_executable(horizonsim-a21n-fbw
         ${FBW_ROOT}/fbw-common/src/wasm/fbw_common/src/zlib/zfstream.cc
         ${FBW_ROOT}/fbw-common/src/wasm/fbw_common/src/LocalVariable.cpp
         ${FBW_ROOT}/fbw-common/src/wasm/fbw_common/src/ThrottleAxisMapping.cpp

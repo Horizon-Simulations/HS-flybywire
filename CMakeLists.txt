@@ -2,7 +2,7 @@
 # through the code in an IDE. It is not used for building the project.
 
 cmake_minimum_required(VERSION 3.19)
-project(flybywire-a32nx)
+project(horizonsim-lvfr-airbus)
 
 set(CMAKE_CXX_STANDARD 20)
 set(MSFS_SDK "C:\\MSFS SDK")
