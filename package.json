@@ -5,7 +5,7 @@
   "scripts": {
     "====== A321neo =================": "==========================================",
 
-    "build-a21n:copy-base-package": "mkdir -p fbw-a21n/out/lvfr-horizonsim-a21n-fbw && (rsync -a fbw-a21n/src/base/lvfr-horizonsim-a21n-fbw fbw-a21n/out/ || cp -a -u fbw-a21n/src/base/lvfr-horizonsim-a21n-fbw fbw-a21n/out/)",
+    "build-a21n:copy-base-package": "mkdir -p out/lvfr-horizonsim-a21n-fbw && (rsync -a fbw-a21n/src/base/lvfr-horizonsim-a21n-fbw out/ || cp -a -u fbw-a21n/src/base/lvfr-horizonsim-a21n-fbw out/)",
     "build-a21n:copy-base-files": "npm run build-a21n:copy-base-package",
     "build-a21n:efb-translation": "cd fbw-a21n/src/systems/instruments/src/EFB/Localization && node build-translation.js",
 
@@ -26,12 +26,14 @@
 
     "build-a21n:instruments": "mach build --config fbw-a21n/mach.config.js --work-in-config-dir",
 
-    "build-a21n:systems": "cargo build -p a21n_systems_wasm --target wasm32-wasi --release && wasm-opt -O1 -o ./fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/systems.wasm ./target/wasm32-wasi/release/a21n_systems_wasm.wasm",
-    "build-a21n:fadec": "cd fbw-a21n/src/wasm/fadec_a21n && ./build.sh && wasm-opt -O1 -o /fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm /fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm",
-    "build-a21n:fbw": "cd fbw-a21n/src/wasm/fbw_a21n && ./build.sh && wasm-opt -O1 -o /fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm /fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm",
-    "build-a21n:flypad-backend": "cd fbw-a21n/src/wasm/flypad-backend && ./build.sh && wasm-opt -O1 -o /external/fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm /external/fbw-a21n/out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm",
+    "build-a21n:systems": "cargo build -p a21n_systems_wasm --target wasm32-wasi --release && wasm-opt -O1 -o ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/systems.wasm  ./target/wasm32-wasi/release/a21n_systems_wasm.wasm",
+    "build-a21n:fadec": "cd fbw-a21n/src/wasm/fadec_a21n && sh ./build.sh && wasm-opt -O1 -o ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fadec.wasm",
+    "build-a21n:fbw": "cd fbw-a21n/src/wasm/fbw_a21n && ./build.sh && wasm-opt -O1 -o ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/fbw.wasm",
+    "build-a21n:flypad-backend": "cd fbw-a21n/src/wasm/flypad-backend && ./build.sh && wasm-opt -O1 -o ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/flypad-backend.wasm",
+    "build-a21n:wasm-variants": "cp -r ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/A321neoLEAP/panel/*.wasm ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/aircrafta321neolrLEAP/panel/ ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/aircrafta321neolrPW/panel/ ./out/lvfr-horizonsim-a21n-fbw/SimObjects/AirPlanes/aircrafta321neopw/panel/",
+    "build-a21n:wasm": "npm run build-a21n:systems && npm run build-a21n:fadec && npm run build-a21n:fbw, npm run build-a21n:flypad-backend && npm run build-a21n:wasm-variants",
 
-    "build-a21n:metadata": "node scripts/metadata.js fbw-a21n/out/lvfr-horizonsim-a21n-fbw a21n",
+    "build-a21n:metadata": "node scripts/metadata.js out/lvfr-horizonsim-a21n-fbw a21n",
     "build-a21n:manifest": "node scripts/build_a21n.js",
 
 

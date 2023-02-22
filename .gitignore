@@ -64,5 +64,7 @@
 node_modules/
 obj/
 target/
+out/
+to_migrate/
 *.tgz
 *.wasm
