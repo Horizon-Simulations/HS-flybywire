@@ -1,4 +1,4 @@
-# A32NX Source Files
+# A21N Source Files
 
 All source files required to build the A32NX project are located in the `src` directory. 
 
@@ -9,7 +9,7 @@ The `src` directory is structured as follows:
 - behavior        <behavior sources files>
 - fonts           <fonts files>
 - model           <model sources files>
-- systems         <TypeScrtipt absed systems incl. instruments>
+- systems         <TypeScrtipt based systems incl. instruments>
 - textures        <textures files>
 - wasm            <rust and c++ sources files for wasm>
 ```
