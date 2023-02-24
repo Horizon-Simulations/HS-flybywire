@@ -26,7 +26,16 @@
 !/.cargo/config.toml
 !rust-toolchain.toml
 
-!fbw-a32nx/src/base/manifest-base.json
+!fbw-a21n/src/base/*
+!fbw-a318/src/base/*
+!fbw-a319/src/base/*
+!fbw-a21n/src/base/manifest-base.json
+!fbw-a318/src/base/manifest-base.json
+!fbw-a319/src/base/manifest-base.json
+
+/fbw-a21n/out
+/fbw-a318/out
+/fbw-a319/out
 !package.json
 
 !jest.config.js
@@ -62,6 +71,3 @@
 node_modules/
 obj/
 target/
-out/
-to_migrate/
-*.wasm
