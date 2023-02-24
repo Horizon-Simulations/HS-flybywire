@@ -13,7 +13,7 @@ export function getInstrumentsIgniterTasks() {
         [
             join('fbw-a32nx/src/systems/instruments/src', name),
             'fbw-a32nx/src/systems/instruments/src/Common',
-            join('fbw-a32nx/out/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/A32NX', name),
+            join('fbw-a319/out/lvfr-horizonsim-a319-fbw/html_ui/Pages/VCockpit/Instruments/A32NX', name),
         ],
     ));
 }

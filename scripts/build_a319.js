@@ -71,18 +71,18 @@ const titleSuffix = ` (${titlePostfix})`;
 
 const MS_FILETIME_EPOCH = 116444736000000000n;
 
-const A21N_SRC = path.resolve(__dirname, '..', 'fbw-a21n/src');
-const A21N_OUT = path.resolve(__dirname, '..', 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw');
+const A319_SRC = path.resolve(__dirname, '..', 'fbw-a319/src');
+const A319_OUT = path.resolve(__dirname, '..', 'fbw-a319/out/lvfr-horizonsim-a319-fbw');
 
 function copyDDSFiles(src_dds) {
-    const TARGET_PATH = '/SimObjects/AirPlanes/A321neoLEAP/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    const TARGET_PATH_LR = '/SimObjects/AirPlanes/aircrafta321neolrLEAP/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    const TARGET_PATH_PW_LR = '/SimObjects/AirPlanes/aircrafta321neolrPW/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    const TARGET_PATH_PW = '/SimObjects/AirPlanes/aircrafta321neopw/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    fs.copyFileSync(path.join(A21N_SRC, src_dds), path.join(A21N_OUT, TARGET_PATH));
-    fs.copyFileSync(path.join(A21N_SRC, src_dds), path.join(A21N_OUT, TARGET_PATH_LR));
-    fs.copyFileSync(path.join(A21N_SRC, src_dds), path.join(A21N_OUT, TARGET_PATH_PW_LR));
-    fs.copyFileSync(path.join(A21N_SRC, src_dds), path.join(A21N_OUT, TARGET_PATH_PW));
+    const TARGET_PATH = '/SimObjects/AirPlanes/A319ceoCFM/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
+    const TARGET_PATH_CJ = '/SimObjects/AirPlanes/A319ceoCFM_acj/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
+    const TARGET_PATH_IAE = '/SimObjects/AirPlanes/A319ceoIAE/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
+    const TARGET_PATH_IAE_CJ = '/SimObjects/AirPlanes/A319ceoIAE_acj/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
+    fs.copyFileSync(path.join(A319_SRC, src_dds), path.join(A319_OUT, TARGET_PATH));
+    fs.copyFileSync(path.join(A319_SRC, src_dds), path.join(A319_OUT, TARGET_PATH_CJ));
+    fs.copyFileSync(path.join(A319_SRC, src_dds), path.join(A319_OUT, TARGET_PATH_IAE));
+    fs.copyFileSync(path.join(A319_SRC, src_dds), path.join(A319_OUT, TARGET_PATH_IAE_CJ));
 }
 
 if (edition === 'stable') {
@@ -111,7 +111,7 @@ function createPackageFiles(baseDir, manifestBaseFilename) {
         content: contentEntries,
     }, null, 2));
 
-    const manifestBase = require(path.join(A21N_SRC, 'base', manifestBaseFilename));
+    const manifestBase = require(path.join(A319_SRC, 'base', manifestBaseFilename));
 
     fs.writeFileSync(path.join(baseDir, 'manifest.json'), JSON.stringify({
         ...manifestBase,
@@ -121,5 +121,5 @@ function createPackageFiles(baseDir, manifestBaseFilename) {
     }, null, 2));
 }
 
-createPackageFiles(A21N_OUT, 'manifest-base.json');
-//createPackageFiles(A21N_OUT + '-lock-highlight', 'manifest-base-lock-highlight.json');
+createPackageFiles(A319_OUT, 'manifest-base.json');
+//createPackageFiles(A319_OUT + '-lock-highlight', 'manifest-base-lock-highlight.json');

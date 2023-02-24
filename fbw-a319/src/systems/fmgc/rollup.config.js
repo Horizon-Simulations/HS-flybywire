@@ -27,7 +27,7 @@ module.exports = {
             targets: [
                 {
                     src: 'fmgc/src/utils/LzUtf8.js',
-                    dest: join(root, 'fbw-a32nx/out/flybywire-aircraft-a320-neo/html_ui/JS/fmgc/'),
+                    dest: join(root, 'fbw-a319/out/lvfr-horizonsim-a319-fbw/html_ui/JS/fmgc/'),
                 },
             ],
         }),
@@ -52,7 +52,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'fbw-a32nx/out/flybywire-aircraft-a320-neo/html_ui/JS/fmgc/fmgc.js'),
+        file: join(root, 'fbw-a319/out/lvfr-horizonsim-a319-fbw/html_ui/JS/fmgc/fmgc.js'),
         format: 'umd',
         name: 'Fmgc',
     },
