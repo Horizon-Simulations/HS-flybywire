@@ -52,7 +52,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'fbw-a318/out/lvfr-horizonsim-a318-fbw/html_ui/JS/fmgc/fmgc.js'),
+        file: join(root, 'fbw-a318/out/lvfr-horizonsim-a318-fbw/html_ui/JS/fmgc/A318_fmgc.js'),
         format: 'umd',
         name: 'Fmgc',
     },

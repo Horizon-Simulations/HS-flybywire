@@ -46,7 +46,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/atsu/atsu.js'),
+        file: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/atsu/A21N_atsu.js'),
         format: 'umd',
         name: 'Atsu',
     },

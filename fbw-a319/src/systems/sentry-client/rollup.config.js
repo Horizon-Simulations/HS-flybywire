@@ -50,7 +50,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'fbw-a319/out/lvfr-horizonsim-a319-fbw/html_ui/JS/sentry-client/sentry-client.js'),
+        file: join(root, 'fbw-a319/out/lvfr-horizonsim-a319-fbw/html_ui/JS/sentry-client/A319_sentry-client.js'),
         format: 'umd',
         name: 'SentryClient',
     },

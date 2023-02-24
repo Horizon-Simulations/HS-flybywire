@@ -42,7 +42,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'fbw-a319/out/lvfr-horizonsim-a319-fbw/html_ui/JS/failures/failures.js'),
+        file: join(root, 'fbw-a319/out/lvfr-horizonsim-a319-fbw/html_ui/JS/failures/A319_failures.js'),
         format: 'umd',
         name: 'Failures',
     },
