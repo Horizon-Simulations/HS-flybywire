@@ -42,7 +42,7 @@
     "build-a21n-js:instruments": "rollup --max-old-space-size=8192 -c src/systems/instruments/buildSrc/simulatorBuild.mjs",
     "watch-a21n-js:instruments": "rollup --max-old-space-size=8192 -wc src/systems/instruments/buildSrc/simulatorBuild.mjs",
 
-    "build-a21n:no-wasm": "npm run build-a21n:copy-base-files && npm run build-a21n:efb-translation && npm run build-a21n:behavior && npm run build-a21n:atsu && npm run build-a21n:failures && npm run build-a21n:fmgc && npm run build-a21n:sentry-client && npm run build-a21n:simbridge-client && npm run build-a21n:tcas && npm run build-a21n:metadata",
+    "build-a21n:no-wasm": "npm run build-a21n:copy-base-files && npm run build-a21n:efb-translation && npm run build-a21n:behavior && npm run build-a21n:atsu && npm run build-a21n:failures && npm run build-a21n:fmgc && npm run build-a21n:sentry-client && npm run build-a21n:simbridge-client && npm run build-a21n:tcas && npm run build-a21n:manifest",
     "build-a21n:all": "npm run build-a21n:copy-base-files && npm run build-a21n:efb-translation && npm run build-a21n:model && npm run build-a21n:behavior && npm run build-a21n:atsu && npm run build-a21n:failures && npm run build-a21n:fmgc && npm run build-a21n:sentry-client && npm run build-a21n:simbridge-client && npm run build-a21n:tcas && npm run build-a21n:pfd && npm run build-a21n:systems && npm run build-a21n:fadec && npm run build-a21n:fbw && npm run build-a21n:flypad-backend && npm run build-a21n:wasm-variants && npm run build-a21n:metadata && npm run build-a21n:manifest",
     "clean-a21n": "rm -rf ./fbw-a21n/out",
 
@@ -85,7 +85,7 @@
     "build-a318-js:instruments": "rollup --max-old-space-size=8192 -c src/systems/instruments/buildSrc/simulatorBuild.mjs",
     "watch-a318-js:instruments": "rollup --max-old-space-size=8192 -wc src/systems/instruments/buildSrc/simulatorBuild.mjs",
 
-    "build-a318:no-wasm": "npm run build-a318:copy-base-files && npm run build-a318:efb-translation && npm run build-a318:behavior && npm run build-a318:atsu && npm run build-a318:failures && npm run build-a318:fmgc && npm run build-a318:sentry-client && npm run build-a318:simbridge-client && npm run build-a318:tcas && npm run build-a318:metadata",
+    "build-a318:no-wasm": "npm run build-a318:copy-base-files && npm run build-a318:efb-translation && npm run build-a318:behavior && npm run build-a318:atsu && npm run build-a318:failures && npm run build-a318:fmgc && npm run build-a318:sentry-client && npm run build-a318:simbridge-client && npm run build-a318:tcas && npm run build-a318:manifest",
     "build-a318:all": "npm run build-a318:copy-base-files && npm run build-a318:efb-translation && npm run build-a318:model && npm run build-a318:behavior && npm run build-a318:atsu && npm run build-a318:failures && npm run build-a318:fmgc && npm run build-a318:sentry-client && npm run build-a318:simbridge-client && npm run build-a318:tcas && npm run build-a318:pfd && npm run build-a318:systems && npm run build-a318:fadec && npm run build-a318:fbw && npm run build-a318:flypad-backend && npm run build-a318:metadata && npm run build-a318:manifest",
 
     "clean-a318": "rm -rf ./fbw-a318/out",
@@ -129,7 +129,7 @@
     "build-a319-js:instruments": "rollup --max-old-space-size=8192 -c src/systems/instruments/buildSrc/simulatorBuild.mjs",
     "watch-a319-js:instruments": "rollup --max-old-space-size=8192 -wc src/systems/instruments/buildSrc/simulatorBuild.mjs",
 
-    "build-a319:no-wasm": "npm run build-a319:copy-base-files && npm run build-a319:efb-translation && npm run build-a319:behavior && npm run build-a319:atsu && npm run build-a319:failures && npm run build-a319:fmgc && npm run build-a319:sentry-client && npm run build-a319:simbridge-client && npm run build-a319:tcas && npm run build-a319:metadata",
+    "build-a319:no-wasm": "npm run build-a319:copy-base-files && npm run build-a319:efb-translation && npm run build-a319:behavior && npm run build-a319:atsu && npm run build-a319:failures && npm run build-a319:fmgc && npm run build-a319:sentry-client && npm run build-a319:simbridge-client && npm run build-a319:tcas && npm run build-a319:manifest",
     "build-a319:all": "npm run build-a319:copy-base-files && npm run build-a319:efb-translation && npm run build-a319:model && npm run build-a319:behavior && npm run build-a319:atsu && npm run build-a319:failures && npm run build-a319:fmgc && npm run build-a319:sentry-client && npm run build-a319:simbridge-client && npm run build-a319:tcas && npm run build-a319:pfd && npm run build-a319:systems && npm run build-a319:fadec && npm run build-a319:fbw && npm run build-a319:flypad-backend && npm run build-a319:metadata && npm run build-a319:manifest",
 
     "clean-a319": "rm -rf ./fbw-a319/out",
