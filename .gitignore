@@ -35,8 +35,6 @@
 !CMakeLists.txt
 
 !/fbw-common/**
-/fbw-common/msfs-avionics-mirror/src/sdk/build
-/fbw-common/msfs-avionics-mirror/src/sdk/build/**
 
 /fbw-ingamepanels-checklist-fix/*
 !/fbw-ingamepanels-checklist-fix/README.md
