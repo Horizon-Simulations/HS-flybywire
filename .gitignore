@@ -26,9 +26,9 @@
 !/.cargo/config.toml
 !rust-toolchain.toml
 
-!fbw-a21n/src/base/*
-!fbw-a318/src/base/*
-!fbw-a319/src/base/*
+!fbw-a21n/src/base/**
+!fbw-a318/src/base/**
+!fbw-a319/src/base/**
 !fbw-a21n/src/base/manifest-base.json
 !fbw-a318/src/base/manifest-base.json
 !fbw-a319/src/base/manifest-base.json
