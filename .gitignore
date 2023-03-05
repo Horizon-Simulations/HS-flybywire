@@ -43,6 +43,9 @@
 
 !CMakeLists.txt
 
+!/fbw-a21n/src/**
+!/fbw-a318/src/**
+!/fbw-a319/src/**
 !/fbw-common/**
 
 /fbw-ingamepanels-checklist-fix/*

@@ -26,7 +26,7 @@ module.exports = {
         copy({
             targets: [
                 {
-                    src: 'fmgc/src/utils/LzUtf8.js',
+                    src: 'fmgc/src/utils/a21n_LzUtf8.js',
                     dest: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/fmgc/'),
                 },
             ],
