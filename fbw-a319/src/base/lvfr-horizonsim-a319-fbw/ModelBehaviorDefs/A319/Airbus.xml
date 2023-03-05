@@ -1,3 +1,6 @@
+<!-- Copyright (c) 2022 FlyByWire Simulations -->
+<!-- SPDX-License-Identifier: GPL-3.0 -->
+
 <ModelBehaviors>
     <Template Name="FBW_AIRBUS_Push_Dummy_Template">
         <DefaultTemplateParameters>
@@ -17,8 +20,8 @@
         </DefaultTemplateParameters>
 
         <UseTemplate Name="ASOBO_GT_Push_Button_Airliner_Dummy">
-            <SEQ1_EMISSIVE_CODE>#SEQ1_EMISSIVE_CODE# (L:A32NX_OVHD_INTLT_ANN) 0 == or #BLOCK_SEQ1# ! and #SEQ1_POWERED# and #SEQ_POWERED# and</SEQ1_EMISSIVE_CODE>
-            <SEQ2_EMISSIVE_CODE>#SEQ2_EMISSIVE_CODE# (L:A32NX_OVHD_INTLT_ANN) 0 == or #BLOCK_SEQ2# ! and #SEQ2_POWERED# and #SEQ_POWERED# and</SEQ2_EMISSIVE_CODE>
+            <SEQ1_EMISSIVE_CODE>#SEQ1_EMISSIVE_CODE# (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or #BLOCK_SEQ1# ! and #SEQ1_POWERED# and #SEQ_POWERED# and</SEQ1_EMISSIVE_CODE>
+            <SEQ2_EMISSIVE_CODE>#SEQ2_EMISSIVE_CODE# (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or #BLOCK_SEQ2# ! and #SEQ2_POWERED# and #SEQ_POWERED# and</SEQ2_EMISSIVE_CODE>
         </UseTemplate>
     </Template>
 
@@ -145,7 +148,8 @@
             <ANIM_NAME_BUTTON>PUSH_ECAM_#BASE_NAME#</ANIM_NAME_BUTTON>
             <LED_NODE_ID>PUSH_ECAM_#BASE_NAME#_SEQ2</LED_NODE_ID>
             <BACKLIGHT_NODE_ID>PUSH_ECAM_#BASE_NAME#_SEQ1</BACKLIGHT_NODE_ID>
-            <EVENT_NAME>A320_Neo_EICAS_2_ECAM_CHANGE_PAGE_#BASE_NAME#</EVENT_NAME>
+           <!--  <EVENT_NAME>A320_Neo_EICAS_2_ECAM_CHANGE_PAGE_#BASE_NAME#</EVENT_NAME> -->
+           <EVENT_NAME>A32NX_SD_PAGE_CHANGED</EVENT_NAME>
             <CURRENT_BUTTON_VAR_NAME>A32NX_ECAM_SD_CURRENT_PAGE_INDEX</CURRENT_BUTTON_VAR_NAME>
             <WWISE_EVENT_1>mcdubuttons</WWISE_EVENT_1>
             <NORMALIZED_TIME_1>0.1</NORMALIZED_TIME_1>
@@ -160,9 +164,12 @@
             <UseTemplate Name="ASOBO_GT_Push_Button">
                 <ANIM_NAME>#ANIM_NAME_BUTTON#</ANIM_NAME>
                 <LEFT_SINGLE_CODE>
-                #GROUP_INDEX# -1 &gt; if{
-                    (&gt;H:#EVENT_NAME#) #GROUP_INDEX#
+                 (L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) #GROUP_INDEX# != if{
+                    #GROUP_INDEX# (&gt;L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX)
+                } els{
+                    -1 (&gt;L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX)
                 }
+                (&gt;H:A32NX_SD_PAGE_CHANGED)
                 </LEFT_SINGLE_CODE>
             </UseTemplate>
         </Component>
@@ -173,7 +180,7 @@
                 #GROUP_INDEX# -1 &gt; if{
                     (L:#CURRENT_BUTTON_VAR_NAME#) #GROUP_INDEX# ==
                 }
-                (L:A32NX_OVHD_INTLT_ANN) 0 == or #SEQ1_POWERED# and #EMISSIVE_DIM# *
+                (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or #SEQ1_POWERED# and #EMISSIVE_DIM# *
                 </EMISSIVE_CODE>
             </UseTemplate>
         </Component>
@@ -317,7 +324,7 @@
             <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
                 <EMISSIVE_CODE>
                 (L:A32NX_ECAM_SFAIL) -1 &gt;
-                (L:A32NX_OVHD_INTLT_ANN) 0 == or
+                (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or
                 #SEQ1_POWERED# and
                 </EMISSIVE_CODE>
             </UseTemplate>
@@ -769,7 +776,7 @@
 
         <UseTemplate Name="FBW_Push_Toggle">
             <SEQ1_CODE>0</SEQ1_CODE>
-            <SEQ2_CODE>(L:XMLVAR_SWITCH_OVHD_INTLT_EMEREXIT_Position) 2 == (L:A32NX_OVHD_INTLT_ANN) 0 == or</SEQ2_CODE>
+            <SEQ2_CODE>(L:XMLVAR_SWITCH_OVHD_INTLT_EMEREXIT_Position) 2 == (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ2_CODE>
             <DUMMY_BUTTON/>
         </UseTemplate>
     </Template>
@@ -806,6 +813,128 @@
                 </False>
             </Condition>
         </Component>
+    </Template>
+
+    <Template Name = "FBW_Switch_LeftClick_MouseWheel">
+    <DefaultTemplateParameters>
+        <ANIM_GUID/>
+        <ANIM_WRAP>FALSE</ANIM_WRAP>
+        <SIMVAR_TYPE>bool</SIMVAR_TYPE>
+        <ANIM_DELTA>FALSE</ANIM_DELTA>
+        <ANIM_BLENDWEIGHT>1.0</ANIM_BLENDWEIGHT>
+        <SIMVAR_GROUP>A</SIMVAR_GROUP>
+        <ADDITIONAL_EVENT_CODE></ADDITIONAL_EVENT_CODE>
+    </DefaultTemplateParameters>
+    <EditableTemplateParameters>
+        <AddParams>
+            <ANIM_NAME/>
+            <SIMVAR_TYPE/>
+            <TOGGLE_EVENT/>
+            <TOGGLE_EVENT_2/>
+            <SIMVAR_INDEX_1/>
+            <SIMVAR_INDEX_2/>
+            <SIMVAR_NAME/>
+            <SIMVAR_NAME_2/>
+            <SIMVAR_GROUP/>
+            <ADDITIONAL_EVENT_CODE/>
+        </AddParams>
+    </EditableTemplateParameters>
+     <Component ID="#NODE_ID#" Node="#NODE_ID#">
+      <UseTemplate Name="ASOBO_GT_Anim_Code">
+        <ANIM_NAME>#ANIM_NAME#</ANIM_NAME>
+        <PART_ID>#PART_ID#</PART_ID>
+        <ANIM_LENGTH>100</ANIM_LENGTH>
+         <Condition NotEmpty="SIMVAR_INDEX_1">
+            <True>
+                  <ANIM_CODE>(#SIMVAR_GROUP#:#SIMVAR_NAME#:#SIMVAR_INDEX_1#,#SIMVAR_TYPE#) 100 * </ANIM_CODE>
+            </True>
+            <False>
+                 <ANIM_CODE> (#SIMVAR_GROUP#:#SIMVAR_NAME#,#SIMVAR_TYPE#) 100 * </ANIM_CODE>
+            </False>
+        </Condition>
+        <ANIM_LAG>600</ANIM_LAG>
+        </UseTemplate>
+       <UseTemplate Name="ASOBO_GT_AnimTriggers_2SoundEvents">
+            <WWISE_EVENT_1>lswitch</WWISE_EVENT_1>
+            <WWISE_EVENT_2>lswitch</WWISE_EVENT_2>
+          <ANIM_NAME>#ANIM_NAME#</ANIM_NAME>
+       </UseTemplate>
+        <UseTemplate Name="ASOBO_GT_MouseRect">
+        <Condition NotEmpty="SIMVAR_INDEX_1">
+            <True>
+                <TOOLTIPID>%((#SIMVAR_GROUP#:#SIMVAR_NAME#:#SIMVAR_INDEX_1#,#SIMVAR_TYPE#))%{if}#ANIMTIP_1#%{else}#ANIMTIP_0#%{end}</TOOLTIPID>
+            </True>
+            <False>
+              <TOOLTIPID>%((#SIMVAR_GROUP#:#SIMVAR_NAME#,#SIMVAR_TYPE#))%{if}#ANIMTIP_1#%{else}#ANIMTIP_0#%{end}</TOOLTIPID>
+            </False>
+        </Condition>
+        <CURSOR>Hand</CURSOR>
+        <MOUSEFLAGS_DEFAULT_IM>LeftSingle+WheelUp+WheelDown</MOUSEFLAGS_DEFAULT_IM>
+         <Condition NotEmpty="SIMVAR_INDEX_1">
+            <True>
+                <CALLBACKCODE_DEFAULT_IM>
+                    (M:Event) 'LeftSingle' scmi 0 == if{
+                        (#SIMVAR_GROUP#:#SIMVAR_NAME#:#SIMVAR_INDEX_1#,#SIMVAR_TYPE#) 0 == if{
+                            #SIMVAR_INDEX_1# 1 (&gt;K:2:#TOGGLE_EVENT#)
+                            #SIMVAR_INDEX_2# 1 (&gt;K:2:#TOGGLE_EVENT_2#)
+                            #ADDITIONAL_EVENT_CODE#
+                        } els{
+                            #SIMVAR_INDEX_1# 0 (&gt;K:2:#TOGGLE_EVENT#)
+                            #SIMVAR_INDEX_2# 0 (&gt;K:2:#TOGGLE_EVENT_2#)
+                            #ADDITIONAL_EVENT_CODE#
+                        }
+                    }
+                    (M:Event) 'WheelUp'    scmi 0 == if{ (#SIMVAR_GROUP#:#SIMVAR_NAME#:#SIMVAR_INDEX_1#,#SIMVAR_TYPE#) 0 == if{
+                       #SIMVAR_INDEX_1# 1 (&gt;K:2:#TOGGLE_EVENT#)
+                       #SIMVAR_INDEX_2# 1 (&gt;K:2:#TOGGLE_EVENT_2#)
+                       #ADDITIONAL_EVENT_CODE#
+                     } }
+                    (M:Event) 'WheelDown'  scmi 0 == if{ (#SIMVAR_GROUP#:#SIMVAR_NAME#:#SIMVAR_INDEX_1#,#SIMVAR_TYPE#) 0 != if{
+                       #SIMVAR_INDEX_1# 0 (&gt;K:2:#TOGGLE_EVENT#)
+                       #SIMVAR_INDEX_2# 0 (&gt;K:2:#TOGGLE_EVENT_2#)
+                       #ADDITIONAL_EVENT_CODE#
+                     } }
+                </CALLBACKCODE_DEFAULT_IM>
+            </True>
+            <False>
+                <Condition Check="SIMVAR_GROUP" Match="L">
+                 <True>
+                    <CALLBACKCODE_DEFAULT_IM>
+                        (M:Event) 'LeftSingle' scmi 0 == if{
+                            (#SIMVAR_GROUP#:#SIMVAR_NAME#,#SIMVAR_TYPE#) 0 == (&gt;L:#TOGGLE_EVENT#)
+                            #ADDITIONAL_EVENT_CODE#
+                        }
+                        (M:Event) 'WheelUp'    scmi 0 == if{ (#SIMVAR_GROUP#:#SIMVAR_NAME#,#SIMVAR_TYPE#) 0 == if{
+                            1 (&gt;L:#TOGGLE_EVENT#)
+                            #ADDITIONAL_EVENT_CODE#
+                        } }
+                        (M:Event) 'WheelDown'  scmi 0 == if{ (#SIMVAR_GROUP#:#SIMVAR_NAME#,#SIMVAR_TYPE#) 0 != if{
+                            0 (&gt;L:#TOGGLE_EVENT#)
+                            #ADDITIONAL_EVENT_CODE#
+                        } }
+                    </CALLBACKCODE_DEFAULT_IM>
+                 </True>
+                  <False>
+                    <CALLBACKCODE_DEFAULT_IM>
+                        (M:Event) 'LeftSingle' scmi 0 == if{
+                            (#SIMVAR_GROUP#:#SIMVAR_NAME#,#SIMVAR_TYPE#) 0 == (&gt;K:#TOGGLE_EVENT#)
+                            #ADDITIONAL_EVENT_CODE#
+                        }
+                        (M:Event) 'WheelUp'    scmi 0 == if{ (#SIMVAR_GROUP#:#SIMVAR_NAME#,#SIMVAR_TYPE#) 0 == if{
+                            1 (&gt;K:#TOGGLE_EVENT#)
+                            #ADDITIONAL_EVENT_CODE#
+                        } }
+                        (M:Event) 'WheelDown'  scmi 0 == if{ (#SIMVAR_GROUP#:#SIMVAR_NAME#,#SIMVAR_TYPE#) 0 != if{
+                            0 (&gt;K:#TOGGLE_EVENT#)
+                            #ADDITIONAL_EVENT_CODE#
+                        } }
+                    </CALLBACKCODE_DEFAULT_IM>
+                 </False>
+                 </Condition>
+            </False>
+            </Condition>
+    </UseTemplate>
+    </Component>
     </Template>
 
     <!-- Copy of A32NX_GT_Switch_Dummy -->
@@ -871,7 +1000,7 @@
                     #AUDIO_KNOB_POWERED# ! if{
                         0
                     } els{
-                        (L:A32NX_OVHD_INTLT_ANN) 0 == if{
+                        (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and if{
                             14
                         } els{
                             (A:LIGHT POTENTIOMETER:#POTENTIOMETER#, Percent over 100) 0.5 *
@@ -907,8 +1036,8 @@
             <EMISSIVE_DIM>(L:A32NX_OVHD_INTLT_ANN, number) 2 == if{ 0.1 } els{ 1 }</EMISSIVE_DIM>
         </DefaultTemplateParameters>
         <UseTemplate Name="ASOBO_GT_Push_Button_Airliner">
-            <SEQ1_EMISSIVE_CODE>(L:A32NX_COCKPIT_DOOR_LOCKED, Bool) 0 == (L:A32NX_OVHD_INTLT_ANN) 0 == or #SEQ1_POWERED# and #EMISSIVE_DIM# *</SEQ1_EMISSIVE_CODE>
-            <SEQ2_EMISSIVE_CODE>(L:A32NX_OVHD_INTLT_ANN) 0 == #SEQ2_POWERED# and #EMISSIVE_DIM# *</SEQ2_EMISSIVE_CODE>
+            <SEQ1_EMISSIVE_CODE>(L:A32NX_COCKPIT_DOOR_LOCKED, Bool) 0 == (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or #SEQ1_POWERED# and #EMISSIVE_DIM# *</SEQ1_EMISSIVE_CODE>
+            <SEQ2_EMISSIVE_CODE>(L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and #SEQ2_POWERED# and #EMISSIVE_DIM# *</SEQ2_EMISSIVE_CODE>
         </UseTemplate>
     </Template>
 
@@ -1125,7 +1254,7 @@
             <Condition Check="EMISSIVE_SIMVAR_ACTIVE">
                 <True>
                     <UseTemplate Name="A32NX_GT_Emissive_Gauge_Sim">
-                        <ALT_CODE>(L:A32NX_OVHD_INTLT_ANN) 0 ==</ALT_CODE>
+                        <ALT_CODE>(L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and</ALT_CODE>
                         <Condition Check="EMISSIVE_SIMVAR_ACTIVE">
                             <EMISSIVE_SIMVAR>#EMISSIVE_SIMVAR_ACTIVE#</EMISSIVE_SIMVAR>
                         </Condition>
@@ -1136,7 +1265,7 @@
                 </True>
                 <False>
                     <UseTemplate Name="A32NX_GT_Emissive_Gauge">
-                        <ALT_CODE>(L:A32NX_OVHD_INTLT_ANN) 0 ==</ALT_CODE>
+                        <ALT_CODE>(L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and</ALT_CODE>
                         <Condition Check="EMISSIVE_CODE_ACTIVE">
                             <EMISSIVE_CODE>#EMISSIVE_CODE_ACTIVE#</EMISSIVE_CODE>
                         </Condition>

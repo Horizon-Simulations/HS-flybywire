@@ -28,8 +28,8 @@ class A32NX_GPWS {
                 type: [
                     {},
                     { sound: soundList.sink_rate, soundPeriod: 1.1, gpwsLight: true },
-                    { gpwsLight: true, pullUp: true }
-                ]
+                    { gpwsLight: true, pullUp: true },
+                ],
             },
             // Mode 2 is currently inactive.
             {
@@ -43,7 +43,7 @@ class A32NX_GPWS {
                 // 0: no warning, 1: "don't sink"
                 current: 0,
                 previous: 0,
-                type: [{}, { sound: soundList.dont_sink, soundPeriod: 1.1, gpwsLight: true }]
+                type: [{}, { sound: soundList.dont_sink, soundPeriod: 1.1, gpwsLight: true }],
             },
             // Mode 4
             {
@@ -54,8 +54,8 @@ class A32NX_GPWS {
                     {},
                     { sound: soundList.too_low_gear, soundPeriod: 1.1, gpwsLight: true },
                     { sound: soundList.too_low_flaps, soundPeriod: 1.1, gpwsLight: true },
-                    { sound: soundList.too_low_terrain, soundPeriod: 1.1, gpwsLight: true }
-                ]
+                    { sound: soundList.too_low_terrain, soundPeriod: 1.1, gpwsLight: true },
+                ],
             },
             // Mode 5, not all warnings are fully implemented
             {
@@ -68,9 +68,9 @@ class A32NX_GPWS {
                     {},
                 ],
                 onChange: (current, _) => {
-                    SimVar.SetSimVarValue("L:A32NX_GPWS_GS_Warning_Active", "Bool", current >= 1);
-                }
-            }
+                    SimVar.SetSimVarValue('L:A32NX_GPWS_GS_Warning_Active', 'Bool', current >= 1);
+                },
+            },
         ];
 
         this.PrevShouldPullUpPlay = 0;
@@ -81,44 +81,44 @@ class A32NX_GPWS {
 
         this.radnav.init(NavMode.FOUR_SLOTS);
 
-        SimVar.SetSimVarValue("L:A32NX_GPWS_GS_Warning_Active", "Bool", 0);
-        SimVar.SetSimVarValue("L:A32NX_GPWS_Warning_Active", "Bool", 0);
+        SimVar.SetSimVarValue('L:A32NX_GPWS_GS_Warning_Active', 'Bool', 0);
+        SimVar.SetSimVarValue('L:A32NX_GPWS_Warning_Active', 'Bool', 0);
     }
 
     update(deltaTime, _core) {
         this.gpws(deltaTime);
     }
+
     gpws(deltaTime) {
-        const radioAlt1 = Arinc429Word.fromSimVarValue(`L:A32NX_RA_1_RADIO_ALTITUDE`);
-        const radioAlt2 = Arinc429Word.fromSimVarValue(`L:A32NX_RA_2_RADIO_ALTITUDE`);
+        const radioAlt1 = Arinc429Word.fromSimVarValue('L:A32NX_RA_1_RADIO_ALTITUDE');
+        const radioAlt2 = Arinc429Word.fromSimVarValue('L:A32NX_RA_2_RADIO_ALTITUDE');
         const radioAlt = radioAlt1.isFailureWarning() || radioAlt1.isNoComputedData() ? radioAlt2 : radioAlt1;
         const radioAltValid = radioAlt.isNormalOperation();
-        const onGround = SimVar.GetSimVarValue("SIM ON GROUND", "Bool");
+        const onGround = SimVar.GetSimVarValue('SIM ON GROUND', 'Bool');
 
         this.differentiate_radioalt(radioAltValid ? radioAlt.value : NaN, deltaTime);
 
-        const phase = SimVar.GetSimVarValue("L:A32NX_FMGC_FLIGHT_PHASE", "Enum");
+        const phase = SimVar.GetSimVarValue('L:A32NX_FMGC_FLIGHT_PHASE', 'Enum');
 
         if (
-            radioAltValid && radioAlt.value >= 10 && radioAlt.value <= 2450 &&
-            !SimVar.GetSimVarValue("L:A32NX_GPWS_SYS_OFF", "Bool")
-        ) { //Activate between 10 - 2450 radio alt unless SYS is off
-            const FlapPushButton = SimVar.GetSimVarValue("L:A32NX_GPWS_FLAPS3", "Bool");
-            const FlapPosition = SimVar.GetSimVarValue("L:A32NX_FLAPS_HANDLE_INDEX", "Number");
+            radioAltValid && radioAlt.value >= 10 && radioAlt.value <= 2450
+            && !SimVar.GetSimVarValue('L:A32NX_GPWS_SYS_OFF', 'Bool')
+        ) { // Activate between 10 - 2450 radio alt unless SYS is off
+            const FlapPushButton = SimVar.GetSimVarValue('L:A32NX_GPWS_FLAPS3', 'Bool');
+            const FlapPosition = SimVar.GetSimVarValue('L:A32NX_FLAPS_HANDLE_INDEX', 'Number');
             const FlapsInLandingConfig = FlapPushButton ? (FlapPosition === 3) : (FlapPosition === 4);
             const vSpeed = Simplane.getVerticalSpeed();
-            const Airspeed = SimVar.GetSimVarValue("AIRSPEED INDICATED", "Knots");
-            const gearExtended = SimVar.GetSimVarValue("GEAR TOTAL PCT EXTENDED", "Percent") > 0.9;
+            const Airspeed = SimVar.GetSimVarValue('AIRSPEED INDICATED', 'Knots');
+            const gearExtended = SimVar.GetSimVarValue('GEAR TOTAL PCT EXTENDED', 'Percent') > 0.9;
 
             this.update_maxRA(radioAlt.value, onGround, phase);
 
             this.GPWSMode1(this.modes[0], radioAlt.value, vSpeed);
-            //Mode 2 is disabled because of an issue with the terrain height simvar which causes false warnings very frequently. See PR#1742 for more info
-            //this.GPWSMode2(this.modes[1], radioAlt, Airspeed, FlapsInLandingConfig, gearExtended);
+            // Mode 2 is disabled because of an issue with the terrain height simvar which causes false warnings very frequently. See PR#1742 for more info
+            // this.GPWSMode2(this.modes[1], radioAlt, Airspeed, FlapsInLandingConfig, gearExtended);
             this.GPWSMode3(this.modes[2], radioAlt.value, phase);
             this.GPWSMode4(this.modes[3], radioAlt.value, Airspeed, FlapsInLandingConfig, gearExtended, phase);
             this.GPWSMode5(this.modes[4], radioAlt.value);
-
         } else {
             this.modes.forEach((mode) => {
                 mode.current = 0;
@@ -129,8 +129,8 @@ class A32NX_GPWS {
                 this.Mode4MaxRAAlt = NaN;
             }
 
-            SimVar.SetSimVarValue("L:A32NX_GPWS_GS_Warning_Active", "Bool", 0);
-            SimVar.SetSimVarValue("L:A32NX_GPWS_Warning_Active", "Bool", 0);
+            SimVar.SetSimVarValue('L:A32NX_GPWS_GS_Warning_Active', 'Bool', 0);
+            SimVar.SetSimVarValue('L:A32NX_GPWS_Warning_Active', 'Bool', 0);
         }
 
         this.GPWSComputeLightsAndCallouts();
@@ -219,7 +219,7 @@ class A32NX_GPWS {
         }
 
         const illuminateGpwsLight = activeTypes.some((type) => type.gpwsLight);
-        SimVar.SetSimVarValue("L:A32NX_GPWS_Warning_Active", "Bool", illuminateGpwsLight);
+        SimVar.SetSimVarValue('L:A32NX_GPWS_Warning_Active', 'Bool', illuminateGpwsLight);
     }
 
     /**
@@ -316,7 +316,7 @@ class A32NX_GPWS {
             return;
         }
 
-        const baroAlt = SimVar.GetSimVarValue("PLANE ALTITUDE", "feet");
+        const baroAlt = SimVar.GetSimVarValue('PLANE ALTITUDE', 'feet');
 
         const maxAltLoss = 0.09 * radioAlt + 7.1;
 
@@ -345,7 +345,7 @@ class A32NX_GPWS {
             mode.current = 0;
             return;
         }
-        const FlapModeOff = SimVar.GetSimVarValue("L:A32NX_GPWS_FLAP_OFF", "Bool");
+        const FlapModeOff = SimVar.GetSimVarValue('L:A32NX_GPWS_FLAP_OFF', 'Bool');
 
         // Mode 4 A and B logic
         if (!gearExtended && phase === FmgcFlightPhases.APPROACH) {
@@ -382,7 +382,7 @@ class A32NX_GPWS {
      * @constructor
      */
     GPWSMode5(mode, radioAlt) {
-        if (radioAlt > 1000 || radioAlt < 30 || SimVar.GetSimVarValue("L:A32NX_GPWS_GS_OFF", "Bool")) {
+        if (radioAlt > 1000 || radioAlt < 30 || SimVar.GetSimVarValue('L:A32NX_GPWS_GS_OFF', 'Bool')) {
             mode.current = 0;
             return;
         }
@@ -392,7 +392,7 @@ class A32NX_GPWS {
             return;
         }
         const error = SimVar.GetSimVarValue('L:A32NX_RADIO_RECEIVER_GS_DEVIATION', 'number');
-        const dots = -error * 2.5; //According to the FCOM, one dot is approx. 0.4 degrees. 1/0.4 = 2.5
+        const dots = -error * 2.5; // According to the FCOM, one dot is approx. 0.4 degrees. 1/0.4 = 2.5
 
         const minAltForWarning = dots < 2.9 ? -75 * dots + 247.5 : 30;
         const minAltForHardWarning = dots < 3.8 ? -66.66 * dots + 283.33 : 30;

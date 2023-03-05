@@ -1921,7 +1921,7 @@ export class FlightPlanManager {
     public isWaypointInUse(icao: string): boolean {
         for (const fp of this._flightPlans) {
             for (let i = 0; i < fp?.waypoints.length; i++) {
-                if (fp.getWaypoint(i).icao === icao) {
+                if (fp?.getWaypoint(i)?.icao === icao) {
                     return true;
                 }
             }
@@ -1995,5 +1995,19 @@ export class FlightPlanManager {
         }
 
         return FlightArea.Enroute;
+    }
+
+    public tryAddOrUpdateCruiseStep(waypointIdent: string, toAltitude: Feet): boolean {
+        if (this._flightPlans[this._currentFlightPlanIndex].tryAddOrUpdateCruiseStep(waypointIdent, toAltitude)) {
+            this.updateFlightPlanVersion().catch(console.error);
+            return true;
+        }
+
+        return false;
+    }
+
+    public tryRemoveCruiseStep(waypointIndex: number): void {
+        this._flightPlans[this._currentFlightPlanIndex].tryRemoveCruiseStep(waypointIndex);
+        this.updateFlightPlanVersion().catch(console.error);
     }
 }
