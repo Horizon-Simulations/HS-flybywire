@@ -8,9 +8,9 @@ class A32NX_PayloadConstructor {
                 pax: 0,
                 paxTarget: 0,
                 stationIndex: 0 + 1,
-                position: 21.98,
+                position: 18.98,
                 seatsRange: [1, 36],
-                simVar: "A32NX_PAX_TOTAL_ROWS_1_6"
+                simVar: 'A32NX_PAX_TOTAL_ROWS_1_6',
             },
             rows7_13: {
                 name: 'ROWS [7-13]',
@@ -21,7 +21,7 @@ class A32NX_PayloadConstructor {
                 stationIndex: 1 + 1,
                 position: 2.86,
                 seatsRange: [37, 78],
-                simVar: "A32NX_PAX_TOTAL_ROWS_7_13"
+                simVar: 'A32NX_PAX_TOTAL_ROWS_7_13',
             },
             rows14_21: {
                 name: 'ROWS [14-20]',
@@ -30,9 +30,9 @@ class A32NX_PayloadConstructor {
                 pax: 0,
                 paxTarget: 0,
                 stationIndex: 2 + 1,
-                position: -15.34,
+                position: -9.34,
                 seatsRange: [79, 121],
-                simVar: "A32NX_PAX_TOTAL_ROWS_14_21"
+                simVar: 'A32NX_PAX_TOTAL_ROWS_14_21',
             },
             rows22_29: {
                 name: 'ROWS [21-26]',
@@ -41,9 +41,9 @@ class A32NX_PayloadConstructor {
                 pax: 0,
                 paxTarget: 0,
                 stationIndex: 3 + 1,
-                position: -32.81,
+                position: -20.81,
                 seatsRange: [122, 157],
-                simVar: "A32NX_PAX_TOTAL_ROWS_22_29"
+                simVar: 'A32NX_PAX_TOTAL_ROWS_22_29',
             },
         };
 
@@ -62,7 +62,7 @@ class A32NX_PayloadConstructor {
                 weight: Math.round(NXUnits.kgToUser(2426)),
                 load: 0,
                 stationIndex: 5 + 1,
-                position: -15.96,
+                position: -8.96,
                 visible: true,
                 simVar: 'A32NX_CARGO_AFT_CONTAINER',
             },
@@ -71,7 +71,7 @@ class A32NX_PayloadConstructor {
                 weight: Math.round(NXUnits.kgToUser(2110)),
                 load: 0,
                 stationIndex: 6 + 1,
-                position: -27.10,
+                position: -20.10,
                 visible: true,
                 simVar: 'A32NX_CARGO_AFT_BAGGAGE',
             },
@@ -80,7 +80,7 @@ class A32NX_PayloadConstructor {
                 weight: Math.round(NXUnits.kgToUser(1497)),
                 load: 0,
                 stationIndex: 7 + 1,
-                position: -37.35,
+                position: -30.35,
                 visible: true,
                 simVar: 'A32NX_CARGO_AFT_BULK_LOOSE',
             },
@@ -97,17 +97,16 @@ const MAX_SEAT_AVAILABLE = 160;
      * Calculate %MAC ZWFCG of all stations
      */
 function getZfwcg() {
+    const leMacZ = -4.683; // Accurate to 3 decimals, replaces debug weight values
+    const macSize = 13.658; // Accurate to 3 decimals, replaces debug weight values
 
-    const leMacZ = -5.386; // Accurate to 3 decimals, replaces debug weight values
-    const macSize = 13.454; // Accurate to 3 decimals, replaces debug weight values
-
-    const emptyWeight = (SimVar.GetSimVarValue("EMPTY WEIGHT", getUserUnit()));
-    const emptyPosition = -8.75; // Value from flight_model.cfg
+    const emptyWeight = (SimVar.GetSimVarValue('EMPTY WEIGHT', getUserUnit()));
+    const emptyPosition = -3.76; // Value from flight_model.cfg
     const emptyMoment = emptyPosition * emptyWeight;
-    const PAX_WEIGHT = SimVar.GetSimVarValue("L:A32NX_WB_PER_PAX_WEIGHT", "Number");
+    const PAX_WEIGHT = SimVar.GetSimVarValue('L:A32NX_WB_PER_PAX_WEIGHT', 'Number');
 
-    const paxTotalMass = Object.values(paxStations).map((station) => (SimVar.GetSimVarValue(`L:${station.simVar}`, "Number") * PAX_WEIGHT)).reduce((acc, cur) => acc + cur, 0);
-    const paxTotalMoment = Object.values(paxStations).map((station) => (SimVar.GetSimVarValue(`L:${station.simVar}`, "Number") * PAX_WEIGHT) * station.position).reduce((acc, cur) => acc + cur, 0);
+    const paxTotalMass = Object.values(paxStations).map((station) => (SimVar.GetSimVarValue(`L:${station.simVar}`, 'Number') * PAX_WEIGHT)).reduce((acc, cur) => acc + cur, 0);
+    const paxTotalMoment = Object.values(paxStations).map((station) => (SimVar.GetSimVarValue(`L:${station.simVar}`, 'Number') * PAX_WEIGHT) * station.position).reduce((acc, cur) => acc + cur, 0);
 
     const cargoTotalMass = Object.values(cargoStations).map((station) => SimVar.GetSimVarValue(`PAYLOAD STATION WEIGHT:${station.stationIndex}`, getUserUnit())).reduce((acc, cur) => acc + cur, 0);
     const cargoTotalMoment = Object.values(cargoStations).map((station) => (SimVar.GetSimVarValue(`PAYLOAD STATION WEIGHT:${station.stationIndex}`, getUserUnit()) * station.position)).reduce((acc, cur) => acc + cur, 0);
@@ -134,11 +133,11 @@ function getTotalPayload() {
 }
 
 function getZfw() {
-    const emptyWeight = (SimVar.GetSimVarValue("EMPTY WEIGHT", getUserUnit()));
+    const emptyWeight = (SimVar.GetSimVarValue('EMPTY WEIGHT', getUserUnit()));
     return emptyWeight + getTotalPayload();
 }
 
 function getUserUnit() {
-    const defaultUnit = (NXUnits.userWeightUnit() == "KG") ? "Kilograms" : "Pounds";
+    const defaultUnit = (NXUnits.userWeightUnit() == 'KG') ? 'Kilograms' : 'Pounds';
     return defaultUnit;
 }
