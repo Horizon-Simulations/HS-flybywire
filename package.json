@@ -41,7 +41,8 @@
     "watch-a21n:ace": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -wc .\\src\\systems\\instruments\\buildSrc\\aceBuild.mjs",
     "build-a21n-js:instruments": "rollup --max-old-space-size=8192 -c src/systems/instruments/buildSrc/simulatorBuild.mjs",
     "watch-a21n-js:instruments": "rollup --max-old-space-size=8192 -wc src/systems/instruments/buildSrc/simulatorBuild.mjs",
-
+    
+    "build-a21n:base": "npm run build-a21n:copy-base-files && npm run build-a21n:manifest",
     "build-a21n:no-wasm": "npm run build-a21n:copy-base-files && npm run build-a21n:efb-translation && npm run build-a21n:behavior && npm run build-a21n:atsu && npm run build-a21n:failures && npm run build-a21n:fmgc && npm run build-a21n:sentry-client && npm run build-a21n:simbridge-client && npm run build-a21n:tcas && npm run build-a21n:manifest",
     "build-a21n:all": "npm run build-a21n:copy-base-files && npm run build-a21n:efb-translation && npm run build-a21n:model && npm run build-a21n:behavior && npm run build-a21n:atsu && npm run build-a21n:failures && npm run build-a21n:fmgc && npm run build-a21n:sentry-client && npm run build-a21n:simbridge-client && npm run build-a21n:tcas && npm run build-a21n:pfd && npm run build-a21n:systems && npm run build-a21n:fadec && npm run build-a21n:fbw && npm run build-a21n:flypad-backend && npm run build-a21n:wasm-variants && npm run build-a21n:metadata && npm run build-a21n:manifest",
     "clean-a21n": "rm -rf ./fbw-a21n/out",
