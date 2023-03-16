@@ -21,6 +21,9 @@ pub mod update_iterator;
 mod random;
 pub use random::*;
 pub mod arinc429;
+pub mod arinc825;
+pub mod can_bus;
+pub mod power_supply_relay;
 
 pub trait ReservoirAirPressure {
     fn green_reservoir_pressure(&self) -> Pressure;
@@ -83,6 +86,12 @@ pub trait FeedbackPositionPickoffUnit {
     fn angle(&self) -> Angle;
 }
 
+pub trait HydraulicSysLowPressure {
+    fn is_blue_sys_lo_pr(&self) -> bool;
+    fn is_yellow_sys_lo_pr(&self) -> bool;
+    fn is_green_sys_lo_pr(&self) -> bool;
+}
+
 pub trait LgciuWeightOnWheels {
     fn right_gear_compressed(&self, treat_ext_pwr_as_ground: bool) -> bool;
     fn right_gear_extended(&self, treat_ext_pwr_as_ground: bool) -> bool;
@@ -97,6 +106,10 @@ pub trait LgciuWeightOnWheels {
     fn nose_gear_extended(&self, treat_ext_pwr_as_ground: bool) -> bool;
 }
 pub trait LgciuGearExtension {
+    fn left_gear_down_and_locked(&self) -> bool;
+    fn right_gear_down_and_locked(&self) -> bool;
+    fn nose_gear_down_and_locked(&self) -> bool;
+
     fn all_down_and_locked(&self) -> bool;
     fn all_up_and_locked(&self) -> bool;
 }

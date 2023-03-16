@@ -313,7 +313,7 @@ export class EfisSymbols {
             }
 
             const isInLatAutoControl = this.guidanceController.vnavDriver.isLatAutoControlActive();
-            const waypointPredictions = this.guidanceController.vnavDriver.currentNavGeometryProfile?.waypointPredictions;
+            const waypointPredictions = this.guidanceController.vnavDriver.mcduProfile?.waypointPredictions;
             const isSelectedVerticalModeActive = this.guidanceController.vnavDriver.isSelectedVerticalModeActive();
             const flightPhase = getFlightPhaseManager().phase;
 
@@ -376,9 +376,7 @@ export class EfisSymbols {
                         direction = wp.additionalData.course;
                     }
 
-                    const isBehindAircraft = i < activeFp.activeWaypointIndex;
-
-                    if (isInLatAutoControl && !isBehindAircraft && wp.legAltitudeDescription > 0 && wp.legAltitudeDescription < 6) {
+                    if (isInLatAutoControl && !isFromWp && wp.legAltitudeDescription > 0 && wp.legAltitudeDescription < 6) {
                         if (!isSelectedVerticalModeActive && shouldShowConstraintCircleInPhase(flightPhase, wp)) {
                             type |= NdSymbolTypeFlags.Constraint;
 
@@ -393,7 +391,7 @@ export class EfisSymbols {
                         }
                     }
 
-                    if (!isBehindAircraft && efisOption === EfisOption.Constraints && !isFromWp) {
+                    if (efisOption === EfisOption.Constraints && !isFromWp) {
                         const descent = wp.constraintType === WaypointConstraintType.DES;
                         switch (wp.legAltitudeDescription) {
                         case 1:
@@ -431,7 +429,7 @@ export class EfisSymbols {
 
             // we can only send 2 constraint predictions, so filter out any past the 2 close to the AC
             let constraintPredictions = 0;
-            const constraintFlags = NdSymbolTypeFlags.ConstraintUnknown | NdSymbolTypeFlags.ConstraintMet | NdSymbolTypeFlags.ConstraintMissed;
+            const constraintFlags = NdSymbolTypeFlags.Constraint | NdSymbolTypeFlags.MagentaColor | NdSymbolTypeFlags.AmberColor;
             for (let i = symbols.length - 1; i >= 0; i--) {
                 if ((symbols[i].type & constraintFlags) === 0) {
                     continue;

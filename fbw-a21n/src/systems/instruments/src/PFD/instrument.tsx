@@ -74,7 +74,7 @@ class A32NX_PFD extends BaseInstrument {
         this.simVarPublisher.subscribe('pitch');
         this.simVarPublisher.subscribe('roll');
         this.simVarPublisher.subscribe('magHeadingRaw');
-        this.simVarPublisher.subscribe('altitude');
+        this.simVarPublisher.subscribe('baroCorrectedAltitude');
         this.simVarPublisher.subscribe('speed');
         this.simVarPublisher.subscribe('noseGearCompressed');
         this.simVarPublisher.subscribe('leftMainGearCompressed');
@@ -224,14 +224,12 @@ class A32NX_PFD extends BaseInstrument {
         this.simVarPublisher.subscribe('trueHeadingRaw');
         this.simVarPublisher.subscribe('trueTrackRaw');
         this.simVarPublisher.subscribe('slatPosLeft');
-
         this.simVarPublisher.subscribe('linearDeviationActive');
         this.simVarPublisher.subscribe('verticalProfileLatched');
         this.simVarPublisher.subscribe('targetAltitude');
         this.simVarPublisher.subscribe('showSpeedMargins');
         this.simVarPublisher.subscribe('upperSpeedMargin');
         this.simVarPublisher.subscribe('lowerSpeedMargin');
-
         this.simVarPublisher.subscribe('fwc1AltAlertPulsing');
         this.simVarPublisher.subscribe('fwc2AltAlertPulsing');
         this.simVarPublisher.subscribe('fwc1AltAlertFlashing');

@@ -13,7 +13,7 @@ import {
     addPinnedChart,
 } from '../../../Store/features/navigationPage';
 import { navigationTabs } from '../../Navigation';
-import { NavigraphChart } from '../../../Apis/Navigraph/Navigraph';
+import { NavigraphChart } from '../../../ChartsApi/Navigraph';
 
 interface NavigraphChartSelectorProps {
     selectedTab: OrganizedChart;
@@ -46,8 +46,8 @@ export const NavigraphChartSelector = ({ selectedTab, loading }: NavigraphChartS
             const runwayNumbers: string[] = [];
 
             selectedTab.charts.forEach((chart) => {
-                if (chart.runways.length !== 0) {
-                    chart.runways.forEach((runway) => {
+                if (chart.runway.length !== 0) {
+                    chart.runway.forEach((runway) => {
                         runwayNumbers.push(runway);
                     });
                 } else {
@@ -69,8 +69,8 @@ export const NavigraphChartSelector = ({ selectedTab, loading }: NavigraphChartS
                 organizedRunwayCharts.push({
                     name: runway,
                     charts: selectedTab.charts.filter(
-                        (chart) => chart.runways.includes(runway)
-                            || (chart.runways.length === 0 && runway === NO_RUNWAY_NAME),
+                        (chart) => chart.runway.includes(runway)
+                            || (chart.runway.length === 0 && runway === NO_RUNWAY_NAME),
                     ),
                 });
             });
@@ -89,7 +89,7 @@ export const NavigraphChartSelector = ({ selectedTab, loading }: NavigraphChartS
         dispatch(editTabProperty({ tab: NavigationTab.NAVIGRAPH, chartId: chart.id }));
 
         dispatch(editTabProperty({ tab: NavigationTab.NAVIGRAPH, chartDimensions: { width: undefined, height: undefined } }));
-        dispatch(editTabProperty({ tab: NavigationTab.NAVIGRAPH, chartName: { light: chart.fileUrlDay, dark: chart.fileUrlNight } }));
+        dispatch(editTabProperty({ tab: NavigationTab.NAVIGRAPH, chartName: { light: chart.fileDay, dark: chart.fileNight } }));
 
         dispatch(setBoundingBox(chart.boundingBox));
 
@@ -147,9 +147,9 @@ export const NavigraphChartSelector = ({ selectedTab, loading }: NavigraphChartS
                                                     } else {
                                                         dispatch(addPinnedChart({
                                                             chartId: chart.id,
-                                                            chartName: { light: chart.fileUrlDay, dark: chart.fileUrlNight },
+                                                            chartName: { light: chart.fileDay, dark: chart.fileNight },
                                                             title: searchQuery,
-                                                            subTitle: chart.name,
+                                                            subTitle: chart.procedureIdentifier,
                                                             tabIndex: selectedTabIndex,
                                                             timeAccessed: 0,
                                                             tag: selectedTab.name,
@@ -169,7 +169,7 @@ export const NavigraphChartSelector = ({ selectedTab, loading }: NavigraphChartS
                                             </div>
                                         </div>
                                         <div className="flex flex-col m-2">
-                                            <span>{chart.name}</span>
+                                            <span>{chart.procedureIdentifier}</span>
                                             <span className="px-2 mt-0.5 mr-auto text-sm rounded-md text-theme-text bg-theme-secondary">
                                                 {chart.indexNumber}
                                             </span>
@@ -203,9 +203,9 @@ export const NavigraphChartSelector = ({ selectedTab, loading }: NavigraphChartS
                                             } else {
                                                 dispatch(addPinnedChart({
                                                     chartId: chart.id,
-                                                    chartName: { light: chart.fileUrlDay, dark: chart.fileUrlNight },
+                                                    chartName: { light: chart.fileDay, dark: chart.fileNight },
                                                     title: searchQuery,
-                                                    subTitle: chart.name,
+                                                    subTitle: chart.procedureIdentifier,
                                                     tabIndex: selectedTabIndex,
                                                     timeAccessed: 0,
                                                     tag: selectedTab.name,
@@ -225,7 +225,7 @@ export const NavigraphChartSelector = ({ selectedTab, loading }: NavigraphChartS
                                     </div>
                                 </div>
                                 <div className="flex flex-col m-2">
-                                    <span>{chart.name}</span>
+                                    <span>{chart.procedureIdentifier}</span>
                                     <span
                                         className="px-2 mr-auto text-sm rounded-sm text-theme-text bg-theme-secondary"
                                     >

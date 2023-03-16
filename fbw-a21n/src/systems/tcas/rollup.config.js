@@ -42,7 +42,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/tcas/A21N_tcas.js'),
+        file: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/hsim-a21n/tcas/tcas.js'),
         format: 'umd',
         name: 'Tcas',
     },

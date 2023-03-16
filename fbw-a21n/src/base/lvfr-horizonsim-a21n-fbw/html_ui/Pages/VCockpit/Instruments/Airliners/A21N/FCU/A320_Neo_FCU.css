@@ -34,35 +34,35 @@
 
 @font-face {
   font-family: "Roboto";
-  src: url("/A21N_Fonts/RobotoMono-Medium.ttf") format("truetype");
+  src: url("/Fonts/RobotoMono-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto-Light";
-  src: url("/A21N_Fonts/RobotoMono-Light.ttf") format("truetype");
+  src: url("/Fonts/RobotoMono-Light.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto-Bold";
-  src: url("/A21N_Fonts/RobotoMono-Bold.ttf") format("truetype");
+  src: url("/Fonts/RobotoMono-Bold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Poppins-SemiBold";
-  src: url("/A21N_Fonts/A21N_Poppins-SemiBold.ttf") format("truetype");
+  src: url("/Fonts/hsim-A21n/Poppins-SemiBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Digital";
-  src: url("/A21N_Fonts/A21N_AirbusFCU.ttf") format("truetype");
+  src: url("/Fonts/hsim-A21n/AirbusFCU.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
 }

@@ -60,6 +60,9 @@ export interface Fmgc {
     getApproachWind(): FmcWindVector,
     getApproachQnh(): number,
     getApproachTemperature(): number,
+    getDestEFOB(useFob: boolean): number, // Metric tons
+    getDepartureElevation(): Feet | null,
+    getDestinationElevation(): Feet,
 }
 
 export class GuidanceController {
@@ -191,7 +194,7 @@ export class GuidanceController {
         if (appr && appr.approachType !== ApproachType.APPROACH_TYPE_UNKNOWN) {
             const phase = getFlightPhaseManager().phase;
             if (phase > FmgcFlightPhase.Cruise || (phase === FmgcFlightPhase.Cruise && this.flightPlanManager.getDistanceToDestination(FlightPlans.Active) < 250)) {
-                apprMsg = appr.name;
+                apprMsg = appr.longName;
             }
         }
 

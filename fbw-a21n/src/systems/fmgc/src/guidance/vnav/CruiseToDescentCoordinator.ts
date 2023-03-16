@@ -12,7 +12,7 @@ import { TemporaryCheckpointSequence } from '@fmgc/guidance/vnav/profile/Tempora
 import { ProfileInterceptCalculator } from '@fmgc/guidance/vnav/descent/ProfileInterceptCalculator';
 
 export class CruiseToDescentCoordinator {
-    private lastEstimatedFuelAtDestination: Pounds = 2300;
+    private lastEstimatedFuelAtDestination: Pounds = 4000;
 
     private lastEstimatedTimeAtDestination: Seconds = 0;
 
@@ -24,7 +24,10 @@ export class CruiseToDescentCoordinator {
     ) { }
 
     resetEstimations() {
-        this.lastEstimatedFuelAtDestination = 2300;
+        const { estimatedDestinationFuel } = this.observer.get();
+
+        // Use INIT FUEL PRED entry as initial estimate for destination EFOB. Clamp it to avoid unrealistic entries from erroneous pilot input.
+        this.lastEstimatedFuelAtDestination = Number.isFinite(estimatedDestinationFuel) ? Math.min(Math.max(estimatedDestinationFuel, 0), 40000) : 4000;
         this.lastEstimatedTimeAtDestination = 0;
     }
 
@@ -71,7 +74,7 @@ export class CruiseToDescentCoordinator {
             }
 
             // Geometric and idle
-            this.descentPathBuilder.computeManagedDescentPath(descentPath, profile, speedProfile, descentWinds, this.cruisePathBuilder.getFinalCruiseAltitude(profile));
+            this.descentPathBuilder.computeManagedDescentPath(descentPath, profile, speedProfile, descentWinds, this.cruisePathBuilder.getFinalCruiseAltitude(profile.cruiseSteps));
 
             if (descentPath.lastCheckpoint.reason !== VerticalCheckpointReason.TopOfDescent) {
                 console.error('[FMS/VNAV] Approach path did not end in T/D. Discarding descent profile.');
@@ -87,10 +90,10 @@ export class CruiseToDescentCoordinator {
                     return;
                 } if (startingPoint.reason === VerticalCheckpointReason.TopOfClimb) {
                     // Flight plan too short
-                    const climbDescentInterceptDistance = ProfileInterceptCalculator.calculateIntercept(profile.checkpoints, descentPath.checkpoints);
+                    const [index, climbDescentInterceptDistance] = ProfileInterceptCalculator.calculateIntercept(profile.checkpoints, descentPath.checkpoints);
 
                     // If we somehow don't find an intercept between climb and descent path, just build the cruise path until end of the path
-                    if (!climbDescentInterceptDistance) {
+                    if (index < 0) {
                         cruisePath = this.cruisePathBuilder.computeCruisePath(
                             profile, startingPoint, descentPath.at(0).distanceFromStart, stepClimbStrategy, stepDescentStrategy, speedProfile, cruiseWinds,
                         );
@@ -134,6 +137,7 @@ export class CruiseToDescentCoordinator {
         profile.checkpoints.push(...descentPath.get(true).reverse());
     }
 
+    // TODO: Remove since it unused I think?
     addSpeedLimitAsCheckpoint(profile: NavGeometryProfile) {
         const { flightPhase, descentSpeedLimit: { underAltitude }, presentPosition: { alt }, cruiseAltitude } = this.observer.get();
 
@@ -149,9 +153,5 @@ export class CruiseToDescentCoordinator {
         const distance = profile.interpolateDistanceAtAltitudeBackwards(underAltitude);
 
         profile.addInterpolatedCheckpoint(distance, { reason: VerticalCheckpointReason.CrossingDescentSpeedLimit });
-    }
-
-    canCompute(profile: NavGeometryProfile) {
-        return this.approachPathBuilder?.canCompute(profile);
     }
 }

@@ -203,7 +203,7 @@ export const PushbackMap = () => {
         <>
             {/* Map Container */}
             <div
-                className="flex overflow-hidden relative flex-col flex-grow space-y-4 h-[430px] rounded-lg border-2 border-theme-accent"
+                className="flex overflow-hidden relative flex-col flex-grow space-y-4 rounded-lg border-2 h-[430px] border-theme-accent"
                 onMouseDown={(e) => {
                     setMouseDown(true);
                     setDragStartCoords({ x: e.pageX, y: e.pageY });
@@ -226,7 +226,7 @@ export const PushbackMap = () => {
                 {/* Map */}
                 {!process.env.VITE_BUILD && (
                     <BingMap
-                        configFolder="/Pages/VCockpit/Instruments/MAP/"
+                        configFolder="/Pages/VCockpit/Instruments/Airliners/A21N/EFB/"
                         centerLla={actualMapLatLon}
                         mapId="PUSHBACK_MAP"
                         range={mapRange}
@@ -265,7 +265,7 @@ export const PushbackMap = () => {
                         <button
                             type="button"
                             onClick={() => handleCenterPlaneModeChange()}
-                            className="p-2 hover:text-theme-body bg-theme-secondary hover:bg-theme-highlight transition duration-100 cursor-pointer"
+                            className="p-2 transition duration-100 cursor-pointer hover:text-theme-body bg-theme-secondary hover:bg-theme-highlight"
                         >
                             <IconPlane
                                 className={`text-white transform -rotate-90 ${centerPlaneMode && 'fill-current'}`}
@@ -278,7 +278,7 @@ export const PushbackMap = () => {
                         <button
                             type="button"
                             onClick={() => handleZoomIn()}
-                            className="p-2 hover:text-theme-body bg-theme-secondary hover:bg-theme-highlight transition duration-100 cursor-pointer"
+                            className="p-2 transition duration-100 cursor-pointer hover:text-theme-body bg-theme-secondary hover:bg-theme-highlight"
                         >
                             <ZoomIn size={40} />
                         </button>
@@ -287,7 +287,7 @@ export const PushbackMap = () => {
                         <button
                             type="button"
                             onClick={() => handleZoomOut()}
-                            className="p-2 hover:text-theme-body bg-theme-secondary hover:bg-theme-highlight transition duration-100 cursor-pointer"
+                            className="p-2 transition duration-100 cursor-pointer hover:text-theme-body bg-theme-secondary hover:bg-theme-highlight"
                         >
                             <ZoomOut size={40} />
                         </button>

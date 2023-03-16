@@ -17,7 +17,7 @@ import { ReactZoomPanPinchRef, TransformComponent, TransformWrapper } from 'reac
 import { t } from '../translation';
 import { TooltipWrapper } from '../UtilComponents/TooltipWrapper';
 // import { DrawableCanvas } from '../UtilComponents/DrawableCanvas';
-import { useNavigraph } from '../Apis/Navigraph/Navigraph';
+import { useNavigraph } from '../ChartsApi/Navigraph';
 import { SimpleInput } from '../UtilComponents/Form/SimpleInput/SimpleInput';
 import { useAppDispatch, useAppSelector } from '../Store/store';
 import {
@@ -507,7 +507,6 @@ export const ChartViewer = () => {
                                             className="absolute left-0 w-full transition duration-100 select-none"
                                             draggable={false}
                                             src={chartLinks.dark}
-                                            onLoad={() => URL.revokeObjectURL(chartLinks.dark)}
                                             alt="chart"
 
                                         />
@@ -515,7 +514,6 @@ export const ChartViewer = () => {
                                             className={`absolute left-0 w-full transition duration-100 select-none ${usingDarkTheme && 'opacity-0'}`}
                                             draggable={false}
                                             src={chartLinks.light}
-                                            onLoad={() => URL.revokeObjectURL(chartLinks.light)}
                                             alt="chart"
                                         />
                                     </div>

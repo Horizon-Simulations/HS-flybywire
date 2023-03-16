@@ -5,7 +5,7 @@ import { SpeedProfile } from '@fmgc/guidance/vnav/climb/SpeedProfile';
 import { DescentStrategy } from '@fmgc/guidance/vnav/descent/DescentStrategy';
 import { StepResults } from '@fmgc/guidance/vnav/Predictions';
 import { BaseGeometryProfile } from '@fmgc/guidance/vnav/profile/BaseGeometryProfile';
-import { MaxSpeedConstraint, VerticalCheckpoint, VerticalCheckpointForDeceleration, VerticalCheckpointReason } from '@fmgc/guidance/vnav/profile/NavGeometryProfile';
+import { MaxSpeedConstraint, NavGeometryProfile, VerticalCheckpoint, VerticalCheckpointForDeceleration, VerticalCheckpointReason } from '@fmgc/guidance/vnav/profile/NavGeometryProfile';
 import { TemporaryCheckpointSequence } from '@fmgc/guidance/vnav/profile/TemporaryCheckpointSequence';
 import { SpeedLimit } from '@fmgc/guidance/vnav/SpeedLimit';
 import { VerticalProfileComputationParametersObserver } from '@fmgc/guidance/vnav/VerticalProfileComputationParameters';
@@ -25,6 +25,52 @@ export class TacticalDescentPathBuilder {
     }
 
     /**
+     * Builds a path from the last checkpoint to the finalDistance
+     * @param profile
+     * @param descentStrategy
+     * @param speedProfile
+     * @param windProfile
+     * @param finalDistance
+     * @param forcedDecelerations Points at which the plane must decelerate
+     */
+    buildMcduPredictionPath(
+        profile: NavGeometryProfile,
+        descentStrategy: DescentStrategy,
+        speedProfile: SpeedProfile,
+        windProfile: HeadwindProfile,
+        forcedDecelerations: VerticalCheckpointForDeceleration[],
+    ) {
+        const start = profile.lastCheckpoint;
+
+        let minAlt = Infinity;
+        const altConstraintsToUse = profile.descentAltitudeConstraints.map((constraint) => {
+            minAlt = Math.min(minAlt, minimumAltitude(constraint.constraint));
+            return {
+                distanceFromStart: constraint.distanceFromStart,
+                minimumAltitude: minAlt,
+            } as MinimumDescentAltitudeConstraint;
+        });
+
+        const phaseTable = new PhaseTable(windProfile);
+        phaseTable.start = start;
+        phaseTable.phases = [
+            new DescendToAltitude(profile.finalAltitude).withReasonAfter(VerticalCheckpointReason.Landing),
+        ];
+
+        let isPathValid = false;
+        let numRecomputations = 0;
+        let sequence: TemporaryCheckpointSequence | null = null;
+        while (!isPathValid && numRecomputations++ < 100) {
+            sequence = phaseTable.execute(descentStrategy, this.levelFlightStrategy);
+            isPathValid = this.checkForViolations(phaseTable, profile, altConstraintsToUse, speedProfile, forcedDecelerations);
+        }
+
+        if (sequence != null) {
+            profile.checkpoints.push(...sequence.get());
+        }
+    }
+
+    /**
      * Builds a path from the last checkpoint to the finalAltitude
      * @param profile
      * @param descentStrategy
@@ -32,7 +78,7 @@ export class TacticalDescentPathBuilder {
      * @param windProfile
      * @param finalAltitude
      */
-    buildTacticalDescentPath(
+    buildTacticalDescentPathToAltitude(
         profile: BaseGeometryProfile,
         descentStrategy: DescentStrategy,
         speedProfile: SpeedProfile,
@@ -63,6 +109,14 @@ export class TacticalDescentPathBuilder {
         while (!isPathValid && numRecomputations++ < 100) {
             sequence = phaseTable.execute(descentStrategy, this.levelFlightStrategy);
             isPathValid = this.checkForViolations(phaseTable, profile, altConstraintsToUse, speedProfile, forcedDecelerations);
+        }
+
+        // It's possible that the last phase (which is the one that the phase table is initialized with) is not executed because we've already got below
+        // the final altitude through a different segment. In this case, we need to make sure we still get the level off arrow.
+        // One scenario where this happens is if the final altitude is the speed limit alt (e.g 10000). In this case, we insert a deceleration segment, which might end just
+        // slightly below the speed limit alt (= final alt), and the phase table will not execute the last phase because we're already below the final alt.
+        if (sequence.lastCheckpoint.reason === VerticalCheckpointReason.AtmosphericConditions) {
+            sequence.lastCheckpoint.reason = VerticalCheckpointReason.CrossingFcuAltitudeDescent;
         }
 
         if (sequence != null) {
@@ -146,7 +200,8 @@ export class TacticalDescentPathBuilder {
         } else {
             phaseTable.phases.splice(violatingPhaseIndex, 0,
                 new DescendToDistance(forcedDeceleration.distanceFromStart),
-                new DescendingDeceleration(forcedDeceleration.targetSpeed).withReasonBefore(VerticalCheckpointReason.StartDecelerationToConstraint));
+                // Use deceleration reason as before
+                new DescendingDeceleration(forcedDeceleration.targetSpeed).withReasonBefore(forcedDeceleration.reason));
         }
     }
 
@@ -197,7 +252,8 @@ export class TacticalDescentPathBuilder {
                 }
 
                 if (previousPhase instanceof DescendToAltitude) {
-                    phaseTable.phases.splice(violatingPhaseIndex, 1, new DescendToDistance(previousPhase.lastResult.distanceFromStart - overshoot));
+                    // If we need to decelerate earlier, then replace the altitude segment with a distance segment
+                    phaseTable.phases.splice(i, 1, new DescendToDistance(previousPhase.lastResult.distanceFromStart - overshoot));
 
                     return;
                 } if (previousPhase instanceof DescendToDistance) {
@@ -279,14 +335,12 @@ export class TacticalDescentPathBuilder {
     }
 
     private doesPhaseViolateForcedConstraintDeceleration(phase: SubPhase, forcedDeceleration: VerticalCheckpointForDeceleration) {
-        if (forcedDeceleration.reason === VerticalCheckpointReason.StartDecelerationToConstraint) {
-            if (phase.lastResult.distanceFromStart <= forcedDeceleration.distanceFromStart) {
-                return false;
-            }
-        } else if (forcedDeceleration.reason === VerticalCheckpointReason.StartDecelerationToLimit) {
+        if (forcedDeceleration.reason === VerticalCheckpointReason.StartDecelerationToLimit) {
             if (phase.lastResult.altitude >= forcedDeceleration.altitude) {
                 return false;
             }
+        } else if (phase.lastResult.distanceFromStart <= forcedDeceleration.distanceFromStart) {
+            return false;
         }
 
         if (phase instanceof DescendingDeceleration) {
@@ -317,7 +371,7 @@ export class TacticalDescentPathBuilder {
 
     private doesPhaseViolateAltitudeConstraint(previousResult: VerticalCheckpoint, phase: SubPhase, altitudeConstraint: MinimumDescentAltitudeConstraint) {
         if (phase.lastResult.altitude - altitudeConstraint.minimumAltitude >= -1 // We're still above the constraint
-        || previousResult.altitude - altitudeConstraint.minimumAltitude < -1 // We were already below the constraint before this subphase
+        || previousResult.altitude - altitudeConstraint.minimumAltitude < -100 // We were already below the constraint before this subphase
             || previousResult.distanceFromStart > altitudeConstraint.distanceFromStart // We're already behind the constraint
         ) {
             return false;

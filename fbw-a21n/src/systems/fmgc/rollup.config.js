@@ -26,8 +26,8 @@ module.exports = {
         copy({
             targets: [
                 {
-                    src: 'fmgc/src/utils/a21n_LzUtf8.js',
-                    dest: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/fmgc/'),
+                    src: 'fmgc/src/utils/LzUtf8.js',
+                    dest: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/hsim-a21n/fmgc/'),
                 },
             ],
         }),
@@ -52,7 +52,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/fmgc/A21N_fmgc.js'),
+        file: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/hsim-a21n/fmgc/fmgc.js'),
         format: 'umd',
         name: 'Fmgc',
     },

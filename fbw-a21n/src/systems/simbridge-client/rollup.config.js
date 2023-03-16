@@ -50,7 +50,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/simbridge-client/A21N_simbridge-client.js'),
+        file: join(root, 'fbw-a21n/out/lvfr-horizonsim-a21n-fbw/html_ui/JS/hsim-a21n/simbridge-client/simbridge-client.js'),
         format: 'umd',
         name: 'SimBridgeClient',
     },

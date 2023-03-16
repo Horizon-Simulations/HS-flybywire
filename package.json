@@ -12,17 +12,20 @@
     "build-a21n:model": "node fbw-a21n/src/model/build.js",
     "build-a21n:behavior": "node fbw-a21n/src/behavior/build.js",
 
-    "build-a21n:atsu": "rollup -c fbw-a21n/src/systems/atsu/rollup.config.js",
     "build-a21n:failures": "rollup -c fbw-a21n/src/systems/failures/rollup.config.js",
     "build-a21n:fmgc": "rollup -c fbw-a21n/src/systems/fmgc/rollup.config.js",
     "build-a21n:sentry-client": "rollup -c fbw-a21n/src/systems/sentry-client/rollup.config.js",
     "build-a21n:simbridge-client": "rollup -c fbw-a21n/src/systems/simbridge-client/rollup.config.js",
     "build-a21n:tcas": "rollup -c fbw-a21n/src/systems/tcas/rollup.config.js",
+    "build-a21n:systems-host": "cd fbw-a21n/src/systems/systems-host && rollup -c",
 
     "=======a21n-deprecated=========": "===========================",
     "build-a21n:pfd": "cd fbw-a21n/src/systems/instruments/src/PFD && rollup -c",
     "build-a21n:clock": "cd fbw-a21n/src/systems/instruments/src/Clock && rollup -c",
     "build-a21n:ewd": "cd fbw-a21n/src/systems/instruments/src/EWD && rollup -c",
+    "build-a21n:atsu-common": "node fbw-a21n/src/systems/atsu/common/build.js",
+    "build-a21n:atsu-fms-client": "node fbw-a21n/src/systems/atsu/fmsclient/build.js",
+
 
     "build-a21n:instruments": "mach build --config fbw-a21n/mach.config.js --work-in-config-dir",
 
@@ -43,9 +46,9 @@
     "watch-a21n-js:instruments": "rollup --max-old-space-size=8192 -wc src/systems/instruments/buildSrc/simulatorBuild.mjs",
     
     "build-a21n:base": "npm run build-a21n:copy-base-files && npm run build-a21n:manifest",
-    "build-a21n:no-wasm": "npm run build-a21n:copy-base-files && npm run build-a21n:efb-translation && npm run build-a21n:behavior && npm run build-a21n:atsu && npm run build-a21n:failures && npm run build-a21n:fmgc && npm run build-a21n:sentry-client && npm run build-a21n:simbridge-client && npm run build-a21n:tcas && npm run build-a21n:manifest",
-    "build-a21n:all": "npm run build-a21n:copy-base-files && npm run build-a21n:efb-translation && npm run build-a21n:model && npm run build-a21n:behavior && npm run build-a21n:atsu && npm run build-a21n:failures && npm run build-a21n:fmgc && npm run build-a21n:sentry-client && npm run build-a21n:simbridge-client && npm run build-a21n:tcas && npm run build-a21n:pfd && npm run build-a21n:systems && npm run build-a21n:fadec && npm run build-a21n:fbw && npm run build-a21n:flypad-backend && npm run build-a21n:wasm-variants && npm run build-a21n:metadata && npm run build-a21n:manifest",
-    "clean-a21n": "rm -rf ./fbw-a21n/out",
+    "build-a21n:no-wasm": "npx igniter -r a21n",
+    "build-a21n:all": "npm run build-a21n:copy-base-files && npm run build-a21n:efb-translation && npm run build-a21n:model && npm run build-a21n:behavior && npm run build-a21n:atsu && npm run build-a21n:failures && npm run build-a21n:fmgc && npm run build-a21n:sentry-client && npm run build-a21n:simbridge-client && npm run build-a21n:tcas && npm run build-a21n:instruments && npm run build-a21n:systems && npm run build-a21n:fadec && npm run build-a21n:fbw && npm run build-a21n:flypad-backend && npm run build-a21n:wasm-variants && npm run build-a21n:metadata && npm run build-a21n:manifest",
+    "clean-a21n": "rm -rf ./fbw-a21n/out && rm -rf ./fbw-a21n/bundles",
 
     "====== A318ceo =================": "==========================================",
 

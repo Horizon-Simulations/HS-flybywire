@@ -15,8 +15,10 @@ export interface VerticalProfileComputationParameters {
     fcuVerticalSpeed: FeetPerMinute,
     fcuFlightPathAngle: Degrees,
     fcuSpeed: Knots | Mach,
+    fcuSpeedManaged: boolean,
     fcuArmedLateralMode: ArmedLateralMode,
     fcuArmedVerticalMode: ArmedVerticalMode,
+    fcuExpediteModeActive: boolean,
     qnhSettingMillibar: Millibar,
 
     managedClimbSpeed: Knots,
@@ -31,8 +33,8 @@ export interface VerticalProfileComputationParameters {
     v2Speed: Knots,
     tropoPause: Feet,
     perfFactor: number,
-    originAirfieldElevation: Feet,
-    destinationAirfieldElevation: Feet,
+    departureElevation: Feet,
+    destinationElevation: Feet,
     accelerationAltitude: Feet,
     thrustReductionAltitude: Feet,
     originTransitionAltitude?: Feet,
@@ -44,6 +46,7 @@ export interface VerticalProfileComputationParameters {
     preselectedCruiseSpeed: Knots,
     preselectedDescentSpeed: Knots,
     takeoffFlapsSetting?: FlapConf
+    estimatedDestinationFuel: Pounds,
 
     approachQnh: Millibar,
     approachTemperature: Celsius,
@@ -69,9 +72,11 @@ export class VerticalProfileComputationParametersObserver {
             fcuLateralMode: SimVar.GetSimVarValue('L:A32NX_FMA_LATERAL_MODE', 'Enum'),
             fcuVerticalSpeed: SimVar.GetSimVarValue('L:A32NX_AUTOPILOT_VS_SELECTED', 'Feet per minute'),
             fcuFlightPathAngle: SimVar.GetSimVarValue('L:A32NX_AUTOPILOT_FPA_SELECTED', 'Degrees'),
+            fcuSpeedManaged: SimVar.GetSimVarValue('L:A32NX_FCU_SPD_MANAGED_DOT', 'number'),
             fcuSpeed: SimVar.GetSimVarValue('L:A32NX_AUTOPILOT_SPEED_SELECTED', 'number'),
             fcuArmedLateralMode: SimVar.GetSimVarValue('L:A32NX_FMA_LATERAL_ARMED', 'number'),
             fcuArmedVerticalMode: SimVar.GetSimVarValue('L:A32NX_FMA_VERTICAL_ARMED', 'number'),
+            fcuExpediteModeActive: SimVar.GetSimVarValue('L:A32NX_FMA_EXPEDITE_MODE', 'number'),
             qnhSettingMillibar: Simplane.getPressureValue('millibar'),
 
             managedClimbSpeed: this.fmgc.getManagedClimbSpeed(),
@@ -86,8 +91,12 @@ export class VerticalProfileComputationParametersObserver {
             v2Speed: this.fmgc.getV2Speed(),
             tropoPause: this.fmgc.getTropoPause(),
             perfFactor: 0, // FIXME: Use actual value,
-            originAirfieldElevation: SimVar.GetSimVarValue('L:A32NX_DEPARTURE_ELEVATION', 'feet'),
-            destinationAirfieldElevation: SimVar.GetSimVarValue('L:A32NX_PRESS_AUTO_LANDING_ELEVATION', 'feet'),
+            departureElevation: this.fmgc.getDepartureElevation() ?? 0,
+            /**
+             * This differes from the altitude I use to start building the descent profile.
+             * This one one is the altitude of the destination airport, the other one is the final procedure altitude.
+             */
+            destinationElevation: this.fmgc.getDestinationElevation(),
             accelerationAltitude: this.fmgc.getAccelerationAltitude(),
             thrustReductionAltitude: this.fmgc.getThrustReductionAltitude(),
             originTransitionAltitude: this.fmgc.getOriginTransitionAltitude(),
@@ -99,6 +108,7 @@ export class VerticalProfileComputationParametersObserver {
             preselectedCruiseSpeed: this.fmgc.getPreSelectedCruiseSpeed(),
             preselectedDescentSpeed: this.fmgc.getPreSelectedDescentSpeed(),
             takeoffFlapsSetting: this.fmgc.getTakeoffFlapsSetting(),
+            estimatedDestinationFuel: this.fmgc.getDestEFOB(false) * Constants.TONS_TO_POUNDS,
 
             approachQnh: this.fmgc.getApproachQnh(),
             approachTemperature: this.fmgc.getApproachTemperature(),
