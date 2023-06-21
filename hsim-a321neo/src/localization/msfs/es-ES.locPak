@@ -1,0 +1,24 @@
+{
+  "LocalisationPackage": {
+    "Language": "es-ES",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "El A321neo es un avión de pasajeros bimotor de fuselaje estrecho fabricado por la agrupación aeronáutica europea Airbus. El A321neo se basa en la línea de aviones A320 de la compañía, con modificaciones que mejoran la eficiencia, en particular los motores. La designación «neo» hace referencia a la nueva opción de motor. El A321neo es la unidad más larga de la familia A320, ya que puede albergar hasta 244 pasajeros.\n\nEl A321neo mide 44,5 metros de longitud, cuenta con un ala principal en flecha con una envergadura de 35,8 metros y tiene dispositivos de punta de ala Sharklet. El avión está propulsado por dos motores Pratt & Whitney PW1100G o dos CFM International LEP-1A turboventilador de alta eficiencia que producen hasta 15 000 kilos de empuje. El A321neo tiene un alcance de 7400 kilómetros, una velocidad de crucero de 834 km\/h y un techo de servicio de 39 800 pies sobre el nivel del mar.\n\nEl Airbus A321neo es un icono de la tecnología aeroespacial moderna y de la pura eficiencia. Mucho más pequeño que algunos de los gigantes de fuselaje ancho, el reactor puede dar servicio fácilmente a rutas intercontinentales de larga distancia.",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_LEFT": "Ajustar el rumbo seleccionado a la izquierda (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_RIGHT": "Ajustar el rumbo seleccionado a la derecha (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.CLOSE": "Close flight deck door",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.OPEN": "Open flight deck door",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.down": "Window Shade Down",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.down": "Window Shade Down"
+    }
+  }
+}

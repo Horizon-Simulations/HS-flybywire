@@ -1,0 +1,24 @@
+{
+  "LocalisationPackage": {
+    "Language": "zh-CN",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "A319 CEO是欧洲空客公司生产的窄体双引擎喷气式客机。它是A320的缩短款，需要两名机组人员。它一般可搭载110至140人，改装后最多可搭载156人。A319 CEO（CEO代表“现款发动机选项）于1995年8月25日首飞，并于1996年投入商业使用。A319 CEO的生产从1994年一直延续到2021年间，现在依然能够在世界各地看到它的身影。\n\n飞机总长111英尺，翼展117英尺5英寸，宽13英尺。它由两台安装在机翼下方的高涵道比涡扇发动机提供动力，有CFM国际的CFM56-5A，和国际航空发动机公司的V2500-A5两种型号可供选择。这两款发动机单台推力都可以达到23500磅，总推力可达47000磅。A319 CEO的航程为4310英里，升限为海拔41000英尺，巡航时速为515英里，最高时速为541英里。\n\nA319坚固耐用，全球许多航空公司都有采购，是中短程客机的主力机型。它的响应灵敏，动力强劲。对飞行员来说，不论是执飞点对点航班，还是用它学习驾驶更大更复杂的机型，都是很好的选择。",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_LEFT": "向左调整所选航向(%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_RIGHT": "向右调整所选航向(%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.CLOSE": "Close flight deck door",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.OPEN": "Open flight deck door",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.down": "Window Shade Down",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.down": "Window Shade Down"
+    }
+  }
+}

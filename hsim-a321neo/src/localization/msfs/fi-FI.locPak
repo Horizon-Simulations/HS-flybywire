@@ -1,0 +1,24 @@
+{
+  "LocalisationPackage": {
+    "Language": "fi-FI",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "A321neo on eurooppalaisen ilmailukonsortio Airbusin kaksimoottorinen kapearunkoinen lentokone. A321neo perustuu yhtiön A320-lentokonemallistoon, mutta siihen on tehty tehokkuutta parantavia muutoksia, erityisesti moottoreihin. ”Neo” tarkoittaa ”uutta moottorivaihtoehtoa”. A320-perheen pisimpänä mallina A321neoon mahtuu enimmillään 244 matkustajaa.\n\nA321neo on 44,5 metriä pitkä. Siinä on taakse viistot pääsiivet, joiden kärkiväli on 35,8 metriä. Siivenkärjissä on Sharklet-wingletit tehokkuuden maksimoimiseksi. Liikennelentokoneen voimanlähteenä on joko kaksi suuren ohivirtauksen Pratt & Whitney PW1100G tai CFM International LEP-1A -ohivirtausmoottoria, joista kumpikin tuottaa enimmillään 1 500 kilogramman työntövoiman. A321neon käyttökantama on 7 400 kilometriä, matkalentonopeus 833 kilometriä tunnissa ja käytännöllinen lakikorkeus 39 800 jalkaa merenpinnasta.\n\nAirbus A321neo on modernin ilmailu- ja avaruusteknologian ja raa’an tehokkuuden ikoni. Paljon pienempänä kuin jotkin leveärunkoiset jätit tämä suihkukone lentää vaivattomasti mannertenvälisillä pitkän matkan reiteillä.",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_LEFT": "Säädä valittua ohjaussuuntaa vasemmalle (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_RIGHT": "Säädä valittua ohjaussuuntaa oikealle (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.CLOSE": "Close flight deck door",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.OPEN": "Open flight deck door",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.down": "Window Shade Down",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.down": "Window Shade Down"
+    }
+  }
+}

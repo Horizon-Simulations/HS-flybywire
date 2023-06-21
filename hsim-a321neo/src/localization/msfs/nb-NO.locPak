@@ -1,0 +1,24 @@
+{
+  "LocalisationPackage": {
+    "Language": "nb-NO",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "A321neo er et tomotors smalt fly fra det europeiske luftfartskonsortiet Airbus. A321neo er basert på selskapets A320-serie med effektive modifikasjoner, der «neo» står for «New Engine Option», eller nye motorer. A321neo er det lengste flyet i A320-familien, og har plass til opptil 244 seter.\n\nA321neo er 44,5 meter langt med et vingespenn på 35,79 meter og sharklets for å redusere turbulens. Flyet har enten to Pratt & Whitney PW1100G- eller to CFM International LEP-1A-turboviftemotorer som hver produserer opptil 33 000 pund skyvekraft. A321neo har en rekkevidde på 7400 km, marsjfart på 834 km\/t og makshøyde på 39 800 fot over havet.\n\nAirbus A321neo er et ikon for moderne flyteknologi og effektivitet. Det er mye mindre enn noen av de bredere kjempeflyene og takler lange interkontinentale reiser uten problemer.",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_LEFT": "Juster valgt kurs til venstre (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_RIGHT": "Juster valgt kurs til høyre (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.CLOSE": "Close flight deck door",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.OPEN": "Open flight deck door",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.down": "Window Shade Down",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.down": "Window Shade Down"
+    }
+  }
+}

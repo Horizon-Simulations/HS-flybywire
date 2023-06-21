@@ -1,0 +1,24 @@
+{
+  "LocalisationPackage": {
+    "Language": "ja-JP",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "A319 CEO は、ヨーロッパのエアバスが生み出したナローボディの双発ジェット旅客機である。A320 を短胴化した機体で、2 名の搭乗員によって運行される。通常、座席数は 110 から 140 席である (最大 156 席)。A319 CEO (Current Engine Option) は、1995 年 8 月 25 日に初飛行し、1996 年にから商業運行が開始された。A319 CEO の製造は 1994 年から 2021 年まで行われ、その多くは今も世界各地の航路で運用され続けている。\n\n全長は 33.8 m、翼幅は 35.8 m、胴体幅は 3.96 m である。主翼に取り付けられた 2 基の CFM インターナショナル CFM56-5A または IAE V2500-A5 高バイパス比ターボファン エンジンは、どちらも最大で 23,500 ポンドの推力を発生させる (合計 47,000 ポンド)。航続距離はおよそ 700 km、実用上昇限界は海抜 41,000 フィート、巡航速度はおよそ 830 km、最高速度は時速 870 km である。\n\n優れた短距離および中距離旅客機である A319 は、今も世界各地の航空会社から高い評価を受けている。定期航路のパイロットも、より大型で複雑な航空機のパイロットも、この機体の反応性とパワーには感心させられることだろう。",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_LEFT": "選択した針路を左に調整する (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_RIGHT": "選択した針路を右に調整する (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.CLOSE": "Close flight deck door",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.OPEN": "Open flight deck door",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.down": "Window Shade Down",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.down": "Window Shade Down"
+    }
+  }
+}

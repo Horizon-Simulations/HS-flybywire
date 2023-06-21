@@ -193,5 +193,8 @@ target/
 /hsim-a320ceo/src/project/_PackageInt
 /hsim-a321neo/src/project/Packages
 /hsim-a321neo/src/project/_PackageInt
-/build-a321EC/
+/build-a318ceo/
+/build-a319ceo/
+/build-a320ceo/
+/build-a321neo/
 /build-common/

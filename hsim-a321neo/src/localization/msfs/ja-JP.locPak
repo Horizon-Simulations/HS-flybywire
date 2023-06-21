@@ -1,0 +1,24 @@
+{
+  "LocalisationPackage": {
+    "Language": "ja-JP",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "A321neo は、ヨーロッパの航空共同事業体であるエアバスが生み出した低翼双発のナローボディ旅客機である。同社の A320 シリーズを土台としつつ、A321neo ではいっそうの高効率化が図られている。特に注目すべきはエンジンで、そもそも neo とは「new engine option」の略に他ならない。機体全長は A320 系列の機体の中で最も長く、座席数は最大で 244 席に達する。\n\nA321neo の全長は 44.5 m、主翼幅は 35.8 m で、誘導抵抗を低減するシャークレットを翼端に備えている。この旅客機には、プラット & ホイットニー PW1100G または CFM インターナショナル LEP-1A 高バイパス比ターボファン エンジンが 2 基搭載されており、それぞれが最大 33,000 ポンドの推力を発揮する。A321neo の航続距離は 7,400 km、巡航速度はおよそ時速 883 km、実用上昇限界は海抜 39,800 フィートである。\n\nエアバス A321neo は、現代の航空宇宙技術と高効率設計の象徴と言えるだろう。ワイドボディの巨大機よりはるかに小型だが、このジェット機は大陸間航路の長距離飛行も易々とこなす実力の持ち主である。",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_LEFT": "選択した針路を左に調整する (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_RIGHT": "選択した針路を右に調整する (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.CLOSE": "Close flight deck door",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.OPEN": "Open flight deck door",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.down": "Window Shade Down",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.down": "Window Shade Down"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "LocalisationPackage": {
+    "Language": "en-US",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "The A319 CEO is a narrow-body, twin-engine jetliner produced by Airbus of Europe. The jet is a shortened version of the A320 and is crewed by two. It typically seats between 110 and 140, with a maximum 156. The A319 CEO (“current engine option”) took its maiden flight on August 25, 1995 and was introduced into commercial service in 1996. The A319 CEO was produced between 1994 and 2021, and a number of them continue to service routes throughout the globe.\n\nThe airliner has an overall length of 111 feet, a wingspan of 117 feet, 5 inches, and is 13 feet wide. It is powered by two wing-mounted high-bypass turbofan engines, either the CFM International CFM56-5A or the IAE V2500-A5, both of which generate up to 23,500 pounds of thrust, for 47,000 pounds of thrust total. The A319 CEO has a range of 4,310 miles, a service ceiling of 41,000 feet above sea level, a cruising speed of 515 miles per hour, and a top speed of 541 mph.\n\nA valued performer in the short- and medium-range airliner world, the A319 has proven its staying power with carriers throughout the globe. Aviators will appreciate its responsiveness and power, either flying point-to-point or while working up to larger, more complex aircraft.",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_LEFT": "Adjust selected heading to the left (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_RIGHT": "Adjust selected heading to the right  (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.CLOSE": "Close flight deck door",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.OPEN": "Open flight deck door",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.down": "Window Shade Down",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.down": "Window Shade Down"
+    }
+  }
+}

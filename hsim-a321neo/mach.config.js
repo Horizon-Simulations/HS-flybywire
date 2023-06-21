@@ -6,8 +6,8 @@ const postCssInset = require('postcss-inset');
 
 /** @type { import('@synaptic-simulations/mach').MachConfig } */
 module.exports = {
-    packageName: 'A321EC',
-    packageDir: 'out/qbitsim-aircraft-a321-251',
+    packageName: 'A21NHS',
+    packageDir: 'out/horizonsim-lvfr-airbus-a321-neo',
     plugins: [
         imagePlugin({ limit: -1 }),
         postCssPlugin({
@@ -30,7 +30,7 @@ module.exports = {
         msfsAvionicsInstrument('EWD'),
         msfsAvionicsInstrument('Clock'),
 
-        reactInstrument('ND', ['/JS/A321EC/A32NX_Util.js']),
+        reactInstrument('ND', ['/JS/A21NHS/A32NX_Util.js']),
         reactInstrument('SD'),
         reactInstrument('DCDU'),
         reactInstrument('RTPI'),
@@ -48,7 +48,7 @@ function msfsAvionicsInstrument(name) {
         index: `src/systems/instruments/src/${name}/instrument.tsx`,
         simulatorPackage: {
             type: 'baseInstrument',
-            templateId: `A321EC_${name}`,
+            templateId: `A21NHS_${name}`,
             mountElementId: `${name}_CONTENT`,
             fileName: name.toLowerCase(),
             imports: ['/JS/dataStorage.js'],
@@ -64,7 +64,7 @@ function reactInstrument(name, additionalImports) {
             type: 'react',
             isInteractive: false,
             fileName: name.toLowerCase(),
-            imports: ['/JS/dataStorage.js','/JS/A321EC/A32NX_Simvars.js', ...(additionalImports ?? [])],
+            imports: ['/JS/dataStorage.js','/JS/A21NHS/A32NX_Simvars.js', ...(additionalImports ?? [])],
         },
     };
 }

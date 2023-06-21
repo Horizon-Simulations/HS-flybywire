@@ -1,0 +1,24 @@
+{
+  "LocalisationPackage": {
+    "Language": "nl-NL",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "De A319 CEO is een tweemotorig straalverkeersvliegtuig met smalle romp van het Europese Airbus. Het straalvliegtuig is een verkorte versie van de A320 en heeft twee bemanningsleden. Het biedt doorgaans plaats aan 110 tot 140 passagiers, met een maximum van 156. De A319 CEO ('huidige motoroptie') maakte zijn eerste vlucht op 25 augustus 1995 en werd in 1996 commercieel in gebruik genomen. De A319 CEO was tussen 1994 en 2021 in productie en een aantal vliegt nog steeds de hele wereld over.\n\nHet lijnvliegtuig heeft een totale lengte van 34 meter, een vleugelspanwijdte van 36 meter en een breedte van 4 meter. Het wordt aangedreven door twee op de vleugel gemonteerde CFM International CFM56-5A of IAE V2500-A5 high-bypass turbofanmotoren, die allebei tot 23.500 pond stuwkracht produceren voor een totaal van 47.000 pond. De A319 CEO heeft een actieradius van 6936 kilometer, een praktische hoogtegrens van 12,5 kilometer boven zeeniveau, een kruissnelheid van 819 kilometer per uur en een topsnelheid van 871 kilometer per uur.\n\nDe A319 wordt zeer gewaardeerd als lijnvliegtuig voor de korte en middellange afstand en wordt nog altijd veelvuldig gebruikt door luchtvaartmaatschappijen over de hele wereld. Vliegeniers waarderen het reactievermogen en het vermogen, of ze nu in lijn vliegen of toewerken naar grotere, complexere vliegtuigen.",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_LEFT": "Geselecteerde luchtkoers naar links aanpassen (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_HDG_TUNING_RIGHT": "Geselecteerde luchtkoers naar rechts aanpassen  (%((A:AUTOPILOT HEADING LOCK DIR:1,degrees))%!d!°)",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.CLOSE": "Close flight deck door",
+      "COCKPIT.TOOLTIPS.Flight_deck_Door.OPEN": "Open flight deck door",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_L.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.DOWN": "Window blinds down",
+      "COCKPIT.TOOLTIPS.blinds_cockpit_back_R.UP": "Window blinds up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_L.down": "Window Shade Down",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.UP": "Window shade up",
+      "COCKPIT.TOOLTIPS.shade_cockpit_R.down": "Window Shade Down"
+    }
+  }
+}
