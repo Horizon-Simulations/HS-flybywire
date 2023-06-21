@@ -1,5 +1,5 @@
 ![FlyByWire Simulations](./branding/Horizon_Simulations.png)
-# Horizon Simulations - FlyByWire - LVFR A318 A319 A21N
+# Horizon Simulations - FlyByWire - LVFR A318ceo A319ceo A320ceo A321neo
 
 The FlyByWire Compatibility for LatinVFR Airbus series is a project based on [FlyByWire Simulations](https://flybywiresim.com/) A32NX Project.
 
@@ -74,6 +74,38 @@ The following aircraft configuration is currently simulated or targeted:
  ```
  Model       A319-131
  Engine      IAE V2524-A5
+ APU         APS3200
+ FMS         Honeywell Release H3
+ FWC Std.    H2F9C
+ RA          Honeywell ALA-52B
+ TAWS        Honeywell EGPWS
+ ACAS        Honeywell TPA-100B
+ ATC         Honeywell TRA-100B
+ MMR         Honeywell iMMR
+ WXR         Honeywell RDR-4000
+ ```
+
+ ### A320-100 CFM (ceo)
+
+ ```
+ Model       A319-111
+ Engine      CFM56-5B4/P
+ APU         APS3200
+ FMS         Honeywell Release H3
+ FWC Std.    H2F9C
+ RA          Honeywell ALA-52B
+ TAWS        Honeywell EGPWS
+ ACAS        Honeywell TPA-100B
+ ATC         Honeywell TRA-100B
+ MMR         Honeywell iMMR
+ WXR         Honeywell RDR-4000
+ ```
+
+  ### A320-100 IAE (ceo)
+
+ ```
+ Model       A319-131
+ Engine      IAE V2527-A5
  APU         APS3200
  FMS         Honeywell Release H3
  FWC Std.    H2F9C
