@@ -14,8 +14,8 @@ members = [
     "build-a321neo/src/wasm/systems/a320_systems",
     "build-a321neo/src/wasm/systems/a320_systems_wasm",
     "build-a321neo/src/wasm/systems/a320_hydraulic_simulation_graphs",
-    "build-common/src/wasm/systems/systems",
-    "build-common/src/wasm/systems/systems_wasm",
+    "fbw-common/src/wasm/systems/systems",
+    "fbw-common/src/wasm/systems/systems_wasm",
 ]
 
 [profile.release]
