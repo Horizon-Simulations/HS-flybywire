@@ -16,7 +16,7 @@ console.log('Root: ', root);
 export default {
     input: join(__dirname, 'index.tsx'),
     output: {
-        dir: join(root, 'build-a318ceo/out/horizonsim-lvfr-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/ExtrasHost'),
+        dir: join(root, 'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/ExtrasHost'),
         format: 'es',
     },
     plugins: [

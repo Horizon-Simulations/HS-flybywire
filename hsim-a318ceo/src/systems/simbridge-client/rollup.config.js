@@ -50,7 +50,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'build-a318ceo/out/horizonsim-lvfr-airbus-a318-ceo/html_ui/JS/A318HS/simbridge-client/simbridge-client.js'),
+        file: join(root, 'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/simbridge-client/simbridge-client.js'),
         format: 'umd',
         name: 'SimBridgeClient',
     },

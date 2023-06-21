@@ -27,7 +27,7 @@ module.exports = {
             targets: [
                 {
                     src: 'fmgc/src/utils/LzUtf8.js',
-                    dest: join(root, 'build-a318ceo/out/horizonsim-lvfr-airbus-a318-ceo/html_ui/JS/A318HS/fmgc/'),
+                    dest: join(root, 'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/fmgc/'),
                 },
             ],
         }),
@@ -52,7 +52,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'build-a318ceo/out/horizonsim-lvfr-airbus-a318-ceo/html_ui/JS/A318HS/fmgc/fmgc.js'),
+        file: join(root, 'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/fmgc/fmgc.js'),
         format: 'umd',
         name: 'Fmgc',
     },

@@ -117,6 +117,108 @@ The following aircraft configuration is currently simulated or targeted:
  WXR         Honeywell RDR-4000
  ```
 
+## How to build
+Make sure docker are isntalled. Prefferably with WSL2 backend.
+
+### 1. First, run following command on powershell. This will install the A32NX docker images and node modules.
+
+For powershell:
+```shell
+.\scripts\dev-env\run.cmd ./scripts/setup.sh
+```
+For Git Bash/Linux:
+```shell
+./scripts/dev-env/run.sh ./scripts/setup.sh
+```
+### 2. As next step we will copy the original source files and copy-over our source files.
+#### A318ceo
+For powershell:
+```shell
+.\scripts\dev-env\run.cmd ./scripts/copy_a318hs.sh
+```
+For Git Bash/Linux:
+```shell
+./scripts/copy_a318hs.sh
+```
+#### A319ceo
+For powershell:
+```shell
+.\scripts\dev-env\run.cmd ./scripts/copy_a319hs.sh
+```
+For Git Bash/Linux:
+```shell
+./scripts/copy_a319hs.sh
+```
+#### A320ceo
+For powershell:
+```shell
+.\scripts\dev-env\run.cmd ./scripts/copy_a320hs.sh
+```
+For Git Bash/Linux:
+```shell
+./scripts/copy_a320hs
+```
+#### A321neo
+For powershell:
+```shell
+.\scripts\dev-env\run.cmd ./scripts/copy_a21nhs
+```
+For Git Bash/Linux:
+```shell
+./scripts/copy_a21nhs
+```
+### 3. Build all A32NX module by running following command on powershell.
+#### A318ceo
+For powershell:
+```shell
+.\scripts\dev-env\run.cmd ./scripts/build_a318hs.sh
+```
+For Git Bash/Linux:
+```shell
+./scripts/dev-env/run.sh ./scripts/build_a318hs.sh
+```
+#### A319ceo
+For powershell:
+```shell
+.\scripts\dev-env\run.cmd ./scripts/build_a319hs.sh
+```
+For Git Bash/Linux:
+```shell
+./scripts/dev-env/run.sh ./scripts/build_a319hs.sh
+```
+#### A320ceo
+For powershell:
+```shell
+.\scripts\dev-env\run.cmd ./scripts/build_a320hs.sh
+```
+For Git Bash/Linux:
+```shell
+./scripts/dev-env/run.sh ./scripts/build_a320hs.sh
+```
+#### A321neo
+For powershell:
+```shell
+.\scripts\dev-env\run.cmd ./scripts/build_a21nhs.sh
+```
+For Git Bash/Linux:
+```shell
+./scripts/dev-env/run.sh ./scripts/build_a21nhs.sh
+```
+
+### 4. The package is now ready to use. Copy the folder "headwind-aircraft-a330-900" to your CommunityPackage folder in MSFS.
+
+### (Optional) If you want to use the MSFS Dev Tools you can run the following command (after build completed) to copy the files to the PackageSources.
+
+For powershell:
+```shell
+.\scripts\dev-env\run.cmd ./scripts/package.sh
+```
+For Git Bash/Linux:
+```shell
+./scripts/dev-env/run.sh ./scripts/package.sh
+```
+
+
  ## License
 
 Original source code assets present in this repository are licensed under the GNU GPLv3.
