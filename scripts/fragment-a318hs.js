@@ -5,7 +5,7 @@ const execute = async () => {
     try {
         const result = await fragmenter.pack({
             packOptions: { splitFileSize: 102_760_448, keepCompleteModulesAfterSplit: false },
-            baseDir: './build-a318ceo/out/horizonsim-lvfr-airbus-a318-ceo',
+            baseDir: './build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo',
             outDir: './build-a318ceo/out/build-modules',
             modules: [{
                 name: 'effects',
@@ -18,16 +18,16 @@ const execute = async () => {
                 sourceDir: './ModelBehaviorDefs'
             }, {
                 name: 'Textures',
-                sourceDir: './SimObjects/Airplanes/horizonsim-lvfr-airbus-a318-ceo/texture'
+                sourceDir: './SimObjects/Airplanes/lvfr-horizonsim-airbus-a318-ceo/texture'
             }, {
                 name: 'Sound',
-                sourceDir: './SimObjects/Airplanes/horizonsim-lvfr-airbus-a318-ceo/sound'
+                sourceDir: './SimObjects/Airplanes/lvfr-horizonsim-airbus-a318-ceo/sound'
             }, {
                 name: 'Model',
-                sourceDir: './SimObjects/Airplanes/horizonsim-lvfr-airbus-a318-ceo/model'
+                sourceDir: './SimObjects/Airplanes/lvfr-horizonsim-airbus-a318-ceo/model'
             }, {
                 name: 'Panels',
-                sourceDir: './SimObjects/Airplanes/horizonsim-lvfr-airbus-a318-ceo/panel'
+                sourceDir: './SimObjects/Airplanes/lvfr-horizonsim-airbus-a318-ceo/panel'
             }, {
                 name: 'ContentInfo',
                 sourceDir: './ContentInfo'

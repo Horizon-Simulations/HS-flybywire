@@ -1,0 +1,9 @@
+﻿@import url("/CSS/A318_Display_Common.css");
+
+@font-face {
+  font-family: "ECAMFontRegular";
+  src: url("/A318_Fonts/A318_ECAMFontRegular.ttf") format("truetype");
+  fill: var(--displayMagenta);
+  font-weight: normal;
+  font-style: normal;
+}

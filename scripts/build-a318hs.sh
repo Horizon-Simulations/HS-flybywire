@@ -15,8 +15,8 @@ fi
 time npx igniter -r A318HS "$@"
 
 if [ "${GITHUB_ACTIONS}" == "true" ]; then
-  rm -rf /external/flybywire
-  rm -rf /external/build-a318ceo/src
+  rm -rf /external/a32nx
+  rm -rf /external/hsim-a318ceo/src
 fi
 
 # restore ownership (when run as github action)

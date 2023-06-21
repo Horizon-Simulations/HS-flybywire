@@ -63,7 +63,7 @@ const titleSuffix = ` (${titlePostfix})`;
 const MS_FILETIME_EPOCH = 116444736000000000n;
 
 const A318HS_SRC = path.resolve(__dirname, '..', 'hsim-a318ceo/src');
-const A318HS_OUT = path.resolve(__dirname, '..', 'build-a318ceo/out/horizonsim-lvfr-airbus-a318-ceo');
+const A318HS_OUT = path.resolve(__dirname, '..', 'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo');
 
 function createPackageFiles(baseDir, manifestBaseFilename) {
     const contentEntries = [];
