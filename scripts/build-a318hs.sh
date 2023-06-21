@@ -12,11 +12,11 @@ if [ "${GITHUB_ACTIONS}" == "true" ]; then
 fi
 
 # run build
-time npx igniter -r A321EC "$@"
+time npx igniter -r A318HS "$@"
 
 if [ "${GITHUB_ACTIONS}" == "true" ]; then
   rm -rf /external/flybywire
-  rm -rf /external/build-a321EC/src
+  rm -rf /external/build-a318ceo/src
 fi
 
 # restore ownership (when run as github action)

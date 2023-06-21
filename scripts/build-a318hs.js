@@ -62,8 +62,8 @@ const titleSuffix = ` (${titlePostfix})`;
 
 const MS_FILETIME_EPOCH = 116444736000000000n;
 
-const A321EC_SRC = path.resolve(__dirname, '..', 'qbt-a321ec/src');
-const A321EC_OUT = path.resolve(__dirname, '..', 'build-a321EC/out/qbitsim-aircraft-a321-251');
+const A318HS_SRC = path.resolve(__dirname, '..', 'hsim-a318ceo/src');
+const A318HS_OUT = path.resolve(__dirname, '..', 'build-a318ceo/out/horizonsim-lvfr-airbus-a318-ceo');
 
 function createPackageFiles(baseDir, manifestBaseFilename) {
     const contentEntries = [];
@@ -83,7 +83,7 @@ function createPackageFiles(baseDir, manifestBaseFilename) {
         content: contentEntries,
     }, null, 2));
 
-    const manifestBase = require(path.join(A321EC_SRC, 'base', manifestBaseFilename));
+    const manifestBase = require(path.join(A318HS_SRC, 'base', manifestBaseFilename));
 
     fs.writeFileSync(path.join(baseDir, 'manifest.json'), JSON.stringify({
         ...manifestBase,
@@ -93,5 +93,5 @@ function createPackageFiles(baseDir, manifestBaseFilename) {
     }, null, 2));
 }
 
-createPackageFiles(A321EC_OUT, 'manifest-base.json');
-createPackageFiles(A321EC_OUT + '-lock-highlight', 'manifest-base-lock-highlight.json');
+createPackageFiles(A318HS_OUT, 'manifest-base.json');
+createPackageFiles(A318HS_OUT + '-lock-highlight', 'manifest-base-lock-highlight.json');
