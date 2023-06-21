@@ -27,7 +27,7 @@ module.exports = {
     ],
     instruments: [
         msfsAvionicsInstrument('PFD'),
-        msfsAvionicsInstrument('ND', 'NDv2'),
+        msfsAvionicsInstrument('ND', 'NDv2', ['/JS/A318HS/A32NX_Util.js']),
         msfsAvionicsInstrument('EWD'),
         msfsAvionicsInstrument('Clock'),
 
@@ -64,7 +64,7 @@ function reactInstrument(name, additionalImports) {
             type: 'react',
             isInteractive: false,
             fileName: name.toLowerCase(),
-            imports: ['/JS/dataStorage.js','/JS/A318HS/A318HS_Simvars.js', ...(additionalImports ?? [])],
+            imports: ['/JS/dataStorage.js','/JS/A318HS/A32NX_Simvars.js', ...(additionalImports ?? [])],
         },
     };
 }

@@ -75,4 +75,4 @@ class A32NX_Clock extends BaseInstrument {
     }
 }
 
-registerInstrument('a32nx-clock', A32NX_Clock);
+registerInstrument('A318HS-clock', A32NX_Clock);

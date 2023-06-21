@@ -13,7 +13,7 @@
 
     "build-a318ceo:behavior": "node build-a318ceo/src/behavior/build.js",
 
-    "build-a318ceo:atsu-common": "rollup -c build-a318ceo/src/systems/atsu/common/build.js",
+    "build-a318ceo:atsu-common": "node build-a318ceo/src/systems/atsu/common/build.js",
     "build-a318ceo:atsu-fms-client": "node build-a318ceo/src/systems/atsu/fmsclient/build.js",
     "build-a318ceo:extras-host": "cd build-a318ceo/src/systems/extras-host && rollup -c",
     "build-a318ceo:failures": "rollup -c build-a318ceo/src/systems/failures/rollup.config.js",
