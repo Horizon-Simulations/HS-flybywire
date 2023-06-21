@@ -1,0 +1,124 @@
+/* temp_stylePlugin:ni:sha-256;5nG-EOwOYPB8zyxH1OaB02L9dE0segPrXmZG-cigllU */
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/hs-a320/ISISFontTemporary.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.ISIS {
+  position: absolute;
+  width: 512px;
+  height: 512px;
+  stroke-width: 3px;
+  background: #040404;
+  font-family: "Ecam", monospace !important;
+}
+.sky {
+  fill: #0698ff;
+}
+.earth {
+  fill: #9c480c;
+}
+.white-line {
+  stroke: white;
+  stroke-width: 3;
+  fill: none;
+}
+.mask {
+  fill: #040404;
+  fill-rule: "evenodd";
+  stroke: none;
+}
+.FontMedium {
+  font-size: 30px;
+}
+.FontLarge {
+  font-size: 32px;
+}
+.FontLargest {
+  font-size: 36px;
+}
+.MiddleAlign {
+  text-align: center;
+  text-anchor: middle;
+}
+.Green {
+  stroke: #00ff00;
+  fill: none;
+}
+.FillMagenta {
+  fill: #ff94ff;
+}
+.FillYellow {
+  fill: #ffff00;
+}
+.StrokeWhite {
+  stroke: #ffffff;
+}
+.StrokeYellow {
+  stroke: #ffff00;
+}
+.StrokeCyan {
+  stroke: #00ffff;
+}
+.StrokeRed {
+  stroke: #ff0000;
+}
+.TextGreen {
+  fill: #00ff00;
+  stroke: none;
+}
+.TextAmber {
+  fill: #e68000;
+  stroke: none;
+}
+.TextCyan {
+  stroke: none;
+  fill: #00ffff;
+}
+.TextBackground {
+  fill: #040404;
+  stroke: none;
+}
+.TextWhite {
+  fill: #ffffff;
+  stroke: none;
+}
+.FillBackground {
+  fill: #040404;
+}
+.NoFill {
+  fill: none;
+}
+.StrokeBackground {
+  stroke: #040404;
+}
+.SelfTest {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 36px;
+}
+@keyframes blinking {
+  0% {
+    stroke: #040404;
+  }
+  50% {
+    stroke: #040404;
+  }
+  51% {
+    stroke: white;
+  }
+  100% {
+    stroke: white;
+  }
+}
+.BlinkInfinite {
+  animation-name: blinking;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

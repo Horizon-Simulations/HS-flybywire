@@ -1,0 +1,1402 @@
+/* temp_stylePlugin:ni:sha-256;S4rKF6ZVF2JimeHZYwYdnhYWkYegJcI66Y36x5zfSCg */
+.SelfTest {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.SelfTestBackground {
+  fill: #040404;
+}
+.SelfTestText {
+  font-size: 24px;
+  fill: #00ff00;
+  text-anchor: middle;
+  font-family: "Ecam", monospace;
+}
+.MaintenanceMode {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-family: "Ecam", monospace;
+}
+.EngineeringTestMode {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  border: none;
+  z-index: 999;
+  background-image: url(/Images/hs-a320/Common/thalesTest.svg);
+  background-size: cover;
+  font-family: "Ecam", monospace;
+}
+.EngineeringTestMode text {
+  font-size: 21px;
+  color: black;
+  font-family: "Ecam", monospace;
+}
+
+/* temp_stylePlugin:ni:sha-256;Hfoba5sJ-Ax8JysC2G03PRm4a4CwCUyL-wQP80ZUfXI */
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/hs-a320/ECAMFontRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.sd-svg {
+  visibility: visible !important;
+  font-family: "Ecam", monospace !important;
+  background: #040404;
+}
+:root {
+  --bodyHeightScale: 1;
+}
+#Mainframe {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+#door-video-wrapper {
+  position: absolute;
+  top: -5%;
+  width: 100%;
+  height: 82%;
+  z-index: 100;
+  background-image: url(/Images/hs-a320/SD/door_camera.png);
+  background-size: cover;
+}
+
+/* temp_stylePlugin:ni:sha-256;CKCNdNVaYh4eIlRvuKlYrkuJgugRmPVe-OsvyffdzFc */
+.GaugeComponent .Show {
+  display: block;
+}
+.GaugeComponent .Hide {
+  display: none;
+}
+.GaugeComponent .Gauge {
+  stroke: #ffffff;
+  stroke-width: 2;
+  fill: none;
+}
+.GaugeComponent .GaugeInactive {
+  stroke: #e68000;
+  stroke-width: 2;
+  fill: none;
+}
+.GaugeComponent .GaugeText {
+  stroke: #ffffff;
+  font-size: 17px;
+}
+.GaugeComponent .GaugeIndicator {
+  stroke: #00ff00;
+  stroke-width: 3;
+  fill: none;
+}
+.GaugeComponent .GaugeThrustLimitIndicator {
+  stroke: #e68000;
+  stroke-width: 3;
+  fill: none;
+}
+.GaugeComponent .GaugeThrustLimitIndicatorFill {
+  stroke: #e68000;
+  stroke-width: 3;
+  fill: #e68000;
+}
+
+/* temp_stylePlugin:ni:sha-256;F2i1r03Qiqnid_PNOU_Ku9Hwlm92mGP1qa0ghfZo4rM */
+#pageTitle.PageTitle {
+  font-size: 24px;
+  text-decoration: underline;
+  fill: #ffffff;
+}
+
+/* temp_stylePlugin:ni:sha-256;hXr1BCGQ0M6IfUljnXqemxjJ9p9vxJHxMhDSsfiooMM */
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/hs-a320/ECAMFontRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.sd-svg {
+  visibility: visible !important;
+  font-family: "Ecam", monospace !important;
+  background: #040404;
+}
+:root {
+  --bodyHeightScale: 1;
+}
+#Mainframe {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+#door-video-wrapper {
+  position: absolute;
+  top: -5%;
+  width: 100%;
+  height: 82%;
+  z-index: 100;
+  background-image: url(/Images/hs-a320/SD/door_camera.png);
+  background-size: cover;
+}
+#main-eng .TextCenter {
+  text-anchor: middle;
+  alignment-baseline: central;
+}
+#main-eng .FontSmall {
+  font-size: 16px;
+}
+#main-eng .FontMedium {
+  font-size: 18px;
+}
+#main-eng .FontLarge {
+  font-size: 20px;
+}
+#main-eng .Indicator {
+  stroke: #ffffff;
+  stroke-width: 1;
+}
+#main-eng .GaugeMarking {
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+#main-eng .NoFill {
+  fill: none;
+}
+#main-eng .FillCyan {
+  fill: #00ffff;
+}
+#main-eng .FillGreen {
+  fill: #00ff00;
+}
+#main-eng .FillAmber {
+  fill: #e68000;
+}
+#main-eng .FillWhite {
+  fill: #ffffff;
+}
+#main-eng .FillRed {
+  fill: #ff0000;
+}
+#main-eng .AmberHeavy {
+  stroke: #e68000;
+  stroke-width: 6;
+}
+#main-eng .AmberLine {
+  stroke: #e68000;
+  stroke-width: 2;
+}
+#main-eng .WhiteLine {
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+#main-eng .RedLine {
+  stroke: #ff0000;
+  stroke-width: 2;
+}
+#main-eng .GreenLine {
+  stroke: #00ff00;
+  stroke-width: 2;
+}
+#main-eng .Hidden {
+  display: none;
+}
+#main-eng .FillPulse {
+  animation: fill-pulse 1s step-end infinite;
+}
+@keyframes fill-pulse {
+  0%, 100% {
+    fill: #00ff00;
+  }
+  50% {
+    fill: hsl(120, 100%, 20%);
+  }
+}
+#main-eng .LinePulse {
+  animation: line-pulse 1s step-end infinite;
+}
+@keyframes line-pulse {
+  0%, 100% {
+    stroke: #00ff00;
+  }
+  50% {
+    stroke: hsl(120, 100%, 20%);
+  }
+}
+#main-eng .StartValveDiagram {
+  stroke: #00ff00;
+  stroke-width: 2;
+}
+#main-eng .StartValveDiagrampath {
+  fill: none;
+}
+#main-eng .StartValveDiagramcircle {
+  fill: rgb(4, 4, 4);
+}
+#main-eng .StartValveDiagramline {
+  fill: #00ff00;
+}
+
+/* temp_stylePlugin:ni:sha-256;bygypGY5kuMHARi8tjmE6gzfFa3MFTlkaxniFzl-a28 */
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/hs-a320/ECAMFontRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.sd-svg {
+  visibility: visible !important;
+  font-family: "Ecam", monospace !important;
+  background: #040404;
+}
+:root {
+  --bodyHeightScale: 1;
+}
+#Mainframe {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+#door-video-wrapper {
+  position: absolute;
+  top: -5%;
+  width: 100%;
+  height: 82%;
+  z-index: 100;
+  background-image: url(/Images/hs-a320/SD/door_camera.png);
+  background-size: cover;
+}
+#main-bleed .PageTitle {
+  font-size: 28px !important;
+}
+#main-bleed text,
+#main-bleed tspan {
+  fill: #ffffff;
+  stroke: none !important;
+}
+#main-bleed text.Small,
+#main-bleed tspan.Small {
+  font-size: 14px;
+}
+#main-bleed text.Standard,
+#main-bleed tspan.Standard {
+  font-size: 17px;
+}
+#main-bleed text.Medium,
+#main-bleed tspan.Medium {
+  font-size: 18px;
+}
+#main-bleed text.Large,
+#main-bleed tspan.Large {
+  font-size: 20px;
+}
+#main-bleed text.Huge,
+#main-bleed tspan.Huge {
+  font-size: 26px;
+}
+#main-bleed text.Cyan,
+#main-bleed tspan.Cyan {
+  fill: #00ffff !important;
+}
+#main-bleed text.Green,
+#main-bleed tspan.Green {
+  fill: #00ff00 !important;
+}
+#main-bleed text.Amber,
+#main-bleed tspan.Amber {
+  fill: #e68000;
+}
+#main-bleed text.Red,
+#main-bleed tspan.Red {
+  fill: #ff0000;
+}
+#main-bleed text.Magenta,
+#main-bleed tspan.Magenta {
+  fill: #ff94ff;
+}
+#main-bleed text.Center,
+#main-bleed tspan.Center {
+  text-anchor: middle !important;
+}
+#main-bleed text.End,
+#main-bleed tspan.End {
+  text-anchor: end !important;
+}
+#main-bleed .GreyStroke {
+  fill: none;
+  stroke: lightgray;
+}
+#main-bleed .WhiteStroke {
+  fill: none;
+  stroke: #ffffff;
+}
+#main-bleed .Stroke1 {
+  stroke-width: 1;
+}
+#main-bleed .Stroke2 {
+  stroke-width: 2;
+}
+#main-bleed .Stroke3 {
+  stroke-width: 3 !important;
+}
+#main-bleed .LineCapRound {
+  stroke-linecap: round;
+}
+#main-bleed .GreenLine {
+  stroke: #00ff00 !important;
+  stroke-width: 2;
+  fill: none;
+}
+#main-bleed .AmberLine {
+  stroke: #e68000 !important;
+  stroke-width: 2;
+  fill: none;
+}
+#main-bleed .WhiteLine {
+  stroke: #ffffff !important;
+  stroke-width: 2;
+  fill: none;
+}
+#main-bleed .BackgroundFill {
+  fill: #040404 !important;
+}
+#main-bleed .Show {
+  display: block;
+}
+#main-bleed .Hide {
+  display: none;
+}
+
+/* temp_stylePlugin:ni:sha-256;_SGFUb-CupHuIY4m5tGklMG530WMB_xI86fGnq9SicI */
+.GaugeComponent .Show {
+  display: block;
+}
+.GaugeComponent .Hide {
+  display: none;
+}
+.GaugeComponent .Gauge {
+  stroke: #ffffff;
+  stroke-width: 2;
+  fill: none;
+}
+.GaugeComponent .GaugeInactive {
+  stroke: #e68000;
+  stroke-width: 2;
+  fill: none;
+}
+.GaugeComponent .GaugeText {
+  stroke: #ffffff;
+  font-size: 17px;
+}
+.GaugeComponent .GaugeIndicator {
+  stroke: #00ff00;
+  stroke-width: 3;
+  fill: none;
+}
+.GaugeComponent .GaugeThrustLimitIndicator {
+  stroke: #e68000;
+  stroke-width: 3;
+  fill: none;
+}
+.GaugeComponent .GaugeThrustLimitIndicatorFill {
+  stroke: #e68000;
+  stroke-width: 3;
+  fill: #e68000;
+}
+#main-press text {
+  fill: #ffffff;
+}
+#main-press text.Standard {
+  font-size: 17px;
+}
+#main-press text.Medium {
+  font-size: 16px;
+}
+#main-press text.Large {
+  font-size: 20px;
+}
+#main-press text.Huge {
+  font-size: 24px;
+}
+#main-press text.Cyan {
+  fill: #00ffff !important;
+}
+#main-press text.Green {
+  fill: #00ff00 !important;
+}
+#main-press text.Amber {
+  fill: #e68000;
+}
+#main-press text.Red {
+  fill: #ff0000;
+}
+#main-press text.Center {
+  text-anchor: middle !important;
+}
+#main-press text.End {
+  text-anchor: end !important;
+}
+#main-press text.GreenTextPulse {
+  animation: pulsing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulsing {
+  0%, 100% {
+    fill: #00ff00;
+  }
+  50% {
+    fill: green;
+  }
+}
+#main-press .Red {
+  stroke: #ff0000 !important;
+}
+#main-press .Amber {
+  stroke: #e68000 !important;
+}
+#main-press .AmberLine {
+  stroke: #e68000 !important;
+  stroke-width: 2;
+}
+#main-press .GreenLine {
+  stroke: #00ff00 !important;
+  stroke-width: 2;
+}
+#main-press .BackgroundLine {
+  stroke: #040404 !important;
+  stroke-width: 2;
+  fill: #040404;
+}
+#main-press .Show {
+  display: block;
+}
+#main-press .Hide {
+  display: none;
+}
+#main-press .VsIndicator {
+  stroke: #00ff00;
+  stroke-width: 2;
+  fill: none;
+}
+#main-press .AirPressureShape {
+  stroke: #787878;
+  stroke-width: 2;
+  fill: none;
+}
+#main-press .WhiteCircle {
+  fill: #040404;
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+#main-press .GreenIndicatorPulse {
+  animation: pulsingS 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  stroke-width: 3;
+}
+@keyframes pulsingS {
+  0%, 100% {
+    stroke: #00ff00;
+  }
+  50% {
+    stroke: green;
+  }
+}
+
+/* temp_stylePlugin:ni:sha-256;Pod0Yn7fQML-ewRbGRBKHIO5cgtaHIGIF_PhuW-mXg8 */
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/hs-a320/ECAMFontRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.sd-svg {
+  visibility: visible !important;
+  font-family: "Ecam", monospace !important;
+  background: #040404;
+}
+:root {
+  --bodyHeightScale: 1;
+}
+#Mainframe {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+#door-video-wrapper {
+  position: absolute;
+  top: -5%;
+  width: 100%;
+  height: 82%;
+  z-index: 100;
+  background-image: url(/Images/hs-a320/SD/door_camera.png);
+  background-size: cover;
+}
+#main-elec .Box {
+  stroke: #EEEEEE;
+  fill: none;
+  stroke-width: 2.5px;
+}
+#main-elec path {
+  stroke: #EEEEEE;
+  stroke-width: 2.25px;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+#main-elec path.Green {
+  stroke: #00ff00;
+}
+#main-elec path.Amber {
+  stroke: #e68000;
+}
+#main-elec rect.Bus {
+  fill: #636363;
+}
+#main-elec text {
+  fill: #EEEEEE;
+  font-size: 19px;
+}
+#main-elec text.ExtraLarge {
+  font-size: 26px;
+}
+#main-elec text.QuiteLarge {
+  font-size: 24px;
+}
+#main-elec text.Large {
+  font-size: 22px;
+}
+#main-elec text.Small {
+  font-size: 16.875px;
+}
+#main-elec text.ExtraSmall {
+  font-size: 15px;
+}
+#main-elec text.Middle {
+  text-anchor: middle;
+  text-align: middle;
+}
+#main-elec text.Right {
+  text-anchor: end;
+  text-align: end;
+}
+#main-elec text.Green {
+  fill: #00ff00;
+}
+#main-elec text.Amber {
+  fill: #e68000;
+}
+#main-elec text.Cyan {
+  fill: #00ffff;
+}
+
+/* temp_stylePlugin:ni:sha-256;HWX8WQN0yjKh-oBAeuhYkRG1SGntWNLmkPyP293Rav8 */
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/hs-a320/ECAMFontRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.sd-svg {
+  visibility: visible !important;
+  font-family: "Ecam", monospace !important;
+  background: #040404;
+}
+:root {
+  --bodyHeightScale: 1;
+}
+#Mainframe {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+#door-video-wrapper {
+  position: absolute;
+  top: -5%;
+  width: 100%;
+  height: 82%;
+  z-index: 100;
+  background-image: url(/Images/hs-a320/SD/door_camera.png);
+  background-size: cover;
+}
+.ecam-common-styles .Hide {
+  display: none;
+}
+.ecam-common-styles .ThickCyanLine {
+  stroke: #00ffff !important;
+  stroke-width: 6;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: none;
+}
+.ecam-common-styles .AmberLine {
+  stroke: #e68000 !important;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.ecam-common-styles .AmberLine:not(.FillAmber) {
+  fill: none;
+}
+.ecam-common-styles .AmberLine.FillAmber {
+  fill: #e68000;
+}
+.ecam-common-styles .RedLine {
+  stroke: #ff0000 !important;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: none;
+}
+.ecam-common-styles .GreenLine {
+  stroke: #00ff00 !important;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.ecam-common-styles .GreenLine:not(.FillGreen) {
+  fill: none;
+}
+.ecam-common-styles .GreenLine.FillGreen {
+  fill: #00ff00;
+}
+.ecam-common-styles .WhiteLine {
+  stroke: #ffffff !important;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: none;
+}
+.ecam-common-styles .LightGreyLine {
+  stroke: #787878 !important;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: none;
+}
+.ecam-common-styles .ThickGreyLine {
+  stroke: #787878;
+  stroke-width: 4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: none;
+}
+.ecam-common-styles .GreyFill {
+  fill: #787878;
+  stroke: none;
+}
+.ecam-common-styles text,
+.ecam-common-styles tspan {
+  fill: #ffffff;
+  stroke: none !important;
+}
+.ecam-common-styles text.Standard,
+.ecam-common-styles tspan.Standard {
+  font-size: 22px;
+}
+.ecam-common-styles text.Medium,
+.ecam-common-styles tspan.Medium {
+  font-size: 20px;
+}
+.ecam-common-styles text.MediumLarge,
+.ecam-common-styles tspan.MediumLarge {
+  font-size: 24px;
+}
+.ecam-common-styles text.Large,
+.ecam-common-styles tspan.Large {
+  font-size: 26px;
+}
+.ecam-common-styles text.Huge,
+.ecam-common-styles tspan.Huge {
+  font-size: 30px;
+}
+.ecam-common-styles text.Title,
+.ecam-common-styles tspan.Title {
+  font-size: 36px;
+}
+.ecam-common-styles text.Cyan,
+.ecam-common-styles tspan.Cyan {
+  fill: #00ffff !important;
+}
+.ecam-common-styles text.Green,
+.ecam-common-styles tspan.Green {
+  fill: #00ff00 !important;
+}
+.ecam-common-styles text.Amber,
+.ecam-common-styles tspan.Amber {
+  fill: #e68000;
+}
+.ecam-common-styles text.Red,
+.ecam-common-styles tspan.Red {
+  fill: #ff0000;
+}
+.ecam-common-styles text.Magenta,
+.ecam-common-styles tspan.Magenta {
+  fill: #ff94ff;
+}
+.ecam-common-styles text.Center,
+.ecam-common-styles tspan.Center {
+  text-anchor: middle !important;
+}
+.ecam-common-styles text.End,
+.ecam-common-styles tspan.End {
+  text-anchor: end !important;
+}
+.ecam-common-styles text.UnderlineWhite,
+.ecam-common-styles tspan.UnderlineWhite {
+  text-decoration: underline;
+  text-decoration-color: #ffffff;
+}
+
+/* temp_stylePlugin:ni:sha-256;BFhhIgi733-3NDt6fA76Fu1pnftyYxeoTv11ROpo7MI */
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/hs-a320/ECAMFontRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.sd-svg {
+  visibility: visible !important;
+  font-family: "Ecam", monospace !important;
+  background: #040404;
+}
+:root {
+  --bodyHeightScale: 1;
+}
+#Mainframe {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+#door-video-wrapper {
+  position: absolute;
+  top: -5%;
+  width: 100%;
+  height: 82%;
+  z-index: 100;
+  background-image: url(/Images/hs-a320/SD/door_camera.png);
+  background-size: cover;
+}
+#sd-fuel-page .pickMe {
+  fill: red !important;
+  stroke: red !important;
+}
+#sd-fuel-page .Hide {
+  display: none;
+}
+#sd-fuel-page .PageTitle {
+  font-size: 24px;
+  text-decoration: underline;
+  fill: #ffffff;
+  text-anchor: start !important;
+}
+#sd-fuel-page .FuelUsed {
+  font-size: 19px;
+  text-anchor: middle;
+  stroke: white;
+  fill: white;
+}
+#sd-fuel-page .EngineNumber {
+  font-size: 30px;
+  text-anchor: middle;
+}
+#sd-fuel-page .EngineNumberOn {
+  stroke: #ffffff;
+  fill: #ffffff;
+}
+#sd-fuel-page .EngineNumberOff {
+  stroke: #e68000;
+  fill: #e68000;
+}
+#sd-fuel-page .EngineLine {
+  stroke: #ffffff;
+  stroke-width: 2.5;
+}
+#sd-fuel-page .UsedQuantity {
+  font-size: 25px;
+  text-anchor: middle;
+  stroke: #00ff00;
+  fill: #00ff00;
+}
+#sd-fuel-page .ThickShape {
+  stroke: lightgray;
+  stroke-width: 2.5;
+  fill: none;
+}
+#sd-fuel-page .White {
+  stroke: #ffffff;
+  fill: #ffffff;
+}
+#sd-fuel-page .Amber {
+  stroke: #e68000;
+  fill: #e68000;
+}
+#sd-fuel-page .GreenLine {
+  stroke: #00ff00;
+  stroke-width: 2;
+}
+#sd-fuel-page .AmberLine {
+  stroke: #e68000;
+  stroke-width: 2;
+}
+#sd-fuel-page .FillAmber {
+  fill: #e68000;
+}
+#sd-fuel-page .WhiteLine {
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+#sd-fuel-page #APU text {
+  font-size: 17px;
+}
+#sd-fuel-page .FlowShape {
+  fill-opacity: 0;
+  stroke: #00ff00;
+  stroke-width: 2;
+}
+#sd-fuel-page .ValveGreen {
+  fill-opacity: 0;
+  stroke: #00ff00;
+  stroke-width: 2;
+}
+#sd-fuel-page .ValveAmber {
+  fill-opacity: 0;
+  stroke: #e68000;
+  stroke-width: 2;
+}
+#sd-fuel-page .PumpActive {
+  fill-opacity: 0;
+  stroke: #00ff00;
+  stroke-width: 2;
+}
+#sd-fuel-page .PumpInactive {
+  fill-opacity: 0;
+  stroke: #e68000;
+  stroke-width: 2;
+}
+#sd-fuel-page .LoIndication {
+  stroke: #e68000;
+  fill: #e68000 !important;
+  fill-opacity: 1;
+  font-size: 16px;
+  text-anchor: middle;
+}
+#sd-fuel-page .TankQuantity,
+#sd-fuel-page #FobValue,
+#sd-fuel-page #FuelFlowValue {
+  fill: #00ff00;
+  font-size: 22px;
+  text-anchor: end;
+  alignment-baseline: central;
+}
+#sd-fuel-page .Unit,
+#sd-fuel-page #FobUnit,
+#sd-fuel-page #FuelFlowUnit,
+#sd-fuel-page .UnitTemp {
+  fill: #00ffff;
+  font-size: 16px;
+}
+#sd-fuel-page .UnitTemp {
+  letter-spacing: -2px !important;
+}
+#sd-fuel-page .FuelFlowLabel {
+  font-size: 17px;
+  stroke: #ffffff;
+  fill: #ffffff;
+  text-anchor: middle;
+}
+#sd-fuel-page #FuelFlowColon {
+  font-size: 16px;
+  stroke: #ffffff;
+  fill: #ffffff;
+}
+#sd-fuel-page #FuelFlowValue {
+  font-size: 16px;
+  alignment-baseline: middle;
+}
+#sd-fuel-page #FuelFlowUnit {
+  alignment-baseline: middle;
+  text-anchor: start;
+}
+#sd-fuel-page #FobLabel {
+  font-size: 22px;
+  stroke: #ffffff;
+  fill: #ffffff;
+}
+#sd-fuel-page #FobColon {
+  font-size: 22px;
+  stroke: #ffffff;
+  fill: #ffffff;
+}
+#sd-fuel-page #FobValue {
+  alignment-baseline: middle;
+  text-anchor: end;
+}
+#sd-fuel-page #FobUnit {
+  alignment-baseline: middle;
+  text-anchor: start;
+}
+
+/* temp_stylePlugin:ni:sha-256;8nqUe5kPmG9OwSDVkdpIztmua2XOQLTKy2BsqNBVSKI */
+#main-apu .Box {
+  stroke: lightgray;
+  fill: none;
+  stroke-width: 2.5px;
+}
+#main-apu .NoFill {
+  fill: none;
+}
+#main-apu .AmberHeavy {
+  stroke: #e68000;
+  stroke-width: 4;
+}
+#main-apu text {
+  fill: #EEEEEE;
+}
+#main-apu text.FontSmall {
+  font-size: 15px;
+}
+#main-apu text.FontNormal {
+  font-size: 19px;
+}
+#main-apu text.Left {
+  text-anchor: start;
+  text-align: start;
+}
+#main-apu text.Center {
+  text-anchor: middle;
+  text-align: center;
+}
+#main-apu text.Right {
+  text-anchor: end;
+  text-align: end;
+}
+#main-apu text.Green {
+  fill: #00ff00;
+}
+#main-apu text.Amber {
+  fill: #e68000;
+}
+#main-apu text.Cyan {
+  fill: #00ffff;
+}
+#main-apu text.FontLarger {
+  font-size: 22px;
+}
+#main-apu text.FontTitle {
+  font-size: 24px;
+}
+#main-apu .Line {
+  stroke-width: 2px;
+}
+#main-apu .Line.White {
+  stroke: #ffffff;
+}
+#main-apu .Line.Grey {
+  stroke: lightgray;
+}
+#main-apu .Line.Amber {
+  stroke: #e68000;
+}
+#main-apu .Line.Red {
+  stroke: #ff0000;
+}
+#main-apu .Line.Green {
+  stroke: #00ff00;
+}
+#main-apu .Circle {
+  fill: none;
+  stroke-width: 2.5px;
+}
+#main-apu .Circle.Green {
+  stroke: #00ff00;
+}
+#main-apu .Circle.Amber {
+  stroke: #e68000;
+}
+#main-apu .FillPulse {
+  animation: fill-pulse 1s step-end infinite;
+}
+@keyframes fill-pulse {
+  0%, 100% {
+    fill: #00ff00;
+  }
+  50% {
+    fill: hsl(120, 100%, 20%);
+  }
+}
+#main-apu .LinePulse {
+  animation: line-pulse 1s step-end infinite;
+}
+@keyframes line-pulse {
+  0%, 100% {
+    stroke: #00ff00;
+  }
+  50% {
+    stroke: hsl(120, 100%, 20%);
+  }
+}
+
+/* temp_stylePlugin:ni:sha-256;TeT6efR_78PeWU4BCeJeTlXG-KoLXR7sxddmbydkm1Q */
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/hs-a320/ECAMFontRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.sd-svg {
+  visibility: visible !important;
+  font-family: "Ecam", monospace !important;
+  background: #040404;
+}
+:root {
+  --bodyHeightScale: 1;
+}
+#Mainframe {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+#door-video-wrapper {
+  position: absolute;
+  top: -5%;
+  width: 100%;
+  height: 82%;
+  z-index: 100;
+  background-image: url(/Images/hs-a320/SD/door_camera.png);
+  background-size: cover;
+}
+#door-page .Hide {
+  display: none;
+}
+#door-page .WarningShape {
+  fill: #e68000;
+  stroke: #e68000;
+  stroke-width: 2;
+}
+#door-page .MainShape {
+  fill: transparent;
+  stroke: lightgray;
+  stroke-width: 2;
+}
+#door-page .DoorShape {
+  fill: transparent;
+  stroke: #00ff00;
+  stroke-width: 2;
+}
+#door-page #texts .Title {
+  font-size: 24px;
+  fill: #ffffff;
+}
+#door-page #texts .Slide {
+  font-size: 16px;
+  fill: #ffffff;
+}
+#door-page #texts .Warning {
+  font-size: 18px;
+  fill: #e68000;
+}
+#door-page #texts .OxyWarn {
+  font-size: 20px;
+  fill: #e68000;
+}
+#door-page #texts .Oxygen {
+  font-size: 20px;
+  fill: #ffffff;
+}
+#door-page #texts .Unit {
+  font-size: 18px;
+  fill: #00ffff;
+}
+#door-page #texts .Value {
+  font-size: 20px;
+  fill: #00ff00;
+}
+
+/* temp_stylePlugin:ni:sha-256;JVdEUb0yE5t7jltvYX6zE_F2Z006ceRPymr4qNQeVHs */
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/hs-a320/ECAMFontRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.sd-svg {
+  visibility: visible !important;
+  font-family: "Ecam", monospace !important;
+  background: #040404;
+}
+:root {
+  --bodyHeightScale: 1;
+}
+#Mainframe {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+#door-video-wrapper {
+  position: absolute;
+  top: -5%;
+  width: 100%;
+  height: 82%;
+  z-index: 100;
+  background-image: url(/Images/hs-a320/SD/door_camera.png);
+  background-size: cover;
+}
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/hs-a320/ECAMFontRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+#main-status {
+  font-family: "Ecam", monospace !important;
+}
+#main-status tspan {
+  white-space: pre;
+}
+#main-status text,
+#main-status tspan {
+  fill: #ffffff;
+  stroke: none !important;
+}
+#main-status text.Standard,
+#main-status tspan.Standard {
+  font-size: 22px;
+}
+#main-status text.Medium,
+#main-status tspan.Medium {
+  font-size: 20px;
+}
+#main-status text.Large,
+#main-status tspan.Large {
+  font-size: 26px;
+}
+#main-status text.EWDWarn,
+#main-status tspan.EWDWarn {
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+#main-status text.Huge,
+#main-status tspan.Huge {
+  font-size: 31px;
+}
+#main-status text.Cyan,
+#main-status tspan.Cyan {
+  fill: #00ffff !important;
+}
+#main-status text.Green,
+#main-status tspan.Green {
+  fill: #00ff00 !important;
+}
+#main-status text.Amber,
+#main-status tspan.Amber {
+  fill: #e68000;
+}
+#main-status text.Red,
+#main-status tspan.Red {
+  fill: #ff0000;
+}
+#main-status text.Magenta,
+#main-status tspan.Magenta {
+  fill: #ff94ff;
+}
+#main-status text.Center,
+#main-status tspan.Center {
+  text-anchor: middle !important;
+}
+#main-status text.End,
+#main-status tspan.End {
+  text-anchor: end !important;
+}
+#main-status .Underline {
+  text-decoration: underline;
+}
+#main-status .AmberLine {
+  stroke: #e68000 !important;
+  stroke-width: 2;
+  fill: none;
+}
+#main-status .GreenLine {
+  stroke: #00ff00 !important;
+  stroke-width: 2;
+  fill: none;
+}
+#main-status .WhiteLine {
+  stroke: #ffffff !important;
+  stroke-width: 2;
+  fill: none;
+}
+#main-status .RedLine {
+  stroke: #ff0000 !important;
+  stroke-width: 2;
+  fill: none;
+}
+#main-status .Separator {
+  stroke: lightgray;
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: "round";
+}
+
+/* temp_stylePlugin:ni:sha-256;BqiE8v94wxVQTvD2WFYjrJjIlQadrFy5_LPnNeTUdP4 */
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/hs-a320/ECAMFontRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.sd-svg {
+  visibility: visible !important;
+  font-family: "Ecam", monospace !important;
+  background: #040404;
+}
+:root {
+  --bodyHeightScale: 1;
+}
+#Mainframe {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+#door-video-wrapper {
+  position: absolute;
+  top: -5%;
+  width: 100%;
+  height: 82%;
+  z-index: 100;
+  background-image: url(/Images/hs-a320/SD/door_camera.png);
+  background-size: cover;
+}
+#crz-page text {
+  fill: #ffffff;
+}
+#crz-page text.Title {
+  font-size: 24px;
+  fill: #ffffff;
+  text-decoration: underline;
+  text-anchor: middle !important;
+}
+#crz-page text.SubTitle {
+  font-size: 22px;
+  fill: #ffffff;
+  text-decoration: underline;
+  text-anchor: middle !important;
+}
+#crz-page text.Standard {
+  font-size: 17px;
+}
+#crz-page text.Medium {
+  font-size: 16px;
+}
+#crz-page text.Large {
+  font-size: 20px;
+}
+#crz-page text.Cyan {
+  fill: #00ffff !important;
+}
+#crz-page text.Green {
+  fill: #00ff00 !important;
+}
+#crz-page text.Amber {
+  fill: #e68000;
+}
+#crz-page text.Center {
+  text-anchor: middle !important;
+}
+#crz-page .Show {
+  display: block;
+}
+#crz-page .Hide {
+  display: none;
+}
+#crz-page .Gauge {
+  stroke: #ffffff;
+  stroke-width: 2;
+  fill: none;
+}
+#crz-page .GaugeText {
+  stroke: #ffffff;
+  font-size: 17px;
+}
+#crz-page .GaugeIndicator {
+  stroke: #00ff00;
+  stroke-width: 2;
+  fill: none;
+}
+#crz-page .VsIndicator {
+  stroke: #00ff00;
+  stroke-width: 2;
+  fill: none;
+}
+#crz-page .WingPlaneSym {
+  stroke: #787878;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* temp_stylePlugin:ni:sha-256;6JpBSgs6ucnLEjiCnvjNiEr6Y9i5gQiyPTLwZj8vl4o */
+.sd-status-line {
+  stroke: white;
+  stroke-width: 3;
+}
+#StatusArea {
+  display: block;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  height: 20%;
+  font-family: "Ecam", monospace !important;
+}
+
+/* temp_stylePlugin:ni:sha-256;KX6ekwhCNtbG7AZ5A-a1Sud8GGPkcOTD26M9B-qPlQo */
+text.text-unit {
+  fill: #00ffff;
+  font-size: 15px;
+}
+text.text-value {
+  fill: #00ff00;
+  font-size: 20px;
+}
+text.text-warning {
+  fill: #e68000;
+  font-size: 20px;
+}
+text.text-big-value {
+  fill: #00ff00;
+  font-size: 22px;
+}
+text.text-title {
+  fill: #ffffff;
+  font-size: 20px;
+}

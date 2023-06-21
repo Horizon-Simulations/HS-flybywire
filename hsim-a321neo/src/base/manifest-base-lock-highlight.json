@@ -1,0 +1,19 @@
+{
+    "creator": "Horizon Simulations",
+    "release_notes": {
+      "neutral": {
+        "LastUpdate": "",
+        "OlderHistory": ""
+      }
+    },
+    "title": "A21NHS - Lock Highlights",
+    "dependencies": [
+      {
+        "package_version": "2.0",
+        "name": "horizonsim-lvfr-airbus-a321-neo"
+      }
+    ],
+    "content_type": "AIRCRAFT",
+    "minimum_game_version": "1.26.5",
+    "manufacturer": "Airbus"
+  }

@@ -1,0 +1,37 @@
+/* temp_stylePlugin:ni:sha-256;Z4OHC25XbM5h_YlPEPqDvUgZfTMYXxZRGE8FkGsdJ9M */
+:root {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+@font-face {
+  src: url(/Fonts/hs-a320/AirbusRMP.ttf) format("truetype");
+  font-family: "AirbusRMP";
+  font-style: normal;
+  font-weight: 900;
+}
+.rmp-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0%;
+}
+.rmp-wrapper svg {
+  height: 25%;
+  width: 100%;
+}
+.rmp-svg {
+  background-color: hsl(31, 69%, 6%);
+  background-color: hsl(55, 82%, 2%);
+  box-shadow: inset 0px 0px 110px -20px rgba(255, 175, 0, 0.5);
+  opacity: 0.5;
+}
+text {
+  alignment-baseline: central;
+  font-family: AirbusRMP;
+  letter-spacing: 0px;
+  fill: hsl(40, 100%, 50%);
+  text-anchor: end;
+  font-size: 123px;
+  height: 100%;
+}

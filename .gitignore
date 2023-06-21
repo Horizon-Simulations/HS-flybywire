@@ -26,7 +26,10 @@
 !/.cargo/config.toml
 !rust-toolchain.toml
 
-!qbt-a321ec/src/base/manifest-base.json
+!hsim-a318ceo/src/base/manifest-base.json
+!hsim-a319ceo/src/base/manifest-base.json
+!hsim-a320ceo/src/base/manifest-base.json
+!hsim-a321neo/src/base/manifest-base.json
 !package.json
 
 !jest.config.js
@@ -36,38 +39,125 @@
 
 # Project folders
 
-/hdw-common/*
-!/hdw-common/src/
-!/hdw-common/src/**
+/hsim-common/*
+!/hsim-common/src/
+!/hsim-common/src/**
 
-/qbt-a321ec/*
-!/qbt-a321ec/README.md
-!/qbt-a321ec/mach.config.js
-!/qbt-a321ec/.env
-!/qbt-a321ec/docs/
-!/qbt-a321ec/docs/**
-!/qbt-a321ec/src/
-!/qbt-a321ec/src/**
+/hsim-a318ceo/*
+!/hsim-a318ceo/README.md
+!/hsim-a318ceo/mach.config.js
+!/hsim-a318ceo/.env
+!/hsim-a318ceo/docs/
+!/hsim-a318ceo/docs/**
+!/hsim-a318ceo/src/
+!/hsim-a318ceo/src/**
 
-/qbt-a321ec/out
-/qbt-a321ec/src/base/qbitsim-aircraft-a321-251/SimObjects/Airplanes/qbitsim-aircraft-a321-251/model/*.bin
-/qbt-a321ec/src/base/qbitsim-aircraft-a321-251/SimObjects/Airplanes/qbitsim-aircraft-a321-251/model/*.gltf
-/qbt-a321ec/src/systems/instruments/aceBundles
-/qbt-a321ec/src/systems/instruments/buildSrc/custom/*
+/hsim-a318ceo/out
+/hsim-a318ceo/src/base/horizonsim-lvfr-airbus-a318-ceo/SimObjects/Airplanes/**/model/*.bin
+/hsim-a318ceo/src/base/horizonsim-lvfr-airbus-a318-ceo/SimObjects/Airplanes/**/model/*.gltf
+/hsim-a318ceo/src/systems/instruments/aceBundles
+/hsim-a318ceo/src/systems/instruments/buildSrc/custom/*
 
-/qbt-a321ec/src/localization/flypad/downloaded/*.json
-/qbt-a321ec/src/localization/msfs/downloaded/*.locPak
-/qbt-a321ec/src/systems/instruments/src/EFB/dist
-/qbt-a321ec/src/systems/instruments/src/EFB/web/
+/hsim-a318ceo/src/localization/flypad/downloaded/*.json
+/hsim-a318ceo/src/localization/msfs/downloaded/*.locPak
+/hsim-a318ceo/src/systems/instruments/src/EFB/dist
+/hsim-a318ceo/src/systems/instruments/src/EFB/web/
 
-/qbt-a321ec-liveries/*
-!/qbt-a321ec-liveries/README.md
-!/qbt-a321ec-liveries/mach.config.js
-!/qbt-a321ec-liveries/.env
-!/qbt-a321ec-liveries/docs/
-!/qbt-a321ec-liveries/docs/**
-!/qbt-a321ec-liveries/src/
-!/qbt-a321ec-liveries/src/**
+/hsim-a318ceo-liveries/*
+!/hsim-a318ceo-liveries/README.md
+!/hsim-a318ceo-liveries/mach.config.js
+!/hsim-a318ceo-liveries/.env
+!/hsim-a318ceo-liveries/docs/
+!/hsim-a318ceo-liveries/docs/**
+!/hsim-a318ceo-liveries/src/
+!/hsim-a318ceo-liveries/src/**
+
+/hsim-a319ceo/*
+!/hsim-a319ceo/README.md
+!/hsim-a319ceo/mach.config.js
+!/hsim-a319ceo/.env
+!/hsim-a319ceo/docs/
+!/hsim-a319ceo/docs/**
+!/hsim-a319ceo/src/
+!/hsim-a319ceo/src/**
+
+/hsim-a319ceo/out
+/hsim-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.bin
+/hsim-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.gltf
+/hsim-a319ceo/src/systems/instruments/aceBundles
+/hsim-a319ceo/src/systems/instruments/buildSrc/custom/*
+
+/hsim-a319ceo/src/localization/flypad/downloaded/*.json
+/hsim-a319ceo/src/localization/msfs/downloaded/*.locPak
+/hsim-a319ceo/src/systems/instruments/src/EFB/dist
+/hsim-a319ceo/src/systems/instruments/src/EFB/web/
+
+/hsim-a319ceo-liveries/*
+!/hsim-a319ceo-liveries/README.md
+!/hsim-a319ceo-liveries/mach.config.js
+!/hsim-a319ceo-liveries/.env
+!/hsim-a319ceo-liveries/docs/
+!/hsim-a319ceo-liveries/docs/**
+!/hsim-a319ceo-liveries/src/
+!/hsim-a319ceo-liveries/src/**
+
+/hsim-a320ceo/*
+!/hsim-a320ceo/README.md
+!/hsim-a320ceo/mach.config.js
+!/hsim-a320ceo/.env
+!/hsim-a320ceo/docs/
+!/hsim-a320ceo/docs/**
+!/hsim-a320ceo/src/
+!/hsim-a320ceo/src/**
+
+/hsim-a320ceo/out
+/hsim-a320ceo/src/base/horizonsim-lvfr-airbus-a320-ceo/SimObjects/Airplanes/**/model/*.bin
+/hsim-a320ceo/src/base/horizonsim-lvfr-airbus-a320-ceo/SimObjects/Airplanes/**/model/*.gltf
+/hsim-a320ceo/src/systems/instruments/aceBundles
+/hsim-a320ceo/src/systems/instruments/buildSrc/custom/*
+
+/hsim-a320ceo/src/localization/flypad/downloaded/*.json
+/hsim-a320ceo/src/localization/msfs/downloaded/*.locPak
+/hsim-a320ceo/src/systems/instruments/src/EFB/dist
+/hsim-a320ceo/src/systems/instruments/src/EFB/web/
+
+/hsim-a320ceo-liveries/*
+!/hsim-a320ceo-liveries/README.md
+!/hsim-a320ceo-liveries/mach.config.js
+!/hsim-a320ceo-liveries/.env
+!/hsim-a320ceo-liveries/docs/
+!/hsim-a320ceo-liveries/docs/**
+!/hsim-a320ceo-liveries/src/
+!/hsim-a320ceo-liveries/src/**
+
+/hsim-a321neo/*
+!/hsim-a321neo/README.md
+!/hsim-a321neo/mach.config.js
+!/hsim-a321neo/.env
+!/hsim-a321neo/docs/
+!/hsim-a321neo/docs/**
+!/hsim-a321neo/src/
+!/hsim-a321neo/src/**
+
+/hsim-a321neo/out
+/hsim-a321neo/src/base/horizonsim-lvfr-airbus-a321-neo/SimObjects/Airplanes/**/model/*.bin
+/hsim-a321neo/src/base/horizonsim-lvfr-airbus-a321-neo/SimObjects/Airplanes/**/model/*.gltf
+/hsim-a321neo/src/systems/instruments/aceBundles
+/hsim-a321neo/src/systems/instruments/buildSrc/custom/*
+
+/hsim-a321neo/src/localization/flypad/downloaded/*.json
+/hsim-a321neo/src/localization/msfs/downloaded/*.locPak
+/hsim-a321neo/src/systems/instruments/src/EFB/dist
+/hsim-a321neo/src/systems/instruments/src/EFB/web/
+
+/hsim-a321neo-liveries/*
+!/hsim-a321neo-liveries/README.md
+!/hsim-a321neo-liveries/mach.config.js
+!/hsim-a321neo-liveries/.env
+!/hsim-a321neo-liveries/docs/
+!/hsim-a321neo-liveries/docs/**
+!/hsim-a321neo-liveries/src/
+!/hsim-a321neo-liveries/src/**
 
 !/scripts/**
 
@@ -78,10 +168,14 @@
 
 # avoid issues when switching branches during transistion from old to new structure
 /src/
-/qbitsim-aircraft-a321-251/
-/qbitsim-aircraft-a321-251-lock-highlight/
-/qbitsim-aircraft-a321-251/
-/qbitsim-aircraft-a321-251-lock-highlight/
+/horizonsim-lvfr-airbus-a318-ceo/
+/horizonsim-lvfr-airbus-a318-ceo-lock-highlight/
+/horizonsim-lvfr-airbus-a319-ceo/
+/horizonsim-lvfr-airbus-a319-ceo-lock-highlight/
+/horizonsim-lvfr-airbus-a320-ceo/
+/horizonsim-lvfr-airbus-a320-ceo-lock-highlight/
+/horizonsim-lvfr-airbus-a321-neo/
+/horizonsim-lvfr-airbus-a321-neo-lock-highlight/
 
 # explicit exclusions
 /.env
@@ -91,7 +185,13 @@ target/
 *.tgz
 *.wasm
 
-/qbt-a321ec/src/project/Packages
-/qbt-a321ec/src/project/_PackageInt
+/hsim-a318ceo/src/project/Packages
+/hsim-a318ceo/src/project/_PackageInt
+/hsim-a319ceo/src/project/Packages
+/hsim-a319ceo/src/project/_PackageInt
+/hsim-a320ceo/src/project/Packages
+/hsim-a320ceo/src/project/_PackageInt
+/hsim-a321neo/src/project/Packages
+/hsim-a321neo/src/project/_PackageInt
 /build-a321EC/
 /build-common/

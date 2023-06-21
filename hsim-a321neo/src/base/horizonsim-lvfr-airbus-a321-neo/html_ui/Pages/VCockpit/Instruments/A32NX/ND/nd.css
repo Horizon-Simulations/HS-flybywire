@@ -1,0 +1,196 @@
+/* temp_stylePlugin:ni:sha-256;S4rKF6ZVF2JimeHZYwYdnhYWkYegJcI66Y36x5zfSCg */
+.SelfTest {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.SelfTestBackground {
+  fill: #040404;
+}
+.SelfTestText {
+  font-size: 24px;
+  fill: #00ff00;
+  text-anchor: middle;
+  font-family: "Ecam", monospace;
+}
+.MaintenanceMode {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-family: "Ecam", monospace;
+}
+.EngineeringTestMode {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  border: none;
+  z-index: 999;
+  background-image: url(/Images/fbw-a32nx/Common/thalesTest.svg);
+  background-size: cover;
+  font-family: "Ecam", monospace;
+}
+.EngineeringTestMode text {
+  font-size: 21px;
+  color: black;
+  font-family: "Ecam", monospace;
+}
+
+/* temp_stylePlugin:ni:sha-256;qesxwIjG5RkPpRNAVbFA20oOOiMceCmvAs4TJS-Zpvw */
+@font-face {
+  font-family: "Ecam";
+  src: url(/Fonts/fbw-a32nx/ECAMFontRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NDChrono";
+  src: url(/Fonts/fbw-a32nx/NDChrono.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.nd-svg {
+  position: absolute;
+  width: 768px;
+  height: 768px;
+  background: transparent;
+  font-family: "Ecam", monospace !important;
+}
+.nd-inverted-map-area {
+  background: #040404;
+  fill: rgb(4, 4, 4);
+}
+.GtLayer {
+  -webkit-transform: rotateX(0deg);
+}
+.MiddleAlign {
+  text-anchor: middle;
+}
+.Magenta {
+  fill: none;
+  stroke: #ff94ff;
+}
+.Magenta.Fill {
+  fill: #ff94ff;
+  stroke: none;
+}
+.Magenta text,
+text.Magenta {
+  fill: #ff94ff;
+  stroke: none;
+}
+.Cyan {
+  fill: none;
+  stroke: #00ffff;
+}
+.Cyan.Fill {
+  fill: #00ffff;
+  stroke: none;
+}
+.Cyan text,
+text.Cyan,
+.Cyan tspan,
+tspan.Cyan {
+  fill: #00ffff;
+  stroke: none;
+}
+tspan.Cyan {
+  fill: #00ffff;
+  stroke: none;
+}
+.White {
+  fill: none;
+  stroke: #ffffff;
+}
+.White.Fill {
+  fill: #ffffff;
+  stroke: none;
+}
+.White text,
+text.White {
+  fill: #ffffff;
+  stroke: none;
+}
+.Green {
+  stroke: #00ff00;
+  fill: none;
+}
+.Green.Fill {
+  fill: #00ff00;
+  stroke: none;
+}
+.Green text,
+text.Green,
+.Green tspan,
+tspan.Green {
+  fill: #00ff00;
+  stroke: none;
+}
+.Amber {
+  stroke: #e68000;
+  fill: none;
+}
+.Amber text,
+text.Amber {
+  fill: #e68000;
+  stroke: none;
+}
+.Yellow {
+  stroke: #ffff00;
+  fill: none;
+}
+.Yellow.Fill {
+  fill: #ffff00;
+  stroke: none;
+}
+.Yellow text,
+text.Yellow {
+  fill: #ffff00;
+  stroke: none;
+}
+.Red {
+  stroke: #ff0000;
+  fill: none;
+}
+.Red.Fill {
+  fill: #ff0000;
+  stroke: none;
+}
+.Red text,
+text.Red {
+  fill: #ff0000;
+  stroke: none;
+}
+.Grey.Fill {
+  fill: #787878;
+  stroke: none;
+}
+.BackgroundFill {
+  fill: #040404;
+}
+path.rounded {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+text.shadow {
+  stroke: #040404;
+  stroke-width: 1px;
+  paint-order: stroke;
+}
+circle.shadow,
+line.shadow,
+path.shadow,
+rect.shadow {
+  stroke: #040404;
+  fill: none;
+}
+.chrono {
+  font-family: "NDChrono", monospace !important;
+}
