@@ -12,7 +12,7 @@ if [ "${GITHUB_ACTIONS}" == "true" ]; then
 fi
 
 # run build
-time npx igniter -r A318HS "$@"
+time npx igniter -c a318ceo-igniter.config.mjs -r A318HS "$@"
 
 if [ "${GITHUB_ACTIONS}" == "true" ]; then
   rm -rf /external/a32nx

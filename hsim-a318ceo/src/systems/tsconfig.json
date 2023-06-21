@@ -4,17 +4,17 @@
       "baseUrl": ".",
       "resolveJsonModule" : true,
       "typeRoots": [
-        "../../../build-common/src/typings",
+        "../../../fbw-common/src/typings",
         "../../../node_modules/@types"
       ],
       "moduleResolution": "node",
       "allowSyntheticDefaultImports": true,
       "jsx": "react",
       "paths": {
-        "@datalink/aoc": ["../../../build-common/src/systems/datalink/aoc/src/index.ts"],
-        "@datalink/atc": ["../../../build-common/src/systems/datalink/atc/src/index.ts"],
-        "@datalink/common": ["../../../build-common/src/systems/datalink/common/src/index.ts"],
-        "@datalink/router": ["../../../build-common/src/systems/datalink/router/src/index.ts"],
+        "@datalink/aoc": ["../../../fbw-common/src/systems/datalink/aoc/src/index.ts"],
+        "@datalink/atc": ["../../../fbw-common/src/systems/datalink/atc/src/index.ts"],
+        "@datalink/common": ["../../../fbw-common/src/systems/datalink/common/src/index.ts"],
+        "@datalink/router": ["../../../fbw-common/src/systems/datalink/router/src/index.ts"],
         "@failures": ["./failures/src/index.ts"],
         "@fmgc/*": ["./fmgc/src/*"],
         "@instruments/common/*": ["./instruments/src/Common/*"],
@@ -23,7 +23,7 @@
         "@simbridge/*": ["./simbridge-client/src/*"],
         "@shared/*": ["./shared/src/*"],
         "@tcas/*": ["./tcas/src/*"],
-        "@typings/*": ["../../../build-common/src/typings/*"],
+        "@typings/*": ["../../../fbw-common/src/typings/*"],
       }
     },
   }

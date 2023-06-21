@@ -7,7 +7,7 @@ const postCssInset = require('postcss-inset');
 /** @type { import('@synaptic-simulations/mach').MachConfig } */
 module.exports = {
     packageName: 'A318HS',
-    packageDir: 'out/horizonsim-lvfr-airbus-a318-ceo',
+    packageDir: 'out/lvfr-horizonsim-airbus-a318-ceo',
     plugins: [
         imagePlugin({ limit: -1 }),
         postCssPlugin({
@@ -27,10 +27,10 @@ module.exports = {
     ],
     instruments: [
         msfsAvionicsInstrument('PFD'),
+        msfsAvionicsInstrument('ND', 'NDv2'),
         msfsAvionicsInstrument('EWD'),
         msfsAvionicsInstrument('Clock'),
 
-        reactInstrument('ND', ['/JS/A318HS/A32NX_Util.js']),
         reactInstrument('SD'),
         reactInstrument('DCDU'),
         reactInstrument('RTPI'),
@@ -42,10 +42,10 @@ module.exports = {
     ],
 };
 
-function msfsAvionicsInstrument(name) {
+function msfsAvionicsInstrument(name, folder = name) {
     return {
         name,
-        index: `src/systems/instruments/src/${name}/instrument.tsx`,
+        index: `src/systems/instruments/src/${folder}/instrument.tsx`,
         simulatorPackage: {
             type: 'baseInstrument',
             templateId: `A318HS_${name}`,
@@ -64,7 +64,7 @@ function reactInstrument(name, additionalImports) {
             type: 'react',
             isInteractive: false,
             fileName: name.toLowerCase(),
-            imports: ['/JS/dataStorage.js','/JS/A318HS/A32NX_Simvars.js', ...(additionalImports ?? [])],
+            imports: ['/JS/dataStorage.js','/JS/A318HS/A318HS_Simvars.js', ...(additionalImports ?? [])],
         },
     };
 }

@@ -19,6 +19,10 @@
 !.prettierrc.json
 
 !igniter.config.mjs
+!a318ceo-igniter.config.mjs
+!a319ceo-igniter.config.mjs
+!a320ceo-igniter.config.mjs
+!a321neo-igniter.config.mjs
 !jsconfig.json
 
 !Cargo.lock
@@ -197,4 +201,4 @@ target/
 /build-a319ceo/
 /build-a320ceo/
 /build-a321neo/
-/build-common/
+/fbw-common/

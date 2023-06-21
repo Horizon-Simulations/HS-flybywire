@@ -30,7 +30,7 @@ class SystemsHost extends BaseInstrument {
     }
 
     get templateID(): string {
-        return 'A321EC_SYSTEMSHOST';
+        return 'A318HS_SYSTEMSHOST';
     }
 
     public getDeltaTime() {

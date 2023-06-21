@@ -3,11 +3,11 @@
 set -ex
 
 #remove directory if it exist
-rm -rvf ./build-common
+rm -rvf ./fbw-common
 
 # copy from FBW COMMON source and HDW COMMON into one src
-cp -rva ./a32nx/fbw-common/. ./build-common
-cp -rva ./hsim-common/. ./build-common
+cp -rva ./a32nx/fbw-common/. ./fbw-common
+cp -rva ./hsim-common/. ./fbw-common
 
 #remove directory if it exist
 rm -rvf ./build-a318ceo
