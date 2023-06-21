@@ -1,18 +1,21 @@
-
 [workspace]
+exclude = ["a32nx"]
 
 members = [
-    "fbw-a21n/src/wasm/systems/a21n_systems",
-    "fbw-a21n/src/wasm/systems/a21n_systems_wasm",
-    "fbw-a318/src/wasm/systems/a318_systems",
-    "fbw-a318/src/wasm/systems/a318_systems_wasm",
-    "fbw-a319/src/wasm/systems/a319_systems",
-    "fbw-a319/src/wasm/systems/a319_systems_wasm",
-    "fbw-a21n/src/wasm/systems/a21n_hydraulic_simulation_graphs",
-    "fbw-a318/src/wasm/systems/a318_hydraulic_simulation_graphs",
-    "fbw-a319/src/wasm/systems/a319_hydraulic_simulation_graphs",
-    "fbw-common/src/wasm/systems/systems",
-    "fbw-common/src/wasm/systems/systems_wasm",
+    "build-a318ceo/src/wasm/systems/a320_systems",
+    "build-a318ceo/src/wasm/systems/a320_systems_wasm",
+    "build-a318ceo/src/wasm/systems/a320_hydraulic_simulation_graphs",
+    "build-a319ceo/src/wasm/systems/a320_systems",
+    "build-a319ceo/src/wasm/systems/a320_systems_wasm",
+    "build-a319ceo/src/wasm/systems/a320_hydraulic_simulation_graphs",
+    "build-a320ceo/src/wasm/systems/a320_systems",
+    "build-a320ceo/src/wasm/systems/a320_systems_wasm",
+    "build-a320ceo/src/wasm/systems/a320_hydraulic_simulation_graphs",
+    "build-a321neo/src/wasm/systems/a320_systems",
+    "build-a321neo/src/wasm/systems/a320_systems_wasm",
+    "build-a321neo/src/wasm/systems/a320_hydraulic_simulation_graphs",
+    "build-common/src/wasm/systems/systems",
+    "build-common/src/wasm/systems/systems_wasm",
 ]
 
 [profile.release]

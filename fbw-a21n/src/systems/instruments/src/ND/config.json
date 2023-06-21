@@ -1,7 +1,0 @@
-{
-  "index": "./index.tsx",
-  "isInteractive": false,
-  "additionalImports": [
-    "/JS/hsim_a21n/fmgc/LzUtf8.js"
-  ]
-}

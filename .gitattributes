@@ -1,0 +1,13 @@
+* text=auto
+# Ensure LF for shell files, even on Windows, so that bash inside Docker does not panic
+*.sh text eol=lf
+# Ensure the language files update during build are not marked as changed due to different
+# line endings.
+/hsim-a318ceo/src/localization/flypad/*.json text eol=lf
+/hsim-a318ceo/src/localization/msfs/*.locPak text eol=lf
+/hsim-a319ceo/src/localization/flypad/*.json text eol=lf
+/hsim-a319ceo/src/localization/msfs/*.locPak text eol=lf
+/hsim-a320ceo/src/localization/flypad/*.json text eol=lf
+/hsim-a320ceo/src/localization/msfs/*.locPak text eol=lf
+/hsim-a321neo/src/localization/flypad/*.json text eol=lf
+/hsim-a321neo/src/localization/msfs/*.locPak text eol=lf

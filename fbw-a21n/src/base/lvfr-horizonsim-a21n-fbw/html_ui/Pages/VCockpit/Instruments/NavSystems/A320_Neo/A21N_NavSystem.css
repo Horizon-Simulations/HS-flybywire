@@ -1,9 +1,0 @@
-﻿@import url("/CSS/A21N_Display_Common.css");
-
-@font-face {
-  font-family: "ECAMFontRegular";
-  src: url("/Fonts/hsim-A21n/ECAMFontRegular.ttf") format("truetype");
-  fill: var(--displayMagenta);
-  font-weight: normal;
-  font-style: normal;
-}

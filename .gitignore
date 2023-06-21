@@ -26,16 +26,7 @@
 !/.cargo/config.toml
 !rust-toolchain.toml
 
-!fbw-a21n/src/base/**
-!fbw-a318/src/base/**
-!fbw-a319/src/base/**
-!fbw-a21n/src/base/manifest-base.json
-!fbw-a318/src/base/manifest-base.json
-!fbw-a319/src/base/manifest-base.json
-
-/fbw-a21n/out
-/fbw-a318/out
-/fbw-a319/out
+!qbt-a321ec/src/base/manifest-base.json
 !package.json
 
 !jest.config.js
@@ -43,18 +34,40 @@
 
 !CMakeLists.txt
 
-!/fbw-a21n/src/**
-!/fbw-a318/src/**
-!/fbw-a319/src/**
-!/fbw-common/**
+# Project folders
 
-/fbw-ingamepanels-checklist-fix/*
-!/fbw-ingamepanels-checklist-fix/README.md
-!/fbw-ingamepanels-checklist-fix/docs/
-!/fbw-ingamepanels-checklist-fix/docs/**
-!/fbw-ingamepanels-checklist-fix/src/
-!/fbw-ingamepanels-checklist-fix/src/**
-/fbw-ingamepanels-checklist-fix/out
+/hdw-common/*
+!/hdw-common/src/
+!/hdw-common/src/**
+
+/qbt-a321ec/*
+!/qbt-a321ec/README.md
+!/qbt-a321ec/mach.config.js
+!/qbt-a321ec/.env
+!/qbt-a321ec/docs/
+!/qbt-a321ec/docs/**
+!/qbt-a321ec/src/
+!/qbt-a321ec/src/**
+
+/qbt-a321ec/out
+/qbt-a321ec/src/base/qbitsim-aircraft-a321-251/SimObjects/Airplanes/qbitsim-aircraft-a321-251/model/*.bin
+/qbt-a321ec/src/base/qbitsim-aircraft-a321-251/SimObjects/Airplanes/qbitsim-aircraft-a321-251/model/*.gltf
+/qbt-a321ec/src/systems/instruments/aceBundles
+/qbt-a321ec/src/systems/instruments/buildSrc/custom/*
+
+/qbt-a321ec/src/localization/flypad/downloaded/*.json
+/qbt-a321ec/src/localization/msfs/downloaded/*.locPak
+/qbt-a321ec/src/systems/instruments/src/EFB/dist
+/qbt-a321ec/src/systems/instruments/src/EFB/web/
+
+/qbt-a321ec-liveries/*
+!/qbt-a321ec-liveries/README.md
+!/qbt-a321ec-liveries/mach.config.js
+!/qbt-a321ec-liveries/.env
+!/qbt-a321ec-liveries/docs/
+!/qbt-a321ec-liveries/docs/**
+!/qbt-a321ec-liveries/src/
+!/qbt-a321ec-liveries/src/**
 
 !/scripts/**
 
@@ -65,12 +78,20 @@
 
 # avoid issues when switching branches during transistion from old to new structure
 /src/
-/msfs-avionics-mirror/
-/flybywire-aircraft-a320-neo/
-/flybywire-aircraft-a320-neo-lock-highlight/
+/qbitsim-aircraft-a321-251/
+/qbitsim-aircraft-a321-251-lock-highlight/
+/qbitsim-aircraft-a321-251/
+/qbitsim-aircraft-a321-251-lock-highlight/
 
 # explicit exclusions
 /.env
 node_modules/
 obj/
 target/
+*.tgz
+*.wasm
+
+/qbt-a321ec/src/project/Packages
+/qbt-a321ec/src/project/_PackageInt
+/build-a321EC/
+/build-common/
