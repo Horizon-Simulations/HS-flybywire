@@ -18,12 +18,12 @@ class CDUAtcDepartReq {
     }
 
     static CreateMessage(store) {
-        const retval = new Atsu.DclMessage();
+        const retval = new AtsuCommon.DclMessage();
 
         retval.Callsign = store.callsign;
         retval.Origin = store.from;
         retval.Destination = store.to;
-        retval.AcType = "A318";
+        retval.AcType = "A20N";
         retval.Atis = store.atis;
         retval.Gate = store.gate;
         retval.Freetext = store.freetext.filter((n) => n);
@@ -51,8 +51,8 @@ class CDUAtcDepartReq {
             }
         }
         if (store.firstCall && store.station === "") {
-            if (mcdu.atsu.atc.currentStation() !== "") {
-                store.station = mcdu.atsu.atc.currentStation();
+            if (mcdu.atsu.currentStation() !== "") {
+                store.station = mcdu.atsu.currentStation();
             }
         }
         store.firstCall = false;
@@ -111,7 +111,7 @@ class CDUAtcDepartReq {
         if (store.from !== "" && store.to !== "") {
             fromTo = `{cyan}${store.from}/${store.to}{end}`;
 
-            const atisReports = mcdu.atsu.atc.atisReports(store.from);
+            const atisReports = mcdu.atsu.atisReports(store.from);
             if (atisReports.length !== 0 && atisReports[0].Information !== "") {
                 store.atis = atisReports[0].Information;
                 atis.setValue(store.atis);
@@ -135,7 +135,7 @@ class CDUAtcDepartReq {
         mcdu.setTemplate([
             ["DEPART REQ"],
             ["\xa0ATC FLT NBR", "A/C TYPE\xa0"],
-            [flightNo, "{cyan}A318{end}"],
+            [flightNo, "{cyan}A20N{end}"],
             ["\xa0FROM/TO", "STATION\xa0"],
             [fromTo, station],
             ["\xa0GATE", "ATIS CODE\xa0"],
@@ -198,7 +198,7 @@ class CDUAtcDepartReq {
                 store.station = "";
             } else if (/^[A-Z0-9]{4}$/.test(value)) {
                 mcdu.atsu.isRemoteStationAvailable(value).then((code) => {
-                    if (code !== Atsu.AtsuStatusCodes.Ok) {
+                    if (code !== AtsuCommon.AtsuStatusCodes.Ok) {
                         mcdu.addNewAtsuMessage(code);
                     } else {
                         store.station = value;

@@ -23,7 +23,7 @@ esbuild.build({
     format: 'iife',
     globalName: 'AtsuFmsClient',
 
-    sourcemap: isProductionBuild ? undefined : 'linked',
+    sourcemap: isProductionBuild ? 'linked' : undefined,
 
     // Target approximate CoherentGT WebKit version
     target: 'safari11',

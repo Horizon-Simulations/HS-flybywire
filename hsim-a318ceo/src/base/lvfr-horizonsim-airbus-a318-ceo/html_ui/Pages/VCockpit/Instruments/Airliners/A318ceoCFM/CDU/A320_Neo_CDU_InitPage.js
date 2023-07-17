@@ -6,13 +6,16 @@ class CDUInitPage {
         mcdu.activeSystem = 'FMGC';
         mcdu.coRoute.routes = [];
 
+        const haveFlightPlan = mcdu.flightPlanManager.getPersistentOrigin()
+            && mcdu.flightPlanManager.getDestination();
+
         const fromTo = new Column(23, "____|____", Column.amber, Column.right);
         const [coRouteAction, coRouteText, coRouteColor] = new CDU_SingleValueField(
             mcdu,
             "string",
             mcdu.coRoute.routeNumber,
             {
-                emptyValue: "__________[color]amber",
+                emptyValue: haveFlightPlan ? "" : "__________[color]amber",
                 suffix: "[color]cyan",
                 maxLength: 10,
             },
@@ -188,9 +191,6 @@ class CDUInitPage {
             if (value !== "") {
                 mcdu.tryUpdateFromTo(value, (result) => {
                     if (result) {
-                        CDUPerformancePage.UpdateThrRedAccFromOrigin(mcdu);
-                        CDUPerformancePage.UpdateEngOutAccFromOrigin(mcdu);
-                        CDUPerformancePage.UpdateThrRedAccFromDestination(mcdu);
                         CDUAvailableFlightPlanPage.ShowPage(mcdu);
                     } else {
                         scratchpadCallback();
@@ -332,10 +332,9 @@ class CDUInitPage {
         return isFinite(mcdu.blockFuel) &&
             isFinite(mcdu.zeroFuelWeightMassCenter) &&
             isFinite(mcdu.zeroFuelWeight) &&
-            mcdu.cruiseFlightLevel &&
             mcdu.flightPlanManager.getWaypointsCount() > 0 &&
             mcdu._zeroFuelWeightZFWCGEntered &&
-            mcdu._blockFuelEntered;
+            (mcdu._blockFuelEntered || mcdu.isAnEngineOn());
     }
     static trySetFuelPred(mcdu) {
         if (CDUInitPage.fuelPredConditionsMet(mcdu) && !mcdu._fuelPredDone) {

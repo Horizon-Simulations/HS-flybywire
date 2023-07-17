@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 
-import { NXDataStore } from '@shared/persistence';
-import { PopUpDialog } from '@shared/popup';
+import { NXDataStore, PopUpDialog } from '@flybywiresim/fbw-sdk';
 import * as Sentry from '@sentry/browser';
 import { BrowserTracing } from '@sentry/tracing';
 import { CaptureConsole as CaptureConsoleIntegration } from '@sentry/integrations';
@@ -219,7 +218,7 @@ export class FbwAircraftSentryClient {
 
         console.log('[SentryClient] Sentry initialized');
 
-        NXDataStore.getAndSubscribe('SENTRY_SESSION_ID', (_, value) => {
+        NXDataStore.getAndSubscribe('A32NX_SENTRY_SESSION_ID', (_, value) => {
             if (value) {
                 Sentry.setTag('session_id', value);
                 console.log('[SentryClient] Sentry tag "session_id" set to', value);

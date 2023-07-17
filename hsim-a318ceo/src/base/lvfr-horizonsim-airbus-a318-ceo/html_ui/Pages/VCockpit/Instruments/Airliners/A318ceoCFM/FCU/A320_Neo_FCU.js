@@ -238,7 +238,7 @@ class A320_Neo_FCU_Speed extends A320_Neo_FCU_Component {
             showSelectedSpeed,
             isMachActive,
             this.selectedValue,
-            SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0
+            SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0 && SimVar.GetSimVarValue("L:A32NX_ELEC_DC_2_BUS_IS_POWERED", "Bool")
         );
     }
 
@@ -517,6 +517,7 @@ class A320_Neo_FCU_Heading extends A320_Neo_FCU_Component {
         super(...arguments);
         this.backToIdleTimeout = 45000;
         this.inSelection = false;
+        this.trueRef = false;
 
         this._rotaryEncoderCurrentSpeed = 1;
         this._rotaryEncoderMaximumSpeed = 5;
@@ -574,11 +575,13 @@ class A320_Neo_FCU_Heading extends A320_Neo_FCU_Component {
     }
 
     getCurrentHeading() {
-        return ((Math.round(SimVar.GetSimVarValue("PLANE HEADING DEGREES MAGNETIC", "degree")) % 360) + 360) % 360;
+        const heading = SimVar.GetSimVarValue(this.trueRef ? "PLANE HEADING DEGREES TRUE" : "PLANE HEADING DEGREES MAGNETIC", "degree");
+        return ((Math.round(heading) % 360) + 360) % 360;
     }
 
     getCurrentTrack() {
-        return ((Math.round(SimVar.GetSimVarValue("GPS GROUND MAGNETIC TRACK", "degree")) % 360) + 360) % 360;
+        const track = SimVar.GetSimVarValue(this.trueRef ? "GPS GROUND TRUE TRACK" : "GPS GROUND MAGNETIC TRACK", "degree");
+        return ((Math.round(track) % 360) + 360) % 360;
     }
 
     onPush() {
@@ -616,13 +619,16 @@ class A320_Neo_FCU_Heading extends A320_Neo_FCU_Component {
         const lateralMode = SimVar.GetSimVarValue("L:A32NX_FMA_LATERAL_MODE", "Number");
         const lateralArmed = SimVar.GetSimVarValue("L:A32NX_FMA_LATERAL_ARMED", "Number");
         const isTRKMode = SimVar.GetSimVarValue("L:A32NX_TRK_FPA_MODE_ACTIVE", "Bool");
-        const lightsTest = SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0;
+        const lightsTest = SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0 && SimVar.GetSimVarValue("L:A32NX_ELEC_DC_2_BUS_IS_POWERED", "Bool");
         const isManagedActive = this.isManagedModeActive(lateralMode);
         const isManagedArmed = this.isManagedModeArmed(lateralArmed);
         const showSelectedValue = (this.isSelectedValueActive || this.inSelection || this.isPreselectionModeActive);
 
-        const isHeadingSync = SimVar.GetSimVarValue("L:A32NX_FCU_HEADING_SYNC", "Number");
+        this.trueRef = SimVar.GetSimVarValue('L:A32NX_FMGC_TRUE_REF', 'boolean');
+
+        const isHeadingSync = SimVar.GetSimVarValue("L:A32NX_FCU_HEADING_SYNC", "Number") || SimVar.GetSimVarValue("L:A32NX_FM_HEADING_SYNC", "boolean");
         if (!this.wasHeadingSync && isHeadingSync) {
+            console.log('Sync heading', this.selectedValue);
             if (isTRKMode) {
                 this.selectedValue = this.getCurrentTrack();
             } else {
@@ -630,6 +636,7 @@ class A320_Neo_FCU_Heading extends A320_Neo_FCU_Component {
             }
             this.isSelectedValueActive = true;
             this.onRotate();
+            SimVar.SetSimVarValue("L:A32NX_FM_HEADING_SYNC", "boolean", false);
         }
         this.wasHeadingSync = isHeadingSync;
 
@@ -679,10 +686,19 @@ class A320_Neo_FCU_Heading extends A320_Neo_FCU_Component {
                     }
                 }
             }
+
+            // ugly hack because the FG doesn't understand true heading
+            // FIXME teach the FG about true/mag
+            const correctedHeading = this.trueRef ? (_value - SimVar.GetSimVarValue('MAGVAR', 'degree')) % 360 : _value;
+
             SimVar.SetSimVarValue("L:A320_FCU_SHOW_SELECTED_HEADING", "number", _showSelectedHeading == true ? 1 : 0);
             if (_value !== this.currentValue) {
-                SimVar.SetSimVarValue("L:A32NX_AUTOPILOT_HEADING_SELECTED", "Degrees", _value);
-                Coherent.call("HEADING_BUG_SET", 1, Math.max(0, _value)).catch(console.error);
+                SimVar.SetSimVarValue("L:A32NX_FCU_HEADING_SELECTED", "Degrees", _value);
+                SimVar.SetSimVarValue("L:A32NX_AUTOPILOT_HEADING_SELECTED", "Degrees", correctedHeading);
+                Coherent.call("HEADING_BUG_SET", 1, Math.max(0, correctedHeading)).catch(console.error);
+            } else if (this.trueRef) {
+                SimVar.SetSimVarValue("L:A32NX_AUTOPILOT_HEADING_SELECTED", "Degrees", correctedHeading);
+                Coherent.call("HEADING_BUG_SET", 1, Math.max(0, correctedHeading)).catch(console.error);
             }
             this.isActive = _isActive;
             this.isManagedActive = _isManagedActive;
@@ -842,7 +858,7 @@ class A320_Neo_FCU_Mode extends A320_Neo_FCU_Component {
             SimVar.SetSimVarValue("L:A32NX_TRK_FPA_MODE_ACTIVE", "Bool", 0);
         }
         const _isTRKFPADisplayMode = SimVar.GetSimVarValue("L:A32NX_TRK_FPA_MODE_ACTIVE", "Bool");
-        this.refresh(_isTRKFPADisplayMode, SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0);
+        this.refresh(_isTRKFPADisplayMode, SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0 && SimVar.GetSimVarValue("L:A32NX_ELEC_DC_2_BUS_IS_POWERED", "Bool"));
     }
     refresh(_isTRKFPADisplayMode, _lightsTest, _force = false) {
         if ((_isTRKFPADisplayMode != this.isTRKFPADisplayMode) || (_lightsTest !== this.lightsTest) || _force) {
@@ -903,7 +919,7 @@ class A320_Neo_FCU_Altitude extends A320_Neo_FCU_Component {
         const verticalArmed = SimVar.GetSimVarValue("L:A32NX_FMA_VERTICAL_ARMED", "Number");
         const isManaged = this.isManagedModeActiveOrArmed(verticalMode, verticalArmed);
 
-        this.refresh(Simplane.getAutoPilotActive(), isManaged, Simplane.getAutoPilotDisplayedAltitudeLockValue(Simplane.getAutoPilotAltitudeLockUnits()), SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0);
+        this.refresh(Simplane.getAutoPilotActive(), isManaged, Simplane.getAutoPilotDisplayedAltitudeLockValue(Simplane.getAutoPilotAltitudeLockUnits()), SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0 && SimVar.GetSimVarValue("L:A32NX_ELEC_DC_2_BUS_IS_POWERED", "Bool"));
     }
 
     refresh(_isActive, _isManaged, _value, _lightsTest, _force = false) {
@@ -1043,7 +1059,7 @@ class A320_Neo_FCU_VerticalSpeed extends A320_Neo_FCU_Component {
     }
 
     update(_deltaTime) {
-        const lightsTest = SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0;
+        const lightsTest = SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0 && SimVar.GetSimVarValue("L:A32NX_ELEC_DC_2_BUS_IS_POWERED", "Bool");
         const isFPAMode = SimVar.GetSimVarValue("L:A32NX_TRK_FPA_MODE_ACTIVE", "Bool");
         const verticalMode = SimVar.GetSimVarValue("L:A32NX_FMA_VERTICAL_MODE", "Number");
 
@@ -1278,7 +1294,7 @@ class A320_Neo_FCU_Pressure extends A320_Neo_FCU_Component {
     update(_deltaTime) {
         const units = Simplane.getPressureSelectedUnits();
         const mode = Simplane.getPressureSelectedMode(Aircraft.A320_NEO);
-        this.refresh(mode, (units != "millibar"), Simplane.getPressureValue(units), SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0);
+        this.refresh(mode, (units != "millibar"), Simplane.getPressureValue(units), SimVar.GetSimVarValue("L:A32NX_OVHD_INTLT_ANN", "number") == 0 && SimVar.GetSimVarValue("L:A32NX_ELEC_DC_2_BUS_IS_POWERED", "Bool"));
     }
     refresh(_mode, _isHGUnit, _value, _lightsTest, _force = false) {
         if ((_mode != this.currentMode) || (_isHGUnit != this.isHGUnit) || (_value != this.currentValue) || (_lightsTest !== this.lightsTest) || _force) {

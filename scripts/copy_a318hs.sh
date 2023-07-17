@@ -3,6 +3,13 @@
 set -ex
 
 #remove directory if it exist
+rm -rvf ./fbw-common
+
+# copy from FBW COMMON source and HDW COMMON into one src
+cp -rva ./flybywire/fbw-common/. ./fbw-common
+cp -rva ./hsim-a318-common/. ./fbw-common
+
+#remove directory if it exist
 rm -rvf ./build-a318ceo
 
 # create directory
@@ -21,7 +28,7 @@ cp -rva ./hsim-a318ceo/mach.config.js ./build-a318ceo/mach.config.js
 
 cp -rva ./hsim-a318ceo/src/behavior/. ./build-a318ceo/src/behavior
 cp -rva ./hsim-a318ceo/src/localization/. ./build-a318ceo/src/localization
-cp -rva ./hsim-a318ceo/src/model/. ./build-a318ceo/src/model
+#cp -rva ./hsim-a318ceo/src/model/. ./build-a318ceo/src/model
 cp -rva ./hsim-a318ceo/src/systems/. ./build-a318ceo/src/systems
 cp -rva ./hsim-a318ceo/src/wasm/. ./build-a318ceo/src/wasm
 

@@ -230,7 +230,8 @@ class CDUVerticalRevisionPage {
             mcdu.onLeftInput[2] = async (value, scratchpadCallback) => {
                 if (value === FMCMainDisplay.clrValue) {
                     mcdu.flightPlanManager.setWaypointSpeed(-1, wpIndex, () => {
-                        this.ShowPage(mcdu, waypoint);
+                        mcdu.guidanceController.vnavDriver.invalidateFlightPlanProfile();
+                        this.ShowPage(mcdu, waypoint, verticalWaypoint);
                     }, constraintType === WaypointConstraintType.DES);
                     return;
                 }
@@ -255,6 +256,7 @@ class CDUVerticalRevisionPage {
                 }
 
                 mcdu.flightPlanManager.setWaypointSpeed(speed, wpIndex, () => {
+                    mcdu.guidanceController.vnavDriver.invalidateFlightPlanProfile();
                     this.ShowPage(mcdu, waypoint, verticalWaypoint);
                 }, constraintType === WaypointConstraintType.DES);
             }; // SPD CSTR
@@ -263,6 +265,7 @@ class CDUVerticalRevisionPage {
                     mcdu.flightPlanManager.setLegAltitudeDescription(waypoint, 0);
                     mcdu.flightPlanManager.setWaypointAltitude(0, wpIndex, () => {
                         mcdu.updateConstraints();
+                        mcdu.guidanceController.vnavDriver.invalidateFlightPlanProfile();
                         this.ShowPage(mcdu, waypoint, verticalWaypoint);
                     });
                     return;
@@ -292,7 +295,8 @@ class CDUVerticalRevisionPage {
                 mcdu.flightPlanManager.setLegAltitudeDescription(waypoint, code);
                 mcdu.flightPlanManager.setWaypointAltitude(altitude, wpIndex, () => {
                     mcdu.updateConstraints();
-                    this.ShowPage(mcdu, waypoint);
+                    mcdu.guidanceController.vnavDriver.invalidateFlightPlanProfile();
+                    this.ShowPage(mcdu, waypoint, verticalWaypoint);
                 }, constraintType === WaypointConstraintType.DES);
             }; // ALT CSTR
             mcdu.onLeftInput[4] = () => {
@@ -319,26 +323,30 @@ class CDUVerticalRevisionPage {
                 mcdu.onLeftInput[5] = () => {
                     if (confirmSpeed !== undefined) {
                         mcdu.flightPlanManager.setWaypointSpeed(confirmSpeed, wpIndex, () => {
-                            this.ShowPage(mcdu, waypoint);
+                            mcdu.guidanceController.vnavDriver.invalidateFlightPlanProfile();
+                            this.ShowPage(mcdu, waypoint, verticalWaypoint);
                         }, false);
                     }
                     if (confirmAlt !== undefined) {
                         mcdu.flightPlanManager.setLegAltitudeDescription(waypoint, confirmCode);
                         mcdu.flightPlanManager.setWaypointAltitude(confirmAlt, wpIndex, () => {
-                            this.ShowPage(mcdu, waypoint);
+                            mcdu.guidanceController.vnavDriver.invalidateFlightPlanProfile();
+                            this.ShowPage(mcdu, waypoint, verticalWaypoint);
                         }, false);
                     }
                 };
                 mcdu.onRightInput[5] = () => {
                     if (confirmSpeed !== undefined) {
                         mcdu.flightPlanManager.setWaypointSpeed(confirmSpeed, wpIndex, () => {
-                            this.ShowPage(mcdu, waypoint);
+                            mcdu.guidanceController.vnavDriver.invalidateFlightPlanProfile();
+                            this.ShowPage(mcdu, waypoint, verticalWaypoint);
                         }, true);
                     }
                     if (confirmAlt !== undefined) {
                         mcdu.flightPlanManager.setLegAltitudeDescription(waypoint, confirmCode);
                         mcdu.flightPlanManager.setWaypointAltitude(confirmAlt, wpIndex, () => {
-                            this.ShowPage(mcdu, waypoint);
+                            mcdu.guidanceController.vnavDriver.invalidateFlightPlanProfile();
+                            this.ShowPage(mcdu, waypoint, verticalWaypoint);
                         }, true);
                     }
                 };
@@ -371,7 +379,7 @@ class CDUVerticalRevisionPage {
     }
 
     // constraints can be set directly by LSK on f-pln page
-    static setConstraints(mcdu, waypoint, value, scratchpadCallback, offset = 0) {
+    static setConstraints(mcdu, waypoint, verticalWaypoint, value, scratchpadCallback, offset = 0) {
         const matchResult = value.match(/^(([0-9]{1,3})\/?)?(\/([+-])?(((FL)?([0-9]{1,3}))|([0-9]{4,5})))?$/);
         if (matchResult === null) {
             mcdu.setScratchpadMessage(NXSystemMessages.formatError);

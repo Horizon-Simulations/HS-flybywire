@@ -7,6 +7,7 @@ export default new TaskOfTasks("all", [
         // Currently, these can be run in parallel but in the future, we may need to run them in sequence if there are any dependencies.
         new TaskOfTasks("preparation", [
             new ExecTask("copy-base-files", "npm run build-a318ceo:copy-base-files"),
+            new ExecTask("copy-cargo-config", "npm run build-a318ceo:copy-cargo-config"),
             new TaskOfTasks("localization", [
                 new ExecTask("efb-translation", "npm run build-a318ceo:efb-translation"),
                 new ExecTask("locPak-translation", "npm run build-a318ceo:locPak-translation")
@@ -126,8 +127,8 @@ export default new TaskOfTasks("all", [
                 "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/terronnd.wasm",
                 "fbw-common/src/wasm/terronnd/out/terronnd.wasm",
             ]),
-            new ExecTask("flypad-backend-cfm",
-                "npm run build-a318ceo:flypad-backend",
+            new ExecTask("flypad-backend",
+                "npm run build-a318ceo:flypad-backend-cfm",
                 [
                     "build-a318ceo/src/wasm/flypad-backend",
                     "fbw-common/src/wasm/fbw_common",
@@ -138,10 +139,10 @@ export default new TaskOfTasks("all", [
 
     // Copy generated wasm to variants (as for now)
     new TaskOfTasks("copy-wasm", [
-         new ExecTask("fadec-cj", "npm run build-a318ceo:fadec-cfm-cj"),
-         new ExecTask("fbw-cj", "npm run build-a318ceo:fbw-cfm-cj"),
-         new ExecTask("flypad-backend-cj", "npm run build-a318ceo:flypad-backend-cfm-cj"),
-         new ExecTask("systems-cj", "npm run build-a318ceo:systems-cfm-cj"),
+         new ExecTask("fadec-cj", "npm run build-a318ceo:copy-fadec-cfm-cj"),
+         new ExecTask("fbw-cj", "npm run build-a318ceo:copy-fbw-cfm-cj"),
+         new ExecTask("flypad-backend-cj", "npm run build-a318ceo:copy-flypad-backend-cfm-cj"),
+         new ExecTask("systems-cj", "npm run build-a318ceo:copy-systems-cfm-cj"),
 
     ]),
 

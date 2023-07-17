@@ -1,6 +1,10 @@
+// Copyright (c) 2021-2023 FlyByWire Simulations
+//
+// SPDX-License-Identifier: GPL-3.0
+
 import React, { useState } from 'react';
 import { A320Failure, Failure, FailuresOrchestrator } from '@failures';
-import { useUpdate } from '@instruments/common/hooks';
+import { useUpdate } from '@flybywiresim/fbw-sdk';
 
 interface FailuresOrchestratorContext {
     allFailures: Readonly<Readonly<Failure>[]>,
@@ -42,8 +46,6 @@ const createOrchestrator = () => new FailuresOrchestrator('A32NX', [
 
     [31, A320Failure.LeftPfdDisplay, 'Captain PFD display'],
     [31, A320Failure.RightPfdDisplay, 'F/O PFD display'],
-    [31, A320Failure.FlightWarningComputer1, 'FWC 1'],
-    [31, A320Failure.FlightWarningComputer2, 'FWC 2'],
 
     [32, A320Failure.LgciuPowerSupply1, 'LGCIU 1 Power supply'],
     [32, A320Failure.LgciuPowerSupply2, 'LGCIU 2 Power supply'],

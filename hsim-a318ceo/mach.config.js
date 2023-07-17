@@ -27,7 +27,7 @@ module.exports = {
     ],
     instruments: [
         msfsAvionicsInstrument('PFD'),
-        msfsAvionicsInstrument('ND', 'NDv2', ['/JS/A318HS/A32NX_Util.js']),
+        msfsAvionicsInstrument('ND', 'NDv2'),
         msfsAvionicsInstrument('EWD'),
         msfsAvionicsInstrument('Clock'),
 

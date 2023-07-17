@@ -66,11 +66,18 @@ class CDUAtcMenu {
             CDUAtcConnection.ShowPage(mcdu);
         };
 
+        mcdu.leftInputDelay[5] = () => {
+            return mcdu.getDelaySwitchPage();
+        };
+        mcdu.onLeftInput[5] = () => {
+            CDUAtsuMenu.ShowPage(mcdu);
+        };
+
         mcdu.rightInputDelay[0] = () => {
             return mcdu.getDelaySwitchPage();
         };
         mcdu.onRightInput[0] = () => {
-            if (mcdu.atsu.atc.fansMode() === Atsu.FansMode.FansA) {
+            if (mcdu.atsu.fansMode() === AtsuCommon.FansMode.FansA) {
                 CDUAtcUsualRequestFansA.ShowPage(mcdu);
             } else {
                 CDUAtcUsualRequestFansB.ShowPage(mcdu);
@@ -88,7 +95,7 @@ class CDUAtcMenu {
             return mcdu.getDelaySwitchPage();
         };
         mcdu.onRightInput[2] = () => {
-            if (mcdu.atsu.atc.fansMode() === Atsu.FansMode.FansA) {
+            if (mcdu.atsu.fansMode() === AtsuCommon.FansMode.FansA) {
                 CDUAtcReports.ShowPage(mcdu);
             } else {
                 mcdu.setScratchpadMessage(NXSystemMessages.keyNotActive);
@@ -108,7 +115,7 @@ class CDUAtcMenu {
             return mcdu.getDelaySwitchPage();
         };
         mcdu.onRightInput[5] = () => {
-            if (mcdu.atsu.atc.fansMode() === Atsu.FansMode.FansA) {
+            if (mcdu.atsu.fansMode() === AtsuCommon.FansMode.FansA) {
                 CDUAtcEmergencyFansA.ShowPage1(mcdu);
             } else {
                 CDUAtcEmergencyFansB.ShowPage(mcdu);
