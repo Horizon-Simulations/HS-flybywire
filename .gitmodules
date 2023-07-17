@@ -1,3 +1,4 @@
-[submodule "a32nx"]
-	path = a32nx
-	url = https://github.com/flybywiresim/a32nx
+[submodule "flybywire"]
+	path = flybywire
+	url = https://github.com/flybywiresim/aircraft
+	tags = v0.10.1

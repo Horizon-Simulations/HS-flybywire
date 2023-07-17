@@ -12,11 +12,11 @@ if [ "${GITHUB_ACTIONS}" == "true" ]; then
 fi
 
 # run build
-time npx igniter -c a318ceo-igniter.config.mjs -r A318HS "$@"
+time npx igniter -c a320ceo-igniter.config.mjs -r A320HS "$@"
 
 if [ "${GITHUB_ACTIONS}" == "true" ]; then
   rm -rf /external/flybywire
-  rm -rf /external/hsim-a318ceo/src
+  rm -rf /external/hsim-a320ceo/src
 fi
 
 # restore ownership (when run as github action)
