@@ -135,20 +135,19 @@ export default new TaskOfTasks("all", [
                     "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/flypad-backend.wasm"
                 ])
         ], true),
-    ]),
+            // Copy generated wasm to variants (as for now)
+        new TaskOfTasks("copy-wasm", [
+            new ExecTask("fadec-cj", "npm run build-a318ceo:copy-fadec-cfm-cj"),
+            new ExecTask("fbw-cj", "npm run build-a318ceo:copy-fbw-cfm-cj"),
+            new ExecTask("flypad-backend-cj", "npm run build-a318ceo:copy-flypad-backend-cfm-cj"),
+            new ExecTask("systems-cj", "npm run build-a318ceo:copy-systems-cfm-cj"),
 
-    // Copy generated wasm to variants (as for now)
-    new TaskOfTasks("copy-wasm", [
-         new ExecTask("fadec-cj", "npm run build-a318ceo:copy-fadec-cfm-cj"),
-         new ExecTask("fbw-cj", "npm run build-a318ceo:copy-fbw-cfm-cj"),
-         new ExecTask("flypad-backend-cj", "npm run build-a318ceo:copy-flypad-backend-cfm-cj"),
-         new ExecTask("systems-cj", "npm run build-a318ceo:copy-systems-cfm-cj"),
+        ], true),
 
-    ]),
-
-    // Create final package meta files.
-    new TaskOfTasks("dist", [
-        new ExecTask("metadata", "npm run build-a318ceo:metadata"),
-        new ExecTask("manifests", "npm run build-a318ceo:manifest")
+        // Create final package meta files.
+        new TaskOfTasks("dist", [
+            new ExecTask("metadata", "npm run build-a318ceo:metadata"),
+            new ExecTask("manifests", "npm run build-a318ceo:manifest")
+        ], true),
     ]),
 ]);

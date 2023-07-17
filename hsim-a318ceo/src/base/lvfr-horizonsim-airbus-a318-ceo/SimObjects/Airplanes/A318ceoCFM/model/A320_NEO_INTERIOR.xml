@@ -13,11 +13,11 @@
     </LODS>
 
     <Behaviors>
-        <Include ModelBehaviorFile="A318\Interior\A318_Interior_Includes.xml"/>
-        <Include ModelBehaviorFile="A318\generated\A318_Interior_Generics.xml"/>
+        <Include ModelBehaviorFile="A318HS\Interior\A32NX_Interior_Includes.xml"/>
+        <Include ModelBehaviorFile="A318HS\generated\A32NX_Interior_Generics.xml"/>
         <Include ModelBehaviorFile="Asobo\Common.xml"/>
         <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
-        <Include ModelBehaviorFile="A318\LockHighlight.xml"/>
+        <Include ModelBehaviorFile="A318HS\LockHighlight.xml"/>
 
         <!-- EFB -->
 
