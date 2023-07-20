@@ -95,15 +95,15 @@ export default new TaskOfTasks("all", [
 
         // Group all WASM build tasks together but separate from the rest of the tasks as build run more stable like this.
         new TaskOfTasks("wasm", [
-            new ExecTask("systems",
-                "npm run build-a318ceo:systems-cfm",
-                [
-                    "build-a318ceo/src/wasm/systems",
-                    "fbw-common/src/wasm/systems",
-                    "Cargo.lock",
-                    "Cargo.toml",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/systems.wasm"
-                ]),
+            // new ExecTask("systems",
+            //     "npm run build-a318ceo:systems-cfm",
+            //     [
+            //         "build-a318ceo/src/wasm/systems",
+            //         "fbw-common/src/wasm/systems",
+            //         "Cargo.lock",
+            //         "Cargo.toml",
+            //         "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/systems.wasm"
+            //     ]),
             new ExecTask("systems-fadec",
                 "npm run build-a318ceo:fadec-cfm",
                 [
