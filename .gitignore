@@ -196,7 +196,7 @@ obj/
 target/
 *.tgz
 *.wasm
-Cargo.toml
+!Cargo*.toml
 
 /hsim-a318ceo/src/project/Packages
 /hsim-a318ceo/src/project/_PackageInt
