@@ -1,146 +1,160 @@
 import { ExecTask, TaskOfTasks } from "@flybywiresim/igniter";
-import * as A318HS from "./build-a318ceo/src/systems/instruments/buildSrc/igniter/tasks.mjs";
+import { getInstrumentsIgniterTasks } from "./build-a321neo/src/systems/instruments/buildSrc/igniter/tasks.mjs";
 
 export default new TaskOfTasks("all", [
-    new TaskOfTasks("A318HS", [
+    new TaskOfTasks("A21NHS", [
         // Prepare the out folder and any other pre tasks.
         // Currently, these can be run in parallel but in the future, we may need to run them in sequence if there are any dependencies.
         new TaskOfTasks("preparation", [
-            //new ExecTask("copy-base-files", "npm run build-a318ceo:copy-base-files"),
+            new ExecTask("copy-base-files", "npm run build-a321neo:copy-base-files"),
+            new ExecTask("copy-cargo-config", "npm run build-a321neo:copy-cargo-config"),
             new TaskOfTasks("localization", [
-                new ExecTask("efb-translation", "npm run build-a318ceo:efb-translation"),
-                new ExecTask("locPak-translation", "npm run build-a318ceo:locPak-translation")
+                new ExecTask("efb-translation", "npm run build-a321neo:efb-translation"),
+                new ExecTask("locPak-translation", "npm run build-a321neo:locPak-translation")
             ], true),
         ], false),
 
-        new TaskOfTasks("A318HS", [
-            // Group all typescript and react build tasks together.
-            new TaskOfTasks("build", [
-                new ExecTask("behavior",
-                    "npm run build-a318ceo:behavior",
-                    [
-                        "build-a318ceo/src/behavior",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/ModelBehaviorDefs/A318HS/generated"
-                    ]),
-                new TaskOfTasks('atsu', [
-                    new ExecTask(
-                        'common',
-                        'npm run build-a318ceo:atsu-common',
-                        [
-                            'build-a318ceo/src/systems/atsu/common',
-                            'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/atsu/common.js'
-                        ]
-                    ),
-                    new ExecTask(
-                        'fmsclient',
-                        'npm run build-a318ceo:atsu-fms-client',
-                        [
-                            'build-a318ceo/src/systems/atsu/common',
-                            'build-a318ceo/src/systems/atsu/fmsclient',
-                            'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/atsu/fmsclient.js'
-                        ]
-                    ),
+        // Group all typescript and react build tasks together.
+        new TaskOfTasks("build", [
+            new ExecTask("model",
+                "npm run build-a321neo:model",
+                [
+                    "build-a321neo/src/model",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/AirPlanes/A321neoLEAP/model"
                 ]),
+            new ExecTask("behavior",
+                "npm run build-a321neo:behavior",
+                [
+                    "build-a321neo/src/behavior",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/ModelBehaviorDefs/A21NHS/generated"
+                ]),
+
+            new TaskOfTasks('atsu', [
                 new ExecTask(
-                    'extras-host',
-                    'npm run build-a318ceo:extras-host',
+                    'common',
+                    'npm run build-a321neo:atsu-common',
                     [
-                        'build-a318ceo/src/systems/extras-host',
-                        'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/ExtrasHost'
+                        'build-a321neo/src/systems/atsu/common',
+                        'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/atsu/common.js'
                     ]
                 ),
-                new ExecTask("failures",
-                    "npm run build-a318ceo:failures",
-                    [
-                        "build-a318ceo/src/systems/failures",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/A318HS_JS/failures/failures.js"
-                    ]),
-                new ExecTask("fmgc",
-                    "npm run build-a318ceo:fmgc",
-                    [
-                        "build-a318ceo/src/systems/fmgc",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/A318HS_JS/fmgc"
-                    ]),
-                new ExecTask("sentry-client",
-                    "npm run build-a318ceo:sentry-client",
-                    [
-                        "build-a318ceo/src/systems/sentry-client",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/A318HS_JS/sentry-client"
-                    ]),
-                new ExecTask("simbridge-client",
-                    "npm run build-a318ceo:simbridge-client",
-                    [
-                        "build-a318ceo/src/systems/simbridge-client",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/A318HS_JS/simbridge-client"
-                    ]),
                 new ExecTask(
-                    'systems-host',
-                    'npm run build-a318ceo:systems-host',
+                    'fmsclient',
+                    'npm run build-a321neo:atsu-fms-client',
                     [
-                        'build-a318ceo/src/systems/systems-host',
-                        'build-common/src/systems/datalink',
-                        'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/SystemsHost'
+                        'build-a321neo/src/systems/atsu/common',
+                        'build-a321neo/src/systems/atsu/fmsclient',
+                        'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/atsu/fmsclient.js'
                     ]
                 ),
-                new ExecTask("tcas",
-                    "npm run build-a318ceo:tcas",
-                    [
-                        "build-a318ceo/src/systems/tcas",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/A318HS_JS/tcas"
-                    ]),
+            ]),
+            new ExecTask(
+                'extras-host',
+                'npm run build-a321neo:extras-host',
+                [
+                    'build-a321neo/src/systems/extras-host',
+                    'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/ExtrasHost'
+                ]
+            ),
+            new ExecTask("failures",
+                "npm run build-a321neo:failures",
+                [
+                    "build-a321neo/src/systems/failures",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/failures/failures.js"
+                ]),
+            new ExecTask("fmgc",
+                "npm run build-a321neo:fmgc",
+                [
+                    "build-a321neo/src/systems/fmgc",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/fmgc"
+                ]),
+            new ExecTask("sentry-client",
+                "npm run build-a321neo:sentry-client",
+                [
+                    "build-a321neo/src/systems/sentry-client",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/sentry-client"
+                ]),
+            new ExecTask("simbridge-client",
+                "npm run build-a321neo:simbridge-client",
+                [
+                    "build-a321neo/src/systems/simbridge-client",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/simbridge-client"
+                ]),
+            new ExecTask(
+                'systems-host',
+                'npm run build-a321neo:systems-host',
+                [
+                    'build-a321neo/src/systems/systems-host',
+                    'fbw-common/src/systems/datalink',
+                    'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/SystemsHost'
+                ]
+            ),
+            new ExecTask("tcas",
+                "npm run build-a321neo:tcas",
+                [
+                    "build-a321neo/src/systems/tcas",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/tcas"
+                ]),
 
-                new TaskOfTasks("instruments", A318HS.getInstrumentsIgniterTasks(), true),
+                new TaskOfTasks("instruments", getInstrumentsIgniterTasks(), true),
             ], true),
 
-            // Group all WASM build tasks together but separate from the rest of the tasks as build run more stable like this.
-            new TaskOfTasks("wasm", [
-                new ExecTask("systems",
-                    "npm run build-a318ceo:systems-cfm",
-                    [
-                        "build-a318ceo/src/wasm/systems",
-                        "build-common/src/wasm/systems",
-                        "Cargo.lock",
-                        "Cargo.toml",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/systems.wasm"
-                    ]),
-                new ExecTask("systems-fadec",
-                    "npm run build-a318ceo:fadec-cfm",
-                    [
-                        "build-a318ceo/src/wasm/fadec_a320",
-                        "build-common/src/wasm/fbw_common",
-                        "build-common/src/wasm/fadec_common",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/fadec.wasm"
-                    ]),
-                new ExecTask("systems-fbw",
-                    "npm run build-a318ceo:fbw-cfm",
-                    [
-                        "build-a318ceo/src/wasm/fbw_a320",
-                        "build-common/src/wasm/fbw_common",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/fbw.wasm"
-                    ]),
-                new ExecTask("flypad-backend-cfm",
-                    "npm run build-a318ceo:flypad-backend",
-                    [
-                        "build-a318ceo/src/wasm/flypad-backend",
-                        "build-common/src/wasm/fbw_common",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/flypad-backend.wasm"
-                    ])
-            ], true),
-        ]),
+        // Group all WASM build tasks together but separate from the rest of the tasks as build run more stable like this.
+        new TaskOfTasks("wasm", [
+            new ExecTask("systems",
+                "npm run build-a321neo:systems",
+                [
+                    "build-a321neo/src/wasm/systems",
+                    "fbw-common/src/wasm/systems",
+                    "Cargo.lock",
+                    "Cargo.toml",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/systems.wasm"
+                ]),
+            new ExecTask("systems-fadec",
+                "npm run build-a321neo:fadec",
+                [
+                    "build-a321neo/src/wasm/fadec_a320",
+                    "fbw-common/src/wasm/fbw_common",
+                    "fbw-common/src/wasm/fadec_common",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/fadec.wasm"
+                ]),
+            new ExecTask("systems-fbw",
+                "npm run build-a321neo:fbw",
+                [
+                    "build-a321neo/src/wasm/fbw_a320",
+                    "fbw-common/src/wasm/fbw_common",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/fbw.wasm"
+                ]),
+            new ExecTask("systems-terronnd", [
+                "fbw-common/src/wasm/terronnd/build.sh",
+                "wasm-opt -O1 -o build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/terronnd.wasm fbw-common/src/wasm/terronnd/out/terronnd.wasm"
+            ], [
+                "fbw-common/src/wasm/terronnd",
+                "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/terronnd.wasm",
+                "fbw-common/src/wasm/terronnd/out/terronnd.wasm",
+            ]),
+            new ExecTask("flypad-backend",
+                "npm run build-a321neo:flypad-backend",
+                [
+                    "build-a321neo/src/wasm/flypad-backend",
+                    "fbw-common/src/wasm/fbw_common",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/flypad-backend.wasm"
+                ])
+        ], true),
+            // Copy generated wasm to variants (as for now)
+        new TaskOfTasks("copy", [
+            new ExecTask("copy-model", "npm run build-a321neo:copy-model"),
+            new ExecTask("fadec", "npm run build-a321neo:copy-fadec"),
+            new ExecTask("fbw", "npm run build-a321neo:copy-fbw"),
+            new ExecTask("flypad-backend", "npm run build-a321neo:copy-flypad-backend"),
+            new ExecTask("systems", "npm run build-a321neo:copy-systems"),
 
-         // Copy generated wasm to variants (as for now)
-         new TaskOfTasks("copy-wasm", [
-             new ExecTask("fadec-cj", "npm run build-a318ceo:fadec-cfm-cj"),
-             new ExecTask("fbw-cj", "npm run build-a318ceo:fbw-cfm-cj"),
-             new ExecTask("flypad-backend-cj", "npm run build-a318ceo:flypad-backend-cfm-cj"),
-             new ExecTask("systems-cj", "npm run build-a318ceo:systems-cfm-cj"),
-
-         ]),
+        ], true),
 
         // Create final package meta files.
         new TaskOfTasks("dist", [
-            new ExecTask("metadata", "npm run build-a318ceo:metadata"),
-            new ExecTask("manifests", "npm run build-a318ceo:manifest")
-        ])
+            new ExecTask("metadata", "npm run build-a321neo:metadata"),
+            new ExecTask("manifests", "npm run build-a321neo:manifest")
+        ], true),
     ]),
 ]);

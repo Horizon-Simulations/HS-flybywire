@@ -54,25 +54,25 @@ export default new TaskOfTasks("all", [
                 "npm run build-a318ceo:failures",
                 [
                     "build-a318ceo/src/systems/failures",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/A318HS_JS/failures/failures.js"
+                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/failures/failures.js"
                 ]),
             new ExecTask("fmgc",
                 "npm run build-a318ceo:fmgc",
                 [
                     "build-a318ceo/src/systems/fmgc",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/A318HS_JS/fmgc"
+                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/fmgc"
                 ]),
             new ExecTask("sentry-client",
                 "npm run build-a318ceo:sentry-client",
                 [
                     "build-a318ceo/src/systems/sentry-client",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/A318HS_JS/sentry-client"
+                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/sentry-client"
                 ]),
             new ExecTask("simbridge-client",
                 "npm run build-a318ceo:simbridge-client",
                 [
                     "build-a318ceo/src/systems/simbridge-client",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/A318HS_JS/simbridge-client"
+                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/simbridge-client"
                 ]),
             new ExecTask(
                 'systems-host',
@@ -87,7 +87,7 @@ export default new TaskOfTasks("all", [
                 "npm run build-a318ceo:tcas",
                 [
                     "build-a318ceo/src/systems/tcas",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/A318HS_JS/tcas"
+                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/tcas"
                 ]),
 
                 new TaskOfTasks("instruments", getInstrumentsIgniterTasks(), true),

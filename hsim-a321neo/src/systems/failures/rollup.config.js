@@ -42,7 +42,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'build-a321neo/out/horizonsim-lvfr-airbus-a321-neo/html_ui/JS/A21NHS/failures/failures.js'),
+        file: join(root, 'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/failures/failures.js'),
         format: 'umd',
         name: 'Failures',
     },

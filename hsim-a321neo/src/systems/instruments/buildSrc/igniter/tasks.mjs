@@ -13,7 +13,7 @@ export function getInstrumentsIgniterTasks() {
         [
             join('build-a321neo/src/systems/instruments/src', name),
             'build-a321neo/src/systems/instruments/src/Common',
-            join('build-a321neo/out/horizonsim-lvfr-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS', name),
+            join('build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS', name),
         ],
     ));
 }

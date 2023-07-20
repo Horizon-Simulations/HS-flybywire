@@ -15,11 +15,11 @@ console.log('Root: ', root);
 export default {
     input: join(__dirname, 'instrument.tsx'),
     output: {
-        file: join(root, 'build-A321EC/out/headwindsim-aircraft-a330-900/html_ui/Pages/VCockpit/Instruments/A321EC/EWD/instrument.js'),
+        file: join(root, 'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/EWD/instrument.js'),
         format: 'es',
     },
     plugins: [
-        scss({ output: join(root, 'build-A321EC/out/headwindsim-aircraft-a330-900/html_ui/Pages/VCockpit/Instruments/A321EC/EWD/ewd.css') }),
+        scss({ output: join(root, 'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/EWD/ewd.css') }),
         resolve(),
         ts(),
     ],

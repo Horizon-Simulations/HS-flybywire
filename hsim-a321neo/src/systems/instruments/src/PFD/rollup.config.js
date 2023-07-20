@@ -15,11 +15,11 @@ console.log('Root: ', root);
 export default {
     input: join(__dirname, 'instrument.tsx'),
     output: {
-        file: join(root, 'fbw-flybywire/out/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/A32NX/PFD/instrument.js'),
+        file: join(root, 'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/PFD/instrument.js'),
         format: 'es',
     },
     plugins: [
-        scss({ output: join(root, 'fbw-flybywire/out/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/A32NX/PFD/pfd.css') }),
+        scss({ output: join(root, 'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/PFD/pfd.css') }),
         resolve(),
         ts(),
     ],
