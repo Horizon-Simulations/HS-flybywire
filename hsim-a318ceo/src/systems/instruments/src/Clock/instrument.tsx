@@ -26,7 +26,7 @@ class A32NX_Clock extends BaseInstrument {
     }
 
     get templateID(): string {
-        return 'A32NX_Clock';
+        return 'A318HS_Clock';
     }
 
     public onInteractionEvent(args: string[]): void {
@@ -75,4 +75,4 @@ class A32NX_Clock extends BaseInstrument {
     }
 }
 
-registerInstrument('A318HS-clock', A32NX_Clock);
+registerInstrument('a318hs-clock', A32NX_Clock);
