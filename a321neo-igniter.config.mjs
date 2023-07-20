@@ -101,15 +101,15 @@ export default new TaskOfTasks("all", [
 
         // Group all WASM build tasks together but separate from the rest of the tasks as build run more stable like this.
         new TaskOfTasks("wasm", [
-            new ExecTask("systems",
-                "npm run build-a321neo:systems",
-                [
-                    "build-a321neo/src/wasm/systems",
-                    "fbw-common/src/wasm/systems",
-                    "Cargo.lock",
-                    "Cargo.toml",
-                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/systems.wasm"
-                ]),
+            // new ExecTask("systems",
+            //     "npm run build-a321neo:systems",
+            //     [
+            //         "build-a321neo/src/wasm/systems",
+            //         "fbw-common/src/wasm/systems",
+            //         "Cargo.lock",
+            //         "Cargo.toml",
+            //         "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/systems.wasm"
+            //     ]),
             new ExecTask("systems-fadec",
                 "npm run build-a321neo:fadec",
                 [
