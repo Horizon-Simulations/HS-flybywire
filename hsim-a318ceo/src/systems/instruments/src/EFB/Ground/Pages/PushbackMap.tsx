@@ -110,7 +110,7 @@ export const PushbackMap = () => {
     // Calculates the size in pixels based on the real A320 length and the current zoom
     const a320IconSize = (mapRange) => {
         const pixelPerMeter = someConstant * 10; // at 0.1 range
-        const a320LengthMeter = 37.57;
+        const a320LengthMeter = 31.44;
         return MathUtils.clamp(a320LengthMeter * pixelPerMeter * (0.1 / mapRange), 15, 1000);
     };
 
