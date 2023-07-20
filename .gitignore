@@ -46,6 +46,14 @@
 /hsim-common/*
 !/hsim-common/src/
 !/hsim-common/src/**
+!/hsim-a21n-common/src/
+!/hsim-a21n-common/src/**
+!/hsim-a318-common/src/
+!/hsim-a318-common/src/**
+!/hsim-a319-common/src/
+!/hsim-a319-common/src/**
+!/hsim-a320-common/src/
+!/hsim-a320-common/src/**
 
 /hsim-a318ceo/*
 !/hsim-a318ceo/README.md
