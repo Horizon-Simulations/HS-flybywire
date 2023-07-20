@@ -143,7 +143,7 @@ export default new TaskOfTasks("all", [
         ], true),
             // Copy generated wasm to variants (as for now)
         new TaskOfTasks("copy", [
-            new ExecTask("copy-model", "npm run build-a321neo:copy-model"),
+            new ExecTask("model", "npm run build-a321neo:copy-model"),
             new ExecTask("fadec", "npm run build-a321neo:copy-fadec"),
             new ExecTask("fbw", "npm run build-a321neo:copy-fbw"),
             new ExecTask("flypad-backend", "npm run build-a321neo:copy-flypad-backend"),
