@@ -105,7 +105,7 @@ export default new TaskOfTasks("all", [
             //         "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/systems.wasm"
             //     ]),
             new ExecTask("systems-fadec",
-                "npm run build-a318ceo:fadec-cfm",
+                "npm run build-a318ceo:fadec",
                 [
                     "build-a318ceo/src/wasm/fadec_a320",
                     "fbw-common/src/wasm/fbw_common",
@@ -113,7 +113,7 @@ export default new TaskOfTasks("all", [
                     "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/fadec.wasm"
                 ]),
             new ExecTask("systems-fbw",
-                "npm run build-a318ceo:fbw-cfm",
+                "npm run build-a318ceo:fbw",
                 [
                     "build-a318ceo/src/wasm/fbw_a320",
                     "fbw-common/src/wasm/fbw_common",
@@ -128,7 +128,7 @@ export default new TaskOfTasks("all", [
                 "fbw-common/src/wasm/terronnd/out/terronnd.wasm",
             ]),
             new ExecTask("flypad-backend",
-                "npm run build-a318ceo:flypad-backend-cfm",
+                "npm run build-a318ceo:flypad-backend",
                 [
                     "build-a318ceo/src/wasm/flypad-backend",
                     "fbw-common/src/wasm/fbw_common",
@@ -136,11 +136,12 @@ export default new TaskOfTasks("all", [
                 ])
         ], true),
             // Copy generated wasm to variants (as for now)
-        new TaskOfTasks("copy-wasm", [
-            new ExecTask("fadec-cj", "npm run build-a318ceo:copy-fadec-cfm-cj"),
-            new ExecTask("fbw-cj", "npm run build-a318ceo:copy-fbw-cfm-cj"),
-            new ExecTask("flypad-backend-cj", "npm run build-a318ceo:copy-flypad-backend-cfm-cj"),
-            new ExecTask("systems-cj", "npm run build-a318ceo:copy-systems-cfm-cj"),
+        new TaskOfTasks("copy", [
+            new ExecTask("model", "npm run build-a318ceo:copy-model"),
+            new ExecTask("fadec", "npm run build-a318ceo:copy-fadec"),
+            new ExecTask("fbw", "npm run build-a318ceo:copy-fbw"),
+            new ExecTask("flypad-backend", "npm run build-a318ceo:copy-flypad-backend"),
+            new ExecTask("systems", "npm run build-a318ceo:copy-systems"),
 
         ], true),
 

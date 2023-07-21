@@ -16,11 +16,11 @@
     </LODS>
 
     <Behaviors>
-        <Include ModelBehaviorFile="A21NHS\Interior\A32NX_Interior_Includes.xml"/>
-        <Include ModelBehaviorFile="A21NHS\generated\A32NX_Interior_Generics.xml"/>
+        <Include ModelBehaviorFile="A32NX\Interior\A32NX_Interior_Includes.xml"/>
+        <Include ModelBehaviorFile="A32NX\generated\A32NX_Interior_Generics.xml"/>
         <Include ModelBehaviorFile="Asobo\Common.xml"/>
         <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
-        <Include ModelBehaviorFile="A21NHS\LockHighlight.xml"/>
+        <Include ModelBehaviorFile="A32NX\LockHighlight.xml"/>
 
         <!-- EFB -->
 

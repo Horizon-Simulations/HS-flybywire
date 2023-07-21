@@ -7,7 +7,7 @@ const postCssInset = require('postcss-inset');
 /** @type { import('@synaptic-simulations/mach').MachConfig } */
 module.exports = {
     packageName: 'A319HS',
-    packageDir: 'out/horizonsim-lvfr-airbus-a319-ceo',
+    packageDir: 'out/lvfr-horizonsim-airbus-a319-ceo',
     plugins: [
         imagePlugin({ limit: -1 }),
         postCssPlugin({

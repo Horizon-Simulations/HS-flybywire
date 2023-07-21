@@ -111,7 +111,7 @@ export default new TaskOfTasks("all", [
             //         "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/systems.wasm"
             //     ]),
             new ExecTask("systems-fadec",
-                "npm run build-a319ceo:fadec-cfm",
+                "npm run build-a319ceo:fadec",
                 [
                     "build-a319ceo/src/wasm/fadec_a320",
                     "fbw-common/src/wasm/fbw_common",
@@ -119,7 +119,7 @@ export default new TaskOfTasks("all", [
                     "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/fadec.wasm"
                 ]),
             new ExecTask("systems-fbw",
-                "npm run build-a319ceo:fbw-cfm",
+                "npm run build-a319ceo:fbw",
                 [
                     "build-a319ceo/src/wasm/fbw_a320",
                     "fbw-common/src/wasm/fbw_common",
@@ -134,7 +134,7 @@ export default new TaskOfTasks("all", [
                 "fbw-common/src/wasm/terronnd/out/terronnd.wasm",
             ]),
             new ExecTask("flypad-backend",
-                "npm run build-a319ceo:flypad-backend-cfm",
+                "npm run build-a319ceo:flypad-backend",
                 [
                     "build-a319ceo/src/wasm/flypad-backend",
                     "fbw-common/src/wasm/fbw_common",

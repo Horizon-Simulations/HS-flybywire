@@ -49,7 +49,7 @@ class A32NX_PFD extends BaseInstrument {
     }
 
     get templateID(): string {
-        return 'A32NX_PFD';
+        return 'A320HS_PFD';
     }
 
     public getDeltaTime() {
@@ -104,4 +104,4 @@ class A32NX_PFD extends BaseInstrument {
     }
 }
 
-registerInstrument('flybywire-pfd', A32NX_PFD);
+registerInstrument('a32nx-pfd', A32NX_PFD);

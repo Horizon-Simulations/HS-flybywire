@@ -4,7 +4,7 @@ const esbuild = require('esbuild');
 const path = require('path');
 
 const rootDir = path.join(__dirname, '..', '..', '..', '..');
-const outFile = 'out/horizonsim-lvfr-airbus-a320-ceo/html_ui/JS/A320HS/atsu/common.js';
+const outFile = 'out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/atsu/common.js';
 
 const isProductionBuild = process.env.A32NX_PRODUCTION_BUILD === '1';
 
@@ -13,7 +13,7 @@ esbuild.build({
 
     define: { DEBUG: 'false' },
 
-    entryPoints: [ path.join(rootDir,  '../build-common/src/systems/datalink/common/src/index.ts')],
+    entryPoints: [ path.join(rootDir,  '../fbw-common/src/systems/datalink/common/src/index.ts')],
     bundle: true,
     treeShaking: false,
     minify: isProductionBuild,

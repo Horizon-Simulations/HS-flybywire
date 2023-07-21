@@ -11,11 +11,11 @@ const root = join(__dirname, '..', '..', '..', '..', '..', '..');
 export default {
     input: join(__dirname, 'instrument.tsx'),
     output: {
-        file: join(root, 'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A319HS/Clock/instrument.js'),
+        file: join(root, 'build-a321neo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/VCockpit/Instruments/A319HS/Clock/instrument.js'),
         format: 'es',
     },
     plugins: [
-        scss({ output: join(root, 'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A319HS/Clock/clock.css') }),
+        scss({ output: join(root, 'build-a321neo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/VCockpit/Instruments/A319HS/Clock/clock.css') }),
         resolve(),
         ts(),
     ],

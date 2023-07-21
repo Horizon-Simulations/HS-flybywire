@@ -13,7 +13,7 @@ export function getInstrumentsIgniterTasks() {
         [
             join('build-a320ceo/src/systems/instruments/src', name),
             'build-a320ceo/src/systems/instruments/src/Common',
-            join('build-a320ceo/out/horizonsim-lvfr-airbus-a320-ceo/html_ui/Pages/VCockpit/Instruments/A320HS', name),
+            join('build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/Pages/VCockpit/Instruments/A320HS', name),
         ],
     ));
 }
