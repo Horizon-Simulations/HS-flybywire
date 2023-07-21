@@ -14,24 +14,30 @@ export default new TaskOfTasks("all", [
             ], true),
         ], false),
 
-// Group all typescript and react build tasks together.
-new TaskOfTasks("build", [
-    new ExecTask("behavior",
-        "npm run build-a320ceo:behavior",
+    // Group all typescript and react build tasks together.
+    new TaskOfTasks("build", [
+        new ExecTask("model",
+        "npm run build-a320ceo:model",
         [
-            "build-a320ceo/src/behavior",
-            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/ModelBehaviorDefs/A320HS/generated"
+            "build-a320ceo/src/model",
+            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/SimObjects/AirPlanes/A320ceoCFM/model"
         ]),
-
-    new TaskOfTasks('atsu', [
-        new ExecTask(
-            'common',
-            'npm run build-a320ceo:atsu-common',
+        new ExecTask("behavior",
+            "npm run build-a320ceo:behavior",
             [
-                'build-a320ceo/src/systems/atsu/common',
-                'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/atsu/common.js'
-            ]
-        ),
+                "build-a320ceo/src/behavior",
+                "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/ModelBehaviorDefs/A320HS/generated"
+            ]),
+
+        new TaskOfTasks('atsu', [
+            new ExecTask(
+                'common',
+                'npm run build-a320ceo:atsu-common',
+                [
+                    'build-a320ceo/src/systems/atsu/common',
+                    'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/atsu/common.js'
+                ]
+            ),
         new ExecTask(
             'fmsclient',
             'npm run build-a320ceo:atsu-fms-client',
