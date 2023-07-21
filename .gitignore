@@ -26,7 +26,7 @@
 !jsconfig.json
 
 !Cargo.lock
-Cargo.toml
+!Cargo.toml
 !/.cargo/config.toml
 !rust-toolchain.toml
 
