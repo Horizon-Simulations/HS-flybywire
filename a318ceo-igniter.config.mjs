@@ -16,6 +16,12 @@ export default new TaskOfTasks("all", [
 
         // Group all typescript and react build tasks together.
         new TaskOfTasks("build", [
+            new ExecTask("model",
+            "npm run build-a318ceo:model",
+            [
+                "build-a318ceo/src/model",
+                "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/AirPlanes/A318ceoCFM/model"
+            ]),
             new ExecTask("behavior",
                 "npm run build-a318ceo:behavior",
                 [
