@@ -27,10 +27,10 @@ module.exports = {
     ],
     instruments: [
         msfsAvionicsInstrument('PFD'),
+        msfsAvionicsInstrument('ND', 'NDv2'),
         msfsAvionicsInstrument('EWD'),
         msfsAvionicsInstrument('Clock'),
 
-        reactInstrument('ND', ['/JS/A319HS/A32NX_Util.js']),
         reactInstrument('SD'),
         reactInstrument('DCDU'),
         reactInstrument('RTPI'),
@@ -42,10 +42,10 @@ module.exports = {
     ],
 };
 
-function msfsAvionicsInstrument(name) {
+function msfsAvionicsInstrument(name, folder = name) {
     return {
         name,
-        index: `src/systems/instruments/src/${name}/instrument.tsx`,
+        index: `src/systems/instruments/src/${folder}/instrument.tsx`,
         simulatorPackage: {
             type: 'baseInstrument',
             templateId: `A319HS_${name}`,

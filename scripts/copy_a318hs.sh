@@ -9,9 +9,6 @@ rm -rvf ./fbw-common
 cp -rva ./flybywire/fbw-common/. ./fbw-common
 cp -rva ./hsim-a318-common/. ./fbw-common
 
-#remove directory if it exist
-rm -rvf ./build-a318ceo
-
 # create directory
 mkdir -p ./build-a318ceo/src
 mkdir -p ./build-a318ceo/out
@@ -28,7 +25,7 @@ cp -rva ./hsim-a318ceo/mach.config.js ./build-a318ceo/mach.config.js
 
 cp -rva ./hsim-a318ceo/src/behavior/. ./build-a318ceo/src/behavior
 cp -rva ./hsim-a318ceo/src/localization/. ./build-a318ceo/src/localization
-#cp -rva ./hsim-a318ceo/src/model/. ./build-a318ceo/src/model
+cp -rva ./hsim-a318ceo/src/model/. ./build-a318ceo/src/model
 cp -rva ./hsim-a318ceo/src/systems/. ./build-a318ceo/src/systems
 cp -rva ./hsim-a318ceo/src/wasm/. ./build-a318ceo/src/wasm
 
@@ -52,7 +49,7 @@ cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/JS/fb
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/A32NX_Core ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/A318HS_Core
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/A32NX_Utils ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/A318HS_Utils
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/FlightElements ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/FlightElements/A318HS
-cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/NavSystems/A320_Neo ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/NavSystems/A318HS
+cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/NavSystems/A320_Neo ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/NavSystems/A318_Ceo
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VLivery/Liveries/A32NX_Registration ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VLivery/Liveries/A318HS_Registration
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VLivery/Liveries/A32NX_Printer ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VLivery/Liveries/A318HS_Printer
 

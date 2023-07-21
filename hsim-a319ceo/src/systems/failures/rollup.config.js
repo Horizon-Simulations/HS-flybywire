@@ -42,7 +42,7 @@ module.exports = {
         }),
     ],
     output: {
-        file: join(root, 'build-a319ceo/out/horizonsim-lvfr-airbus-a319-ceo/html_ui/JS/A319HS/failures/failures.js'),
+        file: join(root, 'build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/JS/A319HS/failures/failures.js'),
         format: 'umd',
         name: 'Failures',
     },

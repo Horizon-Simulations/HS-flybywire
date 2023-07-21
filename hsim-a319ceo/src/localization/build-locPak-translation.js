@@ -10,7 +10,7 @@ const path = require('path');
 
 const fileExtension = '.locPak';
 const workingDir = path.resolve('msfs');
-const outFolder = '../../out/horizonsim-lvfr-airbus-a319-ceo';
+const outFolder = '../../out/lvfr-horizonsim-airbus-a319-ceo';
 
 console.log('Updating translations files.');
 

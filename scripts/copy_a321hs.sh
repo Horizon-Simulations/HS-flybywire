@@ -3,14 +3,11 @@
 set -ex
 
 #remove directory if it exist
-rm -rvf ./build-a321neo
+rm -rvf ./fbw-common
 
 # copy from FBW COMMON source and HDW COMMON into one src
 cp -rva ./flybywire/fbw-common/. ./fbw-common
 cp -rva ./hsim-a21n-common/. ./fbw-common
-
-#remove directory if it exist
-rm -rvf ./build-a321neo
 
 # create directory
 mkdir -p ./build-a321neo/src

@@ -3,7 +3,7 @@
 @font-face {
   font-family: "Ecam";
   //noinspection CssUnknownTarget
-  src: url("/Fonts/A321EC/ECAMFontRegular.ttf") format("truetype");
+  src: url("/Fonts/A319HS/ECAMFontRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -36,6 +36,6 @@
   width: 100%;
   height: 82%;
   z-index: 100;
-  background-image: url(/Images/A321EC/SD/DoorVideoResources/empty.png);
+  background-image: url(/Images/A319HS/SD/door_camera.png);
   background-size: cover;
 }

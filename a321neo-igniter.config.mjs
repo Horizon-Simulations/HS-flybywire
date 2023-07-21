@@ -6,7 +6,7 @@ export default new TaskOfTasks("all", [
         // Prepare the out folder and any other pre tasks.
         // Currently, these can be run in parallel but in the future, we may need to run them in sequence if there are any dependencies.
         new TaskOfTasks("preparation", [
-            new ExecTask("copy-base-files", "npm run build-a321neo:copy-base-files"),
+            //new ExecTask("copy-base-files", "npm run build-a321neo:copy-base-files"),
             new ExecTask("copy-cargo-config", "npm run build-a321neo:copy-cargo-config"),
             new TaskOfTasks("localization", [
                 new ExecTask("efb-translation", "npm run build-a321neo:efb-translation"),

@@ -11,6 +11,8 @@ if [ "${GITHUB_ACTIONS}" == "true" ]; then
   chown -R root:root /external
 fi
 
+# permission fix
+git config --global --add safe.directory /external
 # run build
 time npx igniter -c a320ceo-igniter.config.mjs -r A320HS "$@"
 
