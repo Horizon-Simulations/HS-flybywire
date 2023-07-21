@@ -8,7 +8,7 @@
         <!-- Highest LOD -->
         <!-- minimum display size in % (should be bounding sphere vertical screen size, sphere will often be slightly larger than you expect) -->
         <!-- default minSize is 0 -->
-        <LOD minSize="150" ModelFile="A320_NEO_INTERIOR_LOD00.gltf"/>
+        <LOD minSize="150" ModelFile="..\..\A320ceoCFM\model\A320_NEO_INTERIOR_LOD00.gltf"/>
 		<LOD minSize="100" ModelFile="..\..\A320ceoCFM\model\A320_NEO_INTERIOR_LOD01.gltf"/>
 		<LOD minSize="60" ModelFile="..\..\A320ceoCFM\model\A320_NEO_INTERIOR_LOD02.gltf"/>
 		<LOD minSize="20" ModelFile="..\..\A320ceoCFM\model\A320_NEO_INTERIOR_LOD03.gltf"/>
@@ -16,11 +16,11 @@
     </LODS>
 
     <Behaviors>
-        <Include ModelBehaviorFile="A320\Interior\A32NX_Interior_Includes.xml"/>
-        <Include ModelBehaviorFile="A320\generated\A32NX_Interior_Generics.xml"/>
+        <Include ModelBehaviorFile="A320HS\Interior\A32NX_Interior_Includes.xml"/>
+        <Include ModelBehaviorFile="A320HS\generated\A32NX_Interior_Generics.xml"/>
         <Include ModelBehaviorFile="Asobo\Common.xml"/>
         <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
-        <Include ModelBehaviorFile="A320\LockHighlight.xml"/>
+        <Include ModelBehaviorFile="A320HS\LockHighlight.xml"/>
 
         <!-- EFB -->
 
@@ -4710,17 +4710,17 @@
                 <PART_ID>MASTERWARN_L</PART_ID>
                 <LEFT_SINGLE_CODE>
                     0 (&gt;L:A32NX_MASTER_WARNING)
-                    1 (&gt;L:A32NX_FWS_MW_CANCEL_ON_CAPT)
+                    1 (&gt;L:PUSH_AUTOPILOT_MASTERAWARN_L)
                 </LEFT_SINGLE_CODE>
                 <LEFT_LEAVE_CODE>
-                    0 (&gt;L:A32NX_FWS_MW_CANCEL_ON_CAPT)
+                    0 (&gt;L:PUSH_AUTOPILOT_MASTERAWARN_L)
                 </LEFT_LEAVE_CODE>
                 <!-- 801XP-C via CB 29LP -->
                 <SEQ1_POWERED>(L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED)</SEQ1_POWERED>
-                <SEQ1_CODE>(L:Generic_Master_Warning_Active) (L:A32NX_FWS_FWC_1_NORMAL) 1 == and (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ1_CODE>
+                <SEQ1_CODE>(L:Generic_Master_Warning_Active) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ1_CODE>
                 <!-- 202XP-A via CB 27LP -->
                 <SEQ2_POWERED>(L:A32NX_ELEC_AC_2_BUS_IS_POWERED)</SEQ2_POWERED>
-                <SEQ2_CODE>(L:Generic_Master_Warning_Active) (L:A32NX_FWS_FWC_2_NORMAL) 1 == and (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ2_CODE>
+                <SEQ2_CODE>(L:Generic_Master_Warning_Active) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ2_CODE>
                 <TOOLTIPID>TT:COCKPIT.TOOLTIPS.MASTER_WARNING_ACKNOWLEDGE</TOOLTIPID>
             </UseTemplate>
             <UseTemplate Name="FBW_Anim_Interactions">
@@ -4730,17 +4730,17 @@
                 <PART_ID>MASTERCAUT_L</PART_ID>
                 <LEFT_SINGLE_CODE>
                     0 (&gt;L:A32NX_MASTER_CAUTION)
-                    1 (&gt;L:A32NX_FWS_MC_CANCEL_ON_CAPT)
+                    1 (&gt;L:PUSH_AUTOPILOT_MASTERCAUT_L)
                 </LEFT_SINGLE_CODE>
                 <LEFT_LEAVE_CODE>
-                    0 (&gt;L:A32NX_FWS_MC_CANCEL_ON_CAPT)
+                    0 (&gt;L:PUSH_AUTOPILOT_MASTERCAUT_L)
                 </LEFT_LEAVE_CODE>
                 <!-- 801XP-C via CB 29LP -->
                 <SEQ1_POWERED>(L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED)</SEQ1_POWERED>
-                <SEQ1_CODE>(L:Generic_Master_Caution_Active) (L:A32NX_FWS_FWC_1_NORMAL) 1 == and (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ1_CODE>
+                <SEQ1_CODE>(L:Generic_Master_Caution_Active) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ1_CODE>
                 <!-- 202XP-A via CB 27LP -->
                 <SEQ2_POWERED>(L:A32NX_ELEC_AC_2_BUS_IS_POWERED)</SEQ2_POWERED>
-                <SEQ2_CODE>(L:Generic_Master_Caution_Active) (L:A32NX_FWS_FWC_2_NORMAL) 1 == and (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ2_CODE>
+                <SEQ2_CODE>(L:Generic_Master_Caution_Active) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ2_CODE>
                 <TOOLTIPID>TT:COCKPIT.TOOLTIPS.MASTER_CAUTION_ACKNOWLEDGE</TOOLTIPID>
             </UseTemplate>
             <UseTemplate Name="FBW_Anim_Interactions">
@@ -4750,17 +4750,17 @@
                 <PART_ID>MASTERWARN_R</PART_ID>
                 <LEFT_SINGLE_CODE>
                     0 (&gt;L:A32NX_MASTER_WARNING)
-                    1 (&gt;L:A32NX_FWS_MW_CANCEL_ON_FO)
+                    1 (&gt;L:PUSH_AUTOPILOT_MASTERAWARN_L)
                 </LEFT_SINGLE_CODE>
                 <LEFT_LEAVE_CODE>
-                    0 (&gt;L:A32NX_FWS_MW_CANCEL_ON_FO)
+                    0 (&gt;L:PUSH_AUTOPILOT_MASTERAWARN_L)
                 </LEFT_LEAVE_CODE>
                 <!-- 202XP-A via CB 27LP -->
                 <SEQ1_POWERED>(L:A32NX_ELEC_AC_2_BUS_IS_POWERED)</SEQ1_POWERED>
-                <SEQ1_CODE>(L:Generic_Master_Warning_Active) (L:A32NX_FWS_FWC_2_NORMAL) 1 == and (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ1_CODE>
+                <SEQ1_CODE>(L:Generic_Master_Warning_Active) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ1_CODE>
                 <!-- 801XP-C via CB 29LP -->
                 <SEQ2_POWERED>(L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED)</SEQ2_POWERED>
-                <SEQ2_CODE>(L:Generic_Master_Warning_Active) (L:A32NX_FWS_FWC_1_NORMAL) 1 == and (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ2_CODE>
+                <SEQ2_CODE>(L:Generic_Master_Warning_Active) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ2_CODE>
                 <TOOLTIPID>TT:COCKPIT.TOOLTIPS.MASTER_WARNING_ACKNOWLEDGE</TOOLTIPID>
             </UseTemplate>
             <UseTemplate Name="FBW_Anim_Interactions">
@@ -4770,17 +4770,17 @@
                 <PART_ID>MASTERCAUT_R</PART_ID>
                 <LEFT_SINGLE_CODE>
                     0 (&gt;L:A32NX_MASTER_CAUTION)
-                    1 (&gt;L:A32NX_FWS_MC_CANCEL_ON_FO)
+                    1 (&gt;L:PUSH_AUTOPILOT_MASTERCAUT_L)
                 </LEFT_SINGLE_CODE>
                 <LEFT_LEAVE_CODE>
-                    0 (&gt;L:A32NX_FWS_MC_CANCEL_ON_FO)
+                    0 (&gt;L:PUSH_AUTOPILOT_MASTERCAUT_L)
                 </LEFT_LEAVE_CODE>
                 <!-- 202XP-A via CB 27LP -->
                 <SEQ1_POWERED>(L:A32NX_ELEC_AC_2_BUS_IS_POWERED)</SEQ1_POWERED>
-                <SEQ1_CODE>(L:Generic_Master_Caution_Active) (L:A32NX_FWS_FWC_2_NORMAL) 1 == and (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ1_CODE>
+                <SEQ1_CODE>(L:Generic_Master_Caution_Active) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ1_CODE>
                 <!-- 801XP-C via CB 29LP -->
                 <SEQ2_POWERED>(L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED)</SEQ2_POWERED>
-                <SEQ2_CODE>(L:Generic_Master_Caution_Active) (L:A32NX_FWS_FWC_1_NORMAL) 1 == and (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ2_CODE>
+                <SEQ2_CODE>(L:Generic_Master_Caution_Active) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and or</SEQ2_CODE>
                 <TOOLTIPID>TT:COCKPIT.TOOLTIPS.MASTER_CAUTION_ACKNOWLEDGE</TOOLTIPID>
             </UseTemplate>
             <!-- old buttons without split seq 1/2 -->

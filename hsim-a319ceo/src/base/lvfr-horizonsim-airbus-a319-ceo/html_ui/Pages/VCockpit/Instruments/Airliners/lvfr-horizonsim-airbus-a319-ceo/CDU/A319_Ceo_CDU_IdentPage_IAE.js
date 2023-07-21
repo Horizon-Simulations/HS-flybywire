@@ -180,9 +180,9 @@ class CDUIdentPage {
         };
 
         mcdu.setTemplate([
-            ["A319-131"], //This aircraft code is correct and does not include the engine type.
+            ["A319-132"], //This aircraft code is correct and does not include the engine type.
             ["\xa0ENG"],
-            ["V2524-A5[color]green"],
+            ["IAE V2524-A5[color]green"],
             ["\xa0ACTIVE NAV DATA BASE"],
             [
                 "\xa0" + calculateActiveDate(date) + "[color]cyan",
