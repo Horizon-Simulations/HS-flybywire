@@ -20,7 +20,7 @@ new TaskOfTasks("build", [
         "npm run build-a320ceo:behavior",
         [
             "build-a320ceo/src/behavior",
-            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/ModelBehaviorDefs/A318HS/generated"
+            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/ModelBehaviorDefs/A320HS/generated"
         ]),
 
     new TaskOfTasks('atsu', [
@@ -29,7 +29,7 @@ new TaskOfTasks("build", [
             'npm run build-a320ceo:atsu-common',
             [
                 'build-a320ceo/src/systems/atsu/common',
-                'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A318HS/atsu/common.js'
+                'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/atsu/common.js'
             ]
         ),
         new ExecTask(
@@ -38,7 +38,7 @@ new TaskOfTasks("build", [
             [
                 'build-a320ceo/src/systems/atsu/common',
                 'build-a320ceo/src/systems/atsu/fmsclient',
-                'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A318HS/atsu/fmsclient.js'
+                'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/atsu/fmsclient.js'
             ]
         ),
     ]),
@@ -47,32 +47,32 @@ new TaskOfTasks("build", [
         'npm run build-a320ceo:extras-host',
         [
             'build-a320ceo/src/systems/extras-host',
-            'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/ExtrasHost'
+            'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/Pages/VCockpit/Instruments/A320HS/ExtrasHost'
         ]
     ),
     new ExecTask("failures",
         "npm run build-a320ceo:failures",
         [
             "build-a320ceo/src/systems/failures",
-            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A318HS/failures/failures.js"
+            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/failures/failures.js"
         ]),
     new ExecTask("fmgc",
         "npm run build-a320ceo:fmgc",
         [
             "build-a320ceo/src/systems/fmgc",
-            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A318HS/fmgc"
+            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/fmgc"
         ]),
     new ExecTask("sentry-client",
         "npm run build-a320ceo:sentry-client",
         [
             "build-a320ceo/src/systems/sentry-client",
-            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A318HS/sentry-client"
+            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/sentry-client"
         ]),
     new ExecTask("simbridge-client",
         "npm run build-a320ceo:simbridge-client",
         [
             "build-a320ceo/src/systems/simbridge-client",
-            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A318HS/simbridge-client"
+            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/simbridge-client"
         ]),
     new ExecTask(
         'systems-host',
@@ -80,14 +80,14 @@ new TaskOfTasks("build", [
         [
             'build-a320ceo/src/systems/systems-host',
             'fbw-common/src/systems/datalink',
-            'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/SystemsHost'
+            'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/Pages/VCockpit/Instruments/A320HS/SystemsHost'
         ]
     ),
     new ExecTask("tcas",
         "npm run build-a320ceo:tcas",
         [
             "build-a320ceo/src/systems/tcas",
-            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A318HS/tcas"
+            "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/tcas"
         ]),
 
         new TaskOfTasks("instruments", getInstrumentsIgniterTasks(), true),
