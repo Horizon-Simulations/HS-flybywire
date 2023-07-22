@@ -42,14 +42,14 @@ mkdir -p ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/VCock
 mkdir -p ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/VLivery/Liveries/Printer
 mkdir -p ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/VLivery/Liveries/Registration
 
-cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/CSS/. ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/CSS/A319HS
+#cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/CSS/. ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/CSS/A319HS
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Fonts/fbw-a32nx/. ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Fonts/A319HS
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Images/fbw-a32nx/. ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Images/A319HS
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/JS/fbw-a32nx/. ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/JS/A319HS
-cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/A32NX_Core ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/A319HS_Core
-cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/A32NX_Utils ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/A319HS_Utils
-cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/FlightElements ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/VCockpit/Instruments/FlightElements/A319HS
-cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/NavSystems/A320_Neo ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/VCockpit/Instruments/NavSystems/A319_Ceo
+cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/A32NX_Core/. ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/A319HS_Core
+cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/A32NX_Utils/. ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/A319HS_Utils
+#cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/FlightElements ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/VCockpit/Instruments/FlightElements/A319HS
+#cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/NavSystems/A320_Neo ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/VCockpit/Instruments/NavSystems/A319_Ceo
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VLivery/Liveries/A32NX_Registration ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/VLivery/Liveries/A319HS_Registration
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VLivery/Liveries/A32NX_Printer ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/Pages/VLivery/Liveries/A319HS_Printer
 

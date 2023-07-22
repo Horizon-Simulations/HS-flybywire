@@ -2,9 +2,9 @@
 exclude = ["a32nx"]
 
 members = [
-    "build-a320ceo/src/wasm/systems/a320_systems",
-    "build-a320ceo/src/wasm/systems/a320_systems_wasm",
-    "build-a320ceo/src/wasm/systems/a320_hydraulic_simulation_graphs",
+    "build-a321neo/src/wasm/systems/a320_systems",
+    "build-a321neo/src/wasm/systems/a320_systems_wasm",
+    "build-a321neo/src/wasm/systems/a320_hydraulic_simulation_graphs",
     "fbw-common/src/wasm/systems/systems",
     "fbw-common/src/wasm/systems/systems_wasm",
 ]
