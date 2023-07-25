@@ -180,7 +180,7 @@ class CDUIdentPage {
         };
 
         mcdu.setTemplate([
-            ["A318-112"], //This aircraft code is correct and does not include the engine type.
+            ["A318-100"], //This aircraft code is correct and does not include the engine type.
             ["\xa0ENG"],
             ["CFM56-5B9/3[color]green"],
             ["\xa0ACTIVE NAV DATA BASE"],

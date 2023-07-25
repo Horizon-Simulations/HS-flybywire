@@ -117,7 +117,7 @@
       },
       {
         "combineFiles": [
-          "./a318-interior/A320_NEO_INTERIOR_LOD00.gltf"
+          "./a319-interior/A320_NEO_INTERIOR_LOD00.gltf"
         ],
         "nodes": [
           {
