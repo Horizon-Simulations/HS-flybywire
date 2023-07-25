@@ -9,6 +9,9 @@ rm -rvf ./fbw-common
 cp -rva ./flybywire/fbw-common/. ./fbw-common
 cp -rva ./hsim-a21n-common/. ./fbw-common
 
+#remove directory if it exist
+rm -rvf ./build-a321neo
+
 # create directory
 mkdir -p ./build-a321neo/src
 mkdir -p ./build-a321neo/out
@@ -49,7 +52,7 @@ cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/JS/fb
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/A32NX_Core/. ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/A21NHS_Core
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/A32NX_Utils/. ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/A21NHS_Utils
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/FlightElements/. ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/FlightElements/A21NHS
-cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/NavSystems/A320_Neo/. ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/NavSystems/A21NHS
+cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VCockpit/Instruments/NavSystems/A320_Neo/. ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/NavSystems/A321_Neo
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VLivery/Liveries/A32NX_Registration/. ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VLivery/Liveries/A21NHS_Registration
 cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages/VLivery/Liveries/A32NX_Printer/. ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VLivery/Liveries/A21NHS_Printer
 

@@ -9,6 +9,9 @@ rm -rvf ./fbw-common
 cp -rva ./flybywire/fbw-common/. ./fbw-common
 cp -rva ./hsim-a319-common/. ./fbw-common
 
+#remove directory if it exist
+rm -rvf ./build-a319ceo
+
 # create directory
 mkdir -p ./build-a319ceo/src
 mkdir -p ./build-a319ceo/out
