@@ -23,6 +23,10 @@ cp -rva ./flybywire/fbw-a32nx/src/localization/. ./build-a319ceo/src/localizatio
 cp -rva ./flybywire/fbw-a32nx/src/systems/. ./build-a319ceo/src/systems
 cp -rva ./flybywire/fbw-a32nx/src/wasm/. ./build-a319ceo/src/wasm
 
+# copy EFB 
+cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a319ceo/src/systems/instruments/src/EFBcfm
+cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a319ceo/src/systems/instruments/src/EFBiae
+
 cp -rva ./hsim-a319ceo/.env ./build-a319ceo/.env
 cp -rva ./hsim-a319ceo/mach.config.js ./build-a319ceo/mach.config.js
 
@@ -59,6 +63,8 @@ cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages
 # copy base of A319HS to out
 cp -rva ./hsim-a319ceo/src/base/lvfr-horizonsim-airbus-a319-ceo/. ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo
 cp -rva ./hsim-a319ceo/src/base/lvfr-horizonsim-airbus-a319-ceo-lock-highlight/. ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo-lock-highlight
+
+rm -rvf ./build-a319ceo/src/systems/instruments/src/EFB
 
 chmod +x ./build-a319ceo/src/wasm/fbw_a320/build.sh
 chmod +x ./build-a319ceo/src/wasm/fadec_a320/build.sh
