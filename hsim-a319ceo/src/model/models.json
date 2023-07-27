@@ -1,33 +1,17 @@
 [
   {
     "gltf": [
-      "./a319-interior/A320_NEO_INTERIOR_LOD00.gltf",
-      "./a319-interior/A320_NEO_INTERIOR_LOD01.gltf",
-      "./a319-interior/A320_NEO_INTERIOR_LOD02.gltf",
-      "./a319-interior/A320_NEO_INTERIOR_LOD03.gltf",
-      "./a319-interior/A320_NEO_INTERIOR_LOD04.gltf"
+      "./a319-interior/A320_NEO_INTERIOR_LOD00.gltf"
     ],
     "bin": [
-      "./a319-interior/A320_NEO_INTERIOR_LOD00.bin",
-      "./a319-interior/A320_NEO_INTERIOR_LOD01.bin",
-      "./a319-interior/A320_NEO_INTERIOR_LOD02.bin",
-      "./a319-interior/A320_NEO_INTERIOR_LOD03.bin",
-      "./a319-interior/A320_NEO_INTERIOR_LOD04.bin"
+      "./a319-interior/A320_NEO_INTERIOR_LOD00.bin"
     ],
     "output": {
       "gltf": [
-        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD00.gltf",
-        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD01.gltf",
-        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD02.gltf",
-        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD03.gltf",
-        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD04.gltf"
+        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD00.gltf"
       ],
       "bin": [
-        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD00.bin",
-        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD01.bin",
-        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD02.bin",
-        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD03.bin",
-        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD04.bin"
+        "../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/model/A320_NEO_INTERIOR_LOD00.bin"
       ]
     },
     "additions": [
