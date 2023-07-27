@@ -23,6 +23,9 @@ cp -rva ./flybywire/fbw-a32nx/src/localization/. ./build-a318ceo/src/localizatio
 cp -rva ./flybywire/fbw-a32nx/src/systems/. ./build-a318ceo/src/systems
 cp -rva ./flybywire/fbw-a32nx/src/wasm/. ./build-a318ceo/src/wasm
 
+# copy EFB 
+cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a318ceo/src/systems/instruments/src/EFBcfm
+
 cp -rva ./hsim-a318ceo/.env ./build-a318ceo/.env
 cp -rva ./hsim-a318ceo/mach.config.js ./build-a318ceo/mach.config.js
 
@@ -31,9 +34,6 @@ cp -rva ./hsim-a318ceo/src/localization/. ./build-a318ceo/src/localization
 cp -rva ./hsim-a318ceo/src/model/. ./build-a318ceo/src/model
 cp -rva ./hsim-a318ceo/src/systems/. ./build-a318ceo/src/systems
 cp -rva ./hsim-a318ceo/src/wasm/. ./build-a318ceo/src/wasm
-
-# copy EFB 
-cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a318ceo/src/systems/instruments/src/EFBcfm
 
 mkdir -p ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo
 mkdir -p ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo-lock-highlight
