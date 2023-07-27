@@ -32,6 +32,9 @@ cp -rva ./hsim-a318ceo/src/model/. ./build-a318ceo/src/model
 cp -rva ./hsim-a318ceo/src/systems/. ./build-a318ceo/src/systems
 cp -rva ./hsim-a318ceo/src/wasm/. ./build-a318ceo/src/wasm
 
+# copy EFB 
+cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a318ceo/src/systems/instruments/src/EFBcfm
+
 mkdir -p ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo
 mkdir -p ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo-lock-highlight
 
@@ -59,6 +62,8 @@ cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages
 # copy base of A318HS to out
 cp -rva ./hsim-a318ceo/src/base/lvfr-horizonsim-airbus-a318-ceo/. ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo
 cp -rva ./hsim-a318ceo/src/base/lvfr-horizonsim-airbus-a318-ceo-lock-highlight/. ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo-lock-highlight
+
+rm -rvf ./build-a318ceo/src/systems/instruments/src/EFB
 
 chmod +x ./build-a318ceo/src/wasm/fbw_a320/build.sh
 chmod +x ./build-a318ceo/src/wasm/fadec_a320/build.sh
