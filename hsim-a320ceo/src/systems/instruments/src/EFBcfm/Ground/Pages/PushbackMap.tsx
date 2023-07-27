@@ -107,11 +107,11 @@ export const PushbackMap = () => {
         dispatch(setCenterPlaneMode(!centerPlaneMode));
     };
 
-    // Calculates the size in pixels based on the real A318 length and the current zoom
-    const a318IconSize = (mapRange) => {
+    // Calculates the size in pixels based on the real A320 length and the current zoom
+    const a320IconSize = (mapRange) => {
         const pixelPerMeter = someConstant * 10; // at 0.1 range
-        const a318LengthMeter = 31.45;
-        return MathUtils.clamp(a318LengthMeter * pixelPerMeter * (0.1 / mapRange), 15, 1000);
+        const a320LengthMeter = 37.57;
+        return MathUtils.clamp(a320LengthMeter * pixelPerMeter * (0.1 / mapRange), 15, 1000);
     };
 
     // Calculates turning radius for the Turning prediction arc
@@ -225,7 +225,7 @@ export const PushbackMap = () => {
                 {/* Map */}
                 {!process.env.VITE_BUILD && (
                     <BingMap
-                        configFolder="/Pages/VCockpit/Instruments/Airliners/lvfr-horizonsim-airbus-a319-ceo/EFB/"
+                        configFolder="/Pages/VCockpit/Instruments/Airliners/lvfr-horizonsim-airbus-a320-ceo/EFB/"
                         centerLla={actualMapLatLon}
                         mapId="PUSHBACK_MAP"
                         range={mapRange}
@@ -252,7 +252,7 @@ export const PushbackMap = () => {
                     <IconPlane
                         className="text-theme-highlight"
                         style={{ transform: `rotate(-90deg) translateY(${Math.sign(aircraftIconPosition.x) * Math.min(1000, Math.abs(aircraftIconPosition.x))}px) translateX(${Math.sign(aircraftIconPosition.y) * Math.min(1000, Math.abs(aircraftIconPosition.y))}px)` }}
-                        size={a318IconSize(mapRange)}
+                        size={a320IconSize(mapRange)}
                         strokeLinejoin="miter"
                         stroke={1}
                     />
