@@ -122,15 +122,15 @@ export default new TaskOfTasks("all", [
         new TaskOfTasks(
             "wasm",
             [
-                // new ExecTask("systems",
-                //     "npm run build-a320ceo:systems-cfm",
-                //     [
-                //         "build-a320ceo/src/wasm/systems",
-                //         "fbw-common/src/wasm/systems",
-                //         "Cargo.lock",
-                //         "Cargo.toml",
-                //         "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/SimObjects/Airplanes/A320ceoCFM/panel/systems.wasm"
-                //     ]),
+                new ExecTask("systems",
+                    "npm run build-a320ceo:systems",
+                    [
+                        "build-a320ceo/src/wasm/systems",
+                        "fbw-common/src/wasm/systems",
+                        "Cargo.lock",
+                        "Cargo.toml",
+                        "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/SimObjects/Airplanes/A320ceoCFM/panel/systems.wasm"
+                    ]),
                 new ExecTask("systems-fadec", "npm run build-a320ceo:fadec", [
                     "build-a320ceo/src/wasm/fadec_a320",
                     "fbw-common/src/wasm/fbw_common",

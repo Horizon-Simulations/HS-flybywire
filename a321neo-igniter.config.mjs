@@ -122,15 +122,15 @@ export default new TaskOfTasks("all", [
         new TaskOfTasks(
             "wasm",
             [
-                // new ExecTask("systems",
-                //     "npm run build-a321neo:systems",
-                //     [
-                //         "build-a321neo/src/wasm/systems",
-                //         "fbw-common/src/wasm/systems",
-                //         "Cargo.lock",
-                //         "Cargo.toml",
-                //         "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/systems.wasm"
-                //     ]),
+                new ExecTask("systems",
+                    "npm run build-a321neo:systems",
+                    [
+                        "build-a321neo/src/wasm/systems",
+                        "fbw-common/src/wasm/systems",
+                        "Cargo.lock",
+                        "Cargo.toml",
+                        "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/systems.wasm"
+                    ]),
                 new ExecTask("systems-fadec", "npm run build-a321neo:fadec", [
                     "build-a321neo/src/wasm/fadec_a320",
                     "fbw-common/src/wasm/fbw_common",

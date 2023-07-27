@@ -122,15 +122,15 @@ export default new TaskOfTasks("all", [
         new TaskOfTasks(
             "wasm",
             [
-                // new ExecTask("systems",
-                //     "npm run build-a319ceo:systems-cfm",
-                //     [
-                //         "build-a319ceo/src/wasm/systems",
-                //         "fbw-common/src/wasm/systems",
-                //         "Cargo.lock",
-                //         "Cargo.toml",
-                //         "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/systems.wasm"
-                //     ]),
+                new ExecTask("systems",
+                    "npm run build-a319ceo:systems",
+                    [
+                        "build-a319ceo/src/wasm/systems",
+                        "fbw-common/src/wasm/systems",
+                        "Cargo.lock",
+                        "Cargo.toml",
+                        "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/systems.wasm"
+                    ]),
                 new ExecTask("systems-fadec", "npm run build-a319ceo:fadec", [
                     "build-a319ceo/src/wasm/fadec_a320",
                     "fbw-common/src/wasm/fbw_common",
