@@ -187,13 +187,14 @@ class Polynomial {
   /// </summary>
   double correctedEGT(double cn1, double cff, double mach, double alt) {
     double outCEGT = 0;
+	double cff_a320iae = 1.16;
 
     double c_EGT[16] = {3.2636e+02,  0.0000e+00, 9.2893e-01, 3.9505e-02,  3.9070e+02, -4.7911e-04, 7.7679e-03,  5.8361e-05,
                         -2.5566e+00, 5.1227e-06, 1.0178e-07, -7.4602e-03, 1.2106e-07, -5.1639e+01, -2.7356e-03, 1.9312e-08};
 
-    outCEGT = c_EGT[0] + c_EGT[1] + (c_EGT[2] * cn1) + (c_EGT[3] * cff) + (c_EGT[4] * mach) + (c_EGT[5] * alt) +
-              (c_EGT[6] * powFBW(cn1, 2)) + (c_EGT[7] * cn1 * cff) + (c_EGT[8] * cn1 * mach) + (c_EGT[9] * cn1 * alt) +
-              (c_EGT[10] * powFBW(cff, 2)) + (c_EGT[11] * mach * cff) + (c_EGT[12] * cff * alt) + (c_EGT[13] * powFBW(mach, 2)) +
+    outCEGT = c_EGT[0] + c_EGT[1] + (c_EGT[2] * cn1) + (c_EGT[3] * cff_a320iae) + (c_EGT[4] * mach) + (c_EGT[5] * alt) +
+              (c_EGT[6] * powFBW(cn1, 2)) + (c_EGT[7] * cn1 * cff_a320iae) + (c_EGT[8] * cn1 * mach) + (c_EGT[9] * cn1 * alt) +
+              (c_EGT[10] * powFBW(cff_a320iae, 2)) + (c_EGT[11] * mach * cff_a320iae) + (c_EGT[12] * cff_a320iae * alt) + (c_EGT[13] * powFBW(mach, 2)) +
               (c_EGT[14] * mach * alt) + (c_EGT[15] * powFBW(alt, 2));
 
     return outCEGT;
@@ -204,6 +205,7 @@ class Polynomial {
   /// </summary>
   double correctedFuelFlow(double cn1, double mach, double alt) {
     double outCFF = 0;
+    double a320iae_f = 1.16;
 
     double c_Flow[21] = {-1.7630e+02, -2.1542e-01, 4.7119e+01,  6.1519e+02,  1.8047e-03, -4.4554e-01, -4.3940e+01,
                          4.0459e-05,  -3.2912e+01, -6.2894e-03, -1.2544e-07, 1.0938e-02, 4.0936e-01,  -5.5841e-06,
@@ -216,7 +218,7 @@ class Polynomial {
              (c_Flow[16] * cn1 * powFBW(alt, 2)) + (c_Flow[17] * powFBW(mach, 3)) + (c_Flow[18] * powFBW(mach, 2) * alt) +
              (c_Flow[19] * mach * powFBW(alt, 2)) + (c_Flow[20] * powFBW(alt, 3));
 
-    return outCFF;
+    return outCFF * a320iae_f;
   }
 
   double oilTemperature(double energy, double preOilTemp, double maxOilTemp, double deltaTime) {

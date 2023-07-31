@@ -132,7 +132,7 @@ export default new TaskOfTasks("all", [
                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/systems.wasm"
                 ]),
                 new ExecTask("systems-fadec", "npm run build-a318ceo:fadec", [
-                    "build-a318ceo/src/wasm/fadec_a320",
+                    "build-a318ceo/src/wasm/fadec_a318cfm",
                     "fbw-common/src/wasm/fbw_common",
                     "fbw-common/src/wasm/fadec_common",
                     "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/fadec.wasm",

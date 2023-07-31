@@ -187,7 +187,7 @@ class Polynomial {
   /// </summary>
   double correctedEGT(double cn1, double cff, double mach, double alt) {
     double outCEGT = 0;
-    double cff_a319cfm = 1.16;						  
+    double cff_a319cfm = 1.15;
 
     double c_EGT[16] = {3.2636e+02,  0.0000e+00, 9.2893e-01, 3.9505e-02,  3.9070e+02, -4.7911e-04, 7.7679e-03,  5.8361e-05,
                         -2.5566e+00, 5.1227e-06, 1.0178e-07, -7.4602e-03, 1.2106e-07, -5.1639e+01, -2.7356e-03, 1.9312e-08};
@@ -205,7 +205,7 @@ class Polynomial {
   /// </summary>
   double correctedFuelFlow(double cn1, double mach, double alt) {
     double outCFF = 0;
-    double a319cfm_f = 1.16;						
+    double a319cfm_f = 1.15;
 
     double c_Flow[21] = {-1.7630e+02, -2.1542e-01, 4.7119e+01,  6.1519e+02,  1.8047e-03, -4.4554e-01, -4.3940e+01,
                          4.0459e-05,  -3.2912e+01, -6.2894e-03, -1.2544e-07, 1.0938e-02, 4.0936e-01,  -5.5841e-06,
