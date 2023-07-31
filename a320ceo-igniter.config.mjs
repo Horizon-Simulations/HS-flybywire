@@ -177,7 +177,8 @@ export default new TaskOfTasks("all", [
             "copy",
             [
                 new ExecTask("model", "npm run build-a320ceo:copy-model"),
-                new ExecTask("fadec", "npm run build-a320ceo:copy-fadec"),
+                new ExecTask("fadec-cfm", "npm run build-a320ceo:copy-fadec-cfm"),
+                new ExecTask("fadec-iae", "npm run build-a320ceo:copy-fadec-iae"),
                 new ExecTask("fbw", "npm run build-a320ceo:copy-fbw"),
                 new ExecTask(
                     "flypad-backend",
