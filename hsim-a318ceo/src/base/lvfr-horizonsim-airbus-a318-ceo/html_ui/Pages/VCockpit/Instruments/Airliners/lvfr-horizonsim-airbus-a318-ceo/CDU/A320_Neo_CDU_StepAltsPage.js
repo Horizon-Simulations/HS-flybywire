@@ -181,7 +181,7 @@ class CDUStepAltsPage {
         mcdu.flightPlanManager.addOrUpdateCruiseStep(waypoint, alt);
 
         if (CDUStepAltsPage.checkIfStepAboveMaxFl(mcdu, alt)) {
-            mcdu.setScratchpadMessage(NXSystemMessages.stepAboveMaxFl);
+            mcdu.addMessageToQueue(NXSystemMessages.stepAboveMaxFl);
         }
     }
 
@@ -233,13 +233,13 @@ class CDUStepAltsPage {
             mcdu.flightPlanManager.addOrUpdateCruiseStep(stepWaypoint, altitude, clickedStep.waypointIndex);
 
             if (this.checkIfStepAboveMaxFl(mcdu, altitude)) {
-                mcdu.setScratchpadMessage(NXSystemMessages.stepAboveMaxFl);
+                mcdu.addMessageToQueue(NXSystemMessages.stepAboveMaxFl);
             }
         } else if (splitInputs.length === 2) {
             const rawAltitudeInput = splitInputs[0];
             const rawIdentInput = splitInputs[1];
 
-            const waypointIndex = mcdu.flightPlanManager.findWaypointIndexByIdent(rawIdentInput)
+            const waypointIndex = mcdu.flightPlanManager.findWaypointIndexByIdent(rawIdentInput);
             if (waypointIndex < 0) {
                 // Waypoint ident not found in flightplan
                 mcdu.setScratchpadMessage(NXSystemMessages.formatError);
@@ -266,7 +266,7 @@ class CDUStepAltsPage {
                 mcdu.flightPlanManager.removeCruiseStep(stepWaypoint);
 
                 if (this.checkIfStepAboveMaxFl(mcdu, altitude)) {
-                    mcdu.setScratchpadMessage(NXSystemMessages.stepAboveMaxFl);
+                    mcdu.addMessageToQueue(NXSystemMessages.stepAboveMaxFl);
                 }
             }
         } else if (splitInputs.length === 3) {
@@ -279,7 +279,7 @@ class CDUStepAltsPage {
     }
 
     static checkIfStepAboveMaxFl(mcdu, altitude) {
-        const maxFl = mcdu.getMaxFlCorrected()
+        const maxFl = mcdu.getMaxFlCorrected();
         return Number.isFinite(maxFl) && altitude > maxFl * 100;
     }
 
@@ -318,7 +318,7 @@ class CDUStepAltsPage {
             return false;
         }
 
-        const isClimbVsDescent = toAltitude > altitude
+        const isClimbVsDescent = toAltitude > altitude;
         if (!isClimbVsDescent) {
             doesHaveStepDescent = true;
         } else if (doesHaveStepDescent) {
@@ -332,7 +332,7 @@ class CDUStepAltsPage {
 
             const isClimbAfterDescent = isClimbVsDescent && doesHaveStepDescent;
 
-            return isStepSizeValid && !isClimbAfterDescent
+            return isStepSizeValid && !isClimbAfterDescent;
         }
 
         return true;

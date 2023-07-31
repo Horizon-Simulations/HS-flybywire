@@ -131,11 +131,17 @@ export default new TaskOfTasks("all", [
                         "Cargo.toml",
                         "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/systems.wasm"
                     ]),
-                new ExecTask("systems-fadec", "npm run build-a319ceo:fadec", [
-                    "build-a319ceo/src/wasm/fadec_a320",
+                new ExecTask("systems-fadec", "npm run build-a319ceo:fadec-cfm", [
+                    "build-a319ceo/src/wasm/fadec_a319cfm",
                     "fbw-common/src/wasm/fbw_common",
                     "fbw-common/src/wasm/fadec_common",
                     "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/fadec.wasm",
+                ]),
+                new ExecTask("systems-fadec", "npm run build-a319ceo:fadec-iae", [
+                    "build-a319ceo/src/wasm/fadec_a319iae",
+                    "fbw-common/src/wasm/fbw_common",
+                    "fbw-common/src/wasm/fadec_common",
+                    "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoIAE/panel/fadec.wasm",
                 ]),
                 new ExecTask("systems-fbw", "npm run build-a319ceo:fbw", [
                     "build-a319ceo/src/wasm/fbw_a320",
@@ -171,7 +177,8 @@ export default new TaskOfTasks("all", [
             "copy",
             [
                 new ExecTask("model", "npm run build-a319ceo:copy-model"),
-                new ExecTask("fadec", "npm run build-a319ceo:copy-fadec"),
+                new ExecTask("fadec-cfm", "npm run build-a319ceo:copy-fadec-cfm"),
+                new ExecTask("fadec-iae", "npm run build-a319ceo:copy-fadec-iae"),
                 new ExecTask("fbw", "npm run build-a319ceo:copy-fbw"),
                 new ExecTask(
                     "flypad-backend",
