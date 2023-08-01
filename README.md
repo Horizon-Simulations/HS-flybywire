@@ -120,14 +120,25 @@ The following aircraft configuration is currently simulated or targeted:
 ## How to build
 Make sure docker are isntalled. Prefferably with WSL2 backend.
 
+### Software requirements
+- Docker Desktop or native on WSL2
+- NodeJS (latest LTS version)
+- Git for Windows
+
 ### 1. First, run following command on powershell. This will install the A32NX docker images and node modules.
 
 For powershell:
 ```shell
+npm install --save-dev
+git submodule init
+git submodule update flybywire
 .\scripts\dev-env\run.cmd ./scripts/setup.sh
 ```
 For Git Bash/Linux:
 ```shell
+npm install --save-dev
+git submodule init
+git submodule update flybywire
 ./scripts/dev-env/run.sh ./scripts/setup.sh
 ```
 ### 2. As next step we will copy the original source files and copy-over our source files.
@@ -138,7 +149,7 @@ For powershell:
 ```
 For Git Bash/Linux:
 ```shell
-./scripts/copy_a318hs.sh
+./scripts/dev-env/run.sh ./scripts/copy_a318hs.sh
 ```
 #### A319ceo
 For powershell:
@@ -147,7 +158,7 @@ For powershell:
 ```
 For Git Bash/Linux:
 ```shell
-./scripts/copy_a319hs.sh
+./scripts/dev-env/run.sh ./scripts/copy_a319hs.sh
 ```
 #### A320ceo
 For powershell:
@@ -156,16 +167,16 @@ For powershell:
 ```
 For Git Bash/Linux:
 ```shell
-./scripts/copy_a320hs
+./scripts/dev-env/run.sh ./scripts/copy_a320hs.sh
 ```
 #### A321neo
 For powershell:
 ```shell
-.\scripts\dev-env\run.cmd ./scripts/copy_a21nhs
+.\scripts\dev-env\run.cmd ./scripts/copy_a321hs.sh
 ```
 For Git Bash/Linux:
 ```shell
-./scripts/copy_a21nhs
+./scripts/dev-env/run.sh ./scripts/copy_a321hs.sh
 ```
 ### 3. Build all A32NX module by running following command on powershell.
 #### A318ceo
@@ -198,14 +209,14 @@ For Git Bash/Linux:
 #### A321neo
 For powershell:
 ```shell
-.\scripts\dev-env\run.cmd ./scripts/build_a21nhs.sh
+.\scripts\dev-env\run.cmd ./scripts/build_a321hs.sh
 ```
 For Git Bash/Linux:
 ```shell
-./scripts/dev-env/run.sh ./scripts/build_a21nhs.sh
+./scripts/dev-env/run.sh ./scripts/build_a321hs.sh
 ```
 
-### 4. The package is now ready to use. Copy the folder "headwind-aircraft-a330-900" to your CommunityPackage folder in MSFS.
+### 4. The package is now ready to use. Copy the folder "build_a32x/out/lvfr-horizonsim-airbus-axx" to your CommunityPackage folder in MSFS.
 
 ### (Optional) If you want to use the MSFS Dev Tools you can run the following command (after build completed) to copy the files to the PackageSources.
 
