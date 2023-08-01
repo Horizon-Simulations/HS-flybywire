@@ -187,14 +187,13 @@ class Polynomial {
   /// </summary>
   double correctedEGT(double cn1, double cff, double mach, double alt) {
     double outCEGT = 0;
-	double cff_a319iae = 1.15;
 
     double c_EGT[16] = {3.2636e+02,  0.0000e+00, 9.2893e-01, 3.9505e-02,  3.9070e+02, -4.7911e-04, 7.7679e-03,  5.8361e-05,
                         -2.5566e+00, 5.1227e-06, 1.0178e-07, -7.4602e-03, 1.2106e-07, -5.1639e+01, -2.7356e-03, 1.9312e-08};
 
-    outCEGT = c_EGT[0] + c_EGT[1] + (c_EGT[2] * cn1) + (c_EGT[3] * cff_a319iae) + (c_EGT[4] * mach) + (c_EGT[5] * alt) +
-              (c_EGT[6] * powFBW(cn1, 2)) + (c_EGT[7] * cn1 * cff_a319iae) + (c_EGT[8] * cn1 * mach) + (c_EGT[9] * cn1 * alt) +
-              (c_EGT[10] * powFBW(cff_a319iae, 2)) + (c_EGT[11] * mach * cff_a319iae) + (c_EGT[12] * cff_a319iae * alt) + (c_EGT[13] * powFBW(mach, 2)) +
+    outCEGT = c_EGT[0] + c_EGT[1] + (c_EGT[2] * cn1) + (c_EGT[3] * cff) + (c_EGT[4] * mach) + (c_EGT[5] * alt) +
+              (c_EGT[6] * powFBW(cn1, 2)) + (c_EGT[7] * cn1 * cff) + (c_EGT[8] * cn1 * mach) + (c_EGT[9] * cn1 * alt) +
+              (c_EGT[10] * powFBW(cff, 2)) + (c_EGT[11] * mach * cff) + (c_EGT[12] * cff * alt) + (c_EGT[13] * powFBW(mach, 2)) +
               (c_EGT[14] * mach * alt) + (c_EGT[15] * powFBW(alt, 2));
 
     return outCEGT;
