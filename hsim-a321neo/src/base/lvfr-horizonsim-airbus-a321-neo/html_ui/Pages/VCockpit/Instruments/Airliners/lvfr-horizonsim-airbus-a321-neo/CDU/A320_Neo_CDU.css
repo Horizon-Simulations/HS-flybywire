@@ -1,18 +1,18 @@
-﻿@import url("/CSS/A32NX_Display_Common.css");
+﻿@import url("/CSS/A21NHS_Display_Common.css");
 
 :root {
   font-family: "HoneywellMCDU" !important;
 }
 
 @font-face {
-  src: url("/Fonts/fbw-a32nx/HoneywellMCDU.ttf") format("truetype");
+  src: url("/Fonts/A21NHS/HoneywellMCDU.ttf") format("truetype");
   font-family: "HoneywellMCDU";
   font-style: normal;
   font-weight: 900;
 }
 
 @font-face {
-  src: url("/Fonts/fbw-a32nx/HoneywellMCDUSmall.ttf") format("truetype");
+  src: url("/Fonts/A21NHS/HoneywellMCDUSmall.ttf") format("truetype");
   font-family: "HoneywellMCDUSmall";
   font-style: normal;
   font-weight: 900;
