@@ -55,7 +55,7 @@ export const OverviewPage = () => {
 
             <div className="flex flex-row mt-8 space-x-16">
                 <div className="flex flex-col space-y-8">
-                    <InformationEntry title={t('Dispatch.Overview.Model')} info="A320-215 [A320]">
+                    <InformationEntry title={t('Dispatch.Overview.Model')} info="A320-214 [A320]">
                         <IconPlane className="fill-current" size={23} stroke={1.5} strokeLinejoin="miter" />
                     </InformationEntry>
 
@@ -76,7 +76,7 @@ export const OverviewPage = () => {
                     </InformationEntry>
                 </div>
                 <div className="flex flex-col space-y-8">
-                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="CFM56-5B5/P">
+                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="CFM56-5B4/P">
                         <LightningFill size={23} />
                     </InformationEntry>
 

@@ -8,7 +8,7 @@ import { AircraftVersionChecker, BuildInfo } from '@shared/AircraftVersionChecke
 import { SettingsPage } from '../Settings';
 
 // @ts-ignore
-import HorizonLogo from '../../Assets/FBW-Tail.svg';
+import HorizonLogo from '../../Assets/Horizon_Simulations_Logo.svg';
 import { t } from '../../translation';
 
 interface BuildInfoEntryProps {

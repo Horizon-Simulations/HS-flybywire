@@ -11,10 +11,10 @@
     --color-utility-grey: rgb(208, 208, 208);
     --color-utility-darkgry: rgb(105, 105, 105);
 
-    --color-highlight : #00c9e4;
-    --color-body: #0E131B;
+    --color-highlight : #e06938;
+    --color-body: #0e203b;
     --color-secondary: #1d2129;
-    --color-text: #FFFFFF;
+    --color-text: #f9f9f9;
     --color-unselected: #C9C9C9;
     --color-accent: #2b313b;
     --color-statusbar: #141e29;
@@ -24,9 +24,9 @@
     --color-highlight: #e06938;
     --color-body: #0B0D11;
     --color-secondary: #14181F;
-    --color-text: #FFFFFF;
+    --color-text: #f9f9f9;
     --color-unselected: #C9C9C9;
-    --color-accent: #1E232D;
+    --color-accent: #242021;
     --color-statusbar: #000000;
 }
 
@@ -38,14 +38,4 @@
     --color-unselected: #696969;
     --color-accent: #d0d0d0;
     --color-statusbar: #FFFFFF;
-}
-
-:root.theme-orange {
-    --color-highlight: #e06938;
-    --color-body: #0B0D11;
-    --color-secondary: #14181F;
-    --color-text: #f9f9f9;
-    --color-unselected: #C9C9C9;
-    --color-accent: #242021;
-    --color-statusbar: #000000;
 }
