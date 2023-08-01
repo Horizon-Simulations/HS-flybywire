@@ -1,18 +1,18 @@
-﻿@import url("/CSS/A318HS_Display_Common.css");
+﻿@import url("/CSS/A320HS_Display_Common.css");
 
 :root {
   font-family: "HoneywellMCDU" !important;
 }
 
 @font-face {
-  src: url("/Fonts/A318HS/HoneywellMCDU.ttf") format("truetype");
+  src: url("/Fonts/A320HS/HoneywellMCDU.ttf") format("truetype");
   font-family: "HoneywellMCDU";
   font-style: normal;
   font-weight: 900;
 }
 
 @font-face {
-  src: url("/Fonts/A318HS/HoneywellMCDUSmall.ttf") format("truetype");
+  src: url("/Fonts/A320HS/HoneywellMCDUSmall.ttf") format("truetype");
   font-family: "HoneywellMCDUSmall";
   font-style: normal;
   font-weight: 900;
