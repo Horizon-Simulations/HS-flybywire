@@ -59,7 +59,7 @@ export const OverviewPage = () => {
                         <IconPlane className="fill-current" size={23} stroke={1.5} strokeLinejoin="miter" />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(3700, 'distance')}>
+                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(3350, 'distance')}>
                         <Rulers size={23} />
                     </InformationEntry>
 
@@ -76,7 +76,7 @@ export const OverviewPage = () => {
                     </InformationEntry>
                 </div>
                 <div className="flex flex-col space-y-8">
-                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="CFM56-5A4">
+                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="CFM56-5A4/F">
                         <LightningFill size={23} />
                     </InformationEntry>
 

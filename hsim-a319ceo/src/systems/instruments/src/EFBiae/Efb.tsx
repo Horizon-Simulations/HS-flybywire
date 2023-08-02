@@ -108,7 +108,7 @@ const Efb = () => {
 
     const { arrivingPosLat, arrivingPosLong, departingPosLat, departingPosLong } = useAppSelector((state) => state.simbrief.data);
 
-    const [theme] = usePersistentProperty('EFB_UI_THEME', 'orange');
+    const [theme] = usePersistentProperty('EFB_UI_THEME', 'blue');
 
     const { showModal } = useModals();
 

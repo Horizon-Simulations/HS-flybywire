@@ -15,7 +15,7 @@ import { t } from '../translation';
 import { TooltipWrapper } from '../UtilComponents/TooltipWrapper';
 
 // @ts-ignore
-import HorizonLogo from '../Assets/FBW-Tail.svg';
+import HorizonLogo from '../Assets/Horizon_Simulations_Logo.svg';
 
 interface ToolBarButtonProps {
     to: string;

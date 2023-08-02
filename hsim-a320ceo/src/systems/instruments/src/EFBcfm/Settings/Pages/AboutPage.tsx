@@ -88,6 +88,7 @@ export const AboutPage = () => {
                 </div>
                 <div className="flex flex-col justify-center mt-8">
                     <p>&copy; 2020-2022 FlyByWire Simulations and its contributors, all rights reserved.</p>
+                    <p>&copy; 2022-2023 Horizon Simulations and its contributors, all rights reserved.</p>
                     <p>Licensed under the GNU General Public License Version 3</p>
                 </div>
 

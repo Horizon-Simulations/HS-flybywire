@@ -55,11 +55,11 @@ export const OverviewPage = () => {
 
             <div className="flex flex-row mt-8 space-x-16">
                 <div className="flex flex-col space-y-8">
-                    <InformationEntry title={t('Dispatch.Overview.Model')} info="A318-111 [A318]">
+                    <InformationEntry title={t('Dispatch.Overview.Model')} info="A318-112 [A318]">
                         <IconPlane className="fill-current" size={23} stroke={1.5} strokeLinejoin="miter" />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(4000, 'distance')}>
+                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(5700, 'distance')}>
                         <Rulers size={23} />
                     </InformationEntry>
 
@@ -71,7 +71,7 @@ export const OverviewPage = () => {
                         <Box size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MaximumPassengers')} info="132 passengers">
+                    <InformationEntry title={t('Dispatch.Overview.MaximumPassengers')} info="118 passengers">
                         <PeopleFill size={23} />
                     </InformationEntry>
                 </div>
