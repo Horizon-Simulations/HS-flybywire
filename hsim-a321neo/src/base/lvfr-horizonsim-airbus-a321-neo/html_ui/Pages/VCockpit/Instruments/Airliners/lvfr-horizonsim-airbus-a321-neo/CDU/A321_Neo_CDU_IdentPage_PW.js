@@ -182,7 +182,7 @@ class CDUIdentPage {
         mcdu.setTemplate([
             ["A321-200"], //This aircraft code is correct and does not include the engine type.
             ["\xa0ENG"],
-            ["PW1130G[color]green"],
+            ["PW1130GA-JM[color]green"],
             ["\xa0ACTIVE NAV DATA BASE"],
             [
                 "\xa0" + calculateActiveDate(date) + "[color]cyan",

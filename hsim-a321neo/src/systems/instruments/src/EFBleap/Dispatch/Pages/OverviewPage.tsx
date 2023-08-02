@@ -46,7 +46,7 @@ export const OverviewPage = () => {
 
     return (
         <div className="overflow-hidden p-6 mr-3 w-min h-content-section-reduced rounded-lg border-2 border-theme-accent">
-            <h1 className="font-bold">Airbus A319ceo</h1>
+            <h1 className="font-bold">Airbus A321neo</h1>
             <p>{airline}</p>
 
             <div className="flex justify-center items-center mt-6">
@@ -55,11 +55,11 @@ export const OverviewPage = () => {
 
             <div className="flex flex-row mt-8 space-x-16">
                 <div className="flex flex-col space-y-8">
-                    <InformationEntry title={t('Dispatch.Overview.Model')} info="A319-113 [A319]">
+                    <InformationEntry title={t('Dispatch.Overview.Model')} info="A321-251N [A21N]">
                         <IconPlane className="fill-current" size={23} stroke={1.5} strokeLinejoin="miter" />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(6200, 'distance')}>
+                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(6450, 'distance')}>
                         <Rulers size={23} />
                     </InformationEntry>
 
@@ -67,16 +67,16 @@ export const OverviewPage = () => {
                         <Box size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MZFW')} info={getConvertedInfo(57000, 'weight')}>
+                    <InformationEntry title={t('Dispatch.Overview.MZFW')} info={getConvertedInfo(73300, 'weight')}>
                         <Box size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MaximumPassengers')} info="156 passengers">
+                    <InformationEntry title={t('Dispatch.Overview.MaximumPassengers')} info="240 passengers">
                         <PeopleFill size={23} />
                     </InformationEntry>
                 </div>
                 <div className="flex flex-col space-y-8">
-                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="CFM56-5A4/F">
+                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="CFM LEAP-1A32">
                         <LightningFill size={23} />
                     </InformationEntry>
 
@@ -84,11 +84,11 @@ export const OverviewPage = () => {
                         <Speedometer2 size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MTOW')} info={getConvertedInfo(64000, 'weight')}>
+                    <InformationEntry title={t('Dispatch.Overview.MTOW')} info={getConvertedInfo(89000, 'weight')}>
                         <Box size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MaximumFuelCapacity')} info={getConvertedInfo(23859, 'volume')}>
+                    <InformationEntry title={t('Dispatch.Overview.MaximumFuelCapacity')} info={getConvertedInfo(23580, 'volume')}>
                         <Box size={23} />
                     </InformationEntry>
 
