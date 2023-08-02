@@ -21,7 +21,7 @@ import { CargoStationInfo, PaxStationInfo } from './Seating/Constants';
 import { t } from '../../../translation';
 import { TooltipWrapper } from '../../../UtilComponents/TooltipWrapper';
 import { SimpleInput } from '../../../UtilComponents/Form/SimpleInput/SimpleInput';
-import Loadsheet from './Loadsheet/a320v55.json';
+import Loadsheet from './Loadsheet/a21nv55.json';
 import Card from '../../../UtilComponents/Card/Card';
 import { SelectGroup, SelectItem } from '../../../UtilComponents/Form/Select';
 import { SeatMapWidget } from './Seating/SeatMapWidget';

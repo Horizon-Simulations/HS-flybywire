@@ -38,7 +38,8 @@ module.exports = {
         reactInstrument('ISIS'),
         reactInstrument('BAT'),
         reactInstrument('ATC'),
-        reactInstrument('EFB', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
+        reactInstrument('EFBleap', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
+        reactInstrument('EFBpw', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
     ],
 };
 

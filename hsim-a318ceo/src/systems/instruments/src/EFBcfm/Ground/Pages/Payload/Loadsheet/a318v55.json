@@ -1,7 +1,7 @@
 {
     "specs": {
         "prefix": "A32NX",
-        "emptyPosition": -9.42,
+        "emptyPosition": -2.89,
         "macSize": 13.464,
         "leMacZ": -5.383,
         "weights": {
@@ -35,7 +35,7 @@
                         },
                         {
                             "type": 0,
-                            "yOffset": 38
+                            "yOffset": 57
                         },
                         {
                             "type": 0
@@ -43,7 +43,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 0,
+                    "xOffset": 24,
                     "yOffset": 0
                 },
                 {
@@ -56,7 +56,7 @@
                         },
                         {
                             "type": 0,
-                            "yOffset": 38
+                            "yOffset": 57
                         },
                         {
                             "type": 0
@@ -150,7 +150,7 @@
                 }
             ],
             "stationIndex": 1,
-            "position": 20.5,
+            "position": 18.98,
             "fill": 0.23,
             "simVar": "A32NX_PAX_A"
         },
@@ -182,7 +182,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 0,
+                    "xOffset": 36,
                     "yOffset": 0
                 },
                 {
@@ -295,7 +295,7 @@
                 }
             ],
             "stationIndex": 2,
-            "position": 1.5,
+            "position": 2.86,
             "fill": 0.26,
             "simVar": "A32NX_PAX_B"
         },
@@ -327,7 +327,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 0,
+                    "xOffset": 36,
                     "yOffset": 0
                 },
                 {
@@ -440,7 +440,7 @@
                 }
             ],
             "stationIndex": 3,
-            "position": -16.6,
+            "position": -9.34,
             "fill": 0.26,
             "simVar": "A32NX_PAX_C"
         },
@@ -472,7 +472,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 0,
+                    "xOffset": 36,
                     "yOffset": 0
                 },
                 {
@@ -566,7 +566,7 @@
                         },
                         {
                             "type": 0,
-                            "yOffset": 38
+                            "yOffset": 57
                         },
                         {
                             "type": 0
@@ -587,7 +587,7 @@
                         },
                         {
                             "type": 0,
-                            "yOffset": 38
+                            "yOffset": 57
                         },
                         {
                             "type": 0
@@ -601,7 +601,7 @@
             ],
             "fill": 0.28,
             "stationIndex": 4,
-            "position": -35.6,
+            "position": -20.81,
             "simVar": "A32NX_PAX_D"
         }
     ],
@@ -610,7 +610,7 @@
             "name": "FWD BAGGAGE/CONTAINER",
             "weight": 3402,
             "stationIndex": 5,
-            "position": 17.3,
+            "position": 18.28,
             "progressBarWidth": 160,
             "simVar": "A32NX_CARGO_FWD_BAGGAGE_CONTAINER"
         },
@@ -618,7 +618,7 @@
             "name": "AFT CONTAINER",
             "weight": 2426,
             "stationIndex": 6,
-            "position": -24.1,
+            "position": -8.96,
             "progressBarWidth": 100,
             "simVar": "A32NX_CARGO_AFT_CONTAINER"
         },
@@ -626,7 +626,7 @@
             "name": "AFT BAGGAGE",
             "weight": 2110,
             "stationIndex": 7,
-            "position": -34.1,
+            "position": -20.10,
             "progressBarWidth": 100,
             "simVar": "A32NX_CARGO_AFT_BAGGAGE"
         },
@@ -634,7 +634,7 @@
             "name": "AFT BULK/LOOSE",
             "weight": 1497,
             "stationIndex": 8,
-            "position": -42.4,
+            "position": -30.35,
             "progressBarWidth": 100,
             "simVar": "A32NX_CARGO_AFT_BULK_LOOSE"
         }
