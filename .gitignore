@@ -43,9 +43,10 @@ Cargo.toml
 
 # Project folders
 
-/hsim-common/*
-!/hsim-common/src/
-!/hsim-common/src/**
+/hsim-a21n-common/*
+/hsim-a318-common/*
+/hsim-a319-common/*
+/hsim-a320-common/*
 !/hsim-a21n-common/src/
 !/hsim-a21n-common/src/**
 !/hsim-a318-common/src/
@@ -72,17 +73,8 @@ Cargo.toml
 
 /hsim-a318ceo/src/localization/flypad/downloaded/*.json
 /hsim-a318ceo/src/localization/msfs/downloaded/*.locPak
-/hsim-a318ceo/src/systems/instruments/src/EFB/dist
-/hsim-a318ceo/src/systems/instruments/src/EFB/web/
-
-/hsim-a318ceo-liveries/*
-!/hsim-a318ceo-liveries/README.md
-!/hsim-a318ceo-liveries/mach.config.js
-!/hsim-a318ceo-liveries/.env
-!/hsim-a318ceo-liveries/docs/
-!/hsim-a318ceo-liveries/docs/**
-!/hsim-a318ceo-liveries/src/
-!/hsim-a318ceo-liveries/src/**
+/hsim-a318ceo/src/systems/instruments/src/EFBcfm/dist
+/hsim-a318ceo/src/systems/instruments/src/EFBcfm/web/
 
 /hsim-a319ceo/*
 !/hsim-a319ceo/README.md
@@ -101,17 +93,10 @@ Cargo.toml
 
 /hsim-a319ceo/src/localization/flypad/downloaded/*.json
 /hsim-a319ceo/src/localization/msfs/downloaded/*.locPak
-/hsim-a319ceo/src/systems/instruments/src/EFB/dist
-/hsim-a319ceo/src/systems/instruments/src/EFB/web/
-
-/hsim-a319ceo-liveries/*
-!/hsim-a319ceo-liveries/README.md
-!/hsim-a319ceo-liveries/mach.config.js
-!/hsim-a319ceo-liveries/.env
-!/hsim-a319ceo-liveries/docs/
-!/hsim-a319ceo-liveries/docs/**
-!/hsim-a319ceo-liveries/src/
-!/hsim-a319ceo-liveries/src/**
+/hsim-a319ceo/src/systems/instruments/src/EFBcfm/dist
+/hsim-a319ceo/src/systems/instruments/src/EFBcfm/web/
+/hsim-a319ceo/src/systems/instruments/src/EFBiae/dist
+/hsim-a319ceo/src/systems/instruments/src/EFBiae/web/
 
 /hsim-a320ceo/*
 !/hsim-a320ceo/README.md

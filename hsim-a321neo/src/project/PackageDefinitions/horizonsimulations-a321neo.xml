@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetPackage Version="0.1.0">
+	<ItemSettings>
+		<ContentType>AIRCRAFT</ContentType>
+		<Title>Horizon Simulation A321neo</Title>
+		<Manufacturer>Airbus</Manufacturer>
+		<Creator>horizonsimulations</Creator>
+	</ItemSettings>
+	<Flags>
+		<VisibleInStore>false</VisibleInStore>
+		<CanBeReferenced>false</CanBeReferenced>
+	</Flags>
+	<AssetGroups>
+		<AssetGroup Name="ContentInfo">
+			<Type>ContentInfo</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageDefinitions\lvfr-horizonsim-airbus-a321-neo\ContentInfo\</AssetDir>
+			<OutputDir>ContentInfo\lvfr-horizonsim-airbus-a321-neo\</OutputDir>
+		</AssetGroup>
+	</AssetGroups>
+</AssetPackage>
