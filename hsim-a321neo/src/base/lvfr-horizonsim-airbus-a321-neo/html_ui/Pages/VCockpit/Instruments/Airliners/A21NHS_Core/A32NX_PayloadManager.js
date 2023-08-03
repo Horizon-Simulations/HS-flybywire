@@ -20,7 +20,7 @@ class A32NX_PayloadConstructor {
             },
             rows14_21: {
                 name: 'ROWS [21-30]',
-                seats: 48,
+                seats: 60,
                 weight: Math.round(NXUnits.kgToUser(5040)),
                 stationIndex: 2 + 1,
                 position: -34.225,
@@ -28,7 +28,7 @@ class A32NX_PayloadConstructor {
             },
             rows22_29: {
                 name: 'ROWS [31-40]',
-                seats: 48,
+                seats: 60,
                 weight: Math.round(NXUnits.kgToUser(5040)),
                 stationIndex: 3 + 1,
                 position: -57.3,
@@ -91,7 +91,7 @@ function getZfwcg() {
     const macSize = 13.464; // Accurate to 3 decimals, replaces debug weight values
 
     const emptyWeight = (SimVar.GetSimVarValue("EMPTY WEIGHT", getUserUnit()));
-    const emptyPosition = -22.60; // Value from flight_model.cfg
+    const emptyPosition = -22.22; // Value from flight_model.cfg
     const emptyMoment = emptyPosition * emptyWeight;
     const PAX_WEIGHT = SimVar.GetSimVarValue("L:A32NX_WB_PER_PAX_WEIGHT", "Number");
 
