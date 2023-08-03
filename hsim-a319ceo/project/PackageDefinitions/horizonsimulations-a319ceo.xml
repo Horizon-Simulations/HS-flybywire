@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetPackage Version="0.1.0">
+	<ItemSettings>
+		<ContentType>AIRCRAFT</ContentType>
+		<Title>Horizon Simulation A319ceo</Title>
+		<Manufacturer>Airbus</Manufacturer>
+		<Creator>horizonsimulations</Creator>
+	</ItemSettings>
+	<Flags>
+		<VisibleInStore>false</VisibleInStore>
+		<CanBeReferenced>false</CanBeReferenced>
+	</Flags>
+	<AssetGroups>
+		<AssetGroup Name="ContentInfo">
+			<Type>ContentInfo</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageDefinitions\horizonsimulations-a319ceo\ContentInfo</AssetDir>
+			<OutputDir>ContentInfo\horizonsimulations-a319ceo</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="A319ceoCFM">
+			<Type>SimObject</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\SimObjects\Airplanes\A319ceoCFM\</AssetDir>
+			<OutputDir>SimObjects\Airplanes\A319ceoCFM\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="A319ceoCFM_acj">
+			<Type>SimObject</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\SimObjects\Airplanes\A319ceoCFM_acj\</AssetDir>
+			<OutputDir>SimObjects\Airplanes\A319ceoCFM_acj\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="A319ceoCFMSL">
+			<Type>SimObject</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\SimObjects\Airplanes\A319ceoCFMSL\</AssetDir>
+			<OutputDir>SimObjects\Airplanes\A319ceoCFMSL\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="A319ceoIAE">
+			<Type>SimObject</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\SimObjects\Airplanes\A319ceoIAE\</AssetDir>
+			<OutputDir>SimObjects\Airplanes\A319ceoIAE\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="A319ceoIAE_acj">
+			<Type>SimObject</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\SimObjects\Airplanes\A319ceoIAE_acj\</AssetDir>
+			<OutputDir>SimObjects\Airplanes\A319ceoIAE_acj\</OutputDir>
+		</AssetGroup>
+	</AssetGroups>
+</AssetPackage>
