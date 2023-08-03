@@ -68,6 +68,11 @@ Cargo.toml
 /hsim-a318ceo/out
 /hsim-a318ceo/src/base/horizonsim-lvfr-airbus-a318-ceo/SimObjects/Airplanes/**/model/*.bin
 /hsim-a318ceo/src/base/horizonsim-lvfr-airbus-a318-ceo/SimObjects/Airplanes/**/model/*.gltf
+/hsim-a318ceo/src/project/_PackageInt
+/hsim-a318ceo/src/project/Packages/
+/hsim-a318ceo/src/project/Packages/**
+/hsim-a318ceo/src/project/PackagesSources/
+/hsim-a318ceo/src/project/PackagesSources/**
 /hsim-a318ceo/src/systems/instruments/aceBundles
 /hsim-a318ceo/src/systems/instruments/buildSrc/custom/*
 
@@ -88,6 +93,11 @@ Cargo.toml
 /hsim-a319ceo/out
 /hsim-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.bin
 /hsim-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.gltf
+/hsim-a319ceo/src/project/_PackageInt
+/hsim-a319ceo/src/project/Packages/
+/hsim-a319ceo/src/project/Packages/**
+/hsim-a319ceo/src/project/PackagesSources/
+/hsim-a319ceo/src/project/PackagesSources/**
 /hsim-a319ceo/src/systems/instruments/aceBundles
 /hsim-a319ceo/src/systems/instruments/buildSrc/custom/*
 
@@ -110,6 +120,11 @@ Cargo.toml
 /hsim-a320ceo/out
 /hsim-a320ceo/src/base/horizonsim-lvfr-airbus-a320-ceo/SimObjects/Airplanes/**/model/*.bin
 /hsim-a320ceo/src/base/horizonsim-lvfr-airbus-a320-ceo/SimObjects/Airplanes/**/model/*.gltf
+/hsim-a320ceo/src/project/_PackageInt
+/hsim-a320ceo/src/project/Packages/
+/hsim-a320ceo/src/project/Packages/**
+/hsim-a320ceo/src/project/PackagesSources/
+/hsim-a320ceo/src/project/PackagesSources/**
 /hsim-a320ceo/src/systems/instruments/aceBundles
 /hsim-a320ceo/src/systems/instruments/buildSrc/custom/*
 
@@ -139,6 +154,11 @@ Cargo.toml
 /hsim-a321neo/out
 /hsim-a321neo/src/base/horizonsim-lvfr-airbus-a321-neo/SimObjects/Airplanes/**/model/*.bin
 /hsim-a321neo/src/base/horizonsim-lvfr-airbus-a321-neo/SimObjects/Airplanes/**/model/*.gltf
+/hsim-a321neo/src/project/_PackageInt
+/hsim-a321neo/src/project/Packages/
+/hsim-a321neo/src/project/Packages/**
+/hsim-a321neo/src/project/PackagesSources/
+/hsim-a321neo/src/project/PackagesSources/**
 /hsim-a321neo/src/systems/instruments/aceBundles
 /hsim-a321neo/src/systems/instruments/buildSrc/custom/*
 
@@ -183,14 +203,6 @@ target/
 *.wasm
 !Cargo*.toml
 
-/hsim-a318ceo/src/project/Packages
-/hsim-a318ceo/src/project/_PackageInt
-/hsim-a319ceo/src/project/Packages
-/hsim-a319ceo/src/project/_PackageInt
-/hsim-a320ceo/src/project/Packages
-/hsim-a320ceo/src/project/_PackageInt
-/hsim-a321neo/src/project/Packages
-/hsim-a321neo/src/project/_PackageInt
 /build-a318ceo/
 /build-a319ceo/
 /build-a320ceo/
