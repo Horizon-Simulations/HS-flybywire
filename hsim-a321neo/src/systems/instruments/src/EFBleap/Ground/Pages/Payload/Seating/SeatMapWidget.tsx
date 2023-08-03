@@ -47,18 +47,13 @@ export const SeatMapWidget: React.FC<SeatMapProps> = ({ seatMap, desiredFlags, a
             primary = '#E06938';
             secondary = '#84CC16';
             break;
-        case 'orange':
-            base = '#fff';
-            primary = '#E06938';
-            secondary = '#14181F';
-            break;
         default:
             break;
         }
         return [base, primary, secondary];
     };
 
-    const [theme] = usePersistentProperty('EFB_UI_THEME', 'orange');
+    const [theme] = usePersistentProperty('EFB_UI_THEME', 'blue');
     const [base, primary] = getTheme(theme);
 
     const getImageFromComponent = (component: React.ReactElement): HTMLImageElement => {

@@ -58,10 +58,10 @@ impl A320Cargo {
 
 lazy_static! {
     static ref A320_PAX: EnumMap<A320Pax, PaxInfo> = EnumMap::from_array([
-        PaxInfo::new(36, "PAX_A", "PAYLOAD_STATION_1_REQ",),
-        PaxInfo::new(42, "PAX_B", "PAYLOAD_STATION_2_REQ",),
-        PaxInfo::new(48, "PAX_C", "PAYLOAD_STATION_3_REQ",),
-        PaxInfo::new(48, "PAX_D", "PAYLOAD_STATION_4_REQ",)
+        PaxInfo::new(60, "PAX_A", "PAYLOAD_STATION_1_REQ",),
+        PaxInfo::new(60, "PAX_B", "PAYLOAD_STATION_2_REQ",),
+        PaxInfo::new(60, "PAX_C", "PAYLOAD_STATION_3_REQ",),
+        PaxInfo::new(60, "PAX_D", "PAYLOAD_STATION_4_REQ",)
     ]);
     static ref A320_CARGO: EnumMap<A320Cargo, CargoInfo> = EnumMap::from_array([
         CargoInfo::new(

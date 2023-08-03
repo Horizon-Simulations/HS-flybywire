@@ -68,9 +68,11 @@ Cargo.toml
 !/hsim-a318ceo/docs/**
 !/hsim-a318ceo/src/
 !/hsim-a318ceo/src/**
-/hsim-a318ceo/src/project/_PackageInt
-/hsim-a318ceo/src/project/Packages/*
-/hsim-a318ceo/src/project/PackagesSources/*
+
+/hsim-a318ceo/project/_PackageInt
+/hsim-a318ceo/project/Packages/*
+/hsim-a318ceo/project/PackagesSources/*
+!/hsim-a318ceo/project/**
 
 /build-a318ceo/out
 /build-a318ceo/src/base/horizonsim-lvfr-airbus-a318-ceo/SimObjects/Airplanes/**/model/*.bin
@@ -91,9 +93,11 @@ Cargo.toml
 !/hsim-a319ceo/docs/**
 !/hsim-a319ceo/src/
 !/hsim-a319ceo/src/**
-/hsim-a319ceo/src/project/_PackageInt
-/hsim-a319ceo/src/project/Packages/*
-/hsim-a319ceo/src/project/PackagesSources/*
+
+/hsim-a319ceo/project/
+!/hsim-a319ceo/project/PackageDefinitions/
+!/hsim-a319ceo/project/PackagesMetadata/
+!/hsim-a319ceo/project/HorizionSimulationsA319ceo.xml
 
 /build-a319ceo/out
 /build-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.bin
@@ -116,9 +120,11 @@ Cargo.toml
 !/hsim-a320ceo/docs/**
 !/hsim-a320ceo/src/
 !/hsim-a320ceo/src/**
-/hsim-a320ceo/src/project/_PackageInt
-/hsim-a320ceo/src/project/Packages/*
-/hsim-a320ceo/src/project/PackagesSources/*
+
+/hsim-a320ceo/project/_PackageInt
+/hsim-a320ceo/project/Packages/*
+/hsim-a320ceo/project/PackagesSources/*
+!/hsim-a320ceo/project/**
 
 /build-a320ceo/out
 /build-a320ceo/src/base/horizonsim-lvfr-airbus-a320-ceo/SimObjects/Airplanes/**/model/*.bin
@@ -139,9 +145,11 @@ Cargo.toml
 !/hsim-a321neo/docs/**
 !/hsim-a321neo/src/
 !/hsim-a321neo/src/**
-/hsim-a321neo/src/project/_PackageInt
-/hsim-a321neo/src/project/Packages/*
-/hsim-a321neo/src/project/PackagesSources/*
+
+/hsim-a321neo/project/_PackageInt
+/hsim-a321neo/project/Packages/*
+/hsim-a321neo/project/PackagesSources/*
+!/hsim-a321neo/project/**
 
 /build-a321neo/out
 /build-a321neo/src/base/horizonsim-lvfr-airbus-a321-neo/SimObjects/Airplanes/**/model/*.bin
