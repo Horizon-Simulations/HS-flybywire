@@ -94,10 +94,10 @@ Cargo.toml
 !/hsim-a319ceo/src/
 !/hsim-a319ceo/src/**
 
-/hsim-a319ceo/project/
-!/hsim-a319ceo/project/PackageDefinitions/
-!/hsim-a319ceo/project/PackagesMetadata/
-!/hsim-a319ceo/project/HorizionSimulationsA319ceo.xml
+/hsim-a319ceo/project/_PackageInt
+/hsim-a319ceo/project/Packages/*
+/hsim-a319ceo/project/PackagesSources/*
+!/hsim-a319ceo/project/**
 
 /build-a319ceo/out
 /build-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.bin
