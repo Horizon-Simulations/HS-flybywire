@@ -1,6 +1,7 @@
 # general exclusions
 .DS_Store
 
+
 # exclude changes to root directory
 *
 /.*/
@@ -14,6 +15,7 @@
 !.eslintrc
 !.gitattributes
 !.gitignore
+!.gitmodules
 !.npmrc
 !.prettierignore
 !.prettierrc.json
@@ -41,6 +43,8 @@ Cargo.toml
 
 !CMakeLists.txt
 
+!/branding/*
+
 # Project folders
 
 /hsim-a21n-common/*
@@ -64,6 +68,9 @@ Cargo.toml
 !/hsim-a318ceo/docs/**
 !/hsim-a318ceo/src/
 !/hsim-a318ceo/src/**
+/hsim-a318ceo/src/project/_PackageInt
+/hsim-a318ceo/src/project/Packages/*
+/hsim-a318ceo/src/project/PackagesSources/*
 
 /build-a318ceo/out
 /build-a318ceo/src/base/horizonsim-lvfr-airbus-a318-ceo/SimObjects/Airplanes/**/model/*.bin
@@ -84,11 +91,13 @@ Cargo.toml
 !/hsim-a319ceo/docs/**
 !/hsim-a319ceo/src/
 !/hsim-a319ceo/src/**
+/hsim-a319ceo/src/project/_PackageInt
+/hsim-a319ceo/src/project/Packages/*
+/hsim-a319ceo/src/project/PackagesSources/*
 
 /build-a319ceo/out
 /build-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.bin
 /build-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.gltf
-/build-a319ceo/src/project/_PackageInt
 /build-a319ceo/src/systems/instruments/aceBundles
 /build-a319ceo/src/systems/instruments/buildSrc/custom/*
 
@@ -107,6 +116,9 @@ Cargo.toml
 !/hsim-a320ceo/docs/**
 !/hsim-a320ceo/src/
 !/hsim-a320ceo/src/**
+/hsim-a320ceo/src/project/_PackageInt
+/hsim-a320ceo/src/project/Packages/*
+/hsim-a320ceo/src/project/PackagesSources/*
 
 /build-a320ceo/out
 /build-a320ceo/src/base/horizonsim-lvfr-airbus-a320-ceo/SimObjects/Airplanes/**/model/*.bin
@@ -127,6 +139,9 @@ Cargo.toml
 !/hsim-a321neo/docs/**
 !/hsim-a321neo/src/
 !/hsim-a321neo/src/**
+/hsim-a321neo/src/project/_PackageInt
+/hsim-a321neo/src/project/Packages/*
+/hsim-a321neo/src/project/PackagesSources/*
 
 /build-a321neo/out
 /build-a321neo/src/base/horizonsim-lvfr-airbus-a321-neo/SimObjects/Airplanes/**/model/*.bin
@@ -166,24 +181,8 @@ target/
 *.wasm
 !Cargo*.toml
 
-/hsim-a318ceo/src/project/_PackageInt
-/hsim-a318ceo/src/project/Packages/*
-/hsim-a318ceo/src/project/PackagesSources/*
-
-/hsim-a319ceo/src/project/_PackageInt
-/hsim-a319ceo/src/project/Packages/*
-/hsim-a319ceo/src/project/PackagesSources/*
-
-/hsim-a320ceo/src/project/_PackageInt
-/hsim-a320ceo/src/project/Packages/*
-/hsim-a320ceo/src/project/PackagesSources/*
-
-/hsim-a321neo/src/project/_PackageInt
-/hsim-a321neo/src/project/Packages/*
-/hsim-a321neo/src/project/PackagesSources/*
-
-/build-a318ceo/
-/build-a319ceo/
-/build-a320ceo/
-/build-a321neo/
-/fbw-common/
+/build-a318ceo/*
+/build-a319ceo/*
+/build-a320ceo/*
+/build-a321neo/*
+/fbw-common/*
