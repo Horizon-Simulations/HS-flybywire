@@ -59,7 +59,7 @@ export const OverviewPage = () => {
                         <IconPlane className="fill-current" size={23} stroke={1.5} strokeLinejoin="miter" />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(6450, 'distance')}>
+                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(4000, 'distance')}>
                         <Rulers size={23} />
                     </InformationEntry>
 
@@ -67,7 +67,7 @@ export const OverviewPage = () => {
                         <Box size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MZFW')} info={getConvertedInfo(73300, 'weight')}>
+                    <InformationEntry title={t('Dispatch.Overview.MZFW')} info={getConvertedInfo(75600, 'weight')}>
                         <Box size={23} />
                     </InformationEntry>
 
@@ -84,7 +84,7 @@ export const OverviewPage = () => {
                         <Speedometer2 size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MTOW')} info={getConvertedInfo(89000, 'weight')}>
+                    <InformationEntry title={t('Dispatch.Overview.MTOW')} info={getConvertedInfo(93900, 'weight')}>
                         <Box size={23} />
                     </InformationEntry>
 

@@ -40,6 +40,8 @@ module.exports = {
         reactInstrument('ATC'),
         reactInstrument('EFBleap', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
         reactInstrument('EFBpw', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
+        reactInstrument('EFBleaplr', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
+        reactInstrument('EFBpwlr', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
     ],
 };
 

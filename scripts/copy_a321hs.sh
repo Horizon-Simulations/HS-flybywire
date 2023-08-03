@@ -26,6 +26,9 @@ cp -rva ./flybywire/fbw-a32nx/src/wasm/. ./build-a321neo/src/wasm
 # copy EFB 
 cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a321neo/src/systems/instruments/src/EFBleap
 cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a321neo/src/systems/instruments/src/EFBpw
+# copy EFB LR
+cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a321neo/src/systems/instruments/src/EFBleaplr
+cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a321neo/src/systems/instruments/src/EFBpwlr
 
 cp -rva ./hsim-a321neo/.env ./build-a321neo/.env
 cp -rva ./hsim-a321neo/mach.config.js ./build-a321neo/mach.config.js
