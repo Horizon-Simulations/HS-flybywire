@@ -65,21 +65,16 @@ Cargo.toml
 !/hsim-a318ceo/src/
 !/hsim-a318ceo/src/**
 
-/hsim-a318ceo/out
-/hsim-a318ceo/src/base/horizonsim-lvfr-airbus-a318-ceo/SimObjects/Airplanes/**/model/*.bin
-/hsim-a318ceo/src/base/horizonsim-lvfr-airbus-a318-ceo/SimObjects/Airplanes/**/model/*.gltf
-/hsim-a318ceo/src/project/_PackageInt
-/hsim-a318ceo/src/project/Packages/
-/hsim-a318ceo/src/project/Packages/**
-/hsim-a318ceo/src/project/PackagesSources/
-/hsim-a318ceo/src/project/PackagesSources/**
-/hsim-a318ceo/src/systems/instruments/aceBundles
-/hsim-a318ceo/src/systems/instruments/buildSrc/custom/*
+/build-a318ceo/out
+/build-a318ceo/src/base/horizonsim-lvfr-airbus-a318-ceo/SimObjects/Airplanes/**/model/*.bin
+/build-a318ceo/src/base/horizonsim-lvfr-airbus-a318-ceo/SimObjects/Airplanes/**/model/*.gltf
+/build-a318ceo/src/systems/instruments/aceBundles
+/build-a318ceo/src/systems/instruments/buildSrc/custom/*
 
-/hsim-a318ceo/src/localization/flypad/downloaded/*.json
-/hsim-a318ceo/src/localization/msfs/downloaded/*.locPak
-/hsim-a318ceo/src/systems/instruments/src/EFBcfm/dist
-/hsim-a318ceo/src/systems/instruments/src/EFBcfm/web/
+/build-a318ceo/src/localization/flypad/downloaded/*.json
+/build-a318ceo/src/localization/msfs/downloaded/*.locPak
+/build-a318ceo/src/systems/instruments/src/EFBcfm/dist
+/build-a318ceo/src/systems/instruments/src/EFBcfm/web/
 
 /hsim-a319ceo/*
 !/hsim-a319ceo/README.md
@@ -90,23 +85,19 @@ Cargo.toml
 !/hsim-a319ceo/src/
 !/hsim-a319ceo/src/**
 
-/hsim-a319ceo/out
-/hsim-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.bin
-/hsim-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.gltf
-/hsim-a319ceo/src/project/_PackageInt
-/hsim-a319ceo/src/project/Packages/
-/hsim-a319ceo/src/project/Packages/**
-/hsim-a319ceo/src/project/PackagesSources/
-/hsim-a319ceo/src/project/PackagesSources/**
-/hsim-a319ceo/src/systems/instruments/aceBundles
-/hsim-a319ceo/src/systems/instruments/buildSrc/custom/*
+/build-a319ceo/out
+/build-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.bin
+/build-a319ceo/src/base/horizonsim-lvfr-airbus-a319-ceo/SimObjects/Airplanes/**/model/*.gltf
+/build-a319ceo/src/project/_PackageInt
+/build-a319ceo/src/systems/instruments/aceBundles
+/build-a319ceo/src/systems/instruments/buildSrc/custom/*
 
-/hsim-a319ceo/src/localization/flypad/downloaded/*.json
-/hsim-a319ceo/src/localization/msfs/downloaded/*.locPak
-/hsim-a319ceo/src/systems/instruments/src/EFBcfm/dist
-/hsim-a319ceo/src/systems/instruments/src/EFBcfm/web/
-/hsim-a319ceo/src/systems/instruments/src/EFBiae/dist
-/hsim-a319ceo/src/systems/instruments/src/EFBiae/web/
+/build-a319ceo/src/localization/flypad/downloaded/*.json
+/build-a319ceo/src/localization/msfs/downloaded/*.locPak
+/build-a319ceo/src/systems/instruments/src/EFBcfm/dist
+/build-a319ceo/src/systems/instruments/src/EFBcfm/web/
+/build-a319ceo/src/systems/instruments/src/EFBiae/dist
+/build-a319ceo/src/systems/instruments/src/EFBiae/web/
 
 /hsim-a320ceo/*
 !/hsim-a320ceo/README.md
@@ -117,30 +108,16 @@ Cargo.toml
 !/hsim-a320ceo/src/
 !/hsim-a320ceo/src/**
 
-/hsim-a320ceo/out
-/hsim-a320ceo/src/base/horizonsim-lvfr-airbus-a320-ceo/SimObjects/Airplanes/**/model/*.bin
-/hsim-a320ceo/src/base/horizonsim-lvfr-airbus-a320-ceo/SimObjects/Airplanes/**/model/*.gltf
-/hsim-a320ceo/src/project/_PackageInt
-/hsim-a320ceo/src/project/Packages/
-/hsim-a320ceo/src/project/Packages/**
-/hsim-a320ceo/src/project/PackagesSources/
-/hsim-a320ceo/src/project/PackagesSources/**
-/hsim-a320ceo/src/systems/instruments/aceBundles
-/hsim-a320ceo/src/systems/instruments/buildSrc/custom/*
+/build-a320ceo/out
+/build-a320ceo/src/base/horizonsim-lvfr-airbus-a320-ceo/SimObjects/Airplanes/**/model/*.bin
+/build-a320ceo/src/base/horizonsim-lvfr-airbus-a320-ceo/SimObjects/Airplanes/**/model/*.gltf
+/build-a320ceo/src/systems/instruments/aceBundles
+/build-a320ceo/src/systems/instruments/buildSrc/custom/*
 
-/hsim-a320ceo/src/localization/flypad/downloaded/*.json
-/hsim-a320ceo/src/localization/msfs/downloaded/*.locPak
-/hsim-a320ceo/src/systems/instruments/src/EFB/dist
-/hsim-a320ceo/src/systems/instruments/src/EFB/web/
-
-/hsim-a320ceo-liveries/*
-!/hsim-a320ceo-liveries/README.md
-!/hsim-a320ceo-liveries/mach.config.js
-!/hsim-a320ceo-liveries/.env
-!/hsim-a320ceo-liveries/docs/
-!/hsim-a320ceo-liveries/docs/**
-!/hsim-a320ceo-liveries/src/
-!/hsim-a320ceo-liveries/src/**
+/build-a320ceo/src/localization/flypad/downloaded/*.json
+/build-a320ceo/src/localization/msfs/downloaded/*.locPak
+/build-a320ceo/src/systems/instruments/src/EFB/dist
+/build-a320ceo/src/systems/instruments/src/EFB/web/
 
 /hsim-a321neo/*
 !/hsim-a321neo/README.md
@@ -151,30 +128,16 @@ Cargo.toml
 !/hsim-a321neo/src/
 !/hsim-a321neo/src/**
 
-/hsim-a321neo/out
-/hsim-a321neo/src/base/horizonsim-lvfr-airbus-a321-neo/SimObjects/Airplanes/**/model/*.bin
-/hsim-a321neo/src/base/horizonsim-lvfr-airbus-a321-neo/SimObjects/Airplanes/**/model/*.gltf
-/hsim-a321neo/src/project/_PackageInt
-/hsim-a321neo/src/project/Packages/
-/hsim-a321neo/src/project/Packages/**
-/hsim-a321neo/src/project/PackagesSources/
-/hsim-a321neo/src/project/PackagesSources/**
-/hsim-a321neo/src/systems/instruments/aceBundles
-/hsim-a321neo/src/systems/instruments/buildSrc/custom/*
+/build-a321neo/out
+/build-a321neo/src/base/horizonsim-lvfr-airbus-a321-neo/SimObjects/Airplanes/**/model/*.bin
+/build-a321neo/src/base/horizonsim-lvfr-airbus-a321-neo/SimObjects/Airplanes/**/model/*.gltf
+/build-a321neo/src/systems/instruments/aceBundles
+/build-a321neo/src/systems/instruments/buildSrc/custom/*
 
-/hsim-a321neo/src/localization/flypad/downloaded/*.json
-/hsim-a321neo/src/localization/msfs/downloaded/*.locPak
-/hsim-a321neo/src/systems/instruments/src/EFB/dist
-/hsim-a321neo/src/systems/instruments/src/EFB/web/
-
-/hsim-a321neo-liveries/*
-!/hsim-a321neo-liveries/README.md
-!/hsim-a321neo-liveries/mach.config.js
-!/hsim-a321neo-liveries/.env
-!/hsim-a321neo-liveries/docs/
-!/hsim-a321neo-liveries/docs/**
-!/hsim-a321neo-liveries/src/
-!/hsim-a321neo-liveries/src/**
+/build-a321neo/src/localization/flypad/downloaded/*.json
+/build-a321neo/src/localization/msfs/downloaded/*.locPak
+/build-a321neo/src/systems/instruments/src/EFB/dist
+/build-a321neo/src/systems/instruments/src/EFB/web/
 
 !/scripts/**
 
@@ -202,6 +165,22 @@ target/
 *.tgz
 *.wasm
 !Cargo*.toml
+
+/hsim-a318ceo/src/project/_PackageInt
+/hsim-a318ceo/src/project/Packages/*
+/hsim-a318ceo/src/project/PackagesSources/*
+
+/hsim-a319ceo/src/project/_PackageInt
+/hsim-a319ceo/src/project/Packages/*
+/hsim-a319ceo/src/project/PackagesSources/*
+
+/hsim-a320ceo/src/project/_PackageInt
+/hsim-a320ceo/src/project/Packages/*
+/hsim-a320ceo/src/project/PackagesSources/*
+
+/hsim-a321neo/src/project/_PackageInt
+/hsim-a321neo/src/project/Packages/*
+/hsim-a321neo/src/project/PackagesSources/*
 
 /build-a318ceo/
 /build-a319ceo/
