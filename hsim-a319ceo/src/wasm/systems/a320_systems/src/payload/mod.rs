@@ -60,8 +60,8 @@ lazy_static! {
     static ref A320_PAX: EnumMap<A320Pax, PaxInfo> = EnumMap::from_array([
         PaxInfo::new(36, "PAX_A", "PAYLOAD_STATION_1_REQ",),
         PaxInfo::new(42, "PAX_B", "PAYLOAD_STATION_2_REQ",),
-        PaxInfo::new(48, "PAX_C", "PAYLOAD_STATION_3_REQ",),
-        PaxInfo::new(48, "PAX_D", "PAYLOAD_STATION_4_REQ",)
+        PaxInfo::new(42, "PAX_C", "PAYLOAD_STATION_3_REQ",),
+        PaxInfo::new(36, "PAX_D", "PAYLOAD_STATION_4_REQ",)
     ]);
     static ref A320_CARGO: EnumMap<A320Cargo, CargoInfo> = EnumMap::from_array([
         CargoInfo::new(
@@ -190,7 +190,7 @@ pub struct A320Payload {
     time: Duration,
 }
 impl A320Payload {
-    const DEFAULT_PER_PAX_WEIGHT_KG: f64 = 84.;
+    const DEFAULT_PER_PAX_WEIGHT_KG: f64 = 79.;
     pub fn new(context: &mut InitContext) -> Self {
         let per_pax_weight = Rc::new(Cell::new(Mass::new::<kilogram>(
             Self::DEFAULT_PER_PAX_WEIGHT_KG,
