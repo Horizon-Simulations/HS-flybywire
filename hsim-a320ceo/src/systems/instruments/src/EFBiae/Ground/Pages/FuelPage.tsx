@@ -53,10 +53,10 @@ const TankReadoutWidget = ({ title, current, target, capacity, currentUnit, tank
 };
 
 export const FuelPage = () => {
-    const TOTAL_FUEL_GALLONS = 6267;
+    const TOTAL_FUEL_GALLONS = 6303;
     const OUTER_CELL_GALLONS = 228;
     const INNER_CELL_GALLONS = 1816;
-    const CENTER_TANK_GALLONS = 2179;
+    const CENTER_TANK_GALLONS = 2215;
     const wingTotalRefuelTimeSeconds = 1020;
     const CenterTotalRefuelTimeSeconds = 180;
 
