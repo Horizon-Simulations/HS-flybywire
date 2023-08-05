@@ -53,12 +53,12 @@ const TankReadoutWidget = ({ title, current, target, capacity, currentUnit, tank
 };
 
 export const FuelPage = () => {
-    const TOTAL_FUEL_GALLONS = 6267;
+    const TOTAL_FUEL_GALLONS = 7786;
     const OUTER_CELL_GALLONS = 228;
     const INNER_CELL_GALLONS = 1816;
-    const CENTER_TANK_GALLONS = 2179;
+    const CENTER_TANK_GALLONS = 3698;
     const wingTotalRefuelTimeSeconds = 1020;
-    const CenterTotalRefuelTimeSeconds = 180;
+    const CenterTotalRefuelTimeSeconds = 305;
 
     const { usingMetric } = Units;
     const [currentUnit] = useState(usingMetric ? 'KG' : 'LB');
