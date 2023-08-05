@@ -182,7 +182,7 @@ class CDUIdentPage {
         mcdu.setTemplate([
             ["A319-100"], //This aircraft code is correct and does not include the engine type.
             ["\xa0ENG"],
-            ["CFM56-5A4/F[color]green"],
+            ["CFM56-5B7/P[color]green"],
             ["\xa0ACTIVE NAV DATA BASE"],
             [
                 "\xa0" + calculateActiveDate(date) + "[color]cyan",

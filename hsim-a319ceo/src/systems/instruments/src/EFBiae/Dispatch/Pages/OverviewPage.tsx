@@ -55,11 +55,11 @@ export const OverviewPage = () => {
 
             <div className="flex flex-row mt-8 space-x-16">
                 <div className="flex flex-col space-y-8">
-                    <InformationEntry title={t('Dispatch.Overview.Model')} info="A319-132 [A319]">
+                    <InformationEntry title={t('Dispatch.Overview.Model')} info="A319-133 [A319]">
                         <IconPlane className="fill-current" size={23} stroke={1.5} strokeLinejoin="miter" />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(6200, 'distance')}>
+                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(3750, 'distance')}>
                         <Rulers size={23} />
                     </InformationEntry>
 
@@ -76,7 +76,7 @@ export const OverviewPage = () => {
                     </InformationEntry>
                 </div>
                 <div className="flex flex-col space-y-8">
-                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="IAE V2527-A5">
+                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="IAE V2527M-A5">
                         <LightningFill size={23} />
                     </InformationEntry>
 
@@ -84,7 +84,7 @@ export const OverviewPage = () => {
                         <Speedometer2 size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MTOW')} info={getConvertedInfo(64000, 'weight')}>
+                    <InformationEntry title={t('Dispatch.Overview.MTOW')} info={getConvertedInfo(75500, 'weight')}>
                         <Box size={23} />
                     </InformationEntry>
 

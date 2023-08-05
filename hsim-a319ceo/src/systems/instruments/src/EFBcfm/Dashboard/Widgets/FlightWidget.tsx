@@ -134,7 +134,7 @@ export const FlightWidget = () => {
                         {' '}
                         |
                         {' '}
-                        A319-113
+                        A319-115
                     </h1>
                 )}
             </div>
