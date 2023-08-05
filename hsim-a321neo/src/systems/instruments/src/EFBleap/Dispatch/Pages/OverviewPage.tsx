@@ -67,7 +67,7 @@ export const OverviewPage = () => {
                         <Box size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MZFW')} info={getConvertedInfo(75600, 'weight')}>
+                    <InformationEntry title={t('Dispatch.Overview.MZFW')} info={getConvertedInfo(73300, 'weight')}>
                         <Box size={23} />
                     </InformationEntry>
 
@@ -84,7 +84,7 @@ export const OverviewPage = () => {
                         <Speedometer2 size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MTOW')} info={getConvertedInfo(93900, 'weight')}>
+                    <InformationEntry title={t('Dispatch.Overview.MTOW')} info={getConvertedInfo(97000, 'weight')}>
                         <Box size={23} />
                     </InformationEntry>
 
