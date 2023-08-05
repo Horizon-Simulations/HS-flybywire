@@ -190,7 +190,7 @@ pub struct A320Payload {
     time: Duration,
 }
 impl A320Payload {
-    const DEFAULT_PER_PAX_WEIGHT_KG: f64 = 84.;
+    const DEFAULT_PER_PAX_WEIGHT_KG: f64 = 79.;
     pub fn new(context: &mut InitContext) -> Self {
         let per_pax_weight = Rc::new(Cell::new(Mass::new::<kilogram>(
             Self::DEFAULT_PER_PAX_WEIGHT_KG,
