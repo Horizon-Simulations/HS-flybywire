@@ -184,7 +184,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 0,
+                    "xOffset": 24,
                     "yOffset": 0
                 }
             ],
@@ -275,7 +275,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 0,
+                    "xOffset": 24,
                     "yOffset": 0
                 },
                 {
@@ -383,7 +383,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 0,
+                    "xOffset": 24,
                     "yOffset": 0
                 }
             ],
@@ -582,7 +582,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 0,
+                    "xOffset": 24,
                     "yOffset": 0
                 }
             ],

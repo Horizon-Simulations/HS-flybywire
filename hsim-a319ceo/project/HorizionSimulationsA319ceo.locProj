@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>HorizionSimulationsA319ceo</Name>
+  <ProjectPackageTime>0001-01-01T00:00:00</ProjectPackageTime>
+  <AvailableLanguages>
+    <Language Name="English(US)" IsoCode="en-US" />
+  </AvailableLanguages>
+  <SourceLanguage Name="English(US)" IsoCode="en-US" />
+  <LanguageSelectedVoices />
+  <TagDescriptions>
+    <TagDescription Name="Locked" TagType="Bool">
+      <EnumNames>
+        <EnumName xsi:nil="true" />
+      </EnumNames>
+    </TagDescription>
+    <TagDescription Name="MaxLength" TagType="Int">
+      <EnumNames />
+    </TagDescription>
+  </TagDescriptions>
+  <OutputBuses>
+    <OutputBus>VO_GPWS</OutputBus>
+    <OutputBus>VO_ATC</OutputBus>
+    <OutputBus>VO_DEFAULT</OutputBus>
+    <OutputBus>VO_COPILOT</OutputBus>
+    <OutputBus>VO_NARRATOR</OutputBus>
+    <OutputBus>VO_ATC_LEGACY</OutputBus>
+    <OutputBus>VO_COMMENTATOR</OutputBus>
+    <OutputBus>VO_PILOT</OutputBus>
+  </OutputBuses>
+</Project>

@@ -20,8 +20,8 @@
     <Behaviors>
         <Include ModelBehaviorFile="A319HS\Interior\A32NX_Interior_Includes.xml"/>
         <Include ModelBehaviorFile="A319HS\generated\A32NX_Interior_Generics.xml"/>
-        <Include ModelBehaviorFile="A319HS\Common.xml"/>
-        <Include ModelBehaviorFile="A319HS\Airliner\GlassCockpit.xml"/>
+        <Include ModelBehaviorFile="Asobo\Common.xml"/>
+        <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
         <Include ModelBehaviorFile="A319HS\LockHighlight.xml"/>
 
         <!-- EFB -->
