@@ -59,7 +59,7 @@ export const OverviewPage = () => {
                         <IconPlane className="fill-current" size={23} stroke={1.5} strokeLinejoin="miter" />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(3750, 'distance')}>
+                    <InformationEntry title={t('Dispatch.Overview.Range')} info={getConvertedInfo(5600, 'distance')}>
                         <Rulers size={23} />
                     </InformationEntry>
 
