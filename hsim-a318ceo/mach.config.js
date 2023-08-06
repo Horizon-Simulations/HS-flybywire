@@ -39,6 +39,8 @@ module.exports = {
         reactInstrument('BAT'),
         reactInstrument('ATC'),
         reactInstrument('EFBcfm', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
+        reactInstrument('EFBcfmacj', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
+        reactInstrument('EFBcfmbaw', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
     ],
 };
 

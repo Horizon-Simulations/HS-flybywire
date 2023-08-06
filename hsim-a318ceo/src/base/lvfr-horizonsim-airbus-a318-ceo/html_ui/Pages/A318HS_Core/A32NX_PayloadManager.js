@@ -15,7 +15,7 @@ class A32NX_PayloadConstructor {
                 seats: 30,
                 weight: Math.round(NXUnits.kgToUser(2520)),
                 stationIndex: 1 + 1,
-                position: 2.86,
+                position: 6.86,
                 simVar: "A32NX_PAX_B"
             },
             rows14_21: {
@@ -23,7 +23,7 @@ class A32NX_PayloadConstructor {
                 seats: 30,
                 weight: Math.round(NXUnits.kgToUser(2520)),
                 stationIndex: 2 + 1,
-                position: -9.34,
+                position: -6.34,
                 simVar: "A32NX_PAX_C"
             },
             rows22_29: {
@@ -31,7 +31,7 @@ class A32NX_PayloadConstructor {
                 seats: 32,
                 weight: Math.round(NXUnits.kgToUser(2688)),
                 stationIndex: 3 + 1,
-                position: -20.81,
+                position: -19.81,
                 simVar: "A32NX_PAX_D"
             },
         };
@@ -87,11 +87,11 @@ const MAX_SEAT_AVAILABLE = 118;
  */
 function getZfwcg() {
 
-    const leMacZ = -5.383; // Accurate to 3 decimals, replaces debug weight values
-    const macSize = 13.464; // Accurate to 3 decimals, replaces debug weight values
+    const leMacZ = 1.525; // Accurate to 3 decimals, replaces debug weight values
+    const macSize = 13.658; // Accurate to 3 decimals, replaces debug weight values
 
     const emptyWeight = (SimVar.GetSimVarValue("EMPTY WEIGHT", getUserUnit()));
-    const emptyPosition = -2.89; // Value from flight_model.cfg
+    const emptyPosition = -1.89; // Value from flight_model.cfg
     const emptyMoment = emptyPosition * emptyWeight;
     const PAX_WEIGHT = SimVar.GetSimVarValue("L:A32NX_WB_PER_PAX_WEIGHT", "Number");
 
