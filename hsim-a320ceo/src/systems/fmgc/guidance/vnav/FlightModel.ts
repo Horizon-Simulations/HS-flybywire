@@ -6,13 +6,13 @@ import { MathUtils } from '@flybywiresim/fbw-sdk';
 import { Common, FlapConf } from './common';
 
 export class FlightModel {
-    static Cd0 = 0.01743;
+    static Cd0 = 0.01873;
 
     static wingSpan = 111.92;
 
     static wingArea = 1319.7;
 
-    static wingEffcyFactor = 0.60;
+    static wingEffcyFactor = 0.70;
 
     static requiredAccelRateKNS = 1.33; // in knots/second
 
