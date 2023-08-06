@@ -45,6 +45,9 @@ Cargo.toml
 
 !/branding/*
 
+!README.md
+!LICENSE
+
 # Project folders
 
 /hsim-a21n-common/*
