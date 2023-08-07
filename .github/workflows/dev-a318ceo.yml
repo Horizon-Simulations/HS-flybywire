@@ -66,10 +66,10 @@ jobs:
           cd ./build-a318ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }} ./lvfr-horizonsim-airbus-a318-ceo/
           cd ../../
-      - name: Upload A318ceo aicraft package to GitHub Pre-Release Assets
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: Upload to gdrive
+        uses: adityak74/google-drive-upload-git-action@main
         with:
-          files: |
-            ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
-            LICENSE
+          credentials: ${{ secrets.gdrive_creds }}
+          filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
+          folderId: ${{ secrets.gDriveFolderIdA318 }}
+          overwrite: "true" # optional boolean
