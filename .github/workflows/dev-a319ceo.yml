@@ -3,9 +3,9 @@ on:
   push:
     tags:
       - '!v*'
-      - 'v*-alpha*'
-      - 'v*-beta*'
-      - 'v*-rc*'
+      - 'v*-a319-alpha*'
+      - 'v*-a319-beta*'
+      - 'v*-a319-rc*'
 
 jobs:
   build:
@@ -15,10 +15,7 @@ jobs:
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vdev
-      ZIP_NAME_A318: lvfr-horizonsim-airbus-a318-ceo.zip
       ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo.zip
-      ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo.zip
-      ZIP_NAME_A321: lvfr-horizonsim-airbus-a321-neo.zip
       BUILD_DIR_NAME: dev
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -71,28 +68,7 @@ jobs:
           ./scripts/dev-env/run.sh ./scripts/setup.sh
       - name: Copy Sources
         run: |
-          ./scripts/dev-env/run.sh ./scripts/copy_a318hs.sh
           ./scripts/dev-env/run.sh ./scripts/copy_a319hs.sh
-          ./scripts/dev-env/run.sh ./scripts/copy_a320hs.sh
-          ./scripts/dev-env/run.sh ./scripts/copy_a321hs.sh
-      - name: Build A318HS Package
-        run: |
-          ./scripts/dev-env/run.sh ./scripts/build_a318hs.sh --no-tty -j 4
-      - name: Build A318HS ZIP files
-        run: |
-          mkdir ./${{ env.BUILD_DIR_NAME }}
-          cd ./build-a318ceo/out/
-          zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }} ./lvfr-horizonsim-airbus-a318-ceo/
-          cd ../../
-      - name: Upload A318ceo aicraft package to GitHub Pre-Release Assets
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-            GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: https://uploads.github.com/repos/${{ github.repository }}/releases/${{ env.PRE_RELEASE_ID }}/assets{?name,label}
-          asset_path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
-          asset_name: ${{ env.ZIP_NAME_A318 }}
-          asset_content_type: application/zip
       - name: Build A319HS Package
         run: |
             ./scripts/dev-env/run.sh ./scripts/build_a319hs.sh --no-tty -j 4
@@ -110,42 +86,6 @@ jobs:
           upload_url: https://uploads.github.com/repos/${{ github.repository }}/releases/${{ env.PRE_RELEASE_ID }}/assets{?name,label}
           asset_path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
           asset_name: ${{ env.ZIP_NAME_A319 }}
-          asset_content_type: application/zip
-      - name: Build A320HS Package
-        run: |
-          ./scripts/dev-env/run.sh ./scripts/build_a320hs.sh --no-tty -j 4
-      - name: Build A320HS ZIP files
-        run: |
-          mkdir ./${{ env.BUILD_DIR_NAME }}
-          cd ./build-a320ceo/out/
-          zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} ./lvfr-horizonsim-airbus-a320-ceo/
-          cd ../../
-      - name: Upload A320ceo aicraft package to GitHub Pre-Release Assets
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-            GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: https://uploads.github.com/repos/${{ github.repository }}/releases/${{ env.PRE_RELEASE_ID }}/assets{?name,label}
-          asset_path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
-          asset_name: ${{ env.ZIP_NAME_A320 }}
-          asset_content_type: application/zip
-      - name: Build A21NHS Package
-        run: |
-            ./scripts/dev-env/run.sh ./scripts/build_a321hs.sh --no-tty -j 4
-      - name: Build A21NHS ZIP files
-        run: |
-          mkdir ./${{ env.BUILD_DIR_NAME }}
-          cd ./build-a321neo/out/
-          zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }} ./lvfr-horizonsim-airbus-a321-neo/
-          cd ../../
-      - name: Upload A321neo aicraft package to GitHub Pre-Release Assets
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: https://uploads.github.com/repos/${{ github.repository }}/releases/${{ env.PRE_RELEASE_ID }}/assets{?name,label}
-          asset_path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }}
-          asset_name: ${{ env.ZIP_NAME_A321 }}
           asset_content_type: application/zip
       - name: Update GitHub Pre-Release Body
         run: |

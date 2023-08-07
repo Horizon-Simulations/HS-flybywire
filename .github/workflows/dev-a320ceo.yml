@@ -1,0 +1,98 @@
+name: dev
+on:
+  push:
+    tags:
+      - '!v*'
+      - 'v*-a320-alpha*'
+      - 'v*-a320-beta*'
+      - 'v*-a320-rc*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      A32NX_PRODUCTION_BUILD: 1
+      A32NX_INSTRUMENTS_BUILD_WORKERS: 2
+      PRE_RELEASE_ID: 64125785
+      PRE_RELEASE_TAG: vdev
+      ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo.zip
+      BUILD_DIR_NAME: dev
+    steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: true
+          dotnet: false
+          haskell: false
+          large-packages: false
+          docker-images: false
+          swap-storage: false
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Set BUILT_DATE_TIME
+        run: echo "BUILT_DATE_TIME=$(date -u -Iseconds)" >> $GITHUB_ENV
+      - name: Create .env file
+        run: |
+          echo A32NX_PRODUCTION_BUILD=1 > hsim-a318ceo/.env
+          echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a318ceo/.env
+          echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a318ceo/.env
+          echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a318ceo/.env
+          echo A32NX_PRODUCTION_BUILD=1 > hsim-a319ceo/.env
+          echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a319ceo/.env
+          echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a319ceo/.env
+          echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a319ceo/.env
+          echo A32NX_PRODUCTION_BUILD=1 > hsim-a320ceo/.env
+          echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a320ceo/.env
+          echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a320ceo/.env
+          echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a320ceo/.env
+          echo A32NX_PRODUCTION_BUILD=1 > hsim-a321neo/.env
+          echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a321neo/.env
+          echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a321neo/.env
+          echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a321neo/.env
+          echo BUILD_DIR_NAME=${{ env.BUILD_DIR_NAME }} >> .env
+          echo LOCALAZY_READ_KEY=${{ secrets.LOCALAZY_READ_KEY }} >> .env
+          echo VITE_BUILD=false >> .env
+      - name: Delete old GitHub Pre-Release assets
+        uses: mknejp/delete-release-assets@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ env.PRE_RELEASE_TAG }}
+          assets: "*"
+          fail-if-no-assets: false
+          fail-if-no-release: false
+      - name: Setup Package
+        run:  |
+          ./scripts/dev-env/run.sh ./scripts/setup.sh
+      - name: Copy Sources
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/copy_a320hs.sh
+      - name: Build A320HS Package
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/build_a320hs.sh --no-tty -j 4
+      - name: Build A320HS ZIP files
+        run: |
+          mkdir ./${{ env.BUILD_DIR_NAME }}
+          cd ./build-a320ceo/out/
+          zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} ./lvfr-horizonsim-airbus-a320-ceo/
+          cd ../../
+      - name: Upload A320ceo aicraft package to GitHub Pre-Release Assets
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+            GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: https://uploads.github.com/repos/${{ github.repository }}/releases/${{ env.PRE_RELEASE_ID }}/assets{?name,label}
+          asset_path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
+          asset_name: ${{ env.ZIP_NAME_A320 }}
+          asset_content_type: application/zip
+      - name: Update GitHub Pre-Release Body
+        run: |
+          curl --request PATCH \
+            --url 'https://api.github.com/repos/${{ github.repository }}/releases/${{ env.PRE_RELEASE_ID }}' \
+            --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{
+              "body": "This pre-release has its asset updated on every commit to the main branch\nLast updated on ${{ env.BUILT_DATE_TIME }} from commit ${{ github.sha }}\n"
+            }'
