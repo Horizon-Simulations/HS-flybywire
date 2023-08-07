@@ -1,11 +1,11 @@
-name: dev-a319ceo
+name: release-a320ceo
 on:
   push:
     tags:
-      - '!v*'
-      - 'v*-a319-alpha*'
-      - 'v*-a319-beta*'
-      - 'v*-a319-rc*'
+      - 'v*-a320'
+      - '!v*-a320-alpha*'
+      - '!v*-a320-beta*'
+      - '!v*-a320-rc*'
 
 jobs:
   build:
@@ -14,9 +14,9 @@ jobs:
       A32NX_PRODUCTION_BUILD: 1
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
-      PRE_RELEASE_TAG: vdev
-      ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo.zip
-      BUILD_DIR_NAME: dev
+      PRE_RELEASE_TAG: vstable
+      ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo.zip
+      BUILD_DIR_NAME: stable
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
@@ -68,20 +68,20 @@ jobs:
           ./scripts/dev-env/run.sh ./scripts/setup.sh
       - name: Copy Sources
         run: |
-          ./scripts/dev-env/run.sh ./scripts/copy_a319hs.sh
-      - name: Build A319HS Package
+          ./scripts/dev-env/run.sh ./scripts/copy_a320hs.sh
+      - name: Build A320HS Package
         run: |
-            ./scripts/dev-env/run.sh ./scripts/build_a319hs.sh --no-tty -j 4
-      - name: Build A319HS ZIP files
+          ./scripts/dev-env/run.sh ./scripts/build_a320hs.sh --no-tty -j 4
+      - name: Build A320HS ZIP files
         run: |
-            mkdir ./${{ env.BUILD_DIR_NAME }}
-            cd ./build-a319ceo/out/
-            zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }} ./lvfr-horizonsim-airbus-a319-ceo/
-            cd ../../
-      - name: Upload A319ceo aicraft package to GitHub Pre-Release Assets
+          mkdir ./${{ env.BUILD_DIR_NAME }}
+          cd ./build-a320ceo/out/
+          zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} ./lvfr-horizonsim-airbus-a320-ceo/
+          cd ../../
+      - name: Upload A320ceo aicraft package to GitHub Pre-Release Assets
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
+            ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
             LICENSE

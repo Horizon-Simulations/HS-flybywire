@@ -1,11 +1,11 @@
-name: dev-a319ceo
+name: release-a319ceo
 on:
   push:
     tags:
-      - '!v*'
-      - 'v*-a319-alpha*'
-      - 'v*-a319-beta*'
-      - 'v*-a319-rc*'
+      - 'v*-a319'
+      - '!v*-a319-alpha*'
+      - '!v*-a319-beta*'
+      - '!v*-a319-rc*'
 
 jobs:
   build:
@@ -14,9 +14,9 @@ jobs:
       A32NX_PRODUCTION_BUILD: 1
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
-      PRE_RELEASE_TAG: vdev
+      PRE_RELEASE_TAG: vstable
       ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo.zip
-      BUILD_DIR_NAME: dev
+      BUILD_DIR_NAME: stable
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
