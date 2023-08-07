@@ -11,7 +11,7 @@ jobs:
       A32NX_PRODUCTION_BUILD: 1
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
-      PRE_RELEASE_TAG: assets/main
+      PRE_RELEASE_TAG: vmain
       ZIP_NAME_A318: lvfr-horizonsim-airbus-a318-ceo.zip
       ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo.zip
       ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo.zip
@@ -62,6 +62,7 @@ jobs:
           tag: ${{ env.PRE_RELEASE_TAG }}
           assets: "*"
           fail-if-no-assets: false
+          fail-if-no-release: false
       - name: Setup Package
         run:  |
           ./scripts/dev-env/run.sh ./scripts/setup.sh
