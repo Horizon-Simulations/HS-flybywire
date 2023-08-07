@@ -9,8 +9,8 @@
     "build-a318ceo:copy-base-lock-highlight-package": "mkdir -p build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo-lock-highlight && (rsync -a hsim-a318ceo/src/base/lvfr-horizonsim-airbus-a318-ceo-lock-highlight build-a318ceo/out/ || cp -a -u hsim-a318ceo/src/base/lvfr-horizonsim-airbus-a318-ceo-lock-highlight build-a318ceo/out/)",
     "build-a318ceo:copy-base-files": "npm run build-a318ceo:copy-base-package && npm run build-a318ceo:copy-base-lock-highlight-package",
     "build-a318ceo:copy-cargo-config": "cp -rf Cargo_a318.toml Cargo.toml",
-    "build-a318ceo:efb-translation": "cd hsim-a318ceo/src/localization && node build-flypad-translation.js",
-    "build-a318ceo:locPak-translation": "cd hsim-a318ceo/src/localization && node build-locPak-translation.js",
+    "build-a318ceo:efb-translation": "cd build-a318ceo/src/localization && node build-flypad-translation.js",
+    "build-a318ceo:locPak-translation": "cd build-a318ceo/src/localization && node build-locPak-translation.js",
 
     "build-a318ceo:model": "node build-a318ceo/src/model/build.js",
 
@@ -52,8 +52,8 @@
     "build-a319ceo:copy-base-lock-highlight-package": "mkdir -p build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo-lock-highlight && (rsync -a hsim-a319ceo/src/base/lvfr-horizonsim-airbus-a319-ceo-lock-highlight build-a319ceo/out/ || cp -a -u hsim-a319ceo/src/base/lvfr-horizonsim-airbus-a319-ceo-lock-highlight build-a319ceo/out/)",
     "build-a319ceo:copy-base-files": "npm run build-a319ceo:copy-base-package && npm run build-a319ceo:copy-base-lock-highlight-package",
     "build-a319ceo:copy-cargo-config": "cp -rf Cargo_a319.toml Cargo.toml",
-    "build-a319ceo:efb-translation": "cd hsim-a319ceo/src/localization && node build-flypad-translation.js",
-    "build-a319ceo:locPak-translation": "cd hsim-a319ceo/src/localization && node build-locPak-translation.js",
+    "build-a319ceo:efb-translation": "cd build-a319ceo/src/localization && node build-flypad-translation.js",
+    "build-a319ceo:locPak-translation": "cd build-a319ceo/src/localization && node build-locPak-translation.js",
 
     "build-a319ceo:model": "node build-a319ceo/src/model/build.js",
 
@@ -92,8 +92,8 @@
     "build-a320ceo:copy-base-lock-highlight-package": "mkdir -p build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo-lock-highlight && (rsync -a hsim-a320ceo/src/base/lvfr-horizonsim-airbus-a320-ceo-lock-highlight build-a320ceo/out/ || cp -a -u hsim-a320ceo/src/base/lvfr-horizonsim-airbus-a320-ceo-lock-highlight build-a320ceo/out/)",
     "build-a320ceo:copy-base-files": "npm run build-a320ceo:copy-base-package && npm run build-a320ceo:copy-base-lock-highlight-package",
     "build-a320ceo:copy-cargo-config": "cp -rf Cargo_a320.toml Cargo.toml",
-    "build-a320ceo:efb-translation": "cd hsim-a320ceo/src/localization && node build-flypad-translation.js",
-    "build-a320ceo:locPak-translation": "cd hsim-a320ceo/src/localization && node build-locPak-translation.js",
+    "build-a320ceo:efb-translation": "cd build-a320ceo/src/localization && node build-flypad-translation.js",
+    "build-a320ceo:locPak-translation": "cd build-a320ceo/src/localization && node build-locPak-translation.js",
 
     "build-a320ceo:model": "node build-a320ceo/src/model/build.js",
 
