@@ -66,10 +66,10 @@ jobs:
           cd ./build-a320ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} ./lvfr-horizonsim-airbus-a320-ceo/
           cd ../../
-      - name: Upload A320ceo aicraft package to GitHub Pre-Release Assets
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: Upload to Google Drive
+        uses: adityak74/google-drive-upload-git-action@main
         with:
-          files: |
-            ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
-            LICENSE
+          credentials: ${{ secrets.gdrive_creds }}
+          filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
+          folderId: ${{ secrets.gDriveFolderIdA320 }}
+          overwrite: "true" # optional boolean
