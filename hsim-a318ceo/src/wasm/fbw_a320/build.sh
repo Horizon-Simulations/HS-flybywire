@@ -3,7 +3,7 @@
 # get directory of this script relative to root
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 COMMON_DIR="${DIR}/../../../../fbw-common/src/wasm/fbw_common"
-OUTPUT="${DIR}/../../../out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/fbw.wasm"
+OUTPUT="${DIR}/../../../../build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/fbw.wasm"
 
 if [ "$1" == "--debug" ]; then
   WASMLD_ARGS=""

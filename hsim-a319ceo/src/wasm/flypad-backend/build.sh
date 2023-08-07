@@ -3,7 +3,7 @@
 # get directory of this script relative to root
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 COMMON_DIR="${DIR}/../../../../fbw-common/src/wasm"
-OUTPUT="${DIR}/../../../out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/AirPlanes/A319ceoCFM/panel/flypad-backend.wasm"
+OUTPUT="${DIR}/../../../../build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/flypad-backend.wasm"
 
 if [ "$1" == "--debug" ]; then
   CLANG_ARGS="-g -DDEBUG"

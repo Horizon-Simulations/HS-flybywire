@@ -69,9 +69,12 @@ jobs:
       - name: Setup Package
         run:  |
           ./scripts/dev-env/run.sh ./scripts/setup.sh
-      - name: Copy A318HS Sources
+      - name: Copy Sources
         run: |
           ./scripts/dev-env/run.sh ./scripts/copy_a318hs.sh
+          ./scripts/dev-env/run.sh ./scripts/copy_a319hs.sh
+          ./scripts/dev-env/run.sh ./scripts/copy_a320hs.sh
+          ./scripts/dev-env/run.sh ./scripts/copy_a321hs.sh
       - name: Build A318HS Package
         run: |
           ./scripts/dev-env/run.sh ./scripts/build_a318hs.sh --no-tty -j 4
@@ -90,9 +93,6 @@ jobs:
           asset_path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
           asset_name: ${{ env.ZIP_NAME_A318 }}
           asset_content_type: application/zip
-      - name: Copy A319HS Sources
-        run: |
-            ./scripts/dev-env/run.sh ./scripts/copy_a319hs.sh
       - name: Build A319HS Package
         run: |
             ./scripts/dev-env/run.sh ./scripts/build_a319hs.sh --no-tty -j 4
@@ -111,9 +111,6 @@ jobs:
           asset_path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
           asset_name: ${{ env.ZIP_NAME_A319 }}
           asset_content_type: application/zip
-      - name: Copy A320HS Sources
-        run: |
-          ./scripts/dev-env/run.sh ./scripts/copy_a320hs.sh
       - name: Build A320HS Package
         run: |
           ./scripts/dev-env/run.sh ./scripts/build_a320hs.sh --no-tty -j 4
@@ -132,9 +129,6 @@ jobs:
           asset_path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
           asset_name: ${{ env.ZIP_NAME_A320 }}
           asset_content_type: application/zip
-      - name: Copy A21NHS Sources
-        run: |
-            ./scripts/dev-env/run.sh ./scripts/copy_a321hs.sh
       - name: Build A21NHS Package
         run: |
             ./scripts/dev-env/run.sh ./scripts/build_a321hs.sh --no-tty -j 4
