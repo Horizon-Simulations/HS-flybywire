@@ -6,7 +6,7 @@ import { MathUtils } from '@flybywiresim/fbw-sdk';
 import { Common, FlapConf } from './common';
 
 export class FlightModel {
-    static Cd0 = 0.01773; // 0.01873 A320neo -> (0.01873 - 0.001)
+    static Cd0 = 0.01843; // 0.01873 A320neo -> (0.01873 - 0.0003)
 
     static wingSpan = 111.92;
 
