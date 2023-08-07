@@ -9,15 +9,17 @@ ORIGINAL_GROUP_ID=$(stat -c '%g' /external)
 # set ownership to root to fix cargo/rust build (when run as github action)
 if [ "${GITHUB_ACTIONS}" == "true" ]; then
   chown -R root:root /external
+  rm -rf /external/flybywire
 fi
 
 # permission fix
 git config --global --add safe.directory /external
+
 # run build
 time npx igniter -c a318ceo-igniter.config.mjs -r A318HS "$@"
 
 if [ "${GITHUB_ACTIONS}" == "true" ]; then
-  rm -rf /external/flybywire
+  rm -rf /external/build-a318ceo/src
   rm -rf /external/hsim-a318ceo/src
 fi
 
