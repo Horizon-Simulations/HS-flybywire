@@ -8,10 +8,10 @@
     ],
     "output": {
       "gltf": [
-        "../../out/lvfr-horizonsim-airbus-a321-neo/SimObjects/AirPlanes/A321neoLEAP/model/A320_NEO_INTERIOR_LOD00.gltf"
+        "../../out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/model/A320_NEO_INTERIOR_LOD00.gltf"
       ],
       "bin": [
-        "../../out/lvfr-horizonsim-airbus-a321-neo/SimObjects/AirPlanes/A321neoLEAP/model/A320_NEO_INTERIOR_LOD00.bin"
+        "../../out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/model/A320_NEO_INTERIOR_LOD00.bin"
       ]
     },
     "additions": [
