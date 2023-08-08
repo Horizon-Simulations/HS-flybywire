@@ -122,28 +122,19 @@ export default new TaskOfTasks("all", [
         new TaskOfTasks(
             "wasm",
             [
-                new ExecTask("systems",
-                    "npm run build-a321neo:systems",
-                    [
-                        "build-a321neo/src/wasm/systems",
-                        "fbw-common/src/wasm/systems",
-                        "Cargo.lock",
-                        "Cargo.toml",
-                        "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/systems.wasm"
-                    ]),
-                new ExecTask("systems-fadec", "npm run build-a321neo:fadec", [
+                new ExecTask("fadec", "npm run build-a321neo:fadec", [
                     "build-a321neo/src/wasm/fadec_a320",
                     "fbw-common/src/wasm/fbw_common",
                     "fbw-common/src/wasm/fadec_common",
                     "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/fadec.wasm",
                 ]),
-                new ExecTask("systems-fbw", "npm run build-a321neo:fbw", [
+                new ExecTask("fbw", "npm run build-a321neo:fbw", [
                     "build-a321neo/src/wasm/fbw_a320",
                     "fbw-common/src/wasm/fbw_common",
                     "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/fbw.wasm",
                 ]),
                 new ExecTask(
-                    "systems-terronnd",
+                    "terronnd",
                     [
                         "fbw-common/src/wasm/terronnd/build.sh",
                         "wasm-opt -O1 -o build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/terronnd.wasm fbw-common/src/wasm/terronnd/out/terronnd.wasm",
@@ -163,6 +154,15 @@ export default new TaskOfTasks("all", [
                         "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/flypad-backend.wasm",
                     ]
                 ),
+                new ExecTask("systems",
+                "npm run build-a321neo:systems",
+                [
+                    "build-a321neo/src/wasm/systems",
+                    "fbw-common/src/wasm/systems",
+                    "Cargo.lock",
+                    "Cargo.toml",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/systems.wasm"
+                ]),
             ],
             true
         ),
