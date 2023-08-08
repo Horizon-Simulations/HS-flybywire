@@ -2,37 +2,45 @@
 class A32NX_PayloadConstructor {
     constructor() {
         this.paxStations = {
-            rows1_6: {
-                name: 'ROWS [1-10]',
-                seats: 60,
-                weight: Math.round(NXUnits.kgToUser(5040)),
+            rows1_8: {
+                name: 'ROWS [1-8]',
+                seats: 48,
+                weight: Math.round(NXUnits.kgToUser(4032)),
                 stationIndex: 0 + 1,
                 position: 16.5,
                 simVar: "A32NX_PAX_A"
             },
-            rows7_13: {
-                name: 'ROWS [11-20]',
-                seats: 60,
-                weight: Math.round(NXUnits.kgToUser(5040)),
+            rows9_16: {
+                name: 'ROWS [9-16]',
+                seats: 48,
+                weight: Math.round(NXUnits.kgToUser(4032)),
                 stationIndex: 1 + 1,
-                position: -6.575,
+                position: -2,
                 simVar: "A32NX_PAX_B"
             },
-            rows14_21: {
-                name: 'ROWS [21-30]',
-                seats: 60,
-                weight: Math.round(NXUnits.kgToUser(5040)),
+            rows17_24: {
+                name: 'ROWS [17-24]',
+                seats: 48,
+                weight: Math.round(NXUnits.kgToUser(4032)),
                 stationIndex: 2 + 1,
-                position: -34.225,
+                position: -20.45,
                 simVar: "A32NX_PAX_C"
             },
-            rows22_29: {
-                name: 'ROWS [31-40]',
-                seats: 60,
-                weight: Math.round(NXUnits.kgToUser(5040)),
+            rows25_32: {
+                name: 'ROWS [25-32]',
+                seats: 48,
+                weight: Math.round(NXUnits.kgToUser(4032)),
                 stationIndex: 3 + 1,
-                position: -57.3,
+                position: -38.9,
                 simVar: "A32NX_PAX_D"
+            },
+            rows33_40: {
+                name: 'ROWS [33-40]',
+                seats: 48,
+                weight: Math.round(NXUnits.kgToUser(4032)),
+                stationIndex: 4 + 1,
+                position: -57.35,
+                simVar: "A32NX_PAX_E"
             },
         };
 
@@ -41,7 +49,7 @@ class A32NX_PayloadConstructor {
                 name: 'FWD BAGGAGE/CONTAINER',
                 weight: Math.round(NXUnits.kgToUser(3402)),
                 load: 0,
-                stationIndex: 4 + 1,
+                stationIndex: 5 + 1,
                 position: 13.43,
                 visible: true,
                 simVar: 'A32NX_CARGO_FWD_BAGGAGE_CONTAINER',
@@ -50,7 +58,7 @@ class A32NX_PayloadConstructor {
                 name: 'AFT CONTAINER',
                 weight: Math.round(NXUnits.kgToUser(2426)),
                 load: 0,
-                stationIndex: 5 + 1,
+                stationIndex: 6 + 1,
                 position: -41.83,
                 visible: true,
                 simVar: 'A32NX_CARGO_AFT_CONTAINER',
@@ -59,7 +67,7 @@ class A32NX_PayloadConstructor {
                 name: 'AFT BAGGAGE',
                 weight: Math.round(NXUnits.kgToUser(2110)),
                 load: 0,
-                stationIndex: 6 + 1,
+                stationIndex: 7 + 1,
                 position: -54.83,
                 visible: true,
                 simVar: 'A32NX_CARGO_AFT_BAGGAGE',
@@ -68,7 +76,7 @@ class A32NX_PayloadConstructor {
                 name: 'AFT BULK/LOOSE',
                 weight: Math.round(NXUnits.kgToUser(1497)),
                 load: 0,
-                stationIndex: 7 + 1,
+                stationIndex: 8 + 1,
                 position: -62.13,
                 visible: true,
                 simVar: 'A32NX_CARGO_AFT_BULK_LOOSE',
@@ -87,7 +95,7 @@ const MAX_SEAT_AVAILABLE = 240;
  */
 function getZfwcg() {
 
-    const leMacZ = -18.41; // Accurate to 3 decimals, replaces debug weight values
+    const leMacZ = -18.417; // Accurate to 3 decimals, replaces debug weight values
     const macSize = 13.464; // Accurate to 3 decimals, replaces debug weight values
 
     const emptyWeight = (SimVar.GetSimVarValue("EMPTY WEIGHT", getUserUnit()));
