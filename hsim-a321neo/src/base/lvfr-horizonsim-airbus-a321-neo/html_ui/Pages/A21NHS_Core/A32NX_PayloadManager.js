@@ -2,37 +2,45 @@
 class A32NX_PayloadConstructor {
     constructor() {
         this.paxStations = {
-            rows1_6: {
-                name: 'ROWS [1-10]',
-                seats: 60,
+            rows1_8: {
+                name: 'ROWS [1-8]',
+                seats: 48,
                 weight: Math.round(NXUnits.kgToUser(5040)),
                 stationIndex: 0 + 1,
                 position: 16.5,
                 simVar: "A32NX_PAX_A"
             },
-            rows7_13: {
-                name: 'ROWS [11-20]',
-                seats: 60,
+            rows9_16: {
+                name: 'ROWS [9-16]',
+                seats: 48,
                 weight: Math.round(NXUnits.kgToUser(5040)),
                 stationIndex: 1 + 1,
-                position: -6.575,
+                position: -2,
                 simVar: "A32NX_PAX_B"
             },
-            rows14_21: {
-                name: 'ROWS [21-30]',
-                seats: 60,
+            rows17_24: {
+                name: 'ROWS [17-24]',
+                seats: 48,
                 weight: Math.round(NXUnits.kgToUser(5040)),
                 stationIndex: 2 + 1,
-                position: -34.225,
+                position: -20.45,
                 simVar: "A32NX_PAX_C"
             },
-            rows22_29: {
-                name: 'ROWS [31-40]',
-                seats: 60,
+            rows25_32: {
+                name: 'ROWS [25-32]',
+                seats: 48,
                 weight: Math.round(NXUnits.kgToUser(5040)),
                 stationIndex: 3 + 1,
-                position: -57.3,
+                position: -38.9,
                 simVar: "A32NX_PAX_D"
+            },
+            rows33_40: {
+                name: 'ROWS [33-40]',
+                seats: 48,
+                weight: Math.round(NXUnits.kgToUser(5040)),
+                stationIndex: 3 + 1,
+                position: -57.35,
+                simVar: "A32NX_PAX_E"
             },
         };
 

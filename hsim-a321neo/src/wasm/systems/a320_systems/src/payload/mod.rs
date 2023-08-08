@@ -27,10 +27,11 @@ pub enum A320Pax {
     B,
     C,
     D,
+    E,
 }
 impl A320Pax {
     pub fn iterator() -> impl Iterator<Item = A320Pax> {
-        [A320Pax::A, A320Pax::B, A320Pax::C, A320Pax::D]
+        [A320Pax::A, A320Pax::B, A320Pax::C, A320Pax::D, A320Pax::E]
             .iter()
             .copied()
     }
@@ -58,31 +59,32 @@ impl A320Cargo {
 
 lazy_static! {
     static ref A320_PAX: EnumMap<A320Pax, PaxInfo> = EnumMap::from_array([
-        PaxInfo::new(60, "PAX_A", "PAYLOAD_STATION_1_REQ",),
-        PaxInfo::new(60, "PAX_B", "PAYLOAD_STATION_2_REQ",),
-        PaxInfo::new(60, "PAX_C", "PAYLOAD_STATION_3_REQ",),
-        PaxInfo::new(60, "PAX_D", "PAYLOAD_STATION_4_REQ",)
+        PaxInfo::new(48, "PAX_A", "PAYLOAD_STATION_1_REQ",),
+        PaxInfo::new(48, "PAX_B", "PAYLOAD_STATION_2_REQ",),
+        PaxInfo::new(48, "PAX_C", "PAYLOAD_STATION_3_REQ",),
+        PaxInfo::new(48, "PAX_D", "PAYLOAD_STATION_4_REQ",),
+        PaxInfo::new(48, "PAX_E", "PAYLOAD_STATION_5_REQ",)
     ]);
     static ref A320_CARGO: EnumMap<A320Cargo, CargoInfo> = EnumMap::from_array([
         CargoInfo::new(
             Mass::new::<kilogram>(3402.),
             "CARGO_FWD_BAGGAGE_CONTAINER",
-            "PAYLOAD_STATION_5_REQ",
+            "PAYLOAD_STATION_6_REQ",
         ),
         CargoInfo::new(
             Mass::new::<kilogram>(2426.),
             "CARGO_AFT_CONTAINER",
-            "PAYLOAD_STATION_6_REQ",
+            "PAYLOAD_STATION_7_REQ",
         ),
         CargoInfo::new(
             Mass::new::<kilogram>(2110.),
             "CARGO_AFT_BAGGAGE",
-            "PAYLOAD_STATION_7_REQ",
+            "PAYLOAD_STATION_8_REQ",
         ),
         CargoInfo::new(
             Mass::new::<kilogram>(1497.),
             "CARGO_AFT_BULK_LOOSE",
-            "PAYLOAD_STATION_8_REQ",
+            "PAYLOAD_STATION_9_REQ",
         )
     ]);
 }
