@@ -95,7 +95,7 @@ const MAX_SEAT_AVAILABLE = 240;
  */
 function getZfwcg() {
 
-    const leMacZ = -18.41; // Accurate to 3 decimals, replaces debug weight values
+    const leMacZ = -18.417; // Accurate to 3 decimals, replaces debug weight values
     const macSize = 13.464; // Accurate to 3 decimals, replaces debug weight values
 
     const emptyWeight = (SimVar.GetSimVarValue("EMPTY WEIGHT", getUserUnit()));

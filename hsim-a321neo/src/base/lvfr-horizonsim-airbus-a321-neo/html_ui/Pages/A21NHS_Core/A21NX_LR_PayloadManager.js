@@ -88,14 +88,14 @@ class A32NX_PayloadConstructor {
 const payloadConstruct = new A32NX_PayloadConstructor();
 const paxStations = payloadConstruct.paxStations;
 const cargoStations = payloadConstruct.cargoStations;
-const MAX_SEAT_AVAILABLE = 240;
+const MAX_SEAT_AVAILABLE = 160;
 
 /**
  * Calculate %MAC ZWFCG of all stations
  */
 function getZfwcg() {
 
-    const leMacZ = -18.41; // Accurate to 3 decimals, replaces debug weight values
+    const leMacZ = -18.417; // Accurate to 3 decimals, replaces debug weight values
     const macSize = 13.464; // Accurate to 3 decimals, replaces debug weight values
 
     const emptyWeight = (SimVar.GetSimVarValue("EMPTY WEIGHT", getUserUnit()));
