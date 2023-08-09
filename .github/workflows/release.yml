@@ -68,9 +68,9 @@ jobs:
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
-          credentials: ${{ secrets.gdrive_creds }}
+          credentials: ${{ secrets.GDRIVE_CREDS_A318 }}
           filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
-          folderId: ${{ secrets.gDriveFolderIdA318 }}
+          folderId: ${{ secrets.GDRIVEFOLDERIDA318 }}
           overwrite: "true" # optional boolean
   build-a319:
     runs-on: ubuntu-latest
@@ -133,9 +133,9 @@ jobs:
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
-          credentials: ${{ secrets.gdrive_creds }}
+          credentials: ${{ secrets.GDRIVE_CREDS_A319 }}
           filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
-          folderId: ${{ secrets.gDriveFolderIdA319 }}
+          folderId: ${{ secrets.GDRIVEFOLDERIDA319 }}
           overwrite: "true" # optional boolean
   build-a320:
     runs-on: ubuntu-latest
@@ -198,9 +198,9 @@ jobs:
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
-          credentials: ${{ secrets.gdrive_creds }}
+          credentials: ${{ secrets.GDRIVE_CREDS_A320 }}
           filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
-          folderId: ${{ secrets.gDriveFolderIdA320 }}
+          folderId: ${{ secrets.GDRIVEFOLDERIDA320 }}
           overwrite: "true" # optional boolean
   build-a321:
     runs-on: ubuntu-latest
@@ -263,7 +263,7 @@ jobs:
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
-          credentials: ${{ secrets.gdrive_creds }}
+          credentials: ${{ secrets.GDRIVE_CREDS_A321 }}
           filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }}
-          folderId: ${{ secrets.gDriveFolderIdA321 }}
+          folderId: ${{ secrets.GDRIVEFOLDERIDA321 }}
           overwrite: "true" # optional boolean
