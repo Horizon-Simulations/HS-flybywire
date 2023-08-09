@@ -70,7 +70,7 @@ jobs:
         with:
           credentials: ${{ secrets.GDRIVE_CREDS_A318 }}
           filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDA318 }}
+          folderId: ${{ secrets.GDRIVEFOLDERIDRELEASE }}
           overwrite: "true" # optional boolean
   build-a319:
     runs-on: ubuntu-latest
@@ -135,7 +135,7 @@ jobs:
         with:
           credentials: ${{ secrets.GDRIVE_CREDS_A319 }}
           filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDA319 }}
+          folderId: ${{ secrets.GDRIVEFOLDERIDRELEASE }}
           overwrite: "true" # optional boolean
   build-a320:
     runs-on: ubuntu-latest
@@ -200,7 +200,7 @@ jobs:
         with:
           credentials: ${{ secrets.GDRIVE_CREDS_A320 }}
           filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDA320 }}
+          folderId: ${{ secrets.GDRIVEFOLDERIDRELEASE }}
           overwrite: "true" # optional boolean
   build-a321:
     runs-on: ubuntu-latest
@@ -265,5 +265,5 @@ jobs:
         with:
           credentials: ${{ secrets.GDRIVE_CREDS_A321 }}
           filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDA321 }}
+          folderId: ${{ secrets.GDRIVEFOLDERIDRELEASE }}
           overwrite: "true" # optional boolean
