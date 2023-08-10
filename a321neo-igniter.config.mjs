@@ -178,6 +178,7 @@ export default new TaskOfTasks("all", [
                     "npm run build-a321neo:copy-flypad-backend"
                 ),
                 new ExecTask("systems", "npm run build-a321neo:copy-systems"),
+                new ExecTask("terronnd", "npm run build-a321neo:copy-terronnd"),
             ],
             true
         ),
