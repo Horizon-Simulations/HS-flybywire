@@ -4785,7 +4785,19 @@ class FMCMainDisplay extends BaseAirliners {
      */
     //TODO: can this be an util?
     getMaxFL(temp = A32NX_Util.getIsaTempDeviation(), gw = this.getGW()) {
-        return Math.round(temp <= 10 ? -2.778 * gw + 578.667 : (temp * (-0.039) - 2.389) * gw + temp * (-0.667) + 585.334);
+        if (temp <= 10) {
+            // buffet margin 1.3G
+            return Math.round(-2.724 * gw + 586.999);
+        } else if (temp > 10 && temp < 15) {
+            // ISA +10 °C
+            return Math.round(-2.514 * gw + 577.473);
+        } else if (temp >= 15 && temp < 20) {
+            // ISA +15 °C
+            return Math.round(-2.648 * gw + 578.218);
+        } else {
+            // ISA +20 °C
+            return Math.round(-2.828 * gw + 580.276);
+        }
     }
 
     /**
