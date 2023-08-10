@@ -7,7 +7,7 @@ import { CommitInfo, GitVersions, ReleaseInfo } from '@flybywiresim/api-client';
 import { NotificationManager, PopUpDialog } from '@flybywiresim/fbw-sdk';
 
 /**
- * Contains the a319hs_build_info.json file's information in a structured way.
+ * Contains the A319HS_build_info.json file's information in a structured way.
  */
 export interface BuildInfo {
     built: string;
@@ -68,7 +68,7 @@ export class AircraftVersionChecker {
         this.versionChecked = false;
         this.setOutdatedVersionFlag(false);
 
-        // Retrieve the version info from a319hs_build_info.json and GitHub
+        // Retrieve the version info from A319HS_build_info.json and GitHub
         await this.initialize();
 
         // assert all version info is available
@@ -94,7 +94,7 @@ export class AircraftVersionChecker {
     }
 
     /**
-     * Reads the a319hs_build_info.json file and returns the data a BuildInfo object.
+     * Reads the A319HS_build_info.json file and returns the data a BuildInfo object.
      * It returns a cached version if it has been read before as the file is not expected to change
      * during the MSFS session.
      *
@@ -104,7 +104,7 @@ export class AircraftVersionChecker {
         if (this.buildInfo) {
             return this.buildInfo;
         }
-        await fetch('/VFS/a319hs_build_info.json').then((response) => {
+        await fetch('/VFS/A319HS_build_info.json').then((response) => {
             response.json().then((json) => {
                 this.buildInfo = ({
                     built: json.built,
@@ -124,7 +124,7 @@ export class AircraftVersionChecker {
      * Parses the version string and returns the version info as VersionInfoData object.
      * Note: public because of jest test
      *
-     * @param versionString as provided by the a319hs_build_info.json file.
+     * @param versionString as provided by the A319HS_build_info.json file.
      * @throws Error if the version string is not in the correct format.
      */
     public static getVersionInfo(versionString: string): VersionInfoData {
