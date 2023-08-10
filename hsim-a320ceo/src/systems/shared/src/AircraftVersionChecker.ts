@@ -7,7 +7,7 @@ import { CommitInfo, GitVersions, ReleaseInfo } from '@flybywiresim/api-client';
 import { NotificationManager, PopUpDialog } from '@flybywiresim/fbw-sdk';
 
 /**
- * Contains the A320HS_build_info.json file's information in a structured way.
+ * Contains the a320hs_build_info.json file's information in a structured way.
  */
 export interface BuildInfo {
     built: string;
@@ -68,7 +68,7 @@ export class AircraftVersionChecker {
         this.versionChecked = false;
         this.setOutdatedVersionFlag(false);
 
-        // Retrieve the version info from A320HS_build_info.json and GitHub
+        // Retrieve the version info from a320hs_build_info.json and GitHub
         await this.initialize();
 
         // assert all version info is available
@@ -94,7 +94,7 @@ export class AircraftVersionChecker {
     }
 
     /**
-     * Reads the A320HS_build_info.json file and returns the data a BuildInfo object.
+     * Reads the a320hs_build_info.json file and returns the data a BuildInfo object.
      * It returns a cached version if it has been read before as the file is not expected to change
      * during the MSFS session.
      *
@@ -104,7 +104,7 @@ export class AircraftVersionChecker {
         if (this.buildInfo) {
             return this.buildInfo;
         }
-        await fetch('/VFS/A320HS_build_info.json').then((response) => {
+        await fetch('/VFS/a320hs_build_info.json').then((response) => {
             response.json().then((json) => {
                 this.buildInfo = ({
                     built: json.built,
@@ -124,7 +124,7 @@ export class AircraftVersionChecker {
      * Parses the version string and returns the version info as VersionInfoData object.
      * Note: public because of jest test
      *
-     * @param versionString as provided by the A320HS_build_info.json file.
+     * @param versionString as provided by the a320hs_build_info.json file.
      * @throws Error if the version string is not in the correct format.
      */
     public static getVersionInfo(versionString: string): VersionInfoData {
@@ -262,7 +262,7 @@ export class AircraftVersionChecker {
      * @private
      */
     private static setOutdatedVersionFlag(b: boolean) {
-        SimVar.SetSimVarValue('L:A320HS_OUTDATED_VERSION', 'Bool', b ? 1 : 0);
+        SimVar.SetSimVarValue('L:A32NX_OUTDATED_VERSION', 'Bool', b ? 1 : 0);
     }
 
     /**
