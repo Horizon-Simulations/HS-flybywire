@@ -122,28 +122,19 @@ export default new TaskOfTasks("all", [
         new TaskOfTasks(
             "wasm",
             [
-               new ExecTask("systems",
-                   "npm run build-a318ceo:systems",
-                   [
-                       "build-a318ceo/src/wasm/systems",
-                       "fbw-common/src/wasm/systems",
-                       "Cargo.lock",
-                       "Cargo.toml",
-                       "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/systems.wasm"
-                ]),
-                new ExecTask("systems-fadec", "npm run build-a318ceo:fadec", [
+                new ExecTask("fadec", "npm run build-a318ceo:fadec", [
                     "build-a318ceo/src/wasm/fadec_a318cfm",
                     "fbw-common/src/wasm/fbw_common",
                     "fbw-common/src/wasm/fadec_common",
                     "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/fadec.wasm",
                 ]),
-                new ExecTask("systems-fbw", "npm run build-a318ceo:fbw", [
+                new ExecTask("fbw", "npm run build-a318ceo:fbw", [
                     "build-a318ceo/src/wasm/fbw_a320",
                     "fbw-common/src/wasm/fbw_common",
                     "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/fbw.wasm",
                 ]),
                 new ExecTask(
-                    "systems-terronnd",
+                    "terronnd",
                     [
                         "fbw-common/src/wasm/terronnd/build.sh",
                         "wasm-opt -O1 -o build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/terronnd.wasm fbw-common/src/wasm/terronnd/out/terronnd.wasm",
@@ -163,6 +154,15 @@ export default new TaskOfTasks("all", [
                         "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/flypad-backend.wasm",
                     ]
                 ),
+                new ExecTask("systems",
+                "npm run build-a318ceo:systems",
+                [
+                    "build-a318ceo/src/wasm/systems",
+                    "fbw-common/src/wasm/systems",
+                    "Cargo.lock",
+                    "Cargo.toml",
+                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/systems.wasm"
+             ]),
             ],
             true
         ),
@@ -178,6 +178,7 @@ export default new TaskOfTasks("all", [
                     "npm run build-a318ceo:copy-flypad-backend"
                 ),
                 new ExecTask("systems", "npm run build-a318ceo:copy-systems"),
+                new ExecTask("terronnd", "npm run build-a318ceo:copy-terronnd"),
             ],
             true
         ),

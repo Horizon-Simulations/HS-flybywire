@@ -122,34 +122,25 @@ export default new TaskOfTasks("all", [
         new TaskOfTasks(
             "wasm",
             [
-                new ExecTask("systems",
-                    "npm run build-a319ceo:systems",
-                    [
-                        "build-a319ceo/src/wasm/systems",
-                        "fbw-common/src/wasm/systems",
-                        "Cargo.lock",
-                        "Cargo.toml",
-                        "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/systems.wasm"
-                    ]),
-                new ExecTask("systems-fadec-cfm", "npm run build-a319ceo:fadec-cfm", [
+                new ExecTask("fadec-cfm", "npm run build-a319ceo:fadec-cfm", [
                     "build-a319ceo/src/wasm/fadec_a319cfm",
                     "fbw-common/src/wasm/fbw_common",
                     "fbw-common/src/wasm/fadec_common",
                     "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/fadec.wasm",
                 ]),
-                new ExecTask("systems-fadec-iae", "npm run build-a319ceo:fadec-iae", [
+                new ExecTask("fadec-iae", "npm run build-a319ceo:fadec-iae", [
                     "build-a319ceo/src/wasm/fadec_a319iae",
                     "fbw-common/src/wasm/fbw_common",
                     "fbw-common/src/wasm/fadec_common",
                     "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoIAE/panel/fadec.wasm",
                 ]),
-                new ExecTask("systems-fbw", "npm run build-a319ceo:fbw", [
+                new ExecTask("fbw", "npm run build-a319ceo:fbw", [
                     "build-a319ceo/src/wasm/fbw_a320",
                     "fbw-common/src/wasm/fbw_common",
                     "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/fbw.wasm",
                 ]),
                 new ExecTask(
-                    "systems-terronnd",
+                    "terronnd",
                     [
                         "fbw-common/src/wasm/terronnd/build.sh",
                         "wasm-opt -O1 -o build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/terronnd.wasm fbw-common/src/wasm/terronnd/out/terronnd.wasm",
@@ -169,6 +160,15 @@ export default new TaskOfTasks("all", [
                         "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/flypad-backend.wasm",
                     ]
                 ),
+                new ExecTask("systems",
+                "npm run build-a319ceo:systems",
+                [
+                    "build-a319ceo/src/wasm/systems",
+                    "fbw-common/src/wasm/systems",
+                    "Cargo.lock",
+                    "Cargo.toml",
+                    "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel/systems.wasm"
+                ]),
             ],
             true
         ),
@@ -185,6 +185,7 @@ export default new TaskOfTasks("all", [
                     "npm run build-a319ceo:copy-flypad-backend"
                 ),
                 new ExecTask("systems", "npm run build-a319ceo:copy-systems"),
+                new ExecTask("terronnd", "npm run build-a319ceo:copy-terronnd"),
             ],
             true
         ),
