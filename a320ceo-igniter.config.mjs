@@ -81,15 +81,15 @@ export default new TaskOfTasks("all", [
                 ]),
                 new ExecTask("fmgcCFMSL", "npm run build-a320ceo:fmgcCFMSL", [
                     "build-a320ceo/src/systems/fmgcCFMSL",
-                    "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/fmgcCFMSL",
+                    "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/fmgc",
                 ]),
                 new ExecTask("fmgcIAE", "npm run build-a320ceo:fmgcIAE", [
                     "build-a320ceo/src/systems/fmgcIAE",
-                    "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/fmgcIAE",
+                    "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/fmgc",
                 ]),
                 new ExecTask("fmgcIAESL", "npm run build-a320ceo:fmgcIAESL", [
                     "build-a320ceo/src/systems/fmgcIAESL",
-                    "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/fmgcIAESL",
+                    "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/fmgc",
                 ]),
                 new ExecTask(
                     "sentry-client",

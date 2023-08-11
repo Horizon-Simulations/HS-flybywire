@@ -81,11 +81,11 @@ export default new TaskOfTasks("all", [
                 ]),
                 new ExecTask("fmgcIAE", "npm run build-a319ceo:fmgcIAE", [
                     "build-a319ceo/src/systems/fmgcIAE",
-                    "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/A319HS/fmgcIAE",
+                    "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/A319HS/fmgc",
                 ]),
                 new ExecTask("fmgcSL", "npm run build-a319ceo:fmgcSL", [
                     "build-a319ceo/src/systems/fmgcSL",
-                    "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/A319HS/fmgcSL",
+                    "build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/html_ui/A319HS/fmgc",
                 ]),
                 new ExecTask(
                     "sentry-client",
