@@ -89,9 +89,7 @@ export const SeatOutlineBg = ({ stroke, highlight }: SeatOutlineBgProps) => (
                         <path id="AFT_Right_CAT" className="st4" stroke={highlight} strokeMiterlimit={10} d="M648.4 38.8v5.1c0 1.5-1.4 2.7-2.9 2.5l-11.8-1.5c-1.3-.2-2.2-1.3-2.2-2.5v-6.2" />
                     </g>
                     <g id="Emergency_Doors">
-                        <path id="AFT_Left_EMG" className="st4" stroke={highlight} strokeMiterlimit={10} d="M335.8 117.1V114c0-1-.8-1.7-1.7-1.7h-7.6c-1 0-1.7.8-1.7 1.7v3.1" />
                         <path id="FWD_Left_EMG" className="st4" stroke={highlight} strokeMiterlimit={10} d="M317.5 117.1V114c0-1-.8-1.7-1.7-1.7h-7.6c-1 0-1.7.8-1.7 1.7v3.1" />
-                        <path id="AFT_Right_EMG" className="st4" stroke={highlight} strokeMiterlimit={10} d="M335.8 33v3.1c0 1-.8 1.7-1.7 1.7h-7.6c-1 0-1.7-.8-1.7-1.7V33" />
                         <path id="FWD_Right_EMG" className="st4" stroke={highlight} strokeMiterlimit={10} d="M317.5 33v3.1c0 1-.8 1.7-1.7 1.7h-7.6c-1 0-1.7-.8-1.7-1.7V33" />
                     </g>
                     <g id="Front_Doors">

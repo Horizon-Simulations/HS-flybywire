@@ -179,19 +179,9 @@ export const GroundServiceOutline = ({ className }: {className: string}) => (
                 </g>
                 <g id="Emergency_Doors">
                     <path
-                        id="AFT_Left_EMG"
-                        className="cls-2"
-                        d="M346.2 337.61h3.14c.95 0 1.72-.77 1.72-1.72v-7.61c0-.95-.77-1.72-1.72-1.72h-3.14"
-                    />
-                    <path
                         id="FWD_Left_EMG"
                         className="cls-2"
                         d="M346.2 319.32h3.14c.95 0 1.72-.77 1.72-1.72v-7.61c0-.95-.77-1.72-1.72-1.72h-3.14"
-                    />
-                    <path
-                        id="AFT_Right_EMG"
-                        className="cls-2"
-                        d="M430.28 337.61h-3.14c-.95 0-1.72-.77-1.72-1.72v-7.61c0-.95.77-1.72 1.72-1.72h3.14"
                     />
                     <path
                         id="FWD_Right_EMG"
