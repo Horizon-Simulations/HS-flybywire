@@ -27,6 +27,11 @@ cp -rva ./flybywire/fbw-a32nx/src/wasm/. ./build-a320ceo/src/wasm
 cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a320ceo/src/systems/instruments/src/EFBcfm
 cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a320ceo/src/systems/instruments/src/EFBiae
 
+# copy FMGC
+cp -rva ./flybywire/fbw-a32nx/src/systems/fmgc/. ./build-a320ceo/src/systems/fmgcCFMSL
+cp -rva ./flybywire/fbw-a32nx/src/systems/fmgc/. ./build-a320ceo/src/systems/fmgcIAE
+cp -rva ./flybywire/fbw-a32nx/src/systems/fmgc/. ./build-a320ceo/src/systems/fmgcIAESL
+
 cp -rva ./hsim-a320ceo/.env ./build-a320ceo/.env
 cp -rva ./hsim-a320ceo/mach.config.js ./build-a320ceo/mach.config.js
 

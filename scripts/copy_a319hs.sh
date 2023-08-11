@@ -29,6 +29,10 @@ cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a319ceo/
 cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a319ceo/src/systems/instruments/src/EFBcfmacj
 cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a319ceo/src/systems/instruments/src/EFBiaeacj
 
+# copy FMGC
+cp -rva ./flybywire/fbw-a32nx/src/systems/fmgc/. ./build-a319ceo/src/systems/fmgcIAE
+cp -rva ./flybywire/fbw-a32nx/src/systems/fmgc/. ./build-a319ceo/src/systems/fmgcSL
+
 cp -rva ./hsim-a319ceo/.env ./build-a319ceo/.env
 cp -rva ./hsim-a319ceo/mach.config.js ./build-a319ceo/mach.config.js
 
