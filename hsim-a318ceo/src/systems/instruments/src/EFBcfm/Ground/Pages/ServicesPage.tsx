@@ -109,7 +109,7 @@ export const ServicesPage = () => {
     const [simOnGround] = useSimVar('SIM ON GROUND', 'bool', 250);
     const [aircraftIsStationary] = useSimVar('L:A32NX_IS_STATIONARY', 'bool', 250);
     const [pushBackAttached] = useSimVar('Pushback Attached', 'enum', 250);
-    const groundServicesAvailable = simOnGround && aircraftIsStationary && !pushBackAttached;
+    const groundServicesAvailable = simOnGround && !pushBackAttached;
 
     // Ground Services
     const [cabinDoorOpen] = useSimVar('A:INTERACTIVE POINT OPEN:0', 'Percent over 100', 100);
