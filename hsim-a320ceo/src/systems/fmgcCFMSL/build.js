@@ -8,7 +8,7 @@ const esbuild = require('esbuild');
 const path = require('path');
 
 const rootDir = path.join(__dirname, '..', '..', '..');
-const outFile = 'out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/fmgc/fmgc.js';
+const outFile = 'out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/fmgc/fmgcCFMSL.js';
 
 const isProductionBuild = process.env.A32NX_PRODUCTION_BUILD === '1';
 
