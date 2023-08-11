@@ -3,7 +3,7 @@ class A32NX_PayloadConstructor {
     constructor() {
         this.paxStations = {
             rows1_6: {
-                name: 'ROWS [1-5]',
+                name: 'ROWS [1-7]',
                 seats: 26,
                 weight: Math.round(NXUnits.kgToUser(2184)),
                 stationIndex: 0 + 1,
@@ -11,7 +11,7 @@ class A32NX_PayloadConstructor {
                 simVar: "A32NX_PAX_A"
             },
             rows7_13: {
-                name: 'ROWS [6-10]',
+                name: 'ROWS [8-13]',
                 seats: 30,
                 weight: Math.round(NXUnits.kgToUser(2520)),
                 stationIndex: 1 + 1,
@@ -19,7 +19,7 @@ class A32NX_PayloadConstructor {
                 simVar: "A32NX_PAX_B"
             },
             rows14_21: {
-                name: 'ROWS [11-15]',
+                name: 'ROWS [14-18]',
                 seats: 30,
                 weight: Math.round(NXUnits.kgToUser(2520)),
                 stationIndex: 2 + 1,
@@ -27,7 +27,7 @@ class A32NX_PayloadConstructor {
                 simVar: "A32NX_PAX_C"
             },
             rows22_29: {
-                name: 'ROWS [16-21]',
+                name: 'ROWS [19-23]',
                 seats: 32,
                 weight: Math.round(NXUnits.kgToUser(2688)),
                 stationIndex: 3 + 1,
