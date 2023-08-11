@@ -148,9 +148,8 @@ export class AircraftVersionChecker {
      * @private
      */
     private static async initialize() {
-        this.releaseInfo = await GitVersions.getReleases('horizon-simulations', 'LVFR-flybywire', false, 0, 1);
-        this.newestCommit = await GitVersions.getNewestCommit('horizon-simulations', 'LVFR-flybywire', 'main');
-        this.newestExpCommit = await GitVersions.getNewestCommit('horizon-simulations', 'LVFR-flybywire', 'experimental');
+        this.releaseInfo = await GitVersions.getReleases('horizon-simulations', 'lvfr-flybywire', false, 0, 1);
+        this.newestCommit = await GitVersions.getNewestCommit('horizon-simulations', 'lvfr-flybywire', 'main');
         this.buildInfo = await AircraftVersionChecker.getBuildInfo();
     }
 
