@@ -1395,9 +1395,9 @@ class FMCMainDisplay extends BaseAirliners {
         let weight = this.tryEstimateLandingWeight();
         const vnavPrediction = this.guidanceController.vnavDriver.getDestinationPrediction();
         // Actual weight is used during approach phase (FCOM bulletin 46/2), and we also assume during go-around
-        // Fallback gross weight set to 64.3T (MZFW), which is replaced by FMGW once input in FMS to avoid function returning undefined results.
+        // Fallback gross weight set to 53T (MZFW), which is replaced by FMGW once input in FMS to avoid function returning undefined results.
         if (this.flightPhaseManager.phase >= FmgcFlightPhases.APPROACH || !isFinite(weight)) {
-            weight = (this.getGW() == 0) ? 64.3 : this.getGW();
+            weight = (this.getGW() == 0) ? 53.0 : this.getGW();
         } else if (vnavPrediction && Number.isFinite(vnavPrediction.estimatedFuelOnBoard)) {
             weight = this.zeroFuelWeight + Math.max(0, vnavPrediction.estimatedFuelOnBoard * 0.4535934 / 1000);
         }
