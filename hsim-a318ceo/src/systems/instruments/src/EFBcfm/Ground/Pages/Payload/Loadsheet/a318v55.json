@@ -834,9 +834,9 @@
         "chartLimits": {
             "weight": {
                 "min": 35000,
-                "max": 80000,
+                "max": 60000,
                 "lines": 9,
-                "scale": 5000,
+                "scale": 2500,
                 "values": [
                     80,
                     70,
