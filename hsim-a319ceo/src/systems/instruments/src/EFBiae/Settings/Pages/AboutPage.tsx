@@ -80,9 +80,9 @@ export const AboutPage = () => {
                         </div>
 
                         <p className="mt-3 text-2xl">
-                            Made with love by contributors in Québec, Germany, the United States, Singapore, Indonesia,
-                            New Zealand, Australia, Spain, the United Kingdom, France, the Netherlands, Sweden, and
-                            Switzerland!
+                            Originally created by FlyByWire Simulations and further built upon by the Horizon Simulations Team's dedicated Developers, QA Testers, 3D Artists and Livery Creators
+                            from Hungary, England, Scotland, Wales, Germany, Greece, Finland, Norway, Sweden, Romania, France, United States, Canada, Egypt, Spain, Singapore, Poland, Australia,
+                            Thailand, Brazil and Japan.
                         </p>
                     </div>
                 </div>
