@@ -345,7 +345,6 @@
         <ANIM_NAME>opening_landing_light_right</ANIM_NAME>
       </UseTemplate>
     </Component>
-
     <Component ID="LVFR_VIZ">
       <Component ID="LVFR_320_GPU" Node="LVFR_320_GPU">
         <UseTemplate Name="ASOBO_GT_Visibility">
