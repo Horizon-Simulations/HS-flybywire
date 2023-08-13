@@ -79,6 +79,10 @@ export default new TaskOfTasks("all", [
                     "build-a321neo/src/systems/fmgc",
                     "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/fmgc",
                 ]),
+                new ExecTask("fmgc", "npm run build-a321neo:fmgcPW", [
+                    "build-a321neo/src/systems/fmgcPW",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/fmgcPW",
+                ]),
                 new ExecTask(
                     "sentry-client",
                     "npm run build-a321neo:sentry-client",
