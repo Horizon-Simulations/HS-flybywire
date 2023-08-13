@@ -2,44 +2,51 @@
  * TO V2 speed table
  * calls function(gross weight (t)) which returns CAS.
  * Indexes: 0 - Config 1 + F, 1 - Config 2, 2 - Config 3.
- * Sub-Indexes: 0 to 9 represent gross weight (t) in 5t steps from 40 to 80.
+ * Sub-Indexes: 0 to 11 represent gross weight (t) in 5t steps from 50 to 105.
+ * BASED ON A320 FCOM 2
  */
 const to = [
     [
-        () => 126,
-        () => 126,
-        () => 126,
-        (m) => 126 + 0.2 * (m - 50),
-        (m) => 127 + m - 55,
-        (m) => 132 + m - 60,
-        (m) => 137 + m - 65,
-        (m) => 142 + m - 70,
-        (m) => 147 + m - 75,
-        () => 151
+        () => 144, // 50
+        () => 145, // 55
+        () => 146, // 60
+        () => 146, // 65
+        () => 146, // 70
+        () => 146, // 75
+        () => 151, // 80
+        () => 157, // 85
+        () => 161, // 90
+        () => 166, // 95
+        () => 168, // 100
+        () => 169, // 105
     ], // Conf 1 + F
     [
-        () => 126,
-        () => 126,
-        () => 126,
-        () => 126,
-        (m) => 126 + 0.2 * (m - 55),
-        (m) => 127 + m - 60,
-        (m) => 132 + m - 65,
-        (m) => 137 + 0.8 * (m - 70),
-        (m) => 141 + m - 75,
-        () => 146
+        () => 133, // 50
+        () => 133, // 55
+        () => 133, // 60
+        () => 134, // 65
+        () => 139, // 70
+        () => 144, // 75
+        () => 149, // 80
+        () => 153, // 85
+        () => 157, // 90
+        () => 161, // 95
+        () => 165, // 100
+        () => 167, // 105
     ], // Conf 2
     [
-        () => 125,
-        () => 125,
-        () => 125,
-        () => 125,
-        () => 125,
-        (m) => 125 + 0.6 * (m - 60),
-        (m) => 128 + 0.8 * (m - 65),
-        (m) => 132 + m - 70,
-        (m) => 137 + 0.8 * (m - 75),
-        () => 141
+        () => 130, // 50
+        () => 130, // 55
+        () => 130, // 60
+        () => 130, // 65
+        () => 130, // 70
+        () => 132, // 75
+        () => 136, // 80
+        () => 140, // 85
+        () => 142, // 90
+        () => 142, // 95
+        () => 145, // 100
+        () => 146, // 105
     ] // Conf 3
 ];
 
@@ -47,7 +54,8 @@ const to = [
  * Stall speed table
  * calls function(gross weight (t), landing gear) which returns CAS.
  * Indexes: 0 - Clean config, 1 - Config 1 + F, 2 - Config 2, 3 - Config 3, 4 - Config Full, 5 - Config 1.
- * Sub-Indexes: 0 to 9 represent gross weight (t) in 5t steps from 40 to 80.
+ * Sub-Indexes: 0 to 11 represent gross weight (t) in 5t steps from 50 to 105.
+ *  * BASED ON A320 FCOM 2
  */
 const vs = [
     [
@@ -128,7 +136,8 @@ const vs = [
  * Lowest selectable Speed Table
  * calls function(gross weigh (t), landing gear) which returns CAS, automatically compensates for cg.
  * Indexes: 0 - Clean config, 1 - Config 1 + F, 2 - Config 2, 3 - Config 3, 4 - Config Full, 5 - Config 1.
- * Sub-Indexes: 0 to 9 represent gross weight (t) in 5t steps from 40 to 80.
+ * Sub-Indexes: 0 to 11 represent gross weight (t) in 5t steps from 50 to 105.
+ *  * BASED ON A320 FCOM 2 (VS FLAPS * 1.23 / VS CLEAN * 1.28) https://safetyfirst.airbus.com/control-your-speed-during-descent-approach-and-landing/
  */
 const vls = [
     [
@@ -318,6 +327,7 @@ const vmcg = [ // 1+F, 2, 3 all the same
 /**
  * Vfe for Flaps/Slats
  * @type {number[]}
+ *  * BASED ON A320 FCOM 2
  */
 const vfeFS = [
     225, // Config 1 + F
@@ -338,7 +348,7 @@ const Mmo = 0.82;
  * @returns {number} cg corrected velocity (CAS)
  */
 function correctCg(m, f, cg = SimVar.GetSimVarValue("CG PERCENT", "percent")) {
-    return f(m, isNaN(cg) ? 24 : cg);
+    return f(m, isNaN(cg) ? 25 : cg);
 }
 
 /**
@@ -348,7 +358,10 @@ function correctCg(m, f, cg = SimVar.GetSimVarValue("CG PERCENT", "percent")) {
  * @private
  */
 function _correctMass(m) {
-    return Math.ceil(((m > 80 ? 80 : m) - 40) / 5);
+    const min = 50;
+    const max = 105;
+    const step = 5;
+    return Math.ceil(((m > max ? max : m) - min) / step);
 }
 
 /**
