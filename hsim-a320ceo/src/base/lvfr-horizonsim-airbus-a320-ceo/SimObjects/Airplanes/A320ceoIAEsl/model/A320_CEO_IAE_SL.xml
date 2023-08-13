@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModelInfo>
   <LODS>
-    <LOD ModelFile="A321_NEO_LOD00.gltf" minSize="150">
+    <!-- Highest LOD -->
+    <!-- minimum display size in % (should be bounding sphere vertical screen size, sphere will
+    often be slightly larger than you expect) -->
+    <!-- default minSize is 0 -->
+    <LOD minSize="150" ModelFile="A320_CEO_IAE_SL_LOD00.gltf">
       <AttachModel id="FA1" />
       <AttachModel id="FA2" />
       <AttachModel id="FA3" />
@@ -10,43 +14,33 @@
       <AttachModel id="PAX1B" />
       <AttachModel id="PAX1C" />
       <AttachModel id="PAX1D" />
-      <AttachModel id="PAX1E" />
       <AttachModel id="PAX2" />
       <AttachModel id="PAX2B" />
       <AttachModel id="PAX2C" />
       <AttachModel id="PAX2D" />
-      <AttachModel id="PAX2E" />
-      <AttachModel id="PAX2F" />
       <AttachModel id="PAX3" />
       <AttachModel id="PAX3B" />
       <AttachModel id="PAX3C" />
       <AttachModel id="PAX3D" />
-      <AttachModel id="PAX3E" />
       <AttachModel id="PAX4" />
       <AttachModel id="PAX4B" />
       <AttachModel id="PAX4C" />
       <AttachModel id="PAX4D" />
-      <AttachModel id="PAX4E" />
-      <AttachModel id="PAX5" />
       <AttachModel id="PAX5B" />
       <AttachModel id="PAX5C" />
       <AttachModel id="PAX5D" />
-      <AttachModel id="PAX6" />
       <AttachModel id="PAX6B" />
       <AttachModel id="PAX6C" />
       <AttachModel id="PAX6D" />
-      <AttachModel id="PAX7" />
       <AttachModel id="PAX7B" />
       <AttachModel id="PAX7C" />
       <AttachModel id="PAX7D" />
       <AttachModel id="PAX8" />
       <AttachModel id="PAX8B" />
       <AttachModel id="PAX8C" />
-      <AttachModel id="PAX8D" />
       <AttachModel id="PAX9" />
       <AttachModel id="PAX9B" />
       <AttachModel id="PAX9C" />
-      <AttachModel id="PAX9D" />
       <AttachModel id="PAX10" />
       <AttachModel id="PAX10B" />
       <AttachModel id="PAX10C" />
@@ -55,15 +49,14 @@
       <AttachModel id="PAX11B" />
       <AttachModel id="PAX11C" />
       <AttachModel id="PAX11D" />
-      <AttachModel id="PAX11E" />
       <AttachModel id="PAX12" />
       <AttachModel id="PAX12B" />
       <AttachModel id="PAX12C" />
-      <AttachModel id="PAX12D" />
     </LOD>
-    <LOD ModelFile="A321_NEO_LOD01.gltf" minSize="80">
-    </LOD>
+    <LOD ModelFile="A320_CEO_IAE_SL_LOD01.gltf" minSize="80" />
   </LODS>
+
+
   <ModelAttachments>
     <ModelAttachment id="FA1">
       <AttachToNode>sittingfemaleFA</AttachToNode>
@@ -97,10 +90,6 @@
       <AttachToNode>1PAX004</AttachToNode>
       <Model>..\model.PAX\PAX1.xml</Model>
     </ModelAttachment>
-    <ModelAttachment id="PAX1E">
-      <AttachToNode>1PAX005</AttachToNode>
-      <Model>..\model.PAX\PAX1.xml</Model>
-    </ModelAttachment>
     <ModelAttachment id="PAX2">
       <AttachToNode>2PAX</AttachToNode>
       <Model>..\model.PAX\PAX2.xml</Model>
@@ -115,14 +104,6 @@
     </ModelAttachment>
     <ModelAttachment id="PAX2D">
       <AttachToNode>2PAX003</AttachToNode>
-      <Model>..\model.PAX\PAX2.xml</Model>
-    </ModelAttachment>
-    <ModelAttachment id="PAX2E">
-      <AttachToNode>2PAX004</AttachToNode>
-      <Model>..\model.PAX\PAX2.xml</Model>
-    </ModelAttachment>
-    <ModelAttachment id="PAX2F">
-      <AttachToNode>2PAX005</AttachToNode>
       <Model>..\model.PAX\PAX2.xml</Model>
     </ModelAttachment>
     <ModelAttachment id="PAX3">
@@ -141,10 +122,6 @@
       <AttachToNode>3PAX003</AttachToNode>
       <Model>..\model.PAX\PAX3.xml</Model>
     </ModelAttachment>
-    <ModelAttachment id="PAX3E">
-      <AttachToNode>3PAX004</AttachToNode>
-      <Model>..\model.PAX\PAX3.xml</Model>
-    </ModelAttachment>
     <ModelAttachment id="PAX4">
       <AttachToNode>4PAX00</AttachToNode>
       <Model>..\model.PAX\PAX4.xml</Model>
@@ -161,14 +138,6 @@
       <AttachToNode>4PAX03</AttachToNode>
       <Model>..\model.PAX\PAX4.xml</Model>
     </ModelAttachment>
-    <ModelAttachment id="PAX4E">
-      <AttachToNode>4PAX04</AttachToNode>
-      <Model>..\model.PAX\PAX4.xml</Model>
-    </ModelAttachment>
-    <ModelAttachment id="PAX5">
-      <AttachToNode>5PAX</AttachToNode>
-      <Model>..\model.PAX\PAX5.xml</Model>
-    </ModelAttachment>
     <ModelAttachment id="PAX5B">
       <AttachToNode>5PAX001</AttachToNode>
       <Model>..\model.PAX\PAX5.xml</Model>
@@ -181,10 +150,6 @@
       <AttachToNode>5PAX003</AttachToNode>
       <Model>..\model.PAX\PAX5.xml</Model>
     </ModelAttachment>
-    <ModelAttachment id="PAX6">
-      <AttachToNode>6PAX</AttachToNode>
-      <Model>..\model.PAX\PAX6.xml</Model>
-    </ModelAttachment>
     <ModelAttachment id="PAX6B">
       <AttachToNode>6PAX001</AttachToNode>
       <Model>..\model.PAX\PAX6.xml</Model>
@@ -196,10 +161,6 @@
     <ModelAttachment id="PAX6D">
       <AttachToNode>6PAX003</AttachToNode>
       <Model>..\model.PAX\PAX6.xml</Model>
-    </ModelAttachment>
-    <ModelAttachment id="PAX7">
-      <AttachToNode>7PAX</AttachToNode>
-      <Model>..\model.PAX\PAX7.xml</Model>
     </ModelAttachment>
     <ModelAttachment id="PAX7B">
       <AttachToNode>7PAX001</AttachToNode>
@@ -225,10 +186,6 @@
       <AttachToNode>8PAX002</AttachToNode>
       <Model>..\model.PAX\PAX8.xml</Model>
     </ModelAttachment>
-    <ModelAttachment id="PAX8D">
-      <AttachToNode>8PAX003</AttachToNode>
-      <Model>..\model.PAX\PAX8.xml</Model>
-    </ModelAttachment>
     <ModelAttachment id="PAX9">
       <AttachToNode>9PAX</AttachToNode>
       <Model>..\model.PAX\PAX9.xml</Model>
@@ -239,10 +196,6 @@
     </ModelAttachment>
     <ModelAttachment id="PAX9C">
       <AttachToNode>9PAX002</AttachToNode>
-      <Model>..\model.PAX\PAX9.xml</Model>
-    </ModelAttachment>
-    <ModelAttachment id="PAX9D">
-      <AttachToNode>9PAX003</AttachToNode>
       <Model>..\model.PAX\PAX9.xml</Model>
     </ModelAttachment>
     <ModelAttachment id="PAX10">
@@ -277,10 +230,6 @@
       <AttachToNode>11PAX003</AttachToNode>
       <Model>..\model.PAX\PAX11.xml</Model>
     </ModelAttachment>
-    <ModelAttachment id="PAX11E">
-      <AttachToNode>11PAX004</AttachToNode>
-      <Model>..\model.PAX\PAX11.xml</Model>
-    </ModelAttachment>
     <ModelAttachment id="PAX12">
       <AttachToNode>12PAX</AttachToNode>
       <Model>..\model.PAX\PAX12.xml</Model>
@@ -293,11 +242,8 @@
       <AttachToNode>12PAX002</AttachToNode>
       <Model>..\model.PAX\PAX12.xml</Model>
     </ModelAttachment>
-    <ModelAttachment id="PAX12D">
-      <AttachToNode>12PAX003</AttachToNode>
-      <Model>..\model.PAX\PAX12.xml</Model>
-    </ModelAttachment>
   </ModelAttachments>
+
   <!-- Custom animation definition. -->
   <!-- This can be used when node movement depends on the simvars in a more complex way. -->
   <!-- >>>>> CURRENTLY HARDCODED FOR WINGFLEX <<<<< -->
@@ -345,9 +291,9 @@
     <!-- the right wing engine pivot node furthest from the center -->
   </NodeAnimation>
   <Behaviors>
-    <Include ModelBehaviorFile="A21NHS\Exterior\A32NX_Exterior_Includes.xml" />
+    <Include ModelBehaviorFile="A320HS\Exterior\A32NX_Exterior_Includes.xml" />
     <Include ModelBehaviorFile="Asobo\Exterior.xml" />
-    <Include Path="A21NHS\generated\A32NX_Exterior.xml" />
+    <Include Path="A320HS\generated\A32NX_Exterior.xml" />
     <Include RelativeFile="A320_NEO_FX.xml" />
     <Component ID="LIGHTING">
       <UseTemplate Name="ASOBO_LIGHTING_Exterior_Retractable_Light_Template">
@@ -485,7 +431,7 @@
         </UseTemplate>
       </Component>
       <Component ID="ENGINE">
-        <UseTemplate Name="A32NX_ENGINE_Turbine_Template">
+        <UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
           <ID>1</ID>
           <ANIM_NODE_ID>N1_1_anim</ANIM_NODE_ID>
           <ANIM_NAME>N1_1_anim</ANIM_NAME>
@@ -556,12 +502,6 @@
     </Component>
     <Component ID="FX">
       <UseTemplate Name="ASOBO_A320_FX" />
-    </Component>
-    <Component ID="Satcom">
-      <UseTemplate Name="FBW_Satcom">
-        <NODE_ID>satcom</NODE_ID>
-        <SAT_ENABLE>(L:A32NX_SATCOM_ENABLED, bool)</SAT_ENABLE>
-      </UseTemplate>
     </Component>
   </Behaviors>
 </ModelInfo>
