@@ -320,11 +320,11 @@ const vmcg = [ // 1+F, 2, 3 all the same
  * @type {number[]}
  */
 const vfeFS = [
-    215, // Config 1 + F
-    200, // Config 2
-    185, // Config 3
-    177, // Config Full
-    230 // Config 1
+    225, // Config 1 + F
+    215, // Config 2
+    195, // Config 3
+    186, // Config Full
+    243 // Config 1
 ];
 
 const Vmo = 350;
