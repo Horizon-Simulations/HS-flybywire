@@ -411,15 +411,15 @@
           <TRIM_ONLY>True</TRIM_ONLY>
           <ANIM_NAME_TRIM>trimtab_elevator_key</ANIM_NAME_TRIM>
         </UseTemplate>
-        <UseTemplate Name="ASOBO_HANDLING_Aileron_Template">
+        <UseTemplate Name="FBW_HANDLING_Aileron_Template">
           <ANIM_NAME_LEFT>l_aileron_percent_key</ANIM_NAME_LEFT>
           <ANIM_NAME_RIGHT>r_aileron_percent_key</ANIM_NAME_RIGHT>
         </UseTemplate>
-        <UseTemplate Name="ASOBO_HANDLING_Rudder_Template">
+        <UseTemplate Name="FBW_HANDLING_Rudder_Template">
           <ANIM_NAME>rudder_percent_key</ANIM_NAME>
           <USE_INTEGRATED_TRIM>True</USE_INTEGRATED_TRIM>
         </UseTemplate>
-        <UseTemplate Name="ASOBO_HANDLING_Spoilers_Template">
+        <UseTemplate Name="FBW_HANDLING_Spoiler_Template">
           <ANIM_NAME_LEFT>l_spoiler_key</ANIM_NAME_LEFT>
           <ANIM_NAME_RIGHT>r_spoiler_key</ANIM_NAME_RIGHT>
           <!-- ANIM_EVENTS -->
@@ -485,7 +485,7 @@
         </UseTemplate>
       </Component>
       <Component ID="ENGINE">
-        <UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+        <UseTemplate Name="A32NX_ENGINE_Turbine_Template">
           <ID>1</ID>
           <ANIM_NODE_ID>N1_1_anim</ANIM_NODE_ID>
           <ANIM_NAME>N1_1_anim</ANIM_NAME>
@@ -493,7 +493,7 @@
           <SLOW_NODE_ID>PROP_SLOW_LEFT</SLOW_NODE_ID>
           <BLURRED_NODE_ID>PROP_BLURRED_LEFT</BLURRED_NODE_ID>
         </UseTemplate>
-        <UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+        <UseTemplate Name="A32NX_ENGINE_Turbine_Template">
           <ID>2</ID>
           <ANIM_NODE_ID>N1_2_anim</ANIM_NODE_ID>
           <ANIM_NAME>N1_2_anim</ANIM_NAME>
@@ -501,14 +501,16 @@
           <SLOW_NODE_ID>PROP_SLOW_RIGHT</SLOW_NODE_ID>
           <BLURRED_NODE_ID>PROP_BLURRED_RIGHT</BLURRED_NODE_ID>
         </UseTemplate>
-        <UseTemplate Name="ASOBO_ENGINE_Turbine_ReverseThrust_Template">
-          <ID>1</ID>
+        <UseTemplate Name="ASOBO_GT_Anim">
           <ANIM_NAME>thrust_rev_1</ANIM_NAME>
-        </UseTemplate>
-        <UseTemplate Name="ASOBO_ENGINE_Turbine_ReverseThrust_Template">
-          <ID>2</ID>
+          <ANIM_CODE>(L:A32NX_REVERSER_1_POSITION) 100 *</ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_GT_Anim">
           <ANIM_NAME>thrust_rev_2</ANIM_NAME>
-        </UseTemplate>
+          <ANIM_CODE>(L:A32NX_REVERSER_2_POSITION) 100 *</ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+      </UseTemplate>
         <UseTemplate Name="ASOBO_GT_Anim">
           <ANIM_NAME>N1_1_anim</ANIM_NAME>
           <ANIM_CODE>20 (A:ANIMATION DELTA TIME, seconds) * </ANIM_CODE>
