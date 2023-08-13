@@ -23,6 +23,10 @@ cp -rva ./flybywire/fbw-a32nx/src/localization/. ./build-a321neo/src/localizatio
 cp -rva ./flybywire/fbw-a32nx/src/systems/. ./build-a321neo/src/systems
 cp -rva ./flybywire/fbw-a32nx/src/wasm/. ./build-a321neo/src/wasm
 
+#copy FMGC
+cp -rva ./flybywire/fbw-a32nx/src/systems/fmgc/. ./build-a321neo/src/systems/fmgc
+cp -rva ./flybywire/fbw-a32nx/src/systems/fmgc/. ./build-a321neo/src/systems/fmgcPW
+
 # copy EFB 
 cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a321neo/src/systems/instruments/src/EFBleap
 cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a321neo/src/systems/instruments/src/EFBpw
