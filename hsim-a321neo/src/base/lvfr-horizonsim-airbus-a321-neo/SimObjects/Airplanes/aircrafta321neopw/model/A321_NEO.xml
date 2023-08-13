@@ -345,9 +345,9 @@
     <!-- the right wing engine pivot node furthest from the center -->
   </NodeAnimation>
   <Behaviors>
-    <Include ModelBehaviorFile="A21NHS\Exterior\A32NX_Exterior_Includes.xml"/>
+    <Include ModelBehaviorFile="A21NHS\Exterior\A32NX_Exterior_Includes.xml" />
     <Include ModelBehaviorFile="Asobo\Exterior.xml" />
-    <Include Path="A21NHS\generated\A32NX_Exterior.xml"/>
+    <Include Path="A21NHS\generated\A32NX_Exterior.xml" />
     <Include RelativeFile="A320_NEO_FX.xml" />
     <Component ID="LIGHTING">
       <UseTemplate Name="ASOBO_LIGHTING_Exterior_Retractable_Light_Template">
@@ -505,12 +505,12 @@
           <ANIM_NAME>thrust_rev_1</ANIM_NAME>
           <ANIM_CODE>(L:A32NX_REVERSER_1_POSITION) 100 *</ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
-      </UseTemplate>
-      <UseTemplate Name="ASOBO_GT_Anim">
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GT_Anim">
           <ANIM_NAME>thrust_rev_2</ANIM_NAME>
           <ANIM_CODE>(L:A32NX_REVERSER_2_POSITION) 100 *</ANIM_CODE>
           <ANIM_LENGTH>100</ANIM_LENGTH>
-      </UseTemplate>
+        </UseTemplate>
         <UseTemplate Name="ASOBO_GT_Anim">
           <ANIM_NAME>N1_1_anim</ANIM_NAME>
           <ANIM_CODE>20 (A:ANIMATION DELTA TIME, seconds) * </ANIM_CODE>
