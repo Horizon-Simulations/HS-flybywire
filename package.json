@@ -152,6 +152,7 @@
     "build-a321neo:extras-host": "node build-a321neo/src/systems/extras-host/build.js",
     "build-a321neo:failures": "rollup -c build-a321neo/src/systems/failures/rollup.config.js",
     "build-a321neo:fmgc": "node build-a321neo/src/systems/fmgc/build.js",
+    "build-a321neo:fmgcPW": "node build-a321neo/src/systems/fmgcPW/build.js",
     "build-a321neo:instruments": "mach build --config build-a321neo/mach.config.js --work-in-config-dir",
     "build-a321neo:sentry-client": "node build-a321neo/src/systems/sentry-client/build.js",
     "build-a321neo:simbridge-client": "node build-a321neo/src/systems/simbridge-client/build.js",
