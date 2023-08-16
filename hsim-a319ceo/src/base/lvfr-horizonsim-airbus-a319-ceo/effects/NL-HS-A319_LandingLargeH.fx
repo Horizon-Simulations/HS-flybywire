@@ -20,7 +20,7 @@ Drag=0.0, 0.0
 X Particle Velocity=0.0, 0.0
 Y Particle Velocity=0.0, 0.0
 Z Particle Velocity=0.0, 0.0
-X Rotation=5.0, 5.0
+X Rotation=0.0, 0.0
 Y Rotation=0.0, 0.0
 Z Rotation=0.0, 0.0
 X Offset=0.0, 0.0
@@ -49,10 +49,10 @@ Face=1, 1, 1
 
 [ParticleAttributes.0]
 Blend Mode=2
-Texture=NLHS-taxyL
+Texture=NLHS-Landing
 Bounce=0.0
-Color Start=140, 180, 255, 10
-Color End=140, 180, 255, 10
+Color Start=255, 255, 200, 10
+Color End=255, 255, 200, 10
 Jitter Distance=0.0
 Jitter Time=0.0
 uv1=0.0, 0.0
@@ -62,22 +62,22 @@ Y Scale Goal=0.0
 Z Scale Goal=0.0
 NearEndFade= 1
 NearFade= 1
-MinProjSize=0.2 ;0.2
+MinProjSize=0.2 ; 0.2
 
 [LightAttributes.0]
 EnableSpotLightCastShadow=0
 Type=spot
 Size=0.06
-Range=1000
-Intensity=100
+Range=4000
+Intensity=500
 Softness=0.0
-SpotInner=25
-SpotOuter=45
+SpotInner=0
+SpotOuter=20
 Volumetric=1
-ScatDir=0
+ScatDir=0.0
 
 [Emitter.1]
-Lifetime=1.0, 1.0
+Lifetime=0.3, 0.3
 Delay=0.0, 0.0
 Bounce=0.0
 Light=1
@@ -90,7 +90,7 @@ Drag=0.0, 0.0
 X Particle Velocity=0.0, 0.0
 Y Particle Velocity=0.0, 0.0
 Z Particle Velocity=0.0, 0.0
-X Rotation=5.0, 5.0
+X Rotation=0.0, 0.0
 Y Rotation=0.0, 0.0
 Z Rotation=0.0, 0.0
 X Offset=0.0, 0.0
@@ -132,12 +132,12 @@ Y Scale Goal=0.0
 Z Scale Goal=0.0
 NearEndFade= 1
 NearFade= 1
-MinProjSize=0.2 ;0.4
+MinProjSize=0.2 ; 0.2
 
 [LightAttributes.1]
 Type=spot
 Size=0.1
-Range=1000
+Range=4000
 Intensity=0
 Softness=0.0
 SpotInner=80

@@ -29,7 +29,7 @@ Z Offset=0.0, 0.0
 
 [Particle.0]
 Lifetime=0.0, 0.0
-Type=25
+Type=19
 X Scale=0.4, 0.4
 Y Scale=0.4, 0.4
 Z Scale=0.0, 0.0
@@ -49,7 +49,7 @@ Face=1, 1, 1
 
 [ParticleAttributes.0]
 Blend Mode=2
-Texture=NLHS-LandingL
+Texture=NLHS-Landing-L
 Bounce=0.0
 Color Start=140, 180, 255, 10
 Color End=140, 180, 255, 10
@@ -69,9 +69,9 @@ EnableSpotLightCastShadow=0
 Type=spot
 Size=0.06
 Range=4000
-Intensity=400
+Intensity=2000
 Softness=0.0
-SpotInner=0
-SpotOuter=20
+SpotInner=14
+SpotOuter=15
 Volumetric=0
 ScatDir=0.0

@@ -49,10 +49,10 @@ Face=1, 1, 1
 
 [ParticleAttributes.0]
 Blend Mode=2
-Texture=NLHS-taxyL
+Texture=NLHS-taxy
 Bounce=0.0
-Color Start=140, 180, 255, 10
-Color End=140, 180, 255, 10
+Color Start=230, 220, 160, 10
+Color End=230, 220, 160, 10
 Jitter Distance=0.0
 Jitter Time=0.0
 uv1=0.0, 0.0
@@ -69,10 +69,10 @@ EnableSpotLightCastShadow=0
 Type=spot
 Size=0.06
 Range=1000
-Intensity=100
+Intensity=30
 Softness=0.0
-SpotInner=25
-SpotOuter=45
+SpotInner=20
+SpotOuter=50
 Volumetric=1
 ScatDir=0
 
