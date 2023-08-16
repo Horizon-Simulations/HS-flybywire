@@ -291,10 +291,10 @@
     <!-- the right wing engine pivot node furthest from the center -->
   </NodeAnimation>
   <Behaviors>
-    <Include ModelBehaviorFile="A320HS\Exterior\A32NX_Exterior_Includes.xml" />
+    <Include ModelBehaviorFile="A319HS\Exterior\A32NX_Exterior_Includes.xml" />
     <Include ModelBehaviorFile="Asobo\Exterior.xml" />
-    <Include Path="A320HS\generated\A32NX_Exterior.xml" />
     <Include RelativeFile="A320_NEO_FX.xml" />
+    <Include Path="A319HS\generated\A32NX_Exterior.xml" />
     <Component ID="LIGHTING">
       <UseTemplate Name="ASOBO_LIGHTING_Exterior_Retractable_Light_Template">
         <LIGHT_TYPE>LANDING</LIGHT_TYPE>
@@ -307,7 +307,6 @@
         <ANIM_NAME>opening_landing_light_right</ANIM_NAME>
       </UseTemplate>
     </Component>
-
     <Component ID="LVFR_VIZ">
       <Component ID="LVFR_320_GPU" Node="LVFR_320_GPU">
         <UseTemplate Name="ASOBO_GT_Visibility">
@@ -502,6 +501,12 @@
     </Component>
     <Component ID="FX">
       <UseTemplate Name="ASOBO_A320_FX" />
+    </Component>
+    <Component ID="Satcom">
+      <UseTemplate Name="FBW_Satcom">
+        <NODE_ID>satcom</NODE_ID>
+        <SAT_ENABLE>(L:A32NX_SATCOM_ENABLED, bool)</SAT_ENABLE>
+      </UseTemplate>
     </Component>
   </Behaviors>
 </ModelInfo>
