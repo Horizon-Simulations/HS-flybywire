@@ -49,10 +49,10 @@ Face=1, 1, 1
 
 [ParticleAttributes.0]
 Blend Mode=2
-Texture=NLHS-Landing
+Texture=NLHS-LandingL
 Bounce=0.0
-Color Start=255, 255, 200, 10
-Color End=255, 255, 200, 10
+Color Start=140, 180, 255, 10
+Color End=140, 180, 255, 10
 Jitter Distance=0.0
 Jitter Time=0.0
 uv1=0.0, 0.0
@@ -90,7 +90,7 @@ Drag=0.0, 0.0
 X Particle Velocity=0.0, 0.0
 Y Particle Velocity=0.0, 0.0
 Z Particle Velocity=0.0, 0.0
-X Rotation=5.0, 5.0
+X Rotation=0.0, 0.0
 Y Rotation=0.0, 0.0
 Z Rotation=0.0, 0.0
 X Offset=0.0, 0.0

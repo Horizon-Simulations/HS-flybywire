@@ -28,7 +28,7 @@ Y Offset=0.0, 0.0
 Z Offset=0.0, 0.0
 
 [Particle.0]
-Lifetime=0.1, 0.1
+Lifetime=0.05, 0.05
 Type=19
 X Scale=0.2, 0.2
 Y Scale=0.2, 0.2
@@ -81,7 +81,7 @@ ScatDir=0.0
 
 [Emitter.1]
 Lifetime=0.0, 0.0
-Delay=0.2, 0.2
+Delay=0.1, 0.1
 Bounce=0.0
 Light=1
 No Interpolate=1
@@ -101,7 +101,7 @@ Y Offset=0.0, 0.0
 Z Offset=0.0, 0.0
 
 [Particle.1]
-Lifetime=0.1, 0.1
+Lifetime=0.05, 0.05
 Type=19
 X Scale=0.2, 0.2
 Y Scale=0.2, 0.2
@@ -167,7 +167,7 @@ Y Offset=0.0, 0.0
 Z Offset=0.0, 0.0
 
 [Particle.2]
-Lifetime=0.1, 0.1
+Lifetime=0.05, 0.05
 Type=19
 X Scale=2.0, 2.0
 Y Scale=1.5, 1.5
@@ -219,7 +219,7 @@ ScatDir=0.0
 
 [Emitter.3]
 Lifetime=0.0, 0.0
-Delay=0.2, 0.2
+Delay=0.1, 0.1
 Bounce=0.0
 Light=1
 No Interpolate=1
@@ -239,7 +239,7 @@ Y Offset=0.0, 0.0
 Z Offset=0.0, 0.0
 
 [Particle.3]
-Lifetime=0.1, 0.1
+Lifetime=0.05, 0.05
 Type=19
 X Scale=2.0, 2.0
 Y Scale=1.5, 1.5
@@ -305,7 +305,7 @@ Y Offset=0.0, 0.0
 Z Offset=0.0, 0.0
 
 [Particle.4]
-Lifetime=0.1, 0.1
+Lifetime=0.05, 0.05
 Type=19
 X Scale=2.0, 2.0
 Y Scale=1.6, 1.6
@@ -357,7 +357,7 @@ ScatDir=0.0
 
 [Emitter.5]
 Lifetime=0.0, 0.0
-Delay=0.2, 0.2
+Delay=0.1, 0.1
 Bounce=0.0
 Light=1
 No Interpolate=1
@@ -377,7 +377,7 @@ Y Offset=0.0, 0.0
 Z Offset=0.0, 0.0
 
 [Particle.5]
-Lifetime=0.1, 0.1
+Lifetime=0.05, 0.05
 Type=19
 X Scale=2.0, 2.0
 Y Scale=1.6, 1.6
