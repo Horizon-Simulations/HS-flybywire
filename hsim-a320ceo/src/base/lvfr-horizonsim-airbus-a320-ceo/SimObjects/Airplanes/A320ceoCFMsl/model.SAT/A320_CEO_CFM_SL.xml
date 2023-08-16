@@ -294,7 +294,7 @@
     <Include ModelBehaviorFile="A319HS\Exterior\A32NX_Exterior_Includes.xml" />
     <Include ModelBehaviorFile="Asobo\Exterior.xml" />
     <Include RelativeFile="A320_NEO_FX.xml" />
-    <Include Path="A319HS\generated\A32NX_Exterior.xml" />
+    <Include Path="A320HS\generated\A32NX_Exterior.xml" />
     <Component ID="LIGHTING">
       <UseTemplate Name="ASOBO_LIGHTING_Exterior_Retractable_Light_Template">
         <LIGHT_TYPE>LANDING</LIGHT_TYPE>
