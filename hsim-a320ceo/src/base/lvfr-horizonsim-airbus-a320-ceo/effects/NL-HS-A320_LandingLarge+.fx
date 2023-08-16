@@ -72,6 +72,6 @@ Range=4000
 Intensity=400
 Softness=0.0
 SpotInner=0
-SpotOuter=20
+SpotOuter=30
 Volumetric=0
 ScatDir=0.0

@@ -49,7 +49,7 @@ Face=1, 1, 1
 
 [ParticleAttributes.0]
 Blend Mode=2
-Texture=NLHS-Landing-L
+Texture=NLHS-LandingL
 Bounce=0.0
 Color Start=140, 180, 255, 10
 Color End=140, 180, 255, 10
@@ -71,7 +71,7 @@ Size=0.06
 Range=4000
 Intensity=2000
 Softness=0.0
-SpotInner=14
-SpotOuter=15
+SpotInner=10
+SpotOuter=20
 Volumetric=0
 ScatDir=0.0

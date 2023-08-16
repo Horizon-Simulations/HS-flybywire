@@ -49,10 +49,10 @@ Face=1, 1, 1
 
 [ParticleAttributes.0]
 Blend Mode=2
-Texture=NLHS-taxy
+Texture=NLHS-taxyL
 Bounce=0.0
-Color Start=230, 220, 160, 10
-Color End=230, 220, 160, 10
+Color Start=140, 180, 255, 10
+Color End=140, 180, 255, 10
 Jitter Distance=0.0
 Jitter Time=0.0
 uv1=0.0, 0.0
