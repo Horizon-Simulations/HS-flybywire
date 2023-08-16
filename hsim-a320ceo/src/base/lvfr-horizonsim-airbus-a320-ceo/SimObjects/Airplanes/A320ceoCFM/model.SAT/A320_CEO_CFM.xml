@@ -291,7 +291,7 @@
     <!-- the right wing engine pivot node furthest from the center -->
   </NodeAnimation>
   <Behaviors>
-    <Include ModelBehaviorFile="A319HS\Exterior\A32NX_Exterior_Includes.xml" />
+    <Include ModelBehaviorFile="A320HS\Exterior\A32NX_Exterior_Includes.xml" />
     <Include ModelBehaviorFile="Asobo\Exterior.xml" />
     <Include RelativeFile="A320_NEO_FX.xml" />
     <Include Path="A319HS\generated\A32NX_Exterior.xml" />
