@@ -8,7 +8,7 @@ Priority=0
 
 [Emitter.0]
 Lifetime=0.0, 0.0
-Delay=0.2, 0.2
+Delay=0.15, 0.15
 Bounce=0.0
 Light=1
 No Interpolate=1
@@ -75,7 +75,7 @@ ScatDir=0.0
 
 [Emitter.1]
 Lifetime=0.0, 0.0
-Delay=0.2, 0.2
+Delay=0.15, 0.15
 Bounce=0.0
 Light=1
 No Interpolate=1
@@ -142,7 +142,7 @@ ScatDir=0.0
 
 [Emitter.2]
 Lifetime=0.0, 0.0
-Delay=0.2, 0.2
+Delay=0.15, 0.15
 Bounce=0.0
 Light=1
 No Interpolate=1
