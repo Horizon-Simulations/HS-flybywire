@@ -15,7 +15,7 @@ jobs:
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vstable
-      ZIP_NAME_A318: lvfr-horizonsim-airbus-a318-ceo-stable.zip
+      ZIP_NAME_A318: lvfr-horizonsim-airbus-a318-ceo-${{ github.ref_name }}.zip
       BUILD_DIR_NAME: stable
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -80,7 +80,7 @@ jobs:
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vstable
-      ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo-stable.zip
+      ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo-${{ github.ref_name }}.zip
       BUILD_DIR_NAME: stable
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -145,7 +145,7 @@ jobs:
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vstable
-      ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo-stable.zip
+      ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo-${{ github.ref_name }}.zip
       BUILD_DIR_NAME: stable
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -210,7 +210,7 @@ jobs:
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vstable
-      ZIP_NAME_A321: lvfr-horizonsim-airbus-a321-neo-stable.zip
+      ZIP_NAME_A321: lvfr-horizonsim-airbus-a321-neo-${{ github.ref_name }}.zip
       BUILD_DIR_NAME: stable
     steps:
       - name: Free Disk Space (Ubuntu)
