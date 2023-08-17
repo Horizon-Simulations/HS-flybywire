@@ -5,9 +5,9 @@
         "macSize": 13.658,
         "leMacZ": 1.525,
         "weights": {
-            "maxGw": 59000,
-            "maxZfw": 53000,
-            "minZfw": 42500,
+            "maxGw": 68400,
+            "maxZfw": 54500,
+            "minZfw": 40800,
             "maxGwCg": 40,
             "maxZfwCg": 40
         },
