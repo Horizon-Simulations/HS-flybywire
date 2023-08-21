@@ -40,7 +40,7 @@ cp -rva ./hsim-a321neo/src/behavior/. ./build-a321neo/src/behavior
 cp -rva ./hsim-a321neo/src/localization/. ./build-a321neo/src/localization
 cp -rva ./hsim-a321neo/src/model/. ./build-a321neo/src/model
 cp -rva ./hsim-a321neo/src/systems/. ./build-a321neo/src/systems
-cp -rva ./hsim-a321ceo/src/textures/. ./build-a321ceo/src/textures
+cp -rva ./hsim-a321neo/src/textures/. ./build-a321neo/src/textures
 cp -rva ./hsim-a321neo/src/wasm/. ./build-a321neo/src/wasm
 
 mkdir -p ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo
