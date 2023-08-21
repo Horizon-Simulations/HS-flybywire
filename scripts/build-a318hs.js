@@ -20,42 +20,20 @@ function* readdir(d) {
     }
 }
 
-const { execSync } = require('child_process');
-
-function executeGitCommand(command) {
-    return execSync(command)
-        .toString('utf8')
-        .replace(/[\n\r]+$/, '');
-}
-
-const isPullRequest = process.env.GITHUB_REF && process.env.GITHUB_REF.startsWith('refs/pull/');
-
-let GIT_BRANCH;
-if (isPullRequest) {
-    GIT_BRANCH = process.env.GITHUB_REF.match('^refs/pull/([0-9]+)/.*$')[1];
-} else {
-    GIT_BRANCH = process.env.GITHUB_REF_NAME
-        ? process.env.GITHUB_REF_NAME
-        : executeGitCommand('git rev-parse --abbrev-ref HEAD');
-}
-
-const GIT_COMMIT_SHA = process.env.GITHUB_SHA
-    ? process.env.GITHUB_SHA.substring(0, 9)
-    : executeGitCommand('git rev-parse --short HEAD');
-
-const edition = require('../package.json').edition;
+const buildInfo = require('./git_build_info').getGitBuildInfo();
+const packageInfo = require('../package.json');
 
 let titlePostfix;
-if (edition === 'stable') {
+if (packageInfo.edition === 'stable') {
     titlePostfix = 'Stable';
-} else if (GIT_BRANCH === 'main') {
+} else if (buildInfo?.branch === 'master') {
     titlePostfix = 'Development';
-} else if (GIT_BRANCH === 'experimental') {
+} else if (buildInfo?.branch === 'experimental') {
     titlePostfix = 'Experimental';
-} else if (isPullRequest) {
-    titlePostfix = `PR #${GIT_BRANCH}`;
+} else if (buildInfo?.isPullRequest) {
+    titlePostfix = `PR #${buildInfo?.ref}`;
 } else {
-    titlePostfix = `branch ${GIT_BRANCH}`;
+    titlePostfix = `branch ${buildInfo?.branch}`;
 }
 
 const titleSuffix = ` (${titlePostfix})`;
@@ -64,6 +42,21 @@ const MS_FILETIME_EPOCH = 116444736000000000n;
 
 const A318HS_SRC = path.resolve(__dirname, '..', 'hsim-a318ceo/src');
 const A318HS_OUT = path.resolve(__dirname, '..', 'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo');
+
+function copyDDSFiles(src_dds) {
+    const TARGET_PATH_CFM = '/SimObjects/Airplanes/A318ceoCFM/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
+    const TARGET_PATH_ACJ = '/SimObjects/Airplanes/A318cjCFM/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
+    fs.copyFileSync(path.join(A318HS_SRC, src_dds), path.join(A318HS_OUT, TARGET_PATH_CFM));
+    fs.copyFileSync(path.join(A318HS_SRC, src_dds), path.join(A318HS_OUT, TARGET_PATH_ACJ));
+}
+
+if (packageInfo.edition === 'stable') {
+    copyDDSFiles('/textures/decals 4k/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF-stable.dds');
+} else if (buildInfo?.branch === 'master') {
+    copyDDSFiles('/textures/decals 4k/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF-master.dds');
+} else {
+    copyDDSFiles('/textures/decals 4k/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF-exp.dds');
+}
 
 function createPackageFiles(baseDir, manifestBaseFilename) {
     const contentEntries = [];
@@ -88,7 +81,7 @@ function createPackageFiles(baseDir, manifestBaseFilename) {
     fs.writeFileSync(path.join(baseDir, 'manifest.json'), JSON.stringify({
         ...manifestBase,
         title: manifestBase.title + titleSuffix,
-        package_version: require('../package.json').version + `-${GIT_COMMIT_SHA}`,
+        package_version: packageInfo.version + `-${buildInfo?.commitHash}`,
         total_package_size: totalPackageSize.toString().padStart(20, '0'),
     }, null, 2));
 }
