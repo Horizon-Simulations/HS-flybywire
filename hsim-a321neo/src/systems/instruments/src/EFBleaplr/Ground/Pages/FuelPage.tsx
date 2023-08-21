@@ -61,6 +61,8 @@ export const FuelPage = () => {
     const ACT2_TANK_GALLONS = 824;
     const wingTotalRefuelTimeSeconds = 1020;
     const CenterTotalRefuelTimeSeconds = 305;
+    const Act1TotalRefuelTimeSeconds = 110;
+    const Act2TotalRefuelTimeSeconds = 110;
 
     const { usingMetric } = Units;
     const [currentUnit] = useState(usingMetric ? 'KG' : 'LB');
@@ -202,6 +204,8 @@ export const FuelPage = () => {
             setLInnTarget(0);
             setRInnTarget(0);
             setCenterTarget(0);
+            setAct1Target(0);
+            setAct2Target(0)
             return;
         }
         fuel -= (INNER_CELL_GALLONS) * 2;
@@ -210,9 +214,17 @@ export const FuelPage = () => {
         setRInnTarget(innerTank);
         if (fuel <= 0) {
             setCenterTarget(0);
+            setAct1Target(0);
+            setAct2Target(0)
             return;
+        } else if (fuel <= CENTER_TANK_GALLONS) {
+            fuel -= (CENTER_TANK_GALLONS);
+            setCenterTarget(fuel);
+        } else {
+            const actTank = (((ACT1_TANK_GALLONS) * 2) + Math.min(fuel, 0)) / 2;
+            setAct1Target(actTank);
+            setAct2Target(actTank);
         }
-        setCenterTarget(fuel);
     };
 
     const updateDesiredFuel = (value: string) => {
@@ -251,8 +263,12 @@ export const FuelPage = () => {
         const totalWingFuel = TOTAL_FUEL_GALLONS - CENTER_TANK_GALLONS - ACT1_TANK_GALLONS - ACT2_TANK_GALLONS;
         const differentialFuelWings = Math.abs(currentWingFuel() - targetWingFuel());
         const differentialFuelCenter = Math.abs(centerTarget - centerCurrent);
+        const differentialFuelAct1 = Math.abs(act1Target - act1Current);
+        const differentialFuelAct2 = Math.abs(act2Target - act2Current);
         estimatedTimeSeconds += (differentialFuelWings / totalWingFuel) * wingTotalRefuelTimeSeconds;
         estimatedTimeSeconds += (differentialFuelCenter / CENTER_TANK_GALLONS) * CenterTotalRefuelTimeSeconds;
+        estimatedTimeSeconds += (differentialFuelAct1 / ACT1_TANK_GALLONS) * Act1TotalRefuelTimeSeconds;
+        estimatedTimeSeconds += (differentialFuelAct2 / ACT2_TANK_GALLONS) * Act2TotalRefuelTimeSeconds;
         if (refuelRate === '1') { // fast
             estimatedTimeSeconds /= 5;
         }
@@ -317,7 +333,7 @@ export const FuelPage = () => {
                         width={420}
                     />
                 </div>
-                <div className="flex absolute inset-x-0 top-40 flex-row justify-between">
+                <div className="flex absolute inset-x-0 top-0 flex-row justify-between">
                     <div className="overflow-hidden w-min rounded-2xl border-2 divide-y border-theme-accent divide-theme-accent">
                         <TankReadoutWidget
                             title={t('Ground.Fuel.Act1Tank')}
@@ -326,7 +342,7 @@ export const FuelPage = () => {
                             capacity={ACT1_TANK_GALLONS}
                             currentUnit={currentUnit}
                             tankValue={act1Tank()}
-                            convertedFuelValue={convertFuelValue(act2Current)}
+                            convertedFuelValue={convertFuelValue(act1Current)}
                         />
                         <TankReadoutWidget
                             title={t('Ground.Fuel.LeftInnerTank')}
@@ -382,10 +398,17 @@ export const FuelPage = () => {
                 {/* FIXME TODO: Replace with Tailwind JIT values later */}
                 <div className="absolute inset-x-0 bottom-0" style={{ transform: 'translate(0px, -150px)' }}>
                     <OverWingOutline className="absolute bottom-0 left-0 z-20" />
-
+                    <div
+                        className="absolute z-0"
+                        style={{ width: '137px', height: '70px', bottom: '243px', left: '572px', background: formatFuelFilling(centerCurrent, CENTER_TANK_GALLONS) }}
+                    />
+                    <div
+                        className="absolute z-40"
+                        style={{ width: '137px', height: '70px', bottom: '243px', left: '572px', background: formatFuelFilling(act1Current, ACT1_TANK_GALLONS) }}
+                    />
                     <div
                         className="absolute z-20"
-                        style={{ width: '137px', height: '110px', bottom: '243px', left: '572px', background: formatFuelFilling(centerCurrent, CENTER_TANK_GALLONS) }}
+                        style={{ width: '137px', height: '110px', bottom: '243px', left: '572px', background: formatFuelFilling(act2Current, ACT2_TANK_GALLONS) }}
                     />
                     <div
                         className="absolute z-0"
