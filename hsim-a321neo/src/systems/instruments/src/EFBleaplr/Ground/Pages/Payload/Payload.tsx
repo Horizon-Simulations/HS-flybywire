@@ -107,8 +107,10 @@ export const Payload = () => {
     const [LOutCurrent] = useSimVar('FUEL TANK LEFT AUX QUANTITY', 'Gallons', 7_000);
     const [RInnCurrent] = useSimVar('FUEL TANK RIGHT MAIN QUANTITY', 'Gallons', 7_000);
     const [ROutCurrent] = useSimVar('FUEL TANK RIGHT AUX QUANTITY', 'Gallons', 7_000);
+    const [act1Current] = useSimVar('FUELSYSTEM TANK QUANTITY:6', 'Gallons', 7_000 );
+    const [act2Current] = useSimVar('FUELSYSTEM TANK QUANTITY:7', 'Gallons', 7_000 );
 
-    const fuel = [centerCurrent, LInnCurrent, LOutCurrent, RInnCurrent, ROutCurrent];
+    const fuel = [centerCurrent, LInnCurrent, LOutCurrent, RInnCurrent, ROutCurrent, act1Current, act2Current];
 
     // Units
     // Weight/CG
@@ -519,9 +521,11 @@ export const Payload = () => {
     useEffect(() => {
         // TODO FIXME: Move all this logic into rust
         // Note: Looks messy after phase 1 refactor, will be fixed by deprecating this and moving all calculations into rust
-        const centerTankMoment = -4.5;
-        const innerTankMoment = -8;
+        const centerTankMoment = -20.53;
+        const innerTankMoment = -20.73;
         const outerTankMoment = -16.9;
+        const act1TankMoment = -18.53;
+        const act2TankMoment = -22.53;
         // Adjust ZFW CG Values based on payload
         const newZfw = emptyWeight + totalPax * paxWeight + totalCargo;
         const newZfwDesired = emptyWeight + totalPaxDesired * paxWeight + totalCargoDesired;
@@ -531,7 +535,7 @@ export const Payload = () => {
         const newZfwDesiredCg = calculateCg(newZfwDesired, newZfwDesiredMoment);
         const totalFuel = round(totalCurrentGallon * galToKg);
 
-        const totalFuelMoment = centerCurrent * galToKg * centerTankMoment + (LOutCurrent + ROutCurrent) * galToKg * outerTankMoment + (LInnCurrent + RInnCurrent) * galToKg * innerTankMoment;
+        const totalFuelMoment = centerCurrent * galToKg * centerTankMoment + (LOutCurrent + ROutCurrent) * galToKg * outerTankMoment + (LInnCurrent + RInnCurrent) * galToKg * innerTankMoment + act1Current * galToKg * act1TankMoment + act2Current * galToKg * act2TankMoment;
         const newGw = newZfw + totalFuel;
         const newGwDesired = newZfwDesired + totalFuel;
         const newTotalMoment = newZfwMoment + totalFuelMoment;

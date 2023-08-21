@@ -17,6 +17,8 @@ enum DataTypesID {
   StartCN2Right,
   SimulationDataTypeId,
   AcftInfo,
+  FuelAct1,
+  FuelAct2
 };
 
 struct SimulationData {
@@ -136,6 +138,8 @@ class SimVars {
   ID FuelAuxLeftPre;
   ID FuelAuxRightPre;
   ID FuelCenterPre;
+  ID FuelAct1Pre;
+  ID FuelAct2Pre;
   ID RefuelRate;
   ID RefuelStartedByUser;
   ID FuelOverflowLeft;
@@ -146,6 +150,8 @@ class SimVars {
   ID Engine2Timer;
   ID PumpStateLeft;
   ID PumpStateRight;
+  ID PumpStateAct1;
+  ID PumpStateAct2;
   ID ThrustLimitType;
   ID ThrustLimitIdle;
   ID ThrustLimitToga;
@@ -192,6 +198,8 @@ class SimVars {
     FuelAuxLeftPre = register_named_variable("A32NX_FUEL_AUX_LEFT_PRE");
     FuelAuxRightPre = register_named_variable("A32NX_FUEL_AUX_RIGHT_PRE");
     FuelCenterPre = register_named_variable("A32NX_FUEL_CENTER_PRE");
+    FuelAct1Pre = register_named_variable("A32NX_FUEL_ACT1_PRE");
+    FuelAct2Pre = register_named_variable("A32NX_FUEL_ACT2_PRE");
     RefuelRate = register_named_variable("A32NX_EFB_REFUEL_RATE_SETTING");
     RefuelStartedByUser = register_named_variable("A32NX_REFUEL_STARTED_BY_USR");
     Engine1State = register_named_variable("A32NX_ENGINE_STATE:1");
@@ -200,6 +208,8 @@ class SimVars {
     Engine2Timer = register_named_variable("A32NX_ENGINE_TIMER:2");
     PumpStateLeft = register_named_variable("A32NX_PUMP_STATE:1");
     PumpStateRight = register_named_variable("A32NX_PUMP_STATE:2");
+    PumpStateAct1 = register_named_variable("A32NX_PUMP_STATE:3");
+    PumpStateAct2 = register_named_variable("A32NX_PUMP_STATE:4");
 
     ThrustLimitType = register_named_variable("A32NX_AUTOTHRUST_THRUST_LIMIT_TYPE");
     ThrustLimitIdle = register_named_variable("A32NX_AUTOTHRUST_THRUST_LIMIT_IDLE");
@@ -242,12 +252,16 @@ class SimVars {
     this->setFuelAuxLeftPre(0);
     this->setFuelAuxRightPre(0);
     this->setFuelCenterPre(0);
+    this->setFuelAct1Pre(0);
+    this->setFuelAct2Pre(0);
     this->setEngine1State(0);
     this->setEngine2State(0);
     this->setEngine1Timer(0);
     this->setEngine2Timer(0);
     this->setPumpStateLeft(0);
     this->setPumpStateRight(0);
+    this->setPumpStateAct1(0);
+    this->setPumpStateAct2(0);
     this->setThrustLimitIdle(0);
     this->setThrustLimitToga(0);
     this->setThrustLimitFlex(0);
@@ -289,12 +303,16 @@ class SimVars {
   void setFuelAuxLeftPre(FLOAT64 value) { set_named_variable_value(FuelAuxLeftPre, value); }
   void setFuelAuxRightPre(FLOAT64 value) { set_named_variable_value(FuelAuxRightPre, value); }
   void setFuelCenterPre(FLOAT64 value) { set_named_variable_value(FuelCenterPre, value); }
+  void setFuelAct1Pre(FLOAT64 value) { set_named_variable_value(FuelAct1Pre, value); }
+  void setFuelAct1Pre(FLOAT64 value) { set_named_variable_value(FuelAct2Pre, value); }
   void setEngine1State(FLOAT64 value) { set_named_variable_value(Engine1State, value); }
   void setEngine2State(FLOAT64 value) { set_named_variable_value(Engine2State, value); }
   void setEngine1Timer(FLOAT64 value) { set_named_variable_value(Engine1Timer, value); }
   void setEngine2Timer(FLOAT64 value) { set_named_variable_value(Engine2Timer, value); }
   void setPumpStateLeft(FLOAT64 value) { set_named_variable_value(PumpStateLeft, value); }
   void setPumpStateRight(FLOAT64 value) { set_named_variable_value(PumpStateRight, value); }
+  void setPumpStateAct1(FLOAT64 value) { set_named_variable_value(PumpStateAct1, value); }
+  void setPumpStateAct2(FLOAT64 value) { set_named_variable_value(PumpStateAct2, value); }
   void setThrustLimitIdle(FLOAT64 value) { set_named_variable_value(ThrustLimitIdle, value); }
   void setThrustLimitToga(FLOAT64 value) { set_named_variable_value(ThrustLimitToga, value); }
   void setThrustLimitFlex(FLOAT64 value) { set_named_variable_value(ThrustLimitFlex, value); }
@@ -336,10 +354,14 @@ class SimVars {
   FLOAT64 getFuelAuxLeftPre() { return get_named_variable_value(FuelAuxLeftPre); }
   FLOAT64 getFuelAuxRightPre() { return get_named_variable_value(FuelAuxRightPre); }
   FLOAT64 getFuelCenterPre() { return get_named_variable_value(FuelCenterPre); }
+  FLOAT64 getFuelAct1Pre() { return get_named_variable_value(FuelAct1Pre); }
+  FLOAT64 getFuelAct2Pre() { return get_named_variable_value(FuelAct2Pre); }
   FLOAT64 getRefuelRate() { return get_named_variable_value(RefuelRate); }
   FLOAT64 getRefuelStartedByUser() { return get_named_variable_value(RefuelStartedByUser); }
   FLOAT64 getPumpStateLeft() { return get_named_variable_value(PumpStateLeft); }
   FLOAT64 getPumpStateRight() { return get_named_variable_value(PumpStateRight); }
+  FLOAT64 getPumpStateAct1() { return get_named_variable_value(PumpStateAct1); }
+  FLOAT64 getPumpStateAct2() { return get_named_variable_value(PumpStateAct2); }
   FLOAT64 getPacksState1() { return get_named_variable_value(PacksState1); }
   FLOAT64 getPacksState2() { return get_named_variable_value(PacksState2); }
   FLOAT64 getThrustLimitType() { return get_named_variable_value(ThrustLimitType); }

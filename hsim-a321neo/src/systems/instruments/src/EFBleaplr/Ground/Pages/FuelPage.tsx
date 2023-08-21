@@ -53,7 +53,7 @@ const TankReadoutWidget = ({ title, current, target, capacity, currentUnit, tank
 };
 
 export const FuelPage = () => {
-    const TOTAL_FUEL_GALLONS = 7786;
+    const TOTAL_FUEL_GALLONS = 7902;
     const OUTER_CELL_GALLONS = 228;
     const INNER_CELL_GALLONS = 1816;
     const CENTER_TANK_GALLONS = 2166;
@@ -72,7 +72,9 @@ export const FuelPage = () => {
     const innerCell = () => INNER_CELL_GALLONS * galToKg * convertUnit;
     const innerCells = () => innerCell() * 2;
     const centerTank = () => CENTER_TANK_GALLONS * galToKg * convertUnit;
-    const totalFuel = () => centerTank() + innerCells() + outerCells();
+    const act1Tank = () => ACT1_TANK_GALLONS * galToKg * convertUnit;
+    const act2Tank = () => ACT2_TANK_GALLONS * galToKg * convertUnit;
+    const totalFuel = () => centerTank() + innerCells() + outerCells() + act1Tank() + act2Tank();
     const [busDC2] = useSimVar('L:A32NX_ELEC_DC_2_BUS_IS_POWERED', 'Bool', 1_000);
     const [busDCHot1] = useSimVar('L:A32NX_ELEC_DC_HOT_1_BUS_IS_POWERED', 'Bool', 1_000);
     const [simGroundSpeed] = useSimVar('GPS GROUND SPEED', 'knots', 1_000);
@@ -89,13 +91,15 @@ export const FuelPage = () => {
     const [LOutTarget, setLOutTarget] = useSimVar('L:A32NX_FUEL_LEFT_AUX_DESIRED', 'Number');
     const [RInnTarget, setRInnTarget] = useSimVar('L:A32NX_FUEL_RIGHT_MAIN_DESIRED', 'Number');
     const [ROutTarget, setROutTarget] = useSimVar('L:A32NX_FUEL_RIGHT_AUX_DESIRED', 'Number');
+    const [act1Target, setAct1Target] = useSimVar('L:A32NX_FUEL_ACT1_DESIRED', 'Number');
+    const [act2Target, setAct2Target] = useSimVar('L:A32NX_FUEL_ACT2_DESIRED', 'Number');
     const [centerCurrent] = useSimVar('FUEL TANK CENTER QUANTITY', 'Gallons', 1_000);
-    const [act1Current] = useSimVar('FUELSYSTEM TANK QUANTITY:6', 'Gallons', 1_000 );
-    const [act2Current] = useSimVar('FUELSYSTEM TANK QUANTITY:7', 'Gallons', 1_000 );
     const [LInnCurrent] = useSimVar('FUEL TANK LEFT MAIN QUANTITY', 'Gallons', 1_000);
     const [LOutCurrent] = useSimVar('FUEL TANK LEFT AUX QUANTITY', 'Gallons', 1_000);
     const [RInnCurrent] = useSimVar('FUEL TANK RIGHT MAIN QUANTITY', 'Gallons', 1_000);
     const [ROutCurrent] = useSimVar('FUEL TANK RIGHT AUX QUANTITY', 'Gallons', 1_000);
+    const [act1Current] = useSimVar('FUELSYSTEM TANK QUANTITY:6', 'Gallons', 1_000 );
+    const [act2Current] = useSimVar('FUELSYSTEM TANK QUANTITY:7', 'Gallons', 1_000 );
 
     // GSX
     const [gsxFuelSyncEnabled] = usePersistentNumberProperty('GSX_FUEL_SYNC', 0);
@@ -244,7 +248,7 @@ export const FuelPage = () => {
             return ' 0';
         }
         let estimatedTimeSeconds = 0;
-        const totalWingFuel = TOTAL_FUEL_GALLONS - CENTER_TANK_GALLONS;
+        const totalWingFuel = TOTAL_FUEL_GALLONS - CENTER_TANK_GALLONS - ACT1_TANK_GALLONS - ACT2_TANK_GALLONS;
         const differentialFuelWings = Math.abs(currentWingFuel() - targetWingFuel());
         const differentialFuelCenter = Math.abs(centerTarget - centerCurrent);
         estimatedTimeSeconds += (differentialFuelWings / totalWingFuel) * wingTotalRefuelTimeSeconds;
@@ -316,6 +320,15 @@ export const FuelPage = () => {
                 <div className="flex absolute inset-x-0 top-40 flex-row justify-between">
                     <div className="overflow-hidden w-min rounded-2xl border-2 divide-y border-theme-accent divide-theme-accent">
                         <TankReadoutWidget
+                            title={t('Ground.Fuel.Act1Tank')}
+                            current={act1Current}
+                            target={act1Target}
+                            capacity={ACT1_TANK_GALLONS}
+                            currentUnit={currentUnit}
+                            tankValue={act1Tank()}
+                            convertedFuelValue={convertFuelValue(act2Current)}
+                        />
+                        <TankReadoutWidget
                             title={t('Ground.Fuel.LeftInnerTank')}
                             current={LInnCurrent}
                             target={LInnTarget}
@@ -335,6 +348,15 @@ export const FuelPage = () => {
                         />
                     </div>
                     <div className="overflow-hidden w-min rounded-2xl border-2 divide-y border-theme-accent divide-theme-accent">
+                        <TankReadoutWidget
+                            title={t('Ground.Fuel.Act2Tank')}
+                            current={act2Current}
+                            target={act2Target}
+                            capacity={ACT2_TANK_GALLONS}
+                            currentUnit={currentUnit}
+                            tankValue={act2Tank()}
+                            convertedFuelValue={convertFuelValueCenter(act2Current)}
+                        />
                         <TankReadoutWidget
                             title={t('Ground.Fuel.RightInnerTank')}
                             current={RInnCurrent}

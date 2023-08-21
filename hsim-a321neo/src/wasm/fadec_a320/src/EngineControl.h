@@ -13,6 +13,8 @@
 #define CONFIGURATION_SECTION_FUEL "FUEL"
 
 #define CONFIGURATION_SECTION_FUEL_CENTER_QUANTITY "FUEL_CENTER_QUANTITY"
+#define CONFIGURATION_SECTION_FUEL_ACT1_QUANTITY "FUEL_ACT1_QUANTITY"
+#define CONFIGURATION_SECTION_FUEL_ACT2_QUANTITY "FUEL_ACT2_QUANTITY"
 #define CONFIGURATION_SECTION_FUEL_LEFT_QUANTITY "FUEL_LEFT_QUANTITY"
 #define CONFIGURATION_SECTION_FUEL_RIGHT_QUANTITY "FUEL_RIGHT_QUANTITY"
 #define CONFIGURATION_SECTION_FUEL_LEFT_AUX_QUANTITY "FUEL_LEFT_AUX_QUANTITY"
@@ -21,6 +23,8 @@
 /* Values in gallons */
 struct Configuration {
   double fuelCenter = 0;
+  double fuelAct1 = 0;
+  double fuelAct2 = 0;
   double fuelLeft = 400;
   double fuelRight = fuelLeft;
   double fuelLeftAux = 228;
@@ -34,6 +38,8 @@ class EngineControl {
   Polynomial* poly;
   Timer timerLeft;
   Timer timerRight;
+  Timer timerAct1;
+  Timer timerAct2;
   Timer timerFuel;
 
   std::string confFilename = FILENAME_FADEC_CONF_DIRECTORY;
@@ -672,18 +678,26 @@ class EngineControl {
     bool uiFuelTamper = false;
     double pumpStateLeft = simVars->getPumpStateLeft();
     double pumpStateRight = simVars->getPumpStateRight();
+    double pumpStateAct1 = simVars->getPumpStateAct1();
+    double pumpStateAct2 = simVars->getPumpStateAct2();
     bool xfrCenterLeftManual = simVars->getJunctionSetting(4) > 1.5;
     bool xfrCenterRightManual = simVars->getJunctionSetting(5) > 1.5;
     bool xfrCenterLeftAuto = simVars->getValve(11) > 0.0 && !xfrCenterLeftManual;
     bool xfrCenterRightAuto = simVars->getValve(12) > 0.0 && !xfrCenterRightManual;
+    double xfrAct1Auto = simVars->getValve(13);
+    double xfrAct2Auto = simVars->getValve(14);
     bool xfrValveCenterLeftOpen = simVars->getValve(9) > 0.0 && (xfrCenterLeftAuto || xfrCenterLeftManual);
     bool xfrValveCenterRightOpen = simVars->getValve(10) > 0.0 && (xfrCenterRightAuto || xfrCenterRightManual);
+    bool xfrValveAct1CenterOpen = simVars->getValve(13) > 0.0 && xfrAct1Auto;
+    bool xfrValveAct2CenterOpen = simVars->getValve(14) > 0.0 && xfrAct2Auto;
     double xfrValveOuterLeft1 = simVars->getValve(6);
     double xfrValveOuterLeft2 = simVars->getValve(4);
     double xfrValveOuterRight1 = simVars->getValve(7);
     double xfrValveOuterRight2 = simVars->getValve(5);
     double lineLeftToCenterFlow = simVars->getLineFlow(27);
     double lineRightToCenterFlow = simVars->getLineFlow(28);
+    double lineAct1ToCenterFlow = simVars->getLineFlow(39);
+    double lineAct2ToCenterFlow = simVars->getLineFlow(40);
     double lineFlowRatio = 0;
 
     double engine1PreFF = simVars->getEngine1PreFF();  // KG/H
@@ -701,11 +715,15 @@ class EngineControl {
     double fuelAuxLeftPre = simVars->getFuelAuxLeftPre();                          // LBS
     double fuelAuxRightPre = simVars->getFuelAuxRightPre();                        // LBS
     double fuelCenterPre = simVars->getFuelCenterPre();                            // LBS
+    double fuelAct1Pre = simVars->getFuelAct1Pre();                          // LBS
+    double fuelAct2Pre = simVars->getFuelAct2Pre();                          // LBS
     double leftQuantity = simVars->getFuelTankQuantity(2) * fuelWeightGallon;      // LBS
     double rightQuantity = simVars->getFuelTankQuantity(3) * fuelWeightGallon;     // LBS
     double leftAuxQuantity = simVars->getFuelTankQuantity(4) * fuelWeightGallon;   // LBS
     double rightAuxQuantity = simVars->getFuelTankQuantity(5) * fuelWeightGallon;  // LBS
     double centerQuantity = simVars->getFuelTankQuantity(1) * fuelWeightGallon;    // LBS
+    double act1Quantity = simVars->getFuelTankQuantity(6) * fuelWeightGallon;    // LBS
+    double act2Quantity = simVars->getFuelTankQuantity(7) * fuelWeightGallon;    // LBS
     /// Left inner tank fuel quantity in pounds
     double fuelLeft = 0;
     /// Right inner tank fuel quantity in pounds
@@ -713,12 +731,16 @@ class EngineControl {
     double fuelLeftAux = 0;
     double fuelRightAux = 0;
     double fuelCenter = 0;
+    double fuelAct1 = 0;
+    double fuelAct2 = 0;
     double xfrCenterToLeft = 0;
     double xfrCenterToRight = 0;
+    double xfrAct1ToCenter = 0;
+    double xfrAct2ToCenter = 0;
     double xfrAuxLeft = 0;
     double xfrAuxRight = 0;
-    double fuelTotalActual = leftQuantity + rightQuantity + leftAuxQuantity + rightAuxQuantity + centerQuantity;  // LBS
-    double fuelTotalPre = fuelLeftPre + fuelRightPre + fuelAuxLeftPre + fuelAuxRightPre + fuelCenterPre;          // LBS
+    double fuelTotalActual = leftQuantity + rightQuantity + leftAuxQuantity + rightAuxQuantity + centerQuantity + act1Quantity + act2Quantity;  // LBS
+    double fuelTotalPre = fuelLeftPre + fuelRightPre + fuelAuxLeftPre + fuelAuxRightPre + fuelCenterPre + fuelAct1Pre + fuelAct2Pre;          // LBS
     double deltaFuelRate = abs(fuelTotalActual - fuelTotalPre) / (fuelWeightGallon * deltaTimeSeconds);           // LBS/ sec
 
     double engine1State = simVars->getEngine1State();
@@ -730,6 +752,8 @@ class EngineControl {
     double leftPump2 = simVars->getPump(5);
     double rightPump1 = simVars->getPump(3);
     double rightPump2 = simVars->getPump(6);
+    double act1Pump = simVars->getPump(8);
+    double act2Pump = simVars->getPump(9);
 
     // Check Ready & Development State for UI
     isReady = simVars->getIsReady();
@@ -776,6 +800,42 @@ class EngineControl {
       timerRight.reset();
     }
 
+    // Pump State Logic for ACTs
+    if (pumpStateAct1 == 0 && (timerAct1.elapsed() == 0 || timerAct1.elapsed() >= 1000)) {
+      if (fuelAct1Pre - act1Quantity > 0 && act1Quantity == 0) {
+        timerAct1.reset();
+        simVars->setPumpStateAct1(1);
+      } else if (fuelAct1Pre == 0 && act1Quantity - fuelAct1Pre > 0) {
+        timerAct1.reset();
+        simVars->setPumpStateAct1(2);
+      } else {
+        simVars->setPumpStateAct1(0);
+      }
+    } else if (pumpStateAct1 == 1 && timerAct1.elapsed() >= 2100) {
+      simVars->setPumpStateAct1(0);
+      timerAct1.reset();
+    } else if (pumpStateAct1 == 2 && timerAct1.elapsed() >= 2700) {
+      simVars->setPumpStateAct1(0);
+      timerAct1.reset();
+    }
+    if (pumpStateAct2 == 0 && (timerAct2.elapsed() == 0 || timerAct2.elapsed() >= 1000)) {
+      if (fuelAct2Pre - act2Quantity > 0 && act2Quantity == 0) {
+        timerAct1.reset();
+        simVars->setPumpStateAct2(1);
+      } else if (fuelAct2Pre == 0 && act2Quantity - fuelAct2Pre > 0) {
+        timerAct2.reset();
+        simVars->setPumpStateAct2(2);
+      } else {
+        simVars->setPumpStateAct2(0);
+      }
+    } else if (pumpStateAct2 == 1 && timerAct2.elapsed() >= 2100) {
+      simVars->setPumpStateAct2(0);
+      timerAct2.reset();
+    } else if (pumpStateAct2 == 2 && timerAct2.elapsed() >= 2700) {
+      simVars->setPumpStateAct2(0);
+      timerAct2.reset();
+    }
+
     // Checking for in-game UI Fuel tampering
     if ((isReady == 1 && refuelStartedByUser == 0 && deltaFuelRate > FUEL_THRESHOLD) ||
         (isReady == 1 && refuelStartedByUser == 1 && deltaFuelRate > FUEL_THRESHOLD && refuelRate < 2)) {
@@ -788,24 +848,32 @@ class EngineControl {
       simVars->setFuelAuxLeftPre(fuelAuxLeftPre);      // in LBS
       simVars->setFuelAuxRightPre(fuelAuxRightPre);    // in LBS
       simVars->setFuelCenterPre(fuelCenterPre);        // in LBS
+      simVars->setFuelAct1Pre(fuelCenterPre);        // in LBS
+      simVars->setFuelAct2Pre(fuelCenterPre);        // in LBS
 
       fuelLeft = (fuelLeftPre / fuelWeightGallon);          // USG
       fuelRight = (fuelRightPre / fuelWeightGallon);        // USG
       fuelCenter = (fuelCenterPre / fuelWeightGallon);      // USG
       fuelLeftAux = (fuelAuxLeftPre / fuelWeightGallon);    // USG
       fuelRightAux = (fuelAuxRightPre / fuelWeightGallon);  // USG
+      fuelAct1 = (fuelAct1Pre / fuelWeightGallon);      // USG
+      fuelAct2 = (fuelAct2Pre / fuelWeightGallon);      // USG
 
       SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelCenterMain, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelCenter);
       SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelLeftMain, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelLeft);
       SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelRightMain, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelRight);
       SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelLeftAux, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelLeftAux);
       SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelRightAux, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelRightAux);
+      SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelAct1, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelAct1);
+      SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelAct2, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelAct2);
     } else if (!uiFuelTamper && refuelStartedByUser == 1) {  // Detects refueling from the EFB
       simVars->setFuelLeftPre(leftQuantity);                 // in LBS
       simVars->setFuelRightPre(rightQuantity);               // in LBS
       simVars->setFuelAuxLeftPre(leftAuxQuantity);           // in LBS
       simVars->setFuelAuxRightPre(rightAuxQuantity);         // in LBS
       simVars->setFuelCenterPre(centerQuantity);             // in LBS
+      simVars->setFuelAct1Pre(act1Quantity);             // in LBS
+      simVars->setFuelAct1Pre(act2Quantity);             // in LBS
     } else {
       if (uiFuelTamper == 1) {
         fuelLeftPre = leftQuantity;          // LBS
@@ -813,6 +881,8 @@ class EngineControl {
         fuelAuxLeftPre = leftAuxQuantity;    // LBS
         fuelAuxRightPre = rightAuxQuantity;  // LBS
         fuelCenterPre = centerQuantity;      // LBS
+        fuelAct1Pre = act1Quantity;      // LBS
+        fuelAct2Pre = act2Quantity;      // LBS
       }
       //-----------------------------------------------------------
       // Cross-feed Logic
@@ -904,6 +974,18 @@ class EngineControl {
         xfrCenterToLeft = fuelCenterPre - centerQuantity;
       else if (xfrValveCenterRightOpen)
         xfrCenterToRight = fuelCenterPre - centerQuantity;
+      
+      //--------------------------------------------
+      // ACTs Tank transfer routine
+      if (xfrValveAct1CenterOpen && xfrValveAct2CenterOpen) {
+        if (lineAct1ToCenterFlow < 0.1 && lineAct2ToCenterFlow < 0.1)
+          lineFlowRatio = 0.5;
+        else
+          lineFlowRatio = lineAct1ToCenterFlow / (lineAct1ToCenterFlow + lineAct2ToCenterFlow);
+
+        xfrAct1ToCenter = (fuelAct1Pre - act1Quantity) * lineFlowRatio;
+        xfrAct2ToCenter = (fuelAct2Pre - act2Quantity) * lineFlowRatio;
+      }
 
       /// apu fuel consumption for this frame in pounds
       double apuFuelConsumption = simVars->getLineFlow(18) * fuelWeightGallon * deltaTime;
@@ -922,6 +1004,8 @@ class EngineControl {
       simVars->setFuelAuxLeftPre(leftAuxQuantity);    // in LBS
       simVars->setFuelAuxRightPre(rightAuxQuantity);  // in LBS
       simVars->setFuelCenterPre(centerQuantity);      // in LBS
+      simVars->setFuelAct1Pre(act1Quantity);          // in LBS
+      simVars->setFuelAct2Pre(act2Quantity);          // in LBS
 
       simVars->setFuelLeftPre(fuelLeft);    // in LBS
       simVars->setFuelRightPre(fuelRight);  // in LBS
@@ -946,6 +1030,8 @@ class EngineControl {
       configuration.fuelCenter = simVars->getFuelCenterPre() / simVars->getFuelWeightGallon();
       configuration.fuelLeftAux = simVars->getFuelAuxLeftPre() / simVars->getFuelWeightGallon();
       configuration.fuelRightAux = simVars->getFuelAuxRightPre() / simVars->getFuelWeightGallon();
+      configuration.fuelAct1 = simVars->getFuelAct1Pre() / simVars->getFuelWeightGallon();
+      configuration.fuelAct2 = simVars->getFuelAct2Pre() / simVars->getFuelWeightGallon();
 
       saveFuelInConfiguration(configuration);
       timerFuel.reset();
@@ -1148,10 +1234,14 @@ class EngineControl {
     simVars->setFuelAuxLeftPre(configuration.fuelLeftAux * simVars->getFuelWeightGallon());    // in LBS
     simVars->setFuelAuxRightPre(configuration.fuelRightAux * simVars->getFuelWeightGallon());  // in LBS
     simVars->setFuelCenterPre(configuration.fuelCenter * simVars->getFuelWeightGallon());      // in LBS
+    simVars->setFuelAct1Pre(configuration.fuelAct1 * simVars->getFuelWeightGallon());      // in LBS
+    simVars->setFuelAct2Pre(configuration.fuelAct2 * simVars->getFuelWeightGallon());      // in LBS
 
     // Initialize Pump State
     simVars->setPumpStateLeft(0);
     simVars->setPumpStateRight(0);
+    simVars->setPumpStateAct1(0);
+    simVars->setPumpStateAct2(0);
 
     // Initialize Thrust Limits
     simVars->setThrustLimitIdle(0);
@@ -1269,6 +1359,8 @@ class EngineControl {
         mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_RIGHT_QUANTITY, 400.0),
         mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_LEFT_AUX_QUANTITY, 228.0),
         mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_RIGHT_AUX_QUANTITY, 228.0),
+        mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_ACT1_QUANTITY, 0),
+        mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_ACT2_QUANTITY, 0),
     };
   }
 
@@ -1284,6 +1376,8 @@ class EngineControl {
     stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_RIGHT_QUANTITY] = std::to_string(configuration.fuelRight);
     stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_LEFT_AUX_QUANTITY] = std::to_string(configuration.fuelLeftAux);
     stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_RIGHT_AUX_QUANTITY] = std::to_string(configuration.fuelRightAux);
+    stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_ACT1_QUANTITY] = std::to_string(configuration.fuelAct1);
+    stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_ACT2_QUANTITY] = std::to_string(configuration.fuelAct2);
 
     if (!iniFile.write(stInitStructure, true)) {
       std::cout << "EngineControl: failed to write engine conf " << confFilename << " due to error \"" << strerror(errno) << "\""
