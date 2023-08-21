@@ -39,6 +39,7 @@ cp -rva ./hsim-a320ceo/src/behavior/. ./build-a320ceo/src/behavior
 cp -rva ./hsim-a320ceo/src/localization/. ./build-a320ceo/src/localization
 cp -rva ./hsim-a320ceo/src/model/. ./build-a320ceo/src/model
 cp -rva ./hsim-a320ceo/src/systems/. ./build-a320ceo/src/systems
+cp -rva ./hsim-a320ceo/src/textures/. ./build-a320ceo/src/textures
 cp -rva ./hsim-a320ceo/src/wasm/. ./build-a320ceo/src/wasm
 
 mkdir -p ./build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo

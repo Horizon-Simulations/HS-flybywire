@@ -40,6 +40,7 @@ cp -rva ./hsim-a319ceo/src/behavior/. ./build-a319ceo/src/behavior
 cp -rva ./hsim-a319ceo/src/localization/. ./build-a319ceo/src/localization
 cp -rva ./hsim-a319ceo/src/model/. ./build-a319ceo/src/model
 cp -rva ./hsim-a319ceo/src/systems/. ./build-a319ceo/src/systems
+cp -rva ./hsim-a319ceo/src/textures/. ./build-a319ceo/src/textures
 cp -rva ./hsim-a319ceo/src/wasm/. ./build-a319ceo/src/wasm
 
 mkdir -p ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo
