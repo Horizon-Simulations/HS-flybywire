@@ -20,42 +20,20 @@ function* readdir(d) {
     }
 }
 
-const { execSync } = require('child_process');
-
-function executeGitCommand(command) {
-    return execSync(command)
-        .toString('utf8')
-        .replace(/[\n\r]+$/, '');
-}
-
-const isPullRequest = process.env.GITHUB_REF && process.env.GITHUB_REF.startsWith('refs/pull/');
-
-let GIT_BRANCH;
-if (isPullRequest) {
-    GIT_BRANCH = process.env.GITHUB_REF.match('^refs/pull/([0-9]+)/.*$')[1];
-} else {
-    GIT_BRANCH = process.env.GITHUB_REF_NAME
-        ? process.env.GITHUB_REF_NAME
-        : executeGitCommand('git rev-parse --abbrev-ref HEAD');
-}
-
-const GIT_COMMIT_SHA = process.env.GITHUB_SHA
-    ? process.env.GITHUB_SHA.substring(0, 9)
-    : executeGitCommand('git rev-parse --short HEAD');
-
-const edition = require('../package.json').edition;
+const buildInfo = require('./git_build_info').getGitBuildInfo();
+const packageInfo = require('../package.json');
 
 let titlePostfix;
-if (edition === 'stable') {
+if (packageInfo.edition === 'stable') {
     titlePostfix = 'Stable';
-} else if (GIT_BRANCH === 'main') {
+} else if (buildInfo?.branch === 'master') {
     titlePostfix = 'Development';
-} else if (GIT_BRANCH === 'experimental') {
+} else if (buildInfo?.branch === 'experimental') {
     titlePostfix = 'Experimental';
-} else if (isPullRequest) {
-    titlePostfix = `PR #${GIT_BRANCH}`;
+} else if (buildInfo?.isPullRequest) {
+    titlePostfix = `PR #${buildInfo?.ref}`;
 } else {
-    titlePostfix = `branch ${GIT_BRANCH}`;
+    titlePostfix = `branch ${buildInfo?.branch}`;
 }
 
 const titleSuffix = ` (${titlePostfix})`;
