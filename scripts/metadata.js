@@ -13,7 +13,7 @@ const getBranchPreFix = () => {
 
     if (edition === 'stable') {
         return 'rel';
-    } else if (buildInfo?.branch === 'master') {
+    } else if (buildInfo?.branch === 'main') {
         return 'dev';
     } else if (buildInfo?.branch === 'experimental') {
         return 'exp';

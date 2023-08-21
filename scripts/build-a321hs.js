@@ -26,7 +26,7 @@ const packageInfo = require('../package.json');
 let titlePostfix;
 if (packageInfo.edition === 'stable') {
     titlePostfix = 'Stable';
-} else if (buildInfo?.branch === 'master') {
+} else if (buildInfo?.branch === 'main') {
     titlePostfix = 'Development';
 } else if (buildInfo?.branch === 'experimental') {
     titlePostfix = 'Experimental';
