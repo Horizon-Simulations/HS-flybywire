@@ -52,6 +52,8 @@ class FadecGauge {
       SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelCenterMain, "FUEL TANK CENTER QUANTITY", "Gallons");
       SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelLeftAux, "FUEL TANK LEFT AUX QUANTITY", "Gallons");
       SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelRightAux, "FUEL TANK RIGHT AUX QUANTITY", "Gallons");
+      SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelAct1, "FUELSYSTEM TANK QUANTITY:6", "Gallons");
+      SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelAct2, "FUELSYSTEM TANK QUANTITY:7", "Gallons");
 
       // SimConnect Oil Temperature Definitions
       SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::OilTempLeft, "GENERAL ENG OIL TEMPERATURE:1", "Celsius");

@@ -134,7 +134,7 @@ export const Payload = () => {
     const [seatMap] = useState<PaxStationInfo[]>(Loadsheet.seatMap);
     const [cargoMap] = useState<CargoStationInfo[]>(Loadsheet.cargoMap);
 
-    const totalCurrentGallon = useMemo(() => round(Math.max(LInnCurrent + LOutCurrent + RInnCurrent + ROutCurrent + centerCurrent, 0)), [fuel]);
+    const totalCurrentGallon = useMemo(() => round(Math.max(LInnCurrent + LOutCurrent + RInnCurrent + ROutCurrent + centerCurrent + act1Current + act2Current, 0)), [fuel]);
 
     const [showSimbriefButton, setShowSimbriefButton] = useState(false);
     const simbriefUnits = useAppSelector((state) => state.simbrief.data.units);

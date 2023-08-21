@@ -57,12 +57,10 @@ export const FuelPage = () => {
     const OUTER_CELL_GALLONS = 228;
     const INNER_CELL_GALLONS = 1816;
     const CENTER_TANK_GALLONS = 2166;
-    const ACT1_TANK_GALLONS = 824;
-    const ACT2_TANK_GALLONS = 824;
+    const ACTS_TANK_GALLONS = 824;
     const wingTotalRefuelTimeSeconds = 1020;
-    const CenterTotalRefuelTimeSeconds = 305;
-    const Act1TotalRefuelTimeSeconds = 110;
-    const Act2TotalRefuelTimeSeconds = 110;
+    const CenterTotalRefuelTimeSeconds = 180;
+    const ActsTotalRefuelTimeSeconds = 110;
 
     const { usingMetric } = Units;
     const [currentUnit] = useState(usingMetric ? 'KG' : 'LB');
@@ -74,9 +72,9 @@ export const FuelPage = () => {
     const innerCell = () => INNER_CELL_GALLONS * galToKg * convertUnit;
     const innerCells = () => innerCell() * 2;
     const centerTank = () => CENTER_TANK_GALLONS * galToKg * convertUnit;
-    const act1Tank = () => ACT1_TANK_GALLONS * galToKg * convertUnit;
-    const act2Tank = () => ACT2_TANK_GALLONS * galToKg * convertUnit;
-    const totalFuel = () => centerTank() + innerCells() + outerCells() + act1Tank() + act2Tank();
+    const actTank = () => ACTS_TANK_GALLONS * galToKg * convertUnit;
+    const actTanks = () => actTank() * 2;
+    const totalFuel = () => centerTank() + innerCells() + outerCells() + actTanks();
     const [busDC2] = useSimVar('L:A32NX_ELEC_DC_2_BUS_IS_POWERED', 'Bool', 1_000);
     const [busDCHot1] = useSimVar('L:A32NX_ELEC_DC_HOT_1_BUS_IS_POWERED', 'Bool', 1_000);
     const [simGroundSpeed] = useSimVar('GPS GROUND SPEED', 'knots', 1_000);
@@ -134,14 +132,14 @@ export const FuelPage = () => {
     const currentWingFuel = () => round(Math.max((LInnCurrent + (LOutCurrent) + (RInnCurrent) + (ROutCurrent)), 0));
     const targetWingFuel = () => round(Math.max((LInnTarget + (LOutTarget) + (RInnTarget) + (ROutTarget)), 0));
     const convertToGallon = (curr : number) => curr * (1 / convertUnit) * (1 / galToKg);
-    const totalCurrentGallon = () => round(Math.max((LInnCurrent + (LOutCurrent) + (RInnCurrent) + (ROutCurrent) + (centerCurrent)), 0));
+    const totalCurrentGallon = () => round(Math.max((LInnCurrent + (LOutCurrent) + (RInnCurrent) + (ROutCurrent) + (centerCurrent) + (act1Current) + (act2Current)), 0));
 
     const totalCurrent = () => {
         if (round(totalTarget) === totalCurrentGallon()) {
             return inputValue;
         }
         const val = round(totalCurrentGallon() * getFuelMultiplier());
-        if (centerCurrent > 0 && centerCurrent < CENTER_TANK_GALLONS) {
+        if ((act1Current > 0 && act1Current < ACTS_TANK_GALLONS) || (act2Current > 0 && act2Current < ACTS_TANK_GALLONS)) {
             return round(val + convertUnit);
         }
         return val;
@@ -192,6 +190,9 @@ export const FuelPage = () => {
         if (curr === CENTER_TANK_GALLONS) {
             return convertFuelValue(curr);
         }
+        if (curr === ACTS_TANK_GALLONS) {
+            return convertFuelValue(curr);
+        }
         return round(convertFuelValue(curr) + convertUnit);
     };
 
@@ -218,10 +219,13 @@ export const FuelPage = () => {
             setAct2Target(0)
             return;
         } else if (fuel <= CENTER_TANK_GALLONS) {
-            fuel -= (CENTER_TANK_GALLONS);
             setCenterTarget(fuel);
+            return;
         } else {
-            const actTank = (((ACT1_TANK_GALLONS) * 2) + Math.min(fuel, 0)) / 2;
+            fuel -= CENTER_TANK_GALLONS;
+            setCenterTarget(CENTER_TANK_GALLONS);
+            fuel -= (ACTS_TANK_GALLONS) * 2;
+            const actTank = (((ACTS_TANK_GALLONS) * 2) + Math.min(fuel, 0)) / 2;
             setAct1Target(actTank);
             setAct2Target(actTank);
         }
@@ -260,15 +264,15 @@ export const FuelPage = () => {
             return ' 0';
         }
         let estimatedTimeSeconds = 0;
-        const totalWingFuel = TOTAL_FUEL_GALLONS - CENTER_TANK_GALLONS - ACT1_TANK_GALLONS - ACT2_TANK_GALLONS;
+        const totalWingFuel = TOTAL_FUEL_GALLONS - CENTER_TANK_GALLONS - (ACTS_TANK_GALLONS * 2);
         const differentialFuelWings = Math.abs(currentWingFuel() - targetWingFuel());
         const differentialFuelCenter = Math.abs(centerTarget - centerCurrent);
         const differentialFuelAct1 = Math.abs(act1Target - act1Current);
         const differentialFuelAct2 = Math.abs(act2Target - act2Current);
         estimatedTimeSeconds += (differentialFuelWings / totalWingFuel) * wingTotalRefuelTimeSeconds;
         estimatedTimeSeconds += (differentialFuelCenter / CENTER_TANK_GALLONS) * CenterTotalRefuelTimeSeconds;
-        estimatedTimeSeconds += (differentialFuelAct1 / ACT1_TANK_GALLONS) * Act1TotalRefuelTimeSeconds;
-        estimatedTimeSeconds += (differentialFuelAct2 / ACT2_TANK_GALLONS) * Act2TotalRefuelTimeSeconds;
+        estimatedTimeSeconds += (differentialFuelAct1 / ACTS_TANK_GALLONS) * ActsTotalRefuelTimeSeconds;
+        estimatedTimeSeconds += (differentialFuelAct2 / ACTS_TANK_GALLONS) * ActsTotalRefuelTimeSeconds;
         if (refuelRate === '1') { // fast
             estimatedTimeSeconds /= 5;
         }
@@ -339,10 +343,10 @@ export const FuelPage = () => {
                             title={t('Ground.Fuel.Act1Tank')}
                             current={act1Current}
                             target={act1Target}
-                            capacity={ACT1_TANK_GALLONS}
+                            capacity={ACTS_TANK_GALLONS}
                             currentUnit={currentUnit}
-                            tankValue={act1Tank()}
-                            convertedFuelValue={convertFuelValue(act1Current)}
+                            tankValue={actTank()}
+                            convertedFuelValue={convertFuelValueCenter(act1Current)}
                         />
                         <TankReadoutWidget
                             title={t('Ground.Fuel.LeftInnerTank')}
@@ -351,7 +355,7 @@ export const FuelPage = () => {
                             capacity={INNER_CELL_GALLONS}
                             currentUnit={currentUnit}
                             tankValue={innerCell()}
-                            convertedFuelValue={convertFuelValue(LInnCurrent)}
+                            convertedFuelValue={convertFuelValueCenter(LInnCurrent)}
                         />
                         <TankReadoutWidget
                             title={t('Ground.Fuel.LeftOuterTank')}
@@ -368,9 +372,9 @@ export const FuelPage = () => {
                             title={t('Ground.Fuel.Act2Tank')}
                             current={act2Current}
                             target={act2Target}
-                            capacity={ACT2_TANK_GALLONS}
+                            capacity={ACTS_TANK_GALLONS}
                             currentUnit={currentUnit}
-                            tankValue={act2Tank()}
+                            tankValue={actTank()}
                             convertedFuelValue={convertFuelValueCenter(act2Current)}
                         />
                         <TankReadoutWidget
@@ -404,11 +408,11 @@ export const FuelPage = () => {
                     />
                     <div
                         className="absolute z-40"
-                        style={{ width: '137px', height: '70px', bottom: '243px', left: '572px', background: formatFuelFilling(act1Current, ACT1_TANK_GALLONS) }}
+                        style={{ width: '137px', height: '70px', bottom: '243px', left: '572px', background: formatFuelFilling(act1Current, ACTS_TANK_GALLONS) }}
                     />
                     <div
                         className="absolute z-20"
-                        style={{ width: '137px', height: '110px', bottom: '243px', left: '572px', background: formatFuelFilling(act2Current, ACT2_TANK_GALLONS) }}
+                        style={{ width: '137px', height: '110px', bottom: '243px', left: '572px', background: formatFuelFilling(act2Current, ACTS_TANK_GALLONS) }}
                     />
                     <div
                         className="absolute z-0"
