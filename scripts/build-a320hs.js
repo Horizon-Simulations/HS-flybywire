@@ -43,25 +43,6 @@ const MS_FILETIME_EPOCH = 116444736000000000n;
 const A320HS_SRC = path.resolve(__dirname, '..', 'hsim-a320ceo/src');
 const A320HS_OUT = path.resolve(__dirname, '..', 'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo');
 
-function copyDDSFiles(src_dds) {
-    const TARGET_PATH_CFM = '/SimObjects/Airplanes/A320ceoCFM/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    const TARGET_PATH_CFM_SL = '/SimObjects/Airplanes/A320ceoCFMsl/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    const TARGET_PATH_IAE = '/SimObjects/Airplanes/A320ceoIAE/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    const TARGET_PATH_IAE_SL = '/SimObjects/Airplanes/A320ceoIAEsl/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    fs.copyFileSync(path.join(A320HS_SRC, src_dds), path.join(A320HS_OUT, TARGET_PATH_CFM));
-    fs.copyFileSync(path.join(A320HS_SRC, src_dds), path.join(A320HS_OUT, TARGET_PATH_CFM_SL));
-    fs.copyFileSync(path.join(A320HS_SRC, src_dds), path.join(A320HS_OUT, TARGET_PATH_IAE));
-    fs.copyFileSync(path.join(A320HS_SRC, src_dds), path.join(A320HS_OUT, TARGET_PATH_IAE_SL));
-}
-
-if (packageInfo.edition === 'stable') {
-    copyDDSFiles('/textures/decals 4k/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF-stable.dds');
-} else if (buildInfo?.branch === 'master') {
-    copyDDSFiles('/textures/decals 4k/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF-master.dds');
-} else {
-    copyDDSFiles('/textures/decals 4k/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF-exp.dds');
-}
-
 function createPackageFiles(baseDir, manifestBaseFilename) {
     const contentEntries = [];
     let totalPackageSize = 0;

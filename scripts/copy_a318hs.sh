@@ -35,7 +35,6 @@ cp -rva ./hsim-a318ceo/src/behavior/. ./build-a318ceo/src/behavior
 cp -rva ./hsim-a318ceo/src/localization/. ./build-a318ceo/src/localization
 cp -rva ./hsim-a318ceo/src/model/. ./build-a318ceo/src/model
 cp -rva ./hsim-a318ceo/src/systems/. ./build-a318ceo/src/systems
-cp -rva ./hsim-a318ceo/src/textures/. ./build-a318ceo/src/textures
 cp -rva ./hsim-a318ceo/src/wasm/. ./build-a318ceo/src/wasm
 
 mkdir -p ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo

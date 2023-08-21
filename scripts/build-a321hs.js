@@ -42,24 +42,6 @@ const MS_FILETIME_EPOCH = 116444736000000000n;
 
 const A21NHS_SRC = path.resolve(__dirname, '..', 'hsim-a321neo/src');
 const A21NHS_OUT = path.resolve(__dirname, '..', 'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo');
-function copyDDSFiles(src_dds) {
-    const TARGET_PATH_LEAP = '/SimObjects/Airplanes/A321neoLEAP/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    const TARGET_PATH_LEAP_LR = '/SimObjects/Airplanes/aircrafta321neolrLEAP/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    const TARGET_PATH_PW = '/SimObjects/Airplanes/aircrafta321neopw/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    const TARGET_PATH_PW_LR = '/SimObjects/Airplanes/aircrafta321neolrPW/TEXTURE/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.dds';
-    fs.copyFileSync(path.join(A21NHS_SRC, src_dds), path.join(A21NHS_OUT, TARGET_PATH_LEAP));
-    fs.copyFileSync(path.join(A21NHS_SRC, src_dds), path.join(A21NHS_OUT, TARGET_PATH_LEAP_LR));
-    fs.copyFileSync(path.join(A21NHS_SRC, src_dds), path.join(A21NHS_OUT, TARGET_PATH_PW));
-    fs.copyFileSync(path.join(A21NHS_SRC, src_dds), path.join(A21NHS_OUT, TARGET_PATH_PW_LR));
-}
-
-if (packageInfo.edition === 'stable') {
-    copyDDSFiles('/textures/decals 4k/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF-stable.dds');
-} else if (buildInfo?.branch === 'master') {
-    copyDDSFiles('/textures/decals 4k/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF-master.dds');
-} else {
-    copyDDSFiles('/textures/decals 4k/A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF-exp.dds');
-}
 
 function createPackageFiles(baseDir, manifestBaseFilename) {
     const contentEntries = [];
