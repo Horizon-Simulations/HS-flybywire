@@ -56,7 +56,9 @@ export const FuelPage = () => {
     const TOTAL_FUEL_GALLONS = 7786;
     const OUTER_CELL_GALLONS = 228;
     const INNER_CELL_GALLONS = 1816;
-    const CENTER_TANK_GALLONS = 3698;
+    const CENTER_TANK_GALLONS = 2166;
+    const ACT1_TANK_GALLONS = 824;
+    const ACT2_TANK_GALLONS = 824;
     const wingTotalRefuelTimeSeconds = 1020;
     const CenterTotalRefuelTimeSeconds = 305;
 
@@ -88,6 +90,8 @@ export const FuelPage = () => {
     const [RInnTarget, setRInnTarget] = useSimVar('L:A32NX_FUEL_RIGHT_MAIN_DESIRED', 'Number');
     const [ROutTarget, setROutTarget] = useSimVar('L:A32NX_FUEL_RIGHT_AUX_DESIRED', 'Number');
     const [centerCurrent] = useSimVar('FUEL TANK CENTER QUANTITY', 'Gallons', 1_000);
+    const [act1Current] = useSimVar('FUELSYSTEM TANK QUANTITY:6', 'Gallons', 1_000 );
+    const [act2Current] = useSimVar('FUELSYSTEM TANK QUANTITY:7', 'Gallons', 1_000 );
     const [LInnCurrent] = useSimVar('FUEL TANK LEFT MAIN QUANTITY', 'Gallons', 1_000);
     const [LOutCurrent] = useSimVar('FUEL TANK LEFT AUX QUANTITY', 'Gallons', 1_000);
     const [RInnCurrent] = useSimVar('FUEL TANK RIGHT MAIN QUANTITY', 'Gallons', 1_000);
