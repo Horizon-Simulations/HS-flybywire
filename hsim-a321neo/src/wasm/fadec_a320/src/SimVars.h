@@ -304,7 +304,7 @@ class SimVars {
   void setFuelAuxRightPre(FLOAT64 value) { set_named_variable_value(FuelAuxRightPre, value); }
   void setFuelCenterPre(FLOAT64 value) { set_named_variable_value(FuelCenterPre, value); }
   void setFuelAct1Pre(FLOAT64 value) { set_named_variable_value(FuelAct1Pre, value); }
-  void setFuelAct1Pre(FLOAT64 value) { set_named_variable_value(FuelAct2Pre, value); }
+  void setFuelAct2Pre(FLOAT64 value) { set_named_variable_value(FuelAct2Pre, value); }
   void setEngine1State(FLOAT64 value) { set_named_variable_value(Engine1State, value); }
   void setEngine2State(FLOAT64 value) { set_named_variable_value(Engine2State, value); }
   void setEngine1Timer(FLOAT64 value) { set_named_variable_value(Engine1Timer, value); }

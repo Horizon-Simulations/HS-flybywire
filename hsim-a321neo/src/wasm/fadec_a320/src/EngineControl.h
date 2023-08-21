@@ -848,8 +848,8 @@ class EngineControl {
       simVars->setFuelAuxLeftPre(fuelAuxLeftPre);      // in LBS
       simVars->setFuelAuxRightPre(fuelAuxRightPre);    // in LBS
       simVars->setFuelCenterPre(fuelCenterPre);        // in LBS
-      simVars->setFuelAct1Pre(fuelCenterPre);        // in LBS
-      simVars->setFuelAct2Pre(fuelCenterPre);        // in LBS
+      simVars->setFuelAct1Pre(fuelAct1Pre);        // in LBS
+      simVars->setFuelAct2Pre(fuelAct2Pre);        // in LBS
 
       fuelLeft = (fuelLeftPre / fuelWeightGallon);          // USG
       fuelRight = (fuelRightPre / fuelWeightGallon);        // USG
@@ -873,7 +873,7 @@ class EngineControl {
       simVars->setFuelAuxRightPre(rightAuxQuantity);         // in LBS
       simVars->setFuelCenterPre(centerQuantity);             // in LBS
       simVars->setFuelAct1Pre(act1Quantity);             // in LBS
-      simVars->setFuelAct1Pre(act2Quantity);             // in LBS
+      simVars->setFuelAct2Pre(act2Quantity);             // in LBS
     } else {
       if (uiFuelTamper == 1) {
         fuelLeftPre = leftQuantity;          // LBS
