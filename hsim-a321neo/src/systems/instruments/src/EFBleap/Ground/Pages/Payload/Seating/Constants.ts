@@ -1,4 +1,4 @@
-export const TYPE = Object.freeze({ NB_ECO: 0, NB_ECO_EMERG: 1, WB_ECO: 2, WB_ECO_EMERG: 3 });
+export const TYPE = Object.freeze({ NB_ECO: 0, NB_ECO_EMERG: 1, NB_PREM_ECO: 2, NB_BUSINESS: 3 });
 
 export const CanvasConst = Object.freeze({
     width: 1000,
@@ -55,7 +55,7 @@ export const SeatConstants = Object.freeze({
         imageX: 20,
         imageY: 19,
     },
-    [TYPE.WB_ECO]: {
+    [TYPE.NB_PREM_ECO]: {
         len: 11.52,
         wid: 11.52,
         padX: 7.8,
@@ -63,7 +63,7 @@ export const SeatConstants = Object.freeze({
         imageX: 15.24,
         imageY: 11.52,
     },
-    [TYPE.WB_ECO_EMERG]: {
+    [TYPE.NB_BUSINESS]: {
         len: 11.52,
         wid: 11.52,
         padX: 12,
