@@ -52,11 +52,12 @@
                 {
                     "seats": [
                         {
-                            "type": 0
+                            "type": 0,
+                            "yOffset": 19
                         },
                         {
                             "type": 0,
-                            "yOffset": 76
+                            "yOffset": 57
                         }
                     ],
                     "x": 0,
@@ -91,11 +92,12 @@
                 {
                     "seats": [
                         {
-                            "type": 0
+                            "type": 0,
+                            "yOffset": 19
                         },
                         {
                             "type": 0,
-                            "yOffset": 76
+                            "yOffset": 57
                         }
                     ],
                     "x": 0,
