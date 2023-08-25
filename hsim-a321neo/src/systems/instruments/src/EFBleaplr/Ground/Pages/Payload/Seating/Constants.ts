@@ -40,7 +40,7 @@ export interface CargoStationInfo {
 
 export const SeatConstants = Object.freeze({
     [TYPE.NB_ECO]: {
-        len: 19.2,
+        len: 18.2,
         wid: 19.2,
         padX: 13,
         padY: 0,
@@ -64,12 +64,12 @@ export const SeatConstants = Object.freeze({
         imageY: 11.52,
     },
     [TYPE.NB_BUSINESS]: {
-        len: 11.52,
-        wid: 11.52,
-        padX: 12,
+        len: 30,
+        wid: 19.2,
+        padX: 8,
         padY: 0,
-        imageX: 15.24,
-        imageY: 11.52,
+        imageX: 30,
+        imageY: 19.2,
     },
 });
 
