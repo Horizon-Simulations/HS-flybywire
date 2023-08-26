@@ -434,9 +434,9 @@ function correctCg(m, f, cg = SimVar.GetSimVarValue("CG PERCENT", "percent")) {
  * @private
  */
 function _correctMass(m) {
-    const min = 50;
-    const max = 105;
-    const step = 5;
+    const min = 40;
+    const max = 80;
+    const step = 2.5;
     return Math.ceil(((m > max ? max : m) - min) / step);
 }
 
