@@ -29,7 +29,7 @@
                     "seats": [
                         {
                             "type": 3,
-                            "yOffset": 19
+                            "yOffset": 0
                         },
                         {
                             "type": 3,
@@ -69,7 +69,7 @@
                     "seats": [
                         {
                             "type": 3,
-                            "yOffset": 19
+                            "yOffset": 0
                         },
                         {
                             "type": 3,
@@ -109,7 +109,7 @@
                     "seats": [
                         {
                             "type": 3,
-                            "yOffset": 19
+                            "yOffset": 0
                         },
                         {
                             "type": 3,
