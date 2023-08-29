@@ -1,4 +1,4 @@
-export const TYPE = Object.freeze({ NB_ECO: 0, NB_ECO_EMERG: 1, WB_ECO: 2, WB_ECO_EMERG: 3 });
+export const TYPE = Object.freeze({ NB_ECO: 0, NB_ECO_EMERG: 1, NB_PREM_ECO: 2, NB_BUSINESS: 3 });
 
 export const CanvasConst = Object.freeze({
     width: 1000,
@@ -40,7 +40,7 @@ export interface CargoStationInfo {
 
 export const SeatConstants = Object.freeze({
     [TYPE.NB_ECO]: {
-        len: 19.2,
+        len: 18.2,
         wid: 19.2,
         padX: 13,
         padY: 0,
@@ -55,7 +55,7 @@ export const SeatConstants = Object.freeze({
         imageX: 25.4,
         imageY: 19.2,
     },
-    [TYPE.WB_ECO]: {
+    [TYPE.NB_PREM_ECO]: {
         len: 11.52,
         wid: 11.52,
         padX: 7.8,
@@ -63,13 +63,13 @@ export const SeatConstants = Object.freeze({
         imageX: 15.24,
         imageY: 11.52,
     },
-    [TYPE.WB_ECO_EMERG]: {
-        len: 11.52,
-        wid: 11.52,
-        padX: 12,
+    [TYPE.NB_BUSINESS]: {
+        len: 30,
+        wid: 19.2,
+        padX: 8,
         padY: 0,
-        imageX: 15.24,
-        imageY: 11.52,
+        imageX: 30,
+        imageY: 19.2,
     },
 });
 
