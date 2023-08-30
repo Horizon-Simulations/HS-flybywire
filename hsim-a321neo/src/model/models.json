@@ -25,6 +25,11 @@
         "maxLod": 0
       },
       {
+        "gltf": "./vfe_placard/Speed_TM.gltf",
+        "bin": "./vfe_placard/Speed_TM.bin",
+        "maxLod": 0
+      },
+      {
         "gltf": "./wipers/flight-deck-wipers.gltf",
         "bin": "./wipers/flight-deck-wipers.bin",
         "maxLod": 0

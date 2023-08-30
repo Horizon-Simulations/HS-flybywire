@@ -1,0 +1,206 @@
+{
+    "accessors": [
+        {
+            "bufferView": 1,
+            "byteOffset": 28,
+            "componentType": 5123,
+            "count": 224,
+            "type": "VEC4",
+            "name": "x0_SPEED_LIMIT_0_vertices#0_COLOR_0"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 16,
+            "componentType": 5120,
+            "count": 224,
+            "type": "VEC4",
+            "name": "x0_SPEED_LIMIT_0_vertices#0_NORMAL"
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 224,
+            "min": [
+                0.12873269617557526,
+                1.662297010421753,
+                11.88074779510498
+            ],
+            "max": [
+                0.17892572283744812,
+                1.7128667831420898,
+                11.896208763122559
+            ],
+            "type": "VEC3",
+            "name": "x0_SPEED_LIMIT_0_vertices#0_POSITION"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 12,
+            "componentType": 5120,
+            "count": 224,
+            "type": "VEC4",
+            "name": "x0_SPEED_LIMIT_0_vertices#0_TANGENT"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 20,
+            "componentType": 5122,
+            "count": 224,
+            "type": "VEC2",
+            "name": "x0_SPEED_LIMIT_0_vertices#0_TEXCOORD_0"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 24,
+            "componentType": 5122,
+            "count": 224,
+            "type": "VEC2",
+            "name": "x0_SPEED_LIMIT_0_vertices#0_TEXCOORD_1"
+        },
+        {
+            "bufferView": 0,
+            "componentType": 5123,
+            "count": 342,
+            "type": "SCALAR",
+            "name": "x0_SPEED_LIMIT_0_indices#0"
+        }
+    ],
+    "asset": {
+        "generator": "Khronos glTF Blender I/O v1.7.5",
+        "version": "2.0",
+        "extensions": {
+            "ASOBO_asset_optimized": {
+                "BoundingBoxMax": [
+                    0.17892572283744812,
+                    1.7128667831420898,
+                    11.896208763122559
+                ],
+                "BoundingBoxMin": [
+                    0,
+                    0,
+                    0
+                ],
+                "MajorVersion": 4,
+                "MinorVersion": 2
+            },
+            "ASOBO_normal_map_convention": {
+                "tangent_space_convention": "DirectX"
+            }
+        }
+    },
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 684,
+            "byteOffset": 0,
+            "target": 34963,
+            "name": "BufferViewIndex"
+        },
+        {
+            "buffer": 0,
+            "byteLength": 8064,
+            "byteStride": 36,
+            "byteOffset": 684,
+            "target": 34962,
+            "name": "BufferViewVertexND"
+        }
+    ],
+    "extensionsUsed": [
+        "MSFT_texture_dds",
+        "ASOBO_asset_optimized",
+        "ASOBO_normal_map_convention"
+    ],
+    "extensionsRequired": [
+        "MSFT_texture_dds"
+    ],
+    "materials": [
+        {
+            "name": "TEXT_NoEmi_0",
+            "alphaMode": "BLEND",
+            "normalTexture": {
+                "index": 0
+            },
+            "pbrMetallicRoughness": {
+                "metallicFactor": 0,
+                "roughnessFactor": 0.5,
+                "baseColorTexture": {
+                    "index": 1
+                }
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "COLOR_0": 0,
+                        "NORMAL": 1,
+                        "POSITION": 2,
+                        "TANGENT": 3,
+                        "TEXCOORD_0": 4,
+                        "TEXCOORD_1": 5
+                    },
+                    "indices": 6,
+                    "material": 0,
+                    "mode": 4,
+                    "extras": {
+                        "ASOBO_primitive": {
+                            "PrimitiveCount": 114,
+                            "VertexType": "VTX",
+                            "VertexVersion": 2
+                        }
+                    }
+                }
+            ],
+            "name": "x0_SPEED_LIMIT_0"
+        }
+    ],
+    "nodes": [
+        {
+            "mesh": 0,
+            "name": "SPEED_LIMIT_0"
+        }
+    ],
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Scene",
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "textures": [
+        {
+            "extensions": {
+                "MSFT_texture_dds": {
+                    "source": 0
+                }
+            }
+        },
+        {
+            "extensions": {
+                "MSFT_texture_dds": {
+                    "source": 1
+                }
+            }
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 8748,
+            "uri": "Speed_TM.bin"
+        }
+    ],
+    "images": [
+        {
+            "extras": "ASOBO_image_converted_meta",
+            "uri": "A320NEO_COCKPIT_DECALSTEXT_NORM.PNG.DDS"
+        },
+        {
+            "extras": "ASOBO_image_converted_meta",
+            "uri": "A320NEO_COCKPIT_DECALSTEXT_ALBD.TIF.DDS"
+        }
+    ]
+}
