@@ -204,7 +204,8 @@ impl A320Cabin {
             + number_of_passengers.number_of_passengers(A320Pax::B))
             as u8;
         self.number_of_passengers[2] = (number_of_passengers.number_of_passengers(A320Pax::C)
-            + number_of_passengers.number_of_passengers(A320Pax::D))
+            + number_of_passengers.number_of_passengers(A320Pax::D)
+            + number_of_passengers.number_of_passengers(A320Pax::E))
             as u8;
     }
 }
