@@ -28,59 +28,35 @@
                 {
                     "seats": [
                         {
-                            "type": 0
+                            "type": 3
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 10
                         }
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
                     "seats": [
                         {
-                            "type": 0,
+                            "type": 3,
                             "yOffset": 0
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 10
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 25
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
-                        }
-                    ],
-                    "x": 0,
-                    "y": 0,
-                    "xOffset": 10,
-                    "yOffset": 0
-                },
-                {
-                    "seats": [
-                        {
-                            "type": 0,
-                            "yOffset": 0
-                        },
-                        {
-                            "type": 0,
-                            "yOffset": 19
-                        },
-                        {
-                            "type": 0,
-                            "yOffset": 19
-                        },
-                        {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 10
                         }
                     ],
                     "x": 0,
@@ -91,20 +67,20 @@
                 {
                     "seats": [
                         {
-                            "type": 0,
+                            "type": 3,
                             "yOffset": 0
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 10
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 25
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 10
                         }
                     ],
                     "x": 0,
@@ -115,20 +91,20 @@
                 {
                     "seats": [
                         {
-                            "type": 0,
+                            "type": 3,
                             "yOffset": 0
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 10
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 25
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 10
                         }
                     ],
                     "x": 0,
@@ -139,20 +115,20 @@
                 {
                     "seats": [
                         {
-                            "type": 0,
+                            "type": 3,
                             "yOffset": 0
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 10
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 25
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 10
                         }
                     ],
                     "x": 0,
@@ -163,20 +139,44 @@
                 {
                     "seats": [
                         {
-                            "type": 0,
+                            "type": 3,
                             "yOffset": 0
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 10
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 25
                         },
                         {
-                            "type": 0,
-                            "yOffset": 19
+                            "type": 3,
+                            "yOffset": 10
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 10,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 3,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 3,
+                            "yOffset": 10
+                        },
+                        {
+                            "type": 3,
+                            "yOffset": 25
+                        },
+                        {
+                            "type": 3,
+                            "yOffset": 10
                         }
                     ],
                     "x": 0,
@@ -218,7 +218,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
@@ -245,7 +245,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
@@ -299,7 +299,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
@@ -326,7 +326,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 }
             ],
@@ -363,7 +363,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 36,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
@@ -390,7 +390,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
@@ -417,7 +417,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
@@ -444,7 +444,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
@@ -471,7 +471,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 }
             ],
@@ -535,7 +535,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
@@ -562,7 +562,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
@@ -589,7 +589,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
@@ -616,7 +616,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 },
                 {
@@ -632,7 +632,7 @@
                     ],
                     "x": 0,
                     "y": 0,
-                    "xOffset": 5,
+                    "xOffset": 7,
                     "yOffset": 0
                 }
             ],

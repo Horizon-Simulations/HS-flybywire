@@ -64,12 +64,12 @@ export const SeatConstants = Object.freeze({
         imageY: 11.52,
     },
     [TYPE.NB_BUSINESS]: {
-        len: 11.52,
-        wid: 11.52,
+        len: 22.5,
+        wid: 22.5,
         padX: 12,
         padY: 0,
-        imageX: 15.24,
-        imageY: 11.52,
+        imageX: 25.4,
+        imageY: 22.5,
     },
 });
 
