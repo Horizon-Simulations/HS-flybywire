@@ -579,7 +579,7 @@
             "position": -27,
             "fill": 0.12,
             "simVar": "A32NX_PAX_E"
-        }
+        },
         {
             "name": "ROWS [6-8]",
             "capacity": 18,
