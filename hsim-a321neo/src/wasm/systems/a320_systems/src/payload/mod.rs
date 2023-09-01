@@ -69,7 +69,7 @@ lazy_static! {
         PaxInfo::new(30, "PAX_E", "PAYLOAD_STATION_5_REQ",),
         PaxInfo::new(30, "PAX_F", "PAYLOAD_STATION_6_REQ",),
         PaxInfo::new(30, "PAX_G", "PAYLOAD_STATION_7_REQ",),
-        PaxInfo::new(30, "PAX_H", "PAYLOAD_STATION_8_REQ",),
+        PaxInfo::new(30, "PAX_H", "PAYLOAD_STATION_8_REQ",)
     ]);
     static ref A320_CARGO: EnumMap<A320Cargo, CargoInfo> = EnumMap::from_array([
         CargoInfo::new(
