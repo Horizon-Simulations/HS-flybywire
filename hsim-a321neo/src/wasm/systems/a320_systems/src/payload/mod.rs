@@ -75,22 +75,22 @@ lazy_static! {
         CargoInfo::new(
             Mass::new::<kilogram>(3402.),
             "CARGO_FWD_BAGGAGE_CONTAINER",
-            "PAYLOAD_STATION_6_REQ",
+            "PAYLOAD_STATION_9_REQ",
         ),
         CargoInfo::new(
             Mass::new::<kilogram>(2426.),
             "CARGO_AFT_CONTAINER",
-            "PAYLOAD_STATION_7_REQ",
+            "PAYLOAD_STATION_10_REQ",
         ),
         CargoInfo::new(
             Mass::new::<kilogram>(2110.),
             "CARGO_AFT_BAGGAGE",
-            "PAYLOAD_STATION_8_REQ",
+            "PAYLOAD_STATION_11_REQ",
         ),
         CargoInfo::new(
             Mass::new::<kilogram>(1497.),
             "CARGO_AFT_BULK_LOOSE",
-            "PAYLOAD_STATION_9_REQ",
+            "PAYLOAD_STATION_12_REQ",
         )
     ]);
 }
