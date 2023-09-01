@@ -28,10 +28,13 @@ pub enum A320Pax {
     C,
     D,
     E,
+    F,
+    G,
+    H,
 }
 impl A320Pax {
     pub fn iterator() -> impl Iterator<Item = A320Pax> {
-        [A320Pax::A, A320Pax::B, A320Pax::C, A320Pax::D, A320Pax::E]
+        [A320Pax::A, A320Pax::B, A320Pax::C, A320Pax::D, A320Pax::E, A320Pax::F, A320Pax::G, A320Pax::H]
             .iter()
             .copied()
     }
@@ -59,32 +62,35 @@ impl A320Cargo {
 
 lazy_static! {
     static ref A320_PAX: EnumMap<A320Pax, PaxInfo> = EnumMap::from_array([
-        PaxInfo::new(48, "PAX_A", "PAYLOAD_STATION_1_REQ",),
-        PaxInfo::new(48, "PAX_B", "PAYLOAD_STATION_2_REQ",),
-        PaxInfo::new(48, "PAX_C", "PAYLOAD_STATION_3_REQ",),
-        PaxInfo::new(48, "PAX_D", "PAYLOAD_STATION_4_REQ",),
-        PaxInfo::new(48, "PAX_E", "PAYLOAD_STATION_5_REQ",)
+        PaxInfo::new(30, "PAX_A", "PAYLOAD_STATION_1_REQ",),
+        PaxInfo::new(30, "PAX_B", "PAYLOAD_STATION_2_REQ",),
+        PaxInfo::new(30, "PAX_C", "PAYLOAD_STATION_3_REQ",),
+        PaxInfo::new(30, "PAX_D", "PAYLOAD_STATION_4_REQ",),
+        PaxInfo::new(30, "PAX_E", "PAYLOAD_STATION_5_REQ",),
+        PaxInfo::new(30, "PAX_F", "PAYLOAD_STATION_6_REQ",),
+        PaxInfo::new(30, "PAX_G", "PAYLOAD_STATION_7_REQ",),
+        PaxInfo::new(30, "PAX_H", "PAYLOAD_STATION_8_REQ",)
     ]);
     static ref A320_CARGO: EnumMap<A320Cargo, CargoInfo> = EnumMap::from_array([
         CargoInfo::new(
             Mass::new::<kilogram>(3402.),
             "CARGO_FWD_BAGGAGE_CONTAINER",
-            "PAYLOAD_STATION_6_REQ",
+            "PAYLOAD_STATION_9_REQ",
         ),
         CargoInfo::new(
             Mass::new::<kilogram>(2426.),
             "CARGO_AFT_CONTAINER",
-            "PAYLOAD_STATION_7_REQ",
+            "PAYLOAD_STATION_10_REQ",
         ),
         CargoInfo::new(
             Mass::new::<kilogram>(2110.),
             "CARGO_AFT_BAGGAGE",
-            "PAYLOAD_STATION_8_REQ",
+            "PAYLOAD_STATION_11_REQ",
         ),
         CargoInfo::new(
             Mass::new::<kilogram>(1497.),
             "CARGO_AFT_BULK_LOOSE",
-            "PAYLOAD_STATION_9_REQ",
+            "PAYLOAD_STATION_12_REQ",
         )
     ]);
 }
