@@ -52,7 +52,7 @@ export const Payload = () => {
     const [hFlagsDesired, setHFlagsDesired] = useSeatFlags(`L:${Loadsheet.seatMap[7].simVar}_DESIRED`, Loadsheet.seatMap[7].capacity);
 
     const activeFlags = useMemo(() => [aFlags, bFlags, cFlags, dFlags, eFlags, fFlags, gFlags, hFlags], [aFlags, bFlags, cFlags, dFlags, eFlags, fFlags, gFlags, hFlags]);
-    const desiredFlags = useMemo(() => [aFlagsDesired, bFlagsDesired, cFlagsDesired, dFlagsDesired, eFlagsDesired], [aFlagsDesired, bFlagsDesired, cFlagsDesired, dFlagsDesired, eFlagsDesired, fFlagsDesired, gFlagsDesired, hFlagsDesired]);
+    const desiredFlags = useMemo(() => [aFlagsDesired, bFlagsDesired, cFlagsDesired, dFlagsDesired, eFlagsDesired, fFlagsDesired, gFlagsDesired, hFlagsDesired], [aFlagsDesired, bFlagsDesired, cFlagsDesired, dFlagsDesired, eFlagsDesired, fFlagsDesired, gFlagsDesired, hFlagsDesired]);
     const setDesiredFlags = useMemo(() => [setAFlagsDesired, setBFlagsDesired, setCFlagsDesired, setDFlagsDesired, setEFlagsDesired, setFFlagsDesired, setGFlagsDesired, setHFlagsDesired], []);
 
     const [fwdBag] = useSimVar(`L:${Loadsheet.cargoMap[0].simVar}`, 'Number', 200);
