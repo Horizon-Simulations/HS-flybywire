@@ -126,11 +126,17 @@ export default new TaskOfTasks("all", [
         new TaskOfTasks(
             "wasm",
             [
-                new ExecTask("fadec", "npm run build-a321neo:fadec", [
-                    "build-a321neo/src/wasm/fadec_a320",
+                new ExecTask("fadec-leap", "npm run build-a321neo:fadec-leap", [
+                    "build-a321neo/src/wasm/fadec_a320leap",
                     "fbw-common/src/wasm/fbw_common",
                     "fbw-common/src/wasm/fadec_common",
                     "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/fadec.wasm",
+                ]),
+                new ExecTask("fadec-pw", "npm run build-a321neo:fadec-pw", [
+                    "build-a321neo/src/wasm/fadec_a320pw",
+                    "fbw-common/src/wasm/fbw_common",
+                    "fbw-common/src/wasm/fadec_common",
+                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/aircrafta321neopw/panel/fadec.wasm",
                 ]),
                 new ExecTask("fbw", "npm run build-a321neo:fbw", [
                     "build-a321neo/src/wasm/fbw_a320",
@@ -175,7 +181,8 @@ export default new TaskOfTasks("all", [
             "copy",
             [
                 new ExecTask("model", "npm run build-a321neo:copy-model"),
-                new ExecTask("fadec", "npm run build-a321neo:copy-fadec"),
+                new ExecTask("fadec-leap", "npm run build-a321neo:copy-fadec-leap"),
+                new ExecTask("fadec-pw", "npm run build-a321neo:copy-fadec-pw"),
                 new ExecTask("fbw", "npm run build-a321neo:copy-fbw"),
                 new ExecTask(
                     "flypad-backend",
