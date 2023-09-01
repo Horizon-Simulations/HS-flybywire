@@ -28,10 +28,13 @@ pub enum A320Pax {
     C,
     D,
     E,
+    F,
+    G,
+    H,
 }
 impl A320Pax {
     pub fn iterator() -> impl Iterator<Item = A320Pax> {
-        [A320Pax::A, A320Pax::B, A320Pax::C, A320Pax::D, A320Pax::E]
+        [A320Pax::A, A320Pax::B, A320Pax::C, A320Pax::D, A320Pax::E,A320Pax::F,A320Pax::G,A320Pax::H]
             .iter()
             .copied()
     }
@@ -66,7 +69,7 @@ lazy_static! {
         PaxInfo::new(30, "PAX_E", "PAYLOAD_STATION_5_REQ",),
         PaxInfo::new(30, "PAX_F", "PAYLOAD_STATION_6_REQ",),
         PaxInfo::new(30, "PAX_G", "PAYLOAD_STATION_7_REQ",),
-        PaxInfo::new(30, "PAX_H", "PAYLOAD_STATION_8_REQ",)
+        PaxInfo::new(30, "PAX_H", "PAYLOAD_STATION_8_REQ",),
     ]);
     static ref A320_CARGO: EnumMap<A320Cargo, CargoInfo> = EnumMap::from_array([
         CargoInfo::new(
