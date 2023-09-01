@@ -34,7 +34,7 @@ pub enum A320Pax {
 }
 impl A320Pax {
     pub fn iterator() -> impl Iterator<Item = A320Pax> {
-        [A320Pax::A, A320Pax::B, A320Pax::C, A320Pax::D, A320Pax::E,A320Pax::F,A320Pax::G,A320Pax::H]
+        [A320Pax::A, A320Pax::B, A320Pax::C, A320Pax::D, A320Pax::E, A320Pax::F, A320Pax::G, A320Pax::H]
             .iter()
             .copied()
     }
