@@ -306,7 +306,7 @@
                     "yOffset": 0
                 }
             ],
-            "stationIndex": 1,
+            "stationIndex": 2,
             "position": 8,
             "fill": 0.125,
             "simVar": "A32NX_PAX_B"
@@ -451,7 +451,7 @@
                     "yOffset": 0
                 }
             ],
-            "stationIndex": 1,
+            "stationIndex": 3,
             "position": -5,
             "fill": 0.125,
             "simVar": "A32NX_PAX_C"
@@ -596,7 +596,7 @@
                     "yOffset": 0
                 }
             ],
-            "stationIndex": 1,
+            "stationIndex": 4,
             "position": -12,
             "fill": 0.125,
             "simVar": "A32NX_PAX_D"
@@ -741,7 +741,7 @@
                     "yOffset": 0
                 }
             ],
-            "stationIndex": 1,
+            "stationIndex": 5,
             "position": -27,
             "fill": 0.125,
             "simVar": "A32NX_PAX_E"
@@ -886,7 +886,7 @@
                     "yOffset": 0
                 }
             ],
-            "stationIndex": 1,
+            "stationIndex": 6,
             "position": -41,
             "fill": 0.125,
             "simVar": "A32NX_PAX_F" 
@@ -1031,7 +1031,7 @@
                     "yOffset": 0
                 }
             ],
-            "stationIndex": 1,
+            "stationIndex": 7,
             "position": -52,
             "fill": 0.125,
             "simVar": "A32NX_PAX_G"
@@ -1176,7 +1176,7 @@
                     "yOffset": 0
                 }
             ],
-            "stationIndex": 1,
+            "stationIndex": 8,
             "position": -63,
             "fill": 0.125,
             "simVar": "A32NX_PAX_H"
@@ -1186,7 +1186,7 @@
         {
             "name": "FWD BAGGAGE/CONTAINER",
             "weight": 3402,
-            "stationIndex": 6,
+            "stationIndex": 9,
             "position": 13.43,
             "progressBarWidth": 160,
             "simVar": "A32NX_CARGO_FWD_BAGGAGE_CONTAINER"
@@ -1194,7 +1194,7 @@
         {
             "name": "AFT CONTAINER",
             "weight": 2426,
-            "stationIndex": 7,
+            "stationIndex": 10,
             "position": -41.83,
             "progressBarWidth": 100,
             "simVar": "A32NX_CARGO_AFT_CONTAINER"
@@ -1202,7 +1202,7 @@
         {
             "name": "AFT BAGGAGE",
             "weight": 2110,
-            "stationIndex": 8,
+            "stationIndex": 11,
             "position": -54.83,
             "progressBarWidth": 100,
             "simVar": "A32NX_CARGO_AFT_BAGGAGE"
@@ -1210,7 +1210,7 @@
         {
             "name": "AFT BULK/LOOSE",
             "weight": 1497,
-            "stationIndex": 9,
+            "stationIndex": 12,
             "position": -63.13,
             "progressBarWidth": 100,
             "simVar": "A32NX_CARGO_AFT_BULK_LOOSE"
