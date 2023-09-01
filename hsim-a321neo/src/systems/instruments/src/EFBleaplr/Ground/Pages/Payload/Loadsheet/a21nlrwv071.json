@@ -581,7 +581,7 @@
             "simVar": "A32NX_PAX_E"
         },
         {
-            "name": "ROWS [6-8]",
+            "name": "ROWS [22-24]",
             "capacity": 18,
             "rows": [
                 {
@@ -672,7 +672,7 @@
             "simVar": "A32NX_PAX_F"
         },
         {
-            "name": "ROWS [6-8]",
+            "name": "ROWS [25-27]",
             "capacity": 18,
             "rows": [
                 {
@@ -763,8 +763,8 @@
             "simVar": "A32NX_PAX_G"
         },
         {
-            "name": "ROWS [6-8]",
-            "capacity": 18,
+            "name": "ROWS [28-29]",
+            "capacity": 12,
             "rows": [
                 {
                     "seats": [
