@@ -204,7 +204,7 @@ class Polynomial {
   /// </summary>
   double correctedFuelFlow(double cn1, double mach, double alt) {
     double outCFF = 0;
-    double a321pw_f = 1.07;
+    double a321pw_f = 1.09;
 
     double c_Flow[21] = {-1.7630e+02, -2.1542e-01, 4.7119e+01,  6.1519e+02,  1.8047e-03, -4.4554e-01, -4.3940e+01,
                          4.0459e-05,  -3.2912e+01, -6.2894e-03, -1.2544e-07, 1.0938e-02, 4.0936e-01,  -5.5841e-06,
