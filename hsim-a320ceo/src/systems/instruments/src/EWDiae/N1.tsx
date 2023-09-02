@@ -487,12 +487,12 @@ export class EPR extends DisplayComponent<N1Props> {
         });
 
         sub.on(`engine${this.props.engine}N1`).whenChanged().handle((n1) => {
-            const eprVal = getEprFromN1Value(n1);
+            const eprVal = Math.max(getEprFromN1Value(n1), 1);
             const n1Parts = eprVal.toFixed(3).split('.', 2);
             this.textEprInt.set(n1Parts[0]);
             this.textEprFract.set(n1Parts[1]);
 
-            this.gaugeEpr.set(Math.max(Math.min(eprVal, 1.60), 1));
+            this.gaugeEpr.set(Math.min(eprVal, 1.60));
         });
 
         sub.on('autoThrustLimitToga').whenChanged().handle((n1) => {
