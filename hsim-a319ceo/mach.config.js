@@ -28,7 +28,8 @@ module.exports = {
     instruments: [
         msfsAvionicsInstrument('PFD'),
         msfsAvionicsInstrument('ND', 'NDv2'),
-        msfsAvionicsInstrument('EWD'),
+        msfsAvionicsInstrument('EWDcfm'),
+        msfsAvionicsInstrument('EWDiae'),
         msfsAvionicsInstrument('Clock'),
 
         reactInstrument('SD'),
