@@ -32,7 +32,7 @@ class A32NX_EWD extends BaseInstrument {
     }
 
     get templateID(): string {
-        return 'A320HS_EWD';
+        return 'A320HS_EWDcfm';
     }
 
     public connectedCallback(): void {
@@ -41,10 +41,10 @@ class A32NX_EWD extends BaseInstrument {
         this.arincProvider.init();
         this.backplane.init();
 
-        FSComponent.render(<EwdComponent bus={this.bus} instrument={this} />, document.getElementById('EWD_CONTENT'));
+        FSComponent.render(<EwdComponent bus={this.bus} instrument={this} />, document.getElementById('EWDcfm_CONTENT'));
 
         // Remove "instrument didn't load" text
-        document.getElementById('EWD_CONTENT').querySelector(':scope > h1').remove();
+        document.getElementById('EWDcfm_CONTENT').querySelector(':scope > h1').remove();
     }
 
     public Update(): void {
