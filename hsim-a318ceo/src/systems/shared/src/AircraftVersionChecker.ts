@@ -72,23 +72,23 @@ export class AircraftVersionChecker {
         await this.initialize();
 
         // assert all version info is available
-        if (!(this.buildInfo && this.releaseInfo && this.newestCommit && this.newestExpCommit)) {
-            console.error('Not all version information available. Skipping version check.');
-            return false;
-        }
+        // if (!(this.buildInfo && this.releaseInfo && this.newestCommit && this.newestExpCommit)) {
+        //     console.error('Not all version information available. Skipping version check.');
+        //     return false;
+        // }
 
-        try {
-            const versionInfo = this.getVersionInfo(this.buildInfo.version);
-            if (this.checkOutdated(versionInfo)) {
-                this.setOutdatedVersionFlag(true);
-                console.log('Aircraft version outdated');
-            } else {
-                console.log('Aircraft version ok');
-            }
-            this.versionChecked = true;
-        } catch (error) {
-            console.error('Version comparison failed: ', error);
-        }
+        // try {
+        //     const versionInfo = this.getVersionInfo(this.buildInfo.version);
+        //     if (this.checkOutdated(versionInfo)) {
+        //         this.setOutdatedVersionFlag(true);
+        //         console.log('Aircraft version outdated');
+        //     } else {
+        //         console.log('Aircraft version ok');
+        //     }
+        //     this.versionChecked = true;
+        // } catch (error) {
+        //     console.error('Version comparison failed: ', error);
+        // }
 
         return this.versionChecked;
     }

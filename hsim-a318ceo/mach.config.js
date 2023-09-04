@@ -14,7 +14,7 @@ module.exports = {
             extract: true,
             postcss: {
                 plugins: [
-                    tailwind('src/systems/instruments/src/EFBcfm/tailwind.config.js'),
+                    tailwind('src/systems/instruments/src/EFB/tailwind.config.js'),
 
                     // transform: hsl(x y z / alpha) -> hsl(x, y, z, alpha)
                     postCssColorFunctionalNotation(),
@@ -38,9 +38,7 @@ module.exports = {
         reactInstrument('ISIS'),
         reactInstrument('BAT'),
         reactInstrument('ATC'),
-        reactInstrument('EFBcfm', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
-        reactInstrument('EFBcfmacj', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
-        reactInstrument('EFBcfmbaw', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
+        reactInstrument('EFB', ['/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html']),
     ],
 };
 
