@@ -55,7 +55,7 @@ impl A320Fuel {
         },
         FuelInfo {
             fuel_tank_id: "FUEL TANK LEFT MAIN QUANTITY",
-            position: (-8, -16., 2.),
+            position: (-8., -16., 2.),
         },
         FuelInfo {
             fuel_tank_id: "FUEL TANK LEFT AUX QUANTITY",
@@ -63,7 +63,7 @@ impl A320Fuel {
         },
         FuelInfo {
             fuel_tank_id: "FUEL TANK RIGHT MAIN QUANTITY",
-            position: (-8, 16., 2.),
+            position: (-8., 16., 2.),
         },
         FuelInfo {
             fuel_tank_id: "FUEL TANK RIGHT AUX QUANTITY",

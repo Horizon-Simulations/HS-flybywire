@@ -56,7 +56,7 @@ The following aircraft configuration is currently simulated or targeted:
  ### A319-100 CFM (ceo)
 
  ```
- Model       A319-111
+ Model       A319-115
  Engine      CFM56-5B5
  APU         APS3200
  FMS         Honeywell Release H3
@@ -72,7 +72,7 @@ The following aircraft configuration is currently simulated or targeted:
   ### A319-100 IAE (ceo)
 
  ```
- Model       A319-131
+ Model       A319-133
  Engine      IAE V2524-A5
  APU         APS3200
  FMS         Honeywell Release H3
@@ -88,7 +88,7 @@ The following aircraft configuration is currently simulated or targeted:
  ### A320-200 CFM (ceo)
 
  ```
- Model       A320-234
+ Model       A320-214
  Engine      CFM56-5B4/P
  APU         APS3200
  FMS         Honeywell Release H3
@@ -104,7 +104,7 @@ The following aircraft configuration is currently simulated or targeted:
   ### A320-200 IAE (ceo)
 
  ```
- Model       A320-132
+ Model       A320-232
  Engine      IAE V2527-A5
  APU         APS3200
  FMS         Honeywell Release H3
