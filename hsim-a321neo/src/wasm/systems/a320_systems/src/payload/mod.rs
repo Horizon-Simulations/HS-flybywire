@@ -73,7 +73,7 @@ impl From<usize> for A320Cargo {
 }
 
 pub struct A320Payload {
-    payload_manager: PayloadManager<8, 2, 8>,
+    payload_manager: PayloadManager<8, 2, 4>,
 }
 impl A320Payload {
     // Note: These constants reflect flight_model.cfg values and will have to be updated in sync with the configuration
@@ -87,43 +87,43 @@ impl A320Payload {
         },
         PaxInfo {
             max_pax: 30,
-            position: (10, 0., 5.1),
+            position: (10., 0., 5.1),
             pax_id: "PAX_B",
             payload_id: "PAYLOAD_STATION_2_REQ",
         },
         PaxInfo {
             max_pax: 30,
-            position: (0, 0., 5.3),
+            position: (0., 0., 5.3),
             pax_id: "PAX_C",
             payload_id: "PAYLOAD_STATION_3_REQ",
         },
         PaxInfo {
             max_pax: 30,
-            position: (-12, 0., 5.5),
+            position: (-12., 0., 5.5),
             pax_id: "PAX_D",
             payload_id: "PAYLOAD_STATION_4_REQ",
         },
                 PaxInfo {
             max_pax: 30,
-            position: (-27, 0., 5.5),
+            position: (-27., 0., 5.5),
             pax_id: "PAX_E",
             payload_id: "PAYLOAD_STATION_5_REQ",
         },
         PaxInfo {
             max_pax: 30,
-            position: (-41, 0., 5.5),
+            position: (-41., 0., 5.5),
             pax_id: "PAX_F",
             payload_id: "PAYLOAD_STATION_6_REQ",
         },
         PaxInfo {
-            max_pax: 48,
-            position: (-52, 0., 5.5),
+            max_pax: 30,
+            position: (-52., 0., 5.5),
             pax_id: "PAX_G",
             payload_id: "PAYLOAD_STATION_7_REQ",
         },
         PaxInfo {
-            max_pax: 48,
-            position: (-63, 0., 5.5),
+            max_pax: 30,
+            position: (-63., 0., 5.5),
             pax_id: "PAX_H",
             payload_id: "PAYLOAD_STATION_8_REQ",
         },
@@ -134,25 +134,25 @@ impl A320Payload {
             max_cargo_kg: 3402.,
             position: (13.43, 0., 0.9),
             cargo_id: "CARGO_FWD_BAGGAGE_CONTAINER",
-            payload_id: "PAYLOAD_STATION_5_REQ",
+            payload_id: "PAYLOAD_STATION_9_REQ",
         },
         CargoInfo {
             max_cargo_kg: 2426.,
             position: (-41.83, 0., 1.),
             cargo_id: "CARGO_AFT_CONTAINER",
-            payload_id: "PAYLOAD_STATION_6_REQ",
+            payload_id: "PAYLOAD_STATION_10_REQ",
         },
         CargoInfo {
             max_cargo_kg: 2110.,
             position: (-54.83, 0., 1.2),
             cargo_id: "CARGO_AFT_BAGGAGE",
-            payload_id: "PAYLOAD_STATION_7_REQ",
+            payload_id: "PAYLOAD_STATION_11_REQ",
         },
         CargoInfo {
             max_cargo_kg: 1497.,
             position: (-62.13, 0., 1.4),
             cargo_id: "CARGO_AFT_BULK_LOOSE",
-            payload_id: "PAYLOAD_STATION_8_REQ",
+            payload_id: "PAYLOAD_STATION_12_REQ",
         },
     ];
 
