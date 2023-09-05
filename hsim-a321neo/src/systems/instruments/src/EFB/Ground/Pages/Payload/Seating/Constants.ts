@@ -52,19 +52,19 @@ export interface CargoStationInfo {
 
 export const SeatConstants = Object.freeze({
     [SeatType.NarrowbodyEconomy]: {
-        len: 19.2,
+        len: 10,
         wid: 19.2,
         padX: 13,
         padY: 0,
-        imageX: 25.4,
+        imageX: 20,
         imageY: 19.2,
     },
     [SeatType.NarrowbodyEconomyEmergency]: {
-        len: 19.2,
+        len: 10,
         wid: 19.2,
         padX: 20,
         padY: 0,
-        imageX: 25.4,
+        imageX: 20,
         imageY: 19.2,
     },
     [SeatType.NarrowbodyPremiumEconomy]: {
@@ -100,7 +100,7 @@ export const SeatConstants = Object.freeze({
         imageY: 12.125,
     },
     [SeatType.WidebodyBusinessFlatRight]: {
-        len: 24,
+        len: 30,
         wid: 23.22,
         padX: 1,
         padY: 0,
@@ -108,7 +108,7 @@ export const SeatConstants = Object.freeze({
         imageY: 23.22,
     },
     [SeatType.WidebodyBusinessFlatLeft]: {
-        len: 24,
+        len: 30,
         wid: 23.22,
         padX: 1,
         padY: 0,
@@ -116,7 +116,7 @@ export const SeatConstants = Object.freeze({
         imageY: 23.22,
     },
     [SeatType.WidebodySuiteRight]: {
-        len: 35,
+        len: 40,
         wid: 20,
         padX: 2,
         padY: 0,
@@ -124,7 +124,7 @@ export const SeatConstants = Object.freeze({
         imageY: 50,
     },
     [SeatType.WidebodySuiteLeft]: {
-        len: 35,
+        len: 40,
         wid: 20,
         padX: 5,
         padY: 0,
