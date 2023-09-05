@@ -444,17 +444,17 @@ export const A319IAEACJPayload: React.FC<A320Props> = ({
     const [theme] = usePersistentProperty('EFB_UI_THEME', 'blue');
     const getTheme = useCallback((theme: string): [string, string, string] => {
         let base = '#fff';
-        let primary = '#00C9E4';
+        let primary = '#E06938';
         let secondary = '#84CC16';
         switch (theme) {
         case 'dark':
             base = '#fff';
-            primary = '#3B82F6';
+            primary = '#E06938';
             secondary = '#84CC16';
             break;
         case 'light':
             base = '#000000';
-            primary = '#3B82F6';
+            primary = '#E06938';
             secondary = '#84CC16';
             break;
         default:
