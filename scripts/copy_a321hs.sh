@@ -26,13 +26,6 @@ cp -rva ./flybywire/fbw-a32nx/src/wasm/. ./build-a321neo/src/wasm
 #copy FMGC
 cp -rva ./flybywire/fbw-a32nx/src/systems/fmgc/. ./build-a321neo/src/systems/fmgcPW
 
-# copy EFB 
-cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a321neo/src/systems/instruments/src/EFBleap
-cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a321neo/src/systems/instruments/src/EFBpw
-# copy EFB LR
-cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a321neo/src/systems/instruments/src/EFBleaplr
-cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a321neo/src/systems/instruments/src/EFBpwlr
-
 cp -rva ./hsim-a321neo/.env ./build-a321neo/.env
 cp -rva ./hsim-a321neo/mach.config.js ./build-a321neo/mach.config.js
 
@@ -69,8 +62,6 @@ cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages
 # copy base of A21NHS to out
 cp -rva ./hsim-a321neo/src/base/lvfr-horizonsim-airbus-a321-neo/. ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo
 cp -rva ./hsim-a321neo/src/base/lvfr-horizonsim-airbus-a321-neo-lock-highlight/. ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo-lock-highlight
-
-rm -rvf ./build-a321neo/src/systems/instruments/src/EFB
 
 chmod +x ./build-a321neo/src/wasm/fbw_a320/build.sh
 chmod +x ./build-a321neo/src/wasm/fadec_a320/build.sh

@@ -23,10 +23,6 @@ cp -rva ./flybywire/fbw-a32nx/src/localization/. ./build-a320ceo/src/localizatio
 cp -rva ./flybywire/fbw-a32nx/src/systems/. ./build-a320ceo/src/systems
 cp -rva ./flybywire/fbw-a32nx/src/wasm/. ./build-a320ceo/src/wasm
 
-# copy EFB
-cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a320ceo/src/systems/instruments/src/EFBcfm
-cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EFB/. ./build-a320ceo/src/systems/instruments/src/EFBiae
-
 # copy EWD
 cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EWD/. ./build-a320ceo/src/systems/instruments/src/EWDcfm
 cp -rva ./flybywire/fbw-a32nx/src/systems/instruments/src/EWD/. ./build-a320ceo/src/systems/instruments/src/EWDiae
@@ -73,7 +69,6 @@ cp -rva ./flybywire/fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Pages
 cp -rva ./hsim-a320ceo/src/base/lvfr-horizonsim-airbus-a320-ceo/. ./build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo
 cp -rva ./hsim-a320ceo/src/base/lvfr-horizonsim-airbus-a320-ceo-lock-highlight/. ./build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo-lock-highlight
 
-rm -rvf ./build-a320ceo/src/systems/instruments/src/EFB
 rm -rvf ./build-a320ceo/src/systems/instruments/src/EWD
 
 chmod +x ./build-a320ceo/src/wasm/fbw_a320/build.sh
