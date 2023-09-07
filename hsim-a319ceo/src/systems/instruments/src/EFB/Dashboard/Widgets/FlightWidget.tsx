@@ -10,6 +10,7 @@ import { usePersistentProperty } from '@flybywiresim/fbw-sdk';
 import { toast } from 'react-toastify';
 import { fetchSimbriefDataAction, isSimbriefDataLoaded } from '../../Store/features/simBrief';
 import { useAppSelector, useAppDispatch } from '../../Store/store';
+import { getAirframeType } from '../../Efb';
 
 import { ScrollableContainer } from '../../UtilComponents/ScrollableContainer';
 import { t } from '../../translation';
@@ -134,7 +135,7 @@ export const FlightWidget = () => {
                         {' '}
                         |
                         {' '}
-                        A319-115
+                        {getAirframeType()}
                     </h1>
                 )}
             </div>
