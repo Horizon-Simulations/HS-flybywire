@@ -9,7 +9,7 @@
     "title": "A21NHS - Lock Highlights",
     "dependencies": [
       {
-        "package_version": "2.0",
+        "package_version": "2.1",
         "name": "horizonsim-lvfr-airbus-a321-neo"
       }
     ],
