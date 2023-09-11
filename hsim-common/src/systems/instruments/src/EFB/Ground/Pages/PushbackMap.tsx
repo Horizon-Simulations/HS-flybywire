@@ -7,6 +7,8 @@ import { useSimVar, MathUtils } from '@flybywiresim/fbw-sdk';
 import { ZoomIn, ZoomOut } from 'react-bootstrap-icons';
 import { IconPlane } from '@tabler/icons';
 import { Coordinates } from 'msfs-geo';
+import { getAirframeType } from '../../Efb';
+import { AC_LENGTH } from '../../Enum/FuselageLength';
 import { computeDestinationPoint, getGreatCircleBearing } from 'geolib';
 import getDistance from 'geolib/es/getPreciseDistance';
 import { GeolibInputCoordinates } from 'geolib/es/types';
@@ -62,6 +64,8 @@ const TurningRadiusIndicator = ({ turningRadius }: TurningRadiusIndicatorProps) 
 export const PushbackMap = () => {
     const dispatch = useAppDispatch();
 
+    const [airframe] = useState(getAirframeType());
+
     const [planeHeadingTrue] = useSimVar('PLANE HEADING DEGREES TRUE', 'degrees', 50);
     const [planeLatitude] = useSimVar('A:PLANE LATITUDE', 'degrees latitude', 50);
     const [planeLongitude] = useSimVar('A:PLANE LONGITUDE', 'degrees longitude', 50);
@@ -108,10 +112,10 @@ export const PushbackMap = () => {
     };
 
     // Calculates the size in pixels based on the real A321 length and the current zoom
-    const a321IconSize = (mapRange) => {
+    const IconSize = (mapRange) => {
         const pixelPerMeter = someConstant * 10; // at 0.1 range
-        const a321LengthMeter = 44.51;
-        return MathUtils.clamp(a321LengthMeter * pixelPerMeter * (0.1 / mapRange), 15, 1000);
+        const LengthMeter = (airframe !== null ? AC_LENGTH[airframe] : 37.57);
+        return MathUtils.clamp(LengthMeter * pixelPerMeter * (0.1 / mapRange), 15, 1000);
     };
 
     // Calculates turning radius for the Turning prediction arc
@@ -225,7 +229,7 @@ export const PushbackMap = () => {
                 {/* Map */}
                 {!process.env.VITE_BUILD && (
                     <BingMap
-                        configFolder="/Pages/VCockpit/Instruments/Airliners/lvfr-horizonsim-airbus-a321-ceo/EFB/"
+                        configFolder="/Pages/VCockpit/Instruments/Airliners/horizonsim-airbus/EFB/"
                         centerLla={actualMapLatLon}
                         mapId="PUSHBACK_MAP"
                         range={mapRange}
@@ -252,7 +256,7 @@ export const PushbackMap = () => {
                     <IconPlane
                         className="text-theme-highlight"
                         style={{ transform: `rotate(-90deg) translateY(${Math.sign(aircraftIconPosition.x) * Math.min(1000, Math.abs(aircraftIconPosition.x))}px) translateX(${Math.sign(aircraftIconPosition.y) * Math.min(1000, Math.abs(aircraftIconPosition.y))}px)` }}
-                        size={a321IconSize(mapRange)}
+                        size={IconSize(mapRange)}
                         strokeLinejoin="miter"
                         stroke={1}
                     />
