@@ -1,4 +1,4 @@
-export enum AC_LENGTH {
+export enum AicraftLength {
     A318_115 = 31.45,
     A318_ACJ = 31.45,
     A318_BAW = 31.45,

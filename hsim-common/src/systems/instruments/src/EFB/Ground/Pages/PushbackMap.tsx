@@ -8,7 +8,7 @@ import { ZoomIn, ZoomOut } from 'react-bootstrap-icons';
 import { IconPlane } from '@tabler/icons';
 import { Coordinates } from 'msfs-geo';
 import { getAirframeType } from '../../Efb';
-import { AC_LENGTH } from './Pushback/Constants';
+import { AicraftLength } from './Pushback/Constants';
 import { computeDestinationPoint, getGreatCircleBearing } from 'geolib';
 import getDistance from 'geolib/es/getPreciseDistance';
 import { GeolibInputCoordinates } from 'geolib/es/types';
@@ -114,7 +114,7 @@ export const PushbackMap = () => {
     // Calculates the size in pixels based on the real A321 length and the current zoom
     const IconSize = (mapRange) => {
         const pixelPerMeter = someConstant * 10; // at 0.1 range
-        const LengthMeter = (airframe !== null ? AC_LENGTH[airframe] : 37.57);
+        const LengthMeter = (airframe !== null ? AicraftLength[airframe] : 37.57);
         return MathUtils.clamp(LengthMeter * pixelPerMeter * (0.1 / mapRange), 15, 1000);
     };
 

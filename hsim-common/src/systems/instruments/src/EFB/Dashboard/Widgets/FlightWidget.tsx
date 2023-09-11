@@ -69,6 +69,7 @@ export const FlightWidget = () => {
     const { data } = useAppSelector((state) => state.simbrief);
     const [simbriefDataPending, setSimbriefDataPending] = useState(false);
     const [simbriefUserId] = usePersistentProperty('CONFIG_SIMBRIEF_USERID');
+    const [airframe] = useState(getAirframeType());
 
     const {
         schedIn,
@@ -135,7 +136,7 @@ export const FlightWidget = () => {
                         {' '}
                         |
                         {' '}
-                        {AC_TYPE[getAirframeType()]}
+                        {AC_TYPE[airframe]}
                     </h1>
                 )}
             </div>
