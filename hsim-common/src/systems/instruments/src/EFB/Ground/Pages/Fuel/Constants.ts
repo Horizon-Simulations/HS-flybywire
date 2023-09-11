@@ -1,4 +1,4 @@
-export default {
+export const Fuel = Object.freeze({
     A318_115: { total: 6303, outer_cell: 228, inner_cell: 1816, center: 2215},
     A318_ACJ: { total: 6303, outer_cell: 228, inner_cell: 1816, center: 2215},
     A318_BAW: { total: 6303, outer_cell: 228, inner_cell: 1816, center: 2215},
@@ -16,4 +16,4 @@ export default {
     A321_271N: { total: 6205, outer_cell: 228, inner_cell: 1816, center: 2117},
     A321_271NX: { total: 6205, outer_cell: 228, inner_cell: 1816, center: 2117},
     A321_271N_LR: { total: 7786, outer_cell: 228, inner_cell: 1816, center: 3698},
-}
+});

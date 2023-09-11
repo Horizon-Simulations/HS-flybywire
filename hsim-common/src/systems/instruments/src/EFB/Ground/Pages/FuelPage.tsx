@@ -5,7 +5,7 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import { getAirframeType } from '../../Efb';
-import FUEL from '../../Enum/Fuel';
+import { Fuel } from './Fuel/Constants'
 import { round } from 'lodash';
 import { CloudArrowDown, PlayFill, StopCircleFill } from 'react-bootstrap-icons';
 import { useSimVar, Units, usePersistentNumberProperty, usePersistentProperty } from '@flybywiresim/fbw-sdk';
@@ -54,11 +54,13 @@ const TankReadoutWidget = ({ title, current, target, capacity, currentUnit, tank
     );
 };
 
+const [airframe] = useState(getAirframeType());
+
 export const FuelPage = () => {
-    const TOTAL_FUEL_GALLONS = FUEL[getAirframeType()].total;
-    const OUTER_CELL_GALLONS = FUEL[getAirframeType()].outer_cell;
-    const INNER_CELL_GALLONS = FUEL[getAirframeType()].inner_cell;
-    const CENTER_TANK_GALLONS = FUEL[getAirframeType()].center;
+    const TOTAL_FUEL_GALLONS = Fuel[airframe].total;
+    const OUTER_CELL_GALLONS = Fuel[airframe].outer_cell;
+    const INNER_CELL_GALLONS = Fuel[airframe].inner_cell;
+    const CENTER_TANK_GALLONS = Fuel[airframe].center;
     const wingTotalRefuelTimeSeconds = 1020;
     const CenterTotalRefuelTimeSeconds = 180;
 
