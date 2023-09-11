@@ -8,7 +8,7 @@ import { ZoomIn, ZoomOut } from 'react-bootstrap-icons';
 import { IconPlane } from '@tabler/icons';
 import { Coordinates } from 'msfs-geo';
 import { getAirframeType } from '../../Efb';
-import { AC_LENGTH } from '../../Enum/FuselageLength';
+import { AC_LENGTH } from './Pushback/Constants';
 import { computeDestinationPoint, getGreatCircleBearing } from 'geolib';
 import getDistance from 'geolib/es/getPreciseDistance';
 import { GeolibInputCoordinates } from 'geolib/es/types';
