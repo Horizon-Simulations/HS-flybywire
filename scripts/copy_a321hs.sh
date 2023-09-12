@@ -35,6 +35,9 @@ cp -rva ./hsim-a321neo/src/model/. ./build-a321neo/src/model
 cp -rva ./hsim-a321neo/src/systems/. ./build-a321neo/src/systems
 cp -rva ./hsim-a321neo/src/wasm/. ./build-a321neo/src/wasm
 
+# copy common modules into A21NHS build
+cp -rva ./hsim-common/src/systems/. ./build-a321neo/src/systems
+
 mkdir -p ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo
 mkdir -p ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo-lock-highlight
 

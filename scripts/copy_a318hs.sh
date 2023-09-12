@@ -32,6 +32,9 @@ cp -rva ./hsim-a318ceo/src/model/. ./build-a318ceo/src/model
 cp -rva ./hsim-a318ceo/src/systems/. ./build-a318ceo/src/systems
 cp -rva ./hsim-a318ceo/src/wasm/. ./build-a318ceo/src/wasm
 
+# copy common modules into A318HS build
+cp -rva ./hsim-common/src/systems/. ./build-a318ceo/src/systems
+
 mkdir -p ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo
 mkdir -p ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo-lock-highlight
 
