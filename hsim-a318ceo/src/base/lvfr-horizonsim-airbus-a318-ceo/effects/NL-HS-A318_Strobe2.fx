@@ -49,7 +49,7 @@ Face=1, 1, 1
 
 [ParticleAttributes.0]
 Blend Mode=2
-Texture=LIGHT
+Texture=NLHS-LIGHT
 Color Start=255, 255, 255, 255
 Color End=255, 255, 255, 255
 uv1=0.0, 0.0
@@ -116,7 +116,7 @@ Face=1, 1, 1
 
 [ParticleAttributes.1]
 Blend Mode=2
-Texture=TX-STROBE
+Texture=NLHS-STROBE
 Bounce=0.0
 Color Start=255, 255, 255, 5
 Color End=255, 255, 255, 5
