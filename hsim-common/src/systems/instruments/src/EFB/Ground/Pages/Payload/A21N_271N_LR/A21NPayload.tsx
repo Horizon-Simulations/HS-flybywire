@@ -12,7 +12,7 @@ import { TooltipWrapper } from '../../../../UtilComponents/TooltipWrapper';
 import Loadsheet from './a21nlrwv071.json';
 import Card from '../../../../UtilComponents/Card/Card';
 import { SelectGroup, SelectItem } from '../../../../UtilComponents/Form/Select';
-import { SeatMapWidget } from '../Seating/SeatMapWidget';
+import { SeatMapWidget } from './SeatMapWidget';
 import { PromptModal, useModals } from '../../../../UtilComponents/Modals/Modals';
 
 interface A320Props {

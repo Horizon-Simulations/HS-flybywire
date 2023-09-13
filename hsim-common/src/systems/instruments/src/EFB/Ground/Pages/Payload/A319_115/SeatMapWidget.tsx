@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import * as ReactDOMServer from 'react-dom/server';
 import { BitFlags } from '@flybywiresim/fbw-sdk';
-import { CanvasConst, SeatConstants, SeatInfo, PaxStationInfo, SeatType, RowInfo } from './Constants';
+import { CanvasConst, SeatConstantsA319, SeatInfo, PaxStationInfo, SeatType, RowInfo } from './Constants';
 import { BusinessSeatLeft, BusinessSeatRight, Seat, SuiteLeft, SuiteRight } from '../../../../Assets/Seat';
 
 interface SeatMapProps {
@@ -74,7 +74,7 @@ export const SeatMapWidget: React.FC<SeatMapProps> = ({ seatMap, desiredFlags, a
             }
         }
         if (row !== 0 || station !== 0) {
-            xOff += (SeatConstants[seatType].padX + SeatConstants[seatType].len);
+            xOff += (SeatConstantsA319[seatType].padX + SeatConstantsA319[seatType].len);
         }
         return xOff;
     }, [ctx]);
@@ -87,7 +87,7 @@ export const SeatMapWidget: React.FC<SeatMapProps> = ({ seatMap, desiredFlags, a
         }
         const seatType = seatMap[station].rows[row].seats[seat].type;
         if (seat !== 0) {
-            yOff += (SeatConstants[seatType].padY + SeatConstants[seatType].wid);
+            yOff += (SeatConstantsA319[seatType].padY + SeatConstantsA319[seatType].wid);
         }
         return yOff;
     }, [ctx]);
@@ -123,9 +123,9 @@ export const SeatMapWidget: React.FC<SeatMapProps> = ({ seatMap, desiredFlags, a
             if (!xYMap[station]) {
                 xYMap[station] = [];
             }
-            xYMap[station][seatId] = [x + SeatConstants[seatsInfo[seat].type].imageX / 2, yOff + SeatConstants[seatsInfo[seat].type].imageY / 2, deck];
+            xYMap[station][seatId] = [x + SeatConstantsA319[seatsInfo[seat].type].imageX / 2, yOff + SeatConstantsA319[seatsInfo[seat].type].imageY / 2, deck];
             setXYMap(xYMap);
-            drawSeat(x, yOff, seatsInfo[seat].type, SeatConstants[seatsInfo[seat].type].imageX, SeatConstants[seatsInfo[seat].type].imageY, station, seatId++);
+            drawSeat(x, yOff, seatsInfo[seat].type, SeatConstantsA319[seatsInfo[seat].type].imageX, SeatConstantsA319[seatsInfo[seat].type].imageY, station, seatId++);
         }
     }, [ctx, ...activeFlags, ...desiredFlags]);
 
