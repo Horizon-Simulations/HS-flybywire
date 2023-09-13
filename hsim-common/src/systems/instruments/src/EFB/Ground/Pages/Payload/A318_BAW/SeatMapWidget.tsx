@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import * as ReactDOMServer from 'react-dom/server';
 import { BitFlags } from '@flybywiresim/fbw-sdk';
-import { CanvasConst, SeatConstantsA318, SeatInfo, PaxStationInfo, SeatType, RowInfo } from './Constants';
+import { CanvasConst, SeatConstantsA318, SeatInfo, PaxStationInfo, SeatType, RowInfo } from '../Seating/Constants';
 import { BusinessSeatLeft, BusinessSeatRight, Seat, SuiteLeft, SuiteRight } from '../../../../Assets/Seat';
 
 interface SeatMapProps {
