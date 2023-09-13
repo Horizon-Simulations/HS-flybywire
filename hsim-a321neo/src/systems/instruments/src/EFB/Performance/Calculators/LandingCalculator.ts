@@ -574,15 +574,15 @@ const SAFETY_MARGIN = 1.15;
 
 /**
  * VLS speed (kts) for full flap configuration
- * Index 0 = 40T, Index 8 = 80T, 5T increment
+ * Index 0 = 50T, Index 11 = 105T, 5T increment
  */
-const CONF_FULL_VLS = [116, 116, 116, 120, 125, 130, 135, 139, 143];
+const CONF_FULL_VLS = [112, 114, 119, 124, 128, 132, 137, 141, 145, 149, 154, 157];
 
 /**
  * VLS speed (kts) for conf 3 flaps
- * Index 0 = 40T, Index 8 = 80T, 5T increment
+ * Index 0 = 50T, Index 11 = 90T, 5T increment
  */
-const CONF3_VLS = [116, 118, 124, 130, 136, 141, 146, 151, 155];
+const CONF3_VLS = [113, 119, 124, 129, 134, 138, 143, 146, 150, 155, 160, 166];
 
 /**
  * Gets the interpolated VLS speed (kts) for the given mass, in tonnes, and the appropriate VLS speed table.
@@ -590,7 +590,7 @@ const CONF3_VLS = [116, 118, 124, 130, 136, 141, 146, 151, 155];
  * @param vlsSpeedTable
  */
 const getInterpolatedVlsTableValue = (mass: number, vlsSpeedTable: number[]): number => {
-    const index = Math.max(0, Math.ceil((Math.min(80, mass) - 40) / 5));
+    const index = Math.max(0, Math.ceil((Math.min(105, mass) - 50) / 5));
 
     if (index === 0) return vlsSpeedTable[0];
     if (index === 8) return vlsSpeedTable[8];
