@@ -8,7 +8,7 @@
         <!-- Highest LOD -->
         <!-- minimum display size in % (should be bounding sphere vertical screen size, sphere will often be slightly larger than you expect) -->
         <!-- default minSize is 0 -->
-        <LOD minSize="150" ModelFile="A320_NEO_INTERIOR_LOD00.gltf"/>
+        <LOD minSize="150" ModelFile="..\..\aircrafta321neopw\model\A320_NEO_INTERIOR_LOD00.gltf"/>
 		<LOD minSize="100" ModelFile="..\..\aircrafta321neopw\model.NACF\A320_NEO_INTERIOR_LOD01.gltf"/>
 		<LOD minSize="60" ModelFile="..\..\aircrafta321neopw\model.NACF\A320_NEO_INTERIOR_LOD02.gltf"/>
 		<LOD minSize="20" ModelFile="..\..\aircrafta321neopw\model.NACF\A320_NEO_INTERIOR_LOD03.gltf"/>

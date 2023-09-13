@@ -55,6 +55,7 @@ Cargo.toml
 /hsim-a318-common/*
 /hsim-a319-common/*
 /hsim-a320-common/*
+/hsim-common/*
 !/hsim-a21n-common/src/
 !/hsim-a21n-common/src/**
 !/hsim-a318-common/src/
@@ -63,6 +64,8 @@ Cargo.toml
 !/hsim-a319-common/src/**
 !/hsim-a320-common/src/
 !/hsim-a320-common/src/**
+!/hsim-common/src/
+!/hsim-common/src/**
 
 /hsim-a318ceo/*
 !/hsim-a318ceo/README.md
