@@ -88,7 +88,7 @@ export const A21NLEAPLROverviewPage = () => {
                         <Box size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MaximumFuelCapacity')} info={getConvertedInfo(23490, 'volume')}>
+                    <InformationEntry title={t('Dispatch.Overview.MaximumFuelCapacity')} info={getConvertedInfo(32853, 'volume')}>
                         <Box size={23} />
                     </InformationEntry>
 

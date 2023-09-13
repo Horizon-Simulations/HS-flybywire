@@ -76,7 +76,7 @@ export const A21NPWOverviewPage = () => {
                     </InformationEntry>
                 </div>
                 <div className="flex flex-col space-y-8">
-                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="Pratt & Whitney PW1133GA-JM">
+                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="Pratt & Whitney PW1133GA">
                         <LightningFill size={23} />
                     </InformationEntry>
 

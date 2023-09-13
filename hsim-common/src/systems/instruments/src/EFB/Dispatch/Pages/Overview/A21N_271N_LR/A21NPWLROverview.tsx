@@ -76,7 +76,7 @@ export const A21NPWLROverviewPage = () => {
                     </InformationEntry>
                 </div>
                 <div className="flex flex-col space-y-8">
-                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="Pratt & Whitney PW1133GA-JM">
+                    <InformationEntry title={t('Dispatch.Overview.Engines')} info="Pratt & Whitney PW1133GA">
                         <LightningFill size={23} />
                     </InformationEntry>
 
@@ -88,7 +88,7 @@ export const A21NPWLROverviewPage = () => {
                         <Box size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MaximumFuelCapacity')} info={getConvertedInfo(23490, 'volume')}>
+                    <InformationEntry title={t('Dispatch.Overview.MaximumFuelCapacity')} info={getConvertedInfo(32853, 'volume')}>
                         <Box size={23} />
                     </InformationEntry>
 
