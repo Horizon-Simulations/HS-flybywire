@@ -54,13 +54,13 @@ const TankReadoutWidget = ({ title, current, target, capacity, currentUnit, tank
     );
 };
 
-const [airframe] = useState(getAirframeType());
 
 export const FuelPage = () => {
-    const TOTAL_FUEL_GALLONS = Fuel[airframe].total;
-    const OUTER_CELL_GALLONS = Fuel[airframe].outer_cell;
-    const INNER_CELL_GALLONS = Fuel[airframe].inner_cell;
-    const CENTER_TANK_GALLONS = Fuel[airframe].center;
+    const [airframe] = useState(getAirframeType());
+    const TOTAL_FUEL_GALLONS = Fuel[(airframe !== null ? airframe : 'A320_214')].total;
+    const OUTER_CELL_GALLONS = Fuel[(airframe !== null ? airframe : 'A320_214')].outer_cell;
+    const INNER_CELL_GALLONS = Fuel[(airframe !== null ? airframe : 'A320_214')].inner_cell;
+    const CENTER_TANK_GALLONS = Fuel[(airframe !== null ? airframe : 'A320_214')].center;
     const wingTotalRefuelTimeSeconds = 1020;
     const CenterTotalRefuelTimeSeconds = 180;
 

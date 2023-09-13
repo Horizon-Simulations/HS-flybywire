@@ -1,6 +1,6 @@
 {
   "name": "horizon-simulations-fbw",
-  "version": "2.1",
+  "version": "2.0.2",
   "description": "Horizon Simulations FlyByWire Compatibility Core Repository",
   "scripts": {
     "====== A318ceo =================": "==========================================",

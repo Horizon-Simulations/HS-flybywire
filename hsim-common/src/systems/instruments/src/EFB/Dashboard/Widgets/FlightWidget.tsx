@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import { getAirframeType } from '../../Efb';
 import { AC_TYPE } from '../../Enum/Airframe';
 import { fetchSimbriefDataAction, isSimbriefDataLoaded } from '../../Store/features/simBrief';
+
 import { useAppSelector, useAppDispatch } from '../../Store/store';
 import { ScrollableContainer } from '../../UtilComponents/ScrollableContainer';
 import { t } from '../../translation';
@@ -136,7 +137,7 @@ export const FlightWidget = () => {
                         {' '}
                         |
                         {' '}
-                        {AC_TYPE[airframe]}
+                        {(airframe !== null ? AC_TYPE[airframe] : 'A320-214')}
                     </h1>
                 )}
             </div>

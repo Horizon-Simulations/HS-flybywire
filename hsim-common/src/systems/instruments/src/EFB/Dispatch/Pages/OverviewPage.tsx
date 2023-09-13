@@ -1,7 +1,7 @@
 // Copyright (c) 2021-2023 FlyByWire Simulations
 //
 // SPDX-License-Identifier: GPL-3.0
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 import { getAirframeType } from '../../Efb';
 import { A318OverviewPage } from './Overview/A318_115/A318Overview';
 import { A318ACJOverviewPage } from './Overview//A318CJ_115/A318ACJOverview';
@@ -16,10 +16,10 @@ import { A21NLEAPLROverviewPage } from './Overview/A21N_251N_LR/A21NLEAPLROvervi
 import { A21NPWOverviewPage } from './Overview/A21N_271N/A21NPWOverview';
 import { A21NPWLROverviewPage } from './Overview/A21N_271N_LR/A21NPWLROverview';
 
-const [airframe] = useState(getAirframeType());
 
 export const OverviewPage = () => {
-    switch (airframe) {
+    const [airframe] = useState(getAirframeType());
+    switch ((airframe !== null ? airframe : 'A320_214')) {
     case 'A318_115':
         return (
             <A318OverviewPage />
