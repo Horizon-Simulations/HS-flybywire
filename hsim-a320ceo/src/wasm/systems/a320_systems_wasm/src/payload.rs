@@ -105,15 +105,15 @@ struct Payload {
 
     #[name = "PAYLOAD STATION WEIGHT:9"]
     #[unit = "Pounds"]
-    payload_station_8: f64,
+    payload_station_9: f64,
 
     #[name = "PAYLOAD STATION WEIGHT:10"]
     #[unit = "Pounds"]
-    payload_station_8: f64,
+    payload_station_10: f64,
 
     #[name = "PAYLOAD STATION WEIGHT:11"]
     #[unit = "Pounds"]
-    payload_station_8: f64,
+    payload_station_11: f64,
 }
 
 impl VariablesToObject for Payload {
@@ -129,7 +129,7 @@ impl VariablesToObject for Payload {
             Variable::aspect("PAYLOAD_STATION_8_REQ"),
             Variable::aspect("PAYLOAD_STATION_9_REQ"),
             Variable::aspect("PAYLOAD_STATION_10_REQ"),
-            Variable::aspect("PAYLOAD_STATION_11-REQ"),
+            Variable::aspect("PAYLOAD_STATION_11_REQ"),
         ]
     }
 
