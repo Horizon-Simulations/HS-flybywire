@@ -20,6 +20,9 @@ pub enum A320Pax {
     B,
     C,
     D,
+    E,
+    F,
+    G
 }
 impl From<A320Pax> for usize {
     fn from(value: A320Pax) -> Self {
@@ -68,12 +71,12 @@ impl From<usize> for A320Cargo {
 }
 
 pub struct A320Payload {
-    payload_manager: PayloadManager<4, 2, 4>,
+    payload_manager: PayloadManager<7, 2, 4>,
 }
 impl A320Payload {
     // Note: These constants reflect flight_model.cfg values and will have to be updated in sync with the configuration
     pub const DEFAULT_PER_PAX_WEIGHT_KG: f64 = 84.;
-    const A320_PAX: [PaxInfo<'_>; 4] = [
+    const A320_PAX: [PaxInfo<'_>; 7] = [
         PaxInfo {
             max_pax: 18,
             position: (20.5, 0., 6.),
