@@ -72,7 +72,7 @@ jobs:
             username = ${{ secrets.NEXTCLOUD_USERNAME }}
             password = ${{ secrets.NEXTCLOUD_PASSWORD }}
             root = /HorizonSimulations/TestBuilds/
-            include: '**/**/*.zip'
+          include: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
 #   build-a319:
 #     runs-on: ubuntu-latest
 #     env:
