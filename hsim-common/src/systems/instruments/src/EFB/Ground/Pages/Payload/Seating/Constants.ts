@@ -301,17 +301,17 @@ export const SeatConstantsA319 = Object.freeze({
 
 export const SeatConstantsA320 = Object.freeze({
     [SeatType.NarrowbodyEconomy]: {
-        len: 19.2,
+        len: 17.2,
         wid: 19.2,
-        padX: 13,
+        padX: 12,
         padY: 0,
         imageX: 25.4,
         imageY: 19.2,
     },
     [SeatType.NarrowbodyEconomyEmergency]: {
-        len: 19.2,
+        len: 17.2,
         wid: 19.2,
-        padX: 20,
+        padX: 19,
         padY: 0,
         imageX: 25.4,
         imageY: 19.2,
