@@ -33,6 +33,9 @@ impl From<usize> for A320Pax {
             1 => A320Pax::B,
             2 => A320Pax::C,
             3 => A320Pax::D,
+            4 => A320Pax::E,
+            5 => A320Pax::F,
+            6 => A320Pax::G,
             i => panic!("Cannot convert from {} to A320Pax.", i),
         }
     }
@@ -72,29 +75,47 @@ impl A320Payload {
     pub const DEFAULT_PER_PAX_WEIGHT_KG: f64 = 84.;
     const A320_PAX: [PaxInfo<'_>; 4] = [
         PaxInfo {
-            max_pax: 36,
-            position: (20.5, 0., 5.),
+            max_pax: 18,
+            position: (20.5, 0., 6.),
             pax_id: "PAX_A",
             payload_id: "PAYLOAD_STATION_1_REQ",
         },
         PaxInfo {
-            max_pax: 42,
-            position: (1.5, 0., 5.1),
+            max_pax: 18,
+            position: (10.5, 0., 6.),
             pax_id: "PAX_B",
             payload_id: "PAYLOAD_STATION_2_REQ",
         },
         PaxInfo {
-            max_pax: 48,
-            position: (-16.6, 0., 5.3),
+            max_pax: 42,
+            position: (0.5, 0., 5.1),
             pax_id: "PAX_C",
             payload_id: "PAYLOAD_STATION_3_REQ",
         },
         PaxInfo {
-            max_pax: 48,
-            position: (-35.6, 0., 5.3),
+            max_pax: 42,
+            position: (-11.5, 0., 5.1),
             pax_id: "PAX_D",
             payload_id: "PAYLOAD_STATION_4_REQ",
         },
+        PaxInfo {
+            max_pax: 30,
+            position: (-22.5, 0., 5.5),
+            pax_id: "PAX_E",
+            payload_id: "PAYLOAD_STATION_5_REQ",
+        },
+        PaxInfo {
+            max_pax: 18,
+            position: (-31.5, 0., 6.),
+            pax_id: "PAX_F",
+            payload_id: "PAYLOAD_STATION_6_REQ",
+        },
+        PaxInfo {
+            max_pax: 18,
+            position: (-41.5, 0., 6.),
+            pax_id: "PAX_G",
+            payload_id: "PAYLOAD_STATION_7_REQ",
+        },                        
     ];
 
     const A320_CARGO: [CargoInfo<'_>; 4] = [
@@ -102,25 +123,25 @@ impl A320Payload {
             max_cargo_kg: 3402.,
             position: (17.3, 0., 0.),
             cargo_id: "CARGO_FWD_BAGGAGE_CONTAINER",
-            payload_id: "PAYLOAD_STATION_5_REQ",
+            payload_id: "PAYLOAD_STATION_8_REQ",
         },
         CargoInfo {
             max_cargo_kg: 2426.,
             position: (-24.1, 0., 1.),
             cargo_id: "CARGO_AFT_CONTAINER",
-            payload_id: "PAYLOAD_STATION_6_REQ",
+            payload_id: "PAYLOAD_STATION_9_REQ",
         },
         CargoInfo {
             max_cargo_kg: 2110.,
             position: (-34.1, 0., 1.2),
             cargo_id: "CARGO_AFT_BAGGAGE",
-            payload_id: "PAYLOAD_STATION_7_REQ",
+            payload_id: "PAYLOAD_STATION_10_REQ",
         },
         CargoInfo {
             max_cargo_kg: 1497.,
             position: (-42.4, 0., 1.4),
             cargo_id: "CARGO_AFT_BULK_LOOSE",
-            payload_id: "PAYLOAD_STATION_8_REQ",
+            payload_id: "PAYLOAD_STATION_11_REQ",
         },
     ];
 
@@ -153,8 +174,8 @@ impl A320Payload {
             )
         });
         let boarding_agents = [
-            BoardingAgent::new([0, 1, 2, 3]),
-            BoardingAgent::new([3, 2, 1, 0]),
+            BoardingAgent::new([0, 1, 2, 3, 4, 5, 6]),
+            BoardingAgent::new([6, 5, 4, 3, 2, 1, 0]),
         ];
 
         let passenger_deck = PassengerDeck::new(context, pax, boarding_agents);
