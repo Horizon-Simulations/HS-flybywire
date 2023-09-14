@@ -1,0 +1,271 @@
+name: eval
+on:
+  push:
+    branches:
+      - nextcloud
+
+jobs:
+  build-a318:
+    runs-on: ubuntu-latest
+    env:
+      A32NX_PRODUCTION_BUILD: 1
+      A32NX_INSTRUMENTS_BUILD_WORKERS: 2
+      PRE_RELEASE_ID: 64125785
+      PRE_RELEASE_TAG: vmain
+      ZIP_NAME_A318: lvfr-horizonsim-airbus-a318-ceo.zip
+      BUILD_DIR_NAME: main
+    steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: true
+          dotnet: false
+          haskell: false
+          large-packages: false
+          docker-images: false
+          swap-storage: false
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Set BUILT_DATE_TIME
+        run: echo "BUILT_DATE_TIME=$(date -u -Iseconds)" >> $GITHUB_ENV
+      - name: Create .env file
+        run: |
+          echo A32NX_PRODUCTION_BUILD=1 >> hsim-a318ceo/.env
+          echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a318ceo/.env
+          echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a318ceo/.env
+          echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a318ceo/.env
+          echo BUILD_DIR_NAME=${{ env.BUILD_DIR_NAME }} >> .env
+          echo LOCALAZY_READ_KEY=${{ secrets.LOCALAZY_READ_KEY }} >> .env
+          echo VITE_BUILD=false >> .env
+      - name: Delete old GitHub Pre-Release assets
+        uses: mknejp/delete-release-assets@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ env.PRE_RELEASE_TAG }}
+          assets: "*"
+          fail-if-no-assets: false
+          fail-if-no-release: false
+      - name: Setup Package
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/setup.sh
+      - name: Copy Sources
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/copy_a318hs.sh
+      - name: Build A318HS Package
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/build_a318hs.sh --no-tty -j 4
+      - name: Build A318HS ZIP files
+        run: |
+          mkdir ./${{ env.BUILD_DIR_NAME }}
+          cd ./build-a318ceo/out/
+          zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }} ./lvfr-horizonsim-airbus-a318-ceo/
+          cd ../../
+      - name: Upload Nextcloud Artifact
+        uses: trympet/nextcloud-artifacts-action@v2
+        with:
+          name: "A319 test build"
+          path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
+          nextcloud-url: ${{ secrets.NEXTCLOUD_URL }}
+          nextcloud-username: ${{ secrets.NEXTCLOUD_USERNAME }}
+          nextcloud-password: ${{ secrets.NEXTCLOUD_PASSWORD }}
+  build-a319:
+    runs-on: ubuntu-latest
+    env:
+      A32NX_PRODUCTION_BUILD: 1
+      A32NX_INSTRUMENTS_BUILD_WORKERS: 2
+      PRE_RELEASE_ID: 64125785
+      PRE_RELEASE_TAG: vmain
+      ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo.zip
+      BUILD_DIR_NAME: main
+    steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: true
+          dotnet: false
+          haskell: false
+          large-packages: false
+          docker-images: false
+          swap-storage: false
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Set BUILT_DATE_TIME
+        run: echo "BUILT_DATE_TIME=$(date -u -Iseconds)" >> $GITHUB_ENV
+      - name: Create .env file
+        run: |
+          echo A32NX_PRODUCTION_BUILD=1 >> hsim-a319ceo/.env
+          echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a319ceo/.env
+          echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a319ceo/.env
+          echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a319ceo/.env
+          echo BUILD_DIR_NAME=${{ env.BUILD_DIR_NAME }} >> .env
+          echo LOCALAZY_READ_KEY=${{ secrets.LOCALAZY_READ_KEY }} >> .env
+          echo VITE_BUILD=false >> .env
+      - name: Delete old GitHub Pre-Release assets
+        uses: mknejp/delete-release-assets@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ env.PRE_RELEASE_TAG }}
+          assets: "*"
+          fail-if-no-assets: false
+          fail-if-no-release: false
+      - name: Setup Package
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/setup.sh
+      - name: Copy Sources
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/copy_a319hs.sh
+      - name: Build A319HS Package
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/build_a319hs.sh --no-tty -j 4
+      - name: Build A319HS ZIP files
+        run: |
+          mkdir ./${{ env.BUILD_DIR_NAME }}
+          cd ./build-a319ceo/out/
+          zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }} ./lvfr-horizonsim-airbus-a319-ceo/
+          cd ../../
+      - name: Upload Nextcloud Artifact
+        uses: trympet/nextcloud-artifacts-action@v2
+        with:
+          name: "A319 test build"
+          path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
+          nextcloud-url: ${{ secrets.NEXTCLOUD_URL }}
+          nextcloud-username: ${{ secrets.NEXTCLOUD_USERNAME }}
+          nextcloud-password: ${{ secrets.NEXTCLOUD_PASSWORD }}
+  build-a320:
+    runs-on: ubuntu-latest
+    env:
+      A32NX_PRODUCTION_BUILD: 1
+      A32NX_INSTRUMENTS_BUILD_WORKERS: 2
+      PRE_RELEASE_ID: 64125785
+      PRE_RELEASE_TAG: vmain
+      ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo.zip
+      BUILD_DIR_NAME: main
+    steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: true
+          dotnet: false
+          haskell: false
+          large-packages: false
+          docker-images: false
+          swap-storage: false
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Set BUILT_DATE_TIME
+        run: echo "BUILT_DATE_TIME=$(date -u -Iseconds)" >> $GITHUB_ENV
+      - name: Create .env file
+        run: |
+          echo A32NX_PRODUCTION_BUILD=1 >> hsim-a320ceo/.env
+          echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a320ceo/.env
+          echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a320ceo/.env
+          echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a320ceo/.env
+          echo BUILD_DIR_NAME=${{ env.BUILD_DIR_NAME }} >> .env
+          echo LOCALAZY_READ_KEY=${{ secrets.LOCALAZY_READ_KEY }} >> .env
+          echo VITE_BUILD=false >> .env
+      - name: Delete old GitHub Pre-Release assets
+        uses: mknejp/delete-release-assets@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ env.PRE_RELEASE_TAG }}
+          assets: "*"
+          fail-if-no-assets: false
+          fail-if-no-release: false
+      - name: Setup Package
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/setup.sh
+      - name: Copy Sources
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/copy_a320hs.sh
+      - name: Build A320HS Package
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/build_a320hs.sh --no-tty -j 4
+      - name: Build A320HS ZIP files
+        run: |
+          mkdir ./${{ env.BUILD_DIR_NAME }}
+          cd ./build-a320ceo/out/
+          zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} ./lvfr-horizonsim-airbus-a320-ceo/
+          cd ../../
+      - name: Upload Nextcloud Artifact
+        uses: trympet/nextcloud-artifacts-action@v2
+        with:
+          name: "A320 test build" # Name of the artifact
+          path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} # Globbing supported
+          nextcloud-url: ${{ secrets.NEXTCLOUD_URL }} # Nextcloud URL
+          nextcloud-username: ${{ secrets.NEXTCLOUD_USERNAME }} # Username from repository secret
+          nextcloud-password: ${{ secrets.NEXTCLOUD_PASSWORD }} # Password from repository secret
+  build-a321:
+    runs-on: ubuntu-latest
+    env:
+      A32NX_PRODUCTION_BUILD: 1
+      A32NX_INSTRUMENTS_BUILD_WORKERS: 2
+      PRE_RELEASE_ID: 64125785
+      PRE_RELEASE_TAG: vmain
+      ZIP_NAME_A321: lvfr-horizonsim-airbus-a321-neo.zip
+      BUILD_DIR_NAME: main
+    steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: true
+          dotnet: false
+          haskell: false
+          large-packages: false
+          docker-images: false
+          swap-storage: false
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Set BUILT_DATE_TIME
+        run: echo "BUILT_DATE_TIME=$(date -u -Iseconds)" >> $GITHUB_ENV
+      - name: Create .env file
+        run: |
+          echo A32NX_PRODUCTION_BUILD=1 >> hsim-a321neo/.env
+          echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a321neo/.env
+          echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a321neo/.env
+          echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a321neo/.env
+          echo BUILD_DIR_NAME=${{ env.BUILD_DIR_NAME }} >> .env
+          echo LOCALAZY_READ_KEY=${{ secrets.LOCALAZY_READ_KEY }} >> .env
+          echo VITE_BUILD=false >> .env
+      - name: Delete old GitHub Pre-Release assets
+        uses: mknejp/delete-release-assets@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ env.PRE_RELEASE_TAG }}
+          assets: "*"
+          fail-if-no-assets: false
+          fail-if-no-release: false
+      - name: Setup Package
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/setup.sh
+      - name: Copy Sources
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/copy_a321hs.sh
+      - name: Build A21NHS Package
+        run: |
+          ./scripts/dev-env/run.sh ./scripts/build_a321hs.sh --no-tty -j 4
+      - name: Build A21NHS ZIP files
+        run: |
+          mkdir ./${{ env.BUILD_DIR_NAME }}
+          cd ./build-a321neo/out/
+          zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }} ./lvfr-horizonsim-airbus-a321-neo/
+          cd ../../
+      - name: Upload Nextcloud Artifact
+        uses: trympet/nextcloud-artifacts-action@v2
+        with:
+          name: "A21N test build"
+          path: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }}
+          nextcloud-url: ${{ secrets.NEXTCLOUD_URL }}
+          nextcloud-username: ${{ secrets.NEXTCLOUD_USERNAME }}
+          nextcloud-password: ${{ secrets.NEXTCLOUD_PASSWORD }}
