@@ -8,13 +8,13 @@
         <!-- Highest LOD -->
         <!-- minimum display size in % (should be bounding sphere vertical screen size, sphere will often be slightly larger than you expect) -->
         <!-- default minSize is 0 -->
-        <LOD minSize="150" ModelFile="A320_NEO_INTERIOR_LOD00.gltf"/>
-		<LOD minSize="100" ModelFile="..\..\A321neoLEAP\model\A320_NEO_INTERIOR_LOD01.gltf"/>
-		<LOD minSize="60" ModelFile="..\..\A321neoLEAP\model\A320_NEO_INTERIOR_LOD02.gltf"/>
-		<LOD minSize="20" ModelFile="..\..\A321neoLEAP\model\A320_NEO_INTERIOR_LOD03.gltf"/>
-		<LOD minSize="10" ModelFile="..\..\A321neoLEAP\model\A320_NEO_INTERIOR_LOD04.gltf"/>
-        <LOD minSize="1" ModelFile="..\..\A321neoLEAP\model\A320_NEO_INTERIOR_LOD05.gltf"/>
-        <LOD minSize="0.1" ModelFile="..\..\A321neoLEAP\model\A320_NEO_INTERIOR_LOD06.gltf"/>
+        <LOD minSize="150" ModelFile="..\..\A321neoLEAP\model\A320_NEO_INTERIOR_LOD00.gltf"/>
+		<LOD minSize="100" ModelFile="..\..\A321neoLEAP\model.NACF\A320_NEO_INTERIOR_LOD01.gltf"/>
+		<LOD minSize="60" ModelFile="..\..\A321neoLEAP\model.NACF\A320_NEO_INTERIOR_LOD02.gltf"/>
+		<LOD minSize="20" ModelFile="..\..\A321neoLEAP\model.NACF\A320_NEO_INTERIOR_LOD03.gltf"/>
+		<LOD minSize="10" ModelFile="..\..\A321neoLEAP\model.NACF\A320_NEO_INTERIOR_LOD04.gltf"/>
+        <LOD minSize="1" ModelFile="..\..\A321neoLEAP\model.NACF\A320_NEO_INTERIOR_LOD05.gltf"/>
+        <LOD minSize="0.1" ModelFile="..\..\A321neoLEAP\model.NACF\A320_NEO_INTERIOR_LOD06.gltf"/>
     </LODS>
 
     <Behaviors>

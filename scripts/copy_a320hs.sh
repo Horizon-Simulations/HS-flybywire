@@ -41,6 +41,9 @@ cp -rva ./hsim-a320ceo/src/model/. ./build-a320ceo/src/model
 cp -rva ./hsim-a320ceo/src/systems/. ./build-a320ceo/src/systems
 cp -rva ./hsim-a320ceo/src/wasm/. ./build-a320ceo/src/wasm
 
+# copy common modules into A320HS build
+cp -rva ./hsim-common/src/systems/. ./build-a320ceo/src/systems
+
 mkdir -p ./build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo
 mkdir -p ./build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo-lock-highlight
 
