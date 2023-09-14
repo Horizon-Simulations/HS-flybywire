@@ -144,7 +144,7 @@ impl VariablesToObject for Payload {
         self.payload_station_8 = values[7];
         self.payload_station_9 = values[8];
         self.payload_station_10 = values[9];
-        self.payload_station_11 = values[10;]
+        self.payload_station_11 = values[10];
         ObjectWrite::default()
     }
 
