@@ -71,7 +71,7 @@ export const A320IAEOverviewPage = () => {
                         <Box size={23} />
                     </InformationEntry>
 
-                    <InformationEntry title={t('Dispatch.Overview.MaximumPassengers')} info="174 passengers">
+                    <InformationEntry title={t('Dispatch.Overview.MaximumPassengers')} info="186 passengers">
                         <PeopleFill size={23} />
                     </InformationEntry>
                 </div>
