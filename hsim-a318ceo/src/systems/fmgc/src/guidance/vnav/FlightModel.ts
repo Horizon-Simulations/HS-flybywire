@@ -8,7 +8,7 @@ import { Common, FlapConf } from './common';
 export class FlightModel {
     static Cd0 = 0.01300;
 
-    static wingSpan = 111.92;
+    static wingSpan = 111.88;
 
     static wingArea = 1319.7;
 
