@@ -143,7 +143,7 @@ jobs:
             username = ${{ secrets.NEXTCLOUD_USERNAME }}
             password = ${{ secrets.NEXTCLOUD_PASSWORD }}
             root = /HorizonSimulations/Releases/
-            include: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
+          include: ./${{ env.BUILD_DIR_NAME }}/*.zip
   build-a320:
     runs-on: ubuntu-latest
     env:
@@ -211,7 +211,7 @@ jobs:
             username = ${{ secrets.NEXTCLOUD_USERNAME }}
             password = ${{ secrets.NEXTCLOUD_PASSWORD }}
             root = /HorizonSimulations/Releases/
-            include: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
+          include: ./${{ env.BUILD_DIR_NAME }}/*.zip
   build-a321:
     runs-on: ubuntu-latest
     env:
@@ -279,4 +279,4 @@ jobs:
             username = ${{ secrets.NEXTCLOUD_USERNAME }}
             password = ${{ secrets.NEXTCLOUD_PASSWORD }}
             root = /HorizonSimulations/Releases/
-            include: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }}
+          include: ./${{ env.BUILD_DIR_NAME }}/*.zip
