@@ -66,9 +66,14 @@ jobs:
           cd ./build-a318ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }} ./lvfr-horizonsim-airbus-a318-ceo/
           cd ../../
-      - name: Upload to remote server
-        run: | 
-          curl -X PUT -u ${{ secrets.NEXTCLOUD_USERNAME }}:${{ secrets.NEXTCLOUD_PASSWORD }} https://${{ secrets.NEXTCLOUD_URL }}/remote.php/dav/files/${{ secrets.NEXTCLOUD_USERNAME }}/HorizonSimulations/Releases/${{ env.ZIP_NAME_A318 }} -T ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
+      - name: Nextcloud Artifact
+        uses: trympet/nextcloud-artifacts-action@v2
+        with:
+          name: 'lvfr-horizonsim-airbus-a318-ceo'                    
+          path: './**/*.zip'
+          nextcloud-url: ${{ secrets.NEXTCLOUD_URL }}
+          nextcloud-username: ${{ secrets.NEXTCLOUD_USERNAME }}
+          nextcloud-password: ${{ secrets.NEXTCLOUD_PASSWORD }}
   build-a319:
     runs-on: ubuntu-latest
     env:
@@ -127,9 +132,14 @@ jobs:
           cd ./build-a319ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }} ./lvfr-horizonsim-airbus-a319-ceo/
           cd ../../
-      - name: Upload to remote server
-        run: | 
-          curl -X PUT -u ${{ secrets.NEXTCLOUD_USERNAME }}:${{ secrets.NEXTCLOUD_PASSWORD }} https://${{ secrets.NEXTCLOUD_URL }}/remote.php/dav/files/${{ secrets.NEXTCLOUD_USERNAME }}/HorizonSimulations/Releases/${{ env.ZIP_NAME_A319 }} -T ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
+      - name: Nextcloud Artifact
+        uses: trympet/nextcloud-artifacts-action@v2
+        with:
+          name: 'lvfr-horizonsim-airbus-a319-ceo'                    
+          path: './**/*.zip'
+          nextcloud-url: ${{ secrets.NEXTCLOUD_URL }}
+          nextcloud-username: ${{ secrets.NEXTCLOUD_USERNAME }}
+          nextcloud-password: ${{ secrets.NEXTCLOUD_PASSWORD }}
   build-a320:
     runs-on: ubuntu-latest
     env:
@@ -188,9 +198,14 @@ jobs:
           cd ./build-a320ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} ./lvfr-horizonsim-airbus-a320-ceo/
           cd ../../
-      - name: Upload to remote server
-        run: | 
-          curl -X PUT -u ${{ secrets.NEXTCLOUD_USERNAME }}:${{ secrets.NEXTCLOUD_PASSWORD }} https://${{ secrets.NEXTCLOUD_URL }}/remote.php/dav/files/${{ secrets.NEXTCLOUD_USERNAME }}/HorizonSimulations/Releases/${{ env.ZIP_NAME_A320 }} -T ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
+      - name: Nextcloud Artifact
+        uses: trympet/nextcloud-artifacts-action@v2
+        with:
+          name: 'lvfr-horizonsim-airbus-a320-ceo'                    
+          path: './**/*.zip'
+          nextcloud-url: ${{ secrets.NEXTCLOUD_URL }}
+          nextcloud-username: ${{ secrets.NEXTCLOUD_USERNAME }}
+          nextcloud-password: ${{ secrets.NEXTCLOUD_PASSWORD }}
   build-a321:
     runs-on: ubuntu-latest
     env:
@@ -249,6 +264,11 @@ jobs:
           cd ./build-a321neo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }} ./lvfr-horizonsim-airbus-a321-neo/
           cd ../../
-      - name: Upload to remote server
-        run: | 
-          curl -X PUT -u ${{ secrets.NEXTCLOUD_USERNAME }}:${{ secrets.NEXTCLOUD_PASSWORD }} https://${{ secrets.NEXTCLOUD_URL }}/remote.php/dav/files/${{ secrets.NEXTCLOUD_USERNAME }}/HorizonSimulations/Releases/${{ env.ZIP_NAME_A321 }} -T ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }}
+      - name: Nextcloud Artifact
+        uses: trympet/nextcloud-artifacts-action@v2
+        with:
+          name: 'lvfr-horizonsim-airbus-a321-neo'                    
+          path: './**/*.zip'
+          nextcloud-url: ${{ secrets.NEXTCLOUD_URL }}
+          nextcloud-username: ${{ secrets.NEXTCLOUD_USERNAME }}
+          nextcloud-password: ${{ secrets.NEXTCLOUD_PASSWORD }}
