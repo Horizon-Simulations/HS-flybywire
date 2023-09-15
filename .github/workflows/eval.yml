@@ -1,12 +1,9 @@
-name: release
+name: eval
 on:
   push:
-    tags:
-      - "v*"
-      - "!v*-alpha*"
-      - "!v*-beta*"
-      - "!v*-streamer*"
-      - "!v*-rc*"
+    branches:
+      - nextcloud
+
 jobs:
   build-a318:
     runs-on: ubuntu-latest
@@ -14,9 +11,9 @@ jobs:
       A32NX_PRODUCTION_BUILD: 1
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
-      PRE_RELEASE_TAG: vstable
-      ZIP_NAME_A318: lvfr-horizonsim-airbus-a318-ceo-${{ github.ref_name }}.zip
-      BUILD_DIR_NAME: stable
+      PRE_RELEASE_TAG: vmain
+      ZIP_NAME_A318: lvfr-horizonsim-airbus-a318-ceo.zip
+      BUILD_DIR_NAME: main
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
@@ -82,9 +79,9 @@ jobs:
       A32NX_PRODUCTION_BUILD: 1
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
-      PRE_RELEASE_TAG: vstable
-      ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo-${{ github.ref_name }}.zip
-      BUILD_DIR_NAME: stable
+      PRE_RELEASE_TAG: vmain
+      ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo.zip
+      BUILD_DIR_NAME: main
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
@@ -150,9 +147,9 @@ jobs:
       A32NX_PRODUCTION_BUILD: 1
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
-      PRE_RELEASE_TAG: vstable
-      ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo-${{ github.ref_name }}.zip
-      BUILD_DIR_NAME: stable
+      PRE_RELEASE_TAG: vmain
+      ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo.zip
+      BUILD_DIR_NAME: main
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
@@ -218,9 +215,9 @@ jobs:
       A32NX_PRODUCTION_BUILD: 1
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
-      PRE_RELEASE_TAG: vstable
-      ZIP_NAME_A321: lvfr-horizonsim-airbus-a321-neo-${{ github.ref_name }}.zip
-      BUILD_DIR_NAME: stable
+      PRE_RELEASE_TAG: vmain
+      ZIP_NAME_A321: lvfr-horizonsim-airbus-a321-neo.zip
+      BUILD_DIR_NAME: main
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
