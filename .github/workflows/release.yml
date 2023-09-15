@@ -2,11 +2,11 @@ name: release
 on:
   push:
     tags:
-      - 'v*'
-      - '!v*-alpha*'
-      - '!v*-beta*'
-      - '!v*-streamer*'
-      - '!v*-rc*'
+      - "v*"
+      - "!v*-alpha*"
+      - "!v*-beta*"
+      - "!v*-streamer*"
+      - "!v*-rc*"
 jobs:
   build-a318:
     runs-on: ubuntu-latest
@@ -52,7 +52,7 @@ jobs:
           fail-if-no-assets: false
           fail-if-no-release: false
       - name: Setup Package
-        run:  |
+        run: |
           ./scripts/dev-env/run.sh ./scripts/setup.sh
       - name: Copy Sources
         run: |
@@ -66,13 +66,16 @@ jobs:
           cd ./build-a318ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }} ./lvfr-horizonsim-airbus-a318-ceo/
           cd ../../
-      - name: Upload to Google Drive
-        uses: adityak74/google-drive-upload-git-action@main
+      - name: Upload to WebDAV
+        uses: bxb100/action-upload@main
         with:
-          credentials: ${{ secrets.GDRIVE_CREDS_A318 }}
-          filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDRELEASE }}
-          overwrite: "true" # optional boolean
+          provider: webdav
+          provider_options: |
+            endpoint = ${{ secrets.NEXTCLOUD_URL }}
+            username = ${{ secrets.NEXTCLOUD_USERNAME }}
+            password = ${{ secrets.NEXTCLOUD_PASSWORD }}
+            root = /HorizonSimulations/Releases/
+          include: ./${{ env.BUILD_DIR_NAME }}/*.zip
   build-a319:
     runs-on: ubuntu-latest
     env:
@@ -117,27 +120,30 @@ jobs:
           fail-if-no-assets: false
           fail-if-no-release: false
       - name: Setup Package
-        run:  |
+        run: |
           ./scripts/dev-env/run.sh ./scripts/setup.sh
       - name: Copy Sources
         run: |
           ./scripts/dev-env/run.sh ./scripts/copy_a319hs.sh
       - name: Build A319HS Package
         run: |
-            ./scripts/dev-env/run.sh ./scripts/build_a319hs.sh --no-tty -j 4
+          ./scripts/dev-env/run.sh ./scripts/build_a319hs.sh --no-tty -j 4
       - name: Build A319HS ZIP files
         run: |
-            mkdir ./${{ env.BUILD_DIR_NAME }}
-            cd ./build-a319ceo/out/
-            zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }} ./lvfr-horizonsim-airbus-a319-ceo/
-            cd ../../
-      - name: Upload to Google Drive
-        uses: adityak74/google-drive-upload-git-action@main
+          mkdir ./${{ env.BUILD_DIR_NAME }}
+          cd ./build-a319ceo/out/
+          zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }} ./lvfr-horizonsim-airbus-a319-ceo/
+          cd ../../
+      - name: Upload to WebDAV
+        uses: bxb100/action-upload@main
         with:
-          credentials: ${{ secrets.GDRIVE_CREDS_A319 }}
-          filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDRELEASE }}
-          overwrite: "true" # optional boolean
+          provider: webdav
+          provider_options: |
+            endpoint = ${{ secrets.NEXTCLOUD_URL }}
+            username = ${{ secrets.NEXTCLOUD_USERNAME }}
+            password = ${{ secrets.NEXTCLOUD_PASSWORD }}
+            root = /HorizonSimulations/Releases/
+            include: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
   build-a320:
     runs-on: ubuntu-latest
     env:
@@ -182,7 +188,7 @@ jobs:
           fail-if-no-assets: false
           fail-if-no-release: false
       - name: Setup Package
-        run:  |
+        run: |
           ./scripts/dev-env/run.sh ./scripts/setup.sh
       - name: Copy Sources
         run: |
@@ -196,13 +202,16 @@ jobs:
           cd ./build-a320ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} ./lvfr-horizonsim-airbus-a320-ceo/
           cd ../../
-      - name: Upload to Google Drive
-        uses: adityak74/google-drive-upload-git-action@main
+      - name: Upload to WebDAV
+        uses: bxb100/action-upload@main
         with:
-          credentials: ${{ secrets.GDRIVE_CREDS_A320 }}
-          filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDRELEASE }}
-          overwrite: "true" # optional boolean
+          provider: webdav
+          provider_options: |
+            endpoint = ${{ secrets.NEXTCLOUD_URL }}
+            username = ${{ secrets.NEXTCLOUD_USERNAME }}
+            password = ${{ secrets.NEXTCLOUD_PASSWORD }}
+            root = /HorizonSimulations/Releases/
+            include: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
   build-a321:
     runs-on: ubuntu-latest
     env:
@@ -247,24 +256,27 @@ jobs:
           fail-if-no-assets: false
           fail-if-no-release: false
       - name: Setup Package
-        run:  |
+        run: |
           ./scripts/dev-env/run.sh ./scripts/setup.sh
       - name: Copy Sources
         run: |
           ./scripts/dev-env/run.sh ./scripts/copy_a321hs.sh
       - name: Build A21NHS Package
         run: |
-            ./scripts/dev-env/run.sh ./scripts/build_a321hs.sh --no-tty -j 4
+          ./scripts/dev-env/run.sh ./scripts/build_a321hs.sh --no-tty -j 4
       - name: Build A21NHS ZIP files
         run: |
           mkdir ./${{ env.BUILD_DIR_NAME }}
           cd ./build-a321neo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }} ./lvfr-horizonsim-airbus-a321-neo/
           cd ../../
-      - name: Upload to Google Drive
-        uses: adityak74/google-drive-upload-git-action@main
+      - name: Upload to WebDAV
+        uses: bxb100/action-upload@main
         with:
-          credentials: ${{ secrets.GDRIVE_CREDS_A321 }}
-          filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDRELEASE }}
-          overwrite: "true" # optional boolean
+          provider: webdav
+          provider_options: |
+            endpoint = ${{ secrets.NEXTCLOUD_URL }}
+            username = ${{ secrets.NEXTCLOUD_USERNAME }}
+            password = ${{ secrets.NEXTCLOUD_PASSWORD }}
+            root = /HorizonSimulations/Releases/
+            include: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }}
