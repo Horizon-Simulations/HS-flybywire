@@ -66,16 +66,9 @@ jobs:
           cd ./build-a318ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }} ./lvfr-horizonsim-airbus-a318-ceo/
           cd ../../
-      - name: Upload to WebDAV
-        uses: bxb100/action-upload@main
-        with:
-          provider: webdav
-          provider_options: |
-            endpoint = ${{ secrets.NEXTCLOUD_URL }}
-            username = ${{ secrets.NEXTCLOUD_USERNAME }}
-            password = ${{ secrets.NEXTCLOUD_PASSWORD }}
-            root = /HorizonSimulations/Releases/
-          include: ./${{ env.BUILD_DIR_NAME }}/*.zip
+      - name: Upload to remote server
+        run: | 
+          curl -X PUT -u ${{ secrets.NEXTCLOUD_USERNAME }}:${{ secrets.NEXTCLOUD_PASSWORD }} https://${{ secrets.NEXTCLOUD_URL }}/remote.php/dav/files/${{ secrets.NEXTCLOUD_USERNAME }}/HorizonSimulations/Releases/${{ env.ZIP_NAME_A318 }} -T ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
   build-a319:
     runs-on: ubuntu-latest
     env:
@@ -134,16 +127,9 @@ jobs:
           cd ./build-a319ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }} ./lvfr-horizonsim-airbus-a319-ceo/
           cd ../../
-      - name: Upload to WebDAV
-        uses: bxb100/action-upload@main
-        with:
-          provider: webdav
-          provider_options: |
-            endpoint = ${{ secrets.NEXTCLOUD_URL }}
-            username = ${{ secrets.NEXTCLOUD_USERNAME }}
-            password = ${{ secrets.NEXTCLOUD_PASSWORD }}
-            root = /HorizonSimulations/Releases/
-          include: ./${{ env.BUILD_DIR_NAME }}/*.zip
+      - name: Upload to remote server
+        run: | 
+          curl -X PUT -u ${{ secrets.NEXTCLOUD_USERNAME }}:${{ secrets.NEXTCLOUD_PASSWORD }} https://${{ secrets.NEXTCLOUD_URL }}/remote.php/dav/files/${{ secrets.NEXTCLOUD_USERNAME }}/HorizonSimulations/Releases/${{ env.ZIP_NAME_A319 }} -T ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
   build-a320:
     runs-on: ubuntu-latest
     env:
@@ -202,16 +188,9 @@ jobs:
           cd ./build-a320ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} ./lvfr-horizonsim-airbus-a320-ceo/
           cd ../../
-      - name: Upload to WebDAV
-        uses: bxb100/action-upload@main
-        with:
-          provider: webdav
-          provider_options: |
-            endpoint = ${{ secrets.NEXTCLOUD_URL }}
-            username = ${{ secrets.NEXTCLOUD_USERNAME }}
-            password = ${{ secrets.NEXTCLOUD_PASSWORD }}
-            root = /HorizonSimulations/Releases/
-          include: ./${{ env.BUILD_DIR_NAME }}/*.zip
+      - name: Upload to remote server
+        run: | 
+          curl -X PUT -u ${{ secrets.NEXTCLOUD_USERNAME }}:${{ secrets.NEXTCLOUD_PASSWORD }} https://${{ secrets.NEXTCLOUD_URL }}/remote.php/dav/files/${{ secrets.NEXTCLOUD_USERNAME }}/HorizonSimulations/Releases/${{ env.ZIP_NAME_A320 }} -T ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
   build-a321:
     runs-on: ubuntu-latest
     env:
@@ -270,13 +249,6 @@ jobs:
           cd ./build-a321neo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }} ./lvfr-horizonsim-airbus-a321-neo/
           cd ../../
-      - name: Upload to WebDAV
-        uses: bxb100/action-upload@main
-        with:
-          provider: webdav
-          provider_options: |
-            endpoint = ${{ secrets.NEXTCLOUD_URL }}
-            username = ${{ secrets.NEXTCLOUD_USERNAME }}
-            password = ${{ secrets.NEXTCLOUD_PASSWORD }}
-            root = /HorizonSimulations/Releases/
-          include: ./${{ env.BUILD_DIR_NAME }}/*.zip
+      - name: Upload to remote server
+        run: | 
+          curl -X PUT -u ${{ secrets.NEXTCLOUD_USERNAME }}:${{ secrets.NEXTCLOUD_PASSWORD }} https://${{ secrets.NEXTCLOUD_URL }}/remote.php/dav/files/${{ secrets.NEXTCLOUD_USERNAME }}/HorizonSimulations/Releases/${{ env.ZIP_NAME_A321 }} -T ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }}
