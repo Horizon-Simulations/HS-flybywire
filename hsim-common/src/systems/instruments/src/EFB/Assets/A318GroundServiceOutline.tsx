@@ -11,10 +11,10 @@ export const GroundServiceOutline = ({ className }: {className: string}) => (
         viewBox="0 0 777 814" 
       <defs>
         <style>
-                    {
-                        '.cls-1,.cls-2,.cls-4,.cls-5,.cls-7{fill:none;stroke-miterlimit:10}.cls-1,.cls-4{stroke:currentColor}.cls-2,.cls-4{stroke-width:2px}.cls-2{stroke:currentColor}.cls-5,.cls-7{stroke:currentColor;stroke-width:.5px}.cls-7{stroke:currentColor}'
-                    }
-                </style>
+          {
+              '.cls-1,.cls-2,.cls-4,.cls-5,.cls-7{fill:none;stroke-miterlimit:10}.cls-1,.cls-4{stroke:currentColor}.cls-2,.cls-4{stroke-width:2px}.cls-2{stroke:currentColor}.cls-5,.cls-7{stroke:currentColor;stroke-width:.5px}.cls-7{stroke:currentColor}'
+          }
+        </style>
       </defs>
       <g id="SVG_Detail_Lines">
         <g id="Engines" transform="matrix(1, 0, 0, 1, 0, 35.399995)">
@@ -89,17 +89,41 @@ export const GroundServiceOutline = ({ className }: {className: string}) => (
           <g id="Cargo_Doors" transform="matrix(1, 0, 0, 1, 0, 70.830004)" style="pointer-events: none;">
             <g id="BLK_Cargo" transform="matrix(1, 0, 0, 1, 0, -35.360021)" style="">
               <path classname="cls-2" d="M430.19 553.33h-2"/>
-              <path d="M423.87 553.33h-7.83c-1.4 0-2.54 1.14-2.54 2.54v15.25c0 1.4 1.14 2.54 2.54 2.54h9.99" style="{{" '0="" 0="" 4.32="" 4.32',="" '#6bbe45',="" 2,="" 'none',="" 10,="" }}=""/>
+              <path d="M423.87 553.33h-7.83c-1.4 0-2.54 1.14-2.54 2.54v15.25c0 1.4 1.14 2.54 2.54 2.54h9.99"
+                    style={{
+                        strokeDasharray: '0 0 4.32 4.32',
+                        stroke: '#6bbe45',
+                        strokeWidth: 2,
+                        fill: 'none',
+                        strokeMiterlimit: 10,
+                     }}
+              />
               <path classname="cls-2" d="M428.19 573.67h2"/>
             </g>
             <g id="AFT_Cargo" transform="matrix(1, 0, 0, 1, 0, -35.430005)">
               <path classname="cls-2" d="M430.18 503h-2"/>
-              <path d="M424.16 503h-14.91c-1.98 0-3.58-1.6-3.58-3.58v-27.33c0-1.98 1.6-3.58 3.58-3.58h17.02" style="{{" '0="" 0="" 4.03="" 4.03',="" '#6bbe45',="" 2,="" 'none',="" 10,="" }}=""/>
+              <path d="M424.16 503h-14.91c-1.98 0-3.58-1.6-3.58-3.58v-27.33c0-1.98 1.6-3.58 3.58-3.58h17.02"
+                    style={{
+                      strokeDasharray: '0 0 4.03 4.03',
+                      stroke: '#6bbe45',
+                      strokeWidth: 2,
+                      fill: 'none',
+                      strokeMiterlimit: 10,
+                  }}
+              />
               <path classname="cls-2" d="M428.28 468.5h2"/>
             </g>
             <g id="FWD_Cargo">
               <path classname="cls-2" d="M430.28 154.67h-2"/>
-              <path d="M424.2 154.67h-15.17c-2.13 0-3.86 1.73-3.86 3.86v26.94c0 2.13 1.73 3.86 3.86 3.86h17.21" style="{{" '0="" 0="" 4.08="" 4.08',="" '#6bbe45',="" 2,="" 'none',="" 10,="" }}=""/>
+              <path d="M424.2 154.67h-15.17c-2.13 0-3.86 1.73-3.86 3.86v26.94c0 2.13 1.73 3.86 3.86 3.86h17.21"
+                style={{
+                  strokeDasharray: '0 0 4.08 4.08',
+                  stroke: '#6bbe45',
+                  strokeWidth: 2,
+                  fill: 'none',
+                  strokeMiterlimit: 10,
+                }}
+              />
               <path classname="cls-2" d="M428.28 189.33h2"/>
             </g>
           </g>
