@@ -18,7 +18,7 @@ export const GroundServiceOutline = ({ className }: {className: string}) => (
         </style>
       </defs>
       <g id="SVG_Detail_Lines">
-        <g id="Engines" transform="matrix(1, 0, 0, 1, 0, 35.399995)">
+        <g id="Engines" transform="matrix(1, 0, 0, 1, 0, 15.399994)">
           <g id="ENG_1">
             <g id="Strakes">
               <path 
@@ -92,11 +92,11 @@ export const GroundServiceOutline = ({ className }: {className: string}) => (
             <path id="Wing_Mount-2" className="cls-5" d="m503.99 321.82 7.61 3.97 9.15 8.61"/>
           </g>
         </g>
-        <g id="Emergency_Lines" transform="matrix(1, 0, 0, 1, 0, 35.400003)">
+        <g id="Emergency_Lines" transform="matrix(1, 0, 0, 1, 0, 21)">
           <path id="Left_Emergency_Marks" className="cls-5" d="M346.2 307h-20.55a6.31 6.31 0 0 0-6.31 6.31v84.6"/>
           <path id="Right_Emergency_Marks" className="cls-5" d="M430.18 307h20.55a6.31 6.31 0 0 1 6.31 6.31v84.6"/>
         </g>
-        <g id="Wing_Layers" transform="matrix(1, 0, 0, 1, 0, 35.370015)">
+        <g id="Wing_Layers" transform="matrix(1, 0, 0, 1, 0, 15.670013)">
           <path id="Left_Wing_Markings" className="cls-5" d="M346.2 292.33 35.36 449.78v11.89l219.86-87.34 64.11-12.21"/>
           <path id="Right_Wing_Markings" className="cls-5" d="m430.19 292.71 312.1 158.12v11.34l-221.12-87.84-64.09-12.21"/>
         </g>
@@ -106,10 +106,8 @@ export const GroundServiceOutline = ({ className }: {className: string}) => (
             <path id="AFT_Right_CAT" className="cls-2" d="M424.48 650.21h-5.13c-1.55 0-2.74-1.36-2.54-2.9l1.55-11.75a2.558 2.558 0 0 1 2.54-2.23h6.16"/>
           </g>
           <g id="Emergency_Doors" transform="matrix(1, 0, 0, 1, 0, 70.829981)" >
-            <path id="AFT_Left_EMG" className="cls-2" d="M346.2 337.61h3.14c.95 0 1.72-.77 1.72-1.72v-7.61c0-.95-.77-1.72-1.72-1.72h-3.14"/>
-            <path id="FWD_Left_EMG" className="cls-2" d="M346.2 319.32h3.14c.95 0 1.72-.77 1.72-1.72v-7.61c0-.95-.77-1.72-1.72-1.72h-3.14"/>
-            <path id="AFT_Right_EMG" className="cls-2" d="M430.28 337.61h-3.14c-.95 0-1.72-.77-1.72-1.72v-7.61c0-.95.77-1.72 1.72-1.72h3.14"/>
-            <path id="FWD_Right_EMG" className="cls-2" d="M430.28 319.32h-3.14c-.95 0-1.72-.77-1.72-1.72v-7.61c0-.95.77-1.72 1.72-1.72h3.14"/>
+          <path id="FWD_Left_EMG" className="cls-2" d="M 346.2 272.22 L 349.34 272.22 C 350.29 272.22 351.06 271.45 351.06 270.5 L 351.06 262.89 C 351.06 261.94 350.29 261.17 349.34 261.17 L 346.2 261.17"/>
+        <path id="FWD_Right_EMG" className="cls-2" d="M 430.28 272.22 L 427.14 272.22 C 426.19 272.22 425.42 271.45 425.42 270.5 L 425.42 262.89 C 425.42 261.94 426.19 261.17 427.14 261.17 L 430.28 261.17"/>
           </g>
           <g id="Front_Doors" transform="matrix(1, 0, 0, 1, 0, 70.799998)" >
             <path id="FWD_Right_CAT" className="cls-2" d="M430.28 118.06h-9.08a2.67 2.67 0 0 1-2.67-2.67v-11.72a2.67 2.67 0 0 1 2.67-2.67h8.38"/>
@@ -128,19 +126,6 @@ export const GroundServiceOutline = ({ className }: {className: string}) => (
                      }}
               />
               <path className="cls-2" d="M428.19 573.67h2"/>
-            </g>
-            <g id="AFT_Cargo" transform="matrix(1, 0, 0, 1, 0, -35.430005)">
-              <path className="cls-2" d="M430.18 503h-2"/>
-              <path d="M424.16 503h-14.91c-1.98 0-3.58-1.6-3.58-3.58v-27.33c0-1.98 1.6-3.58 3.58-3.58h17.02"
-                    style={{
-                      strokeDasharray: '0 0 4.03 4.03',
-                      stroke: '#6bbe45',
-                      strokeWidth: 2,
-                      fill: 'none',
-                      strokeMiterlimit: 10,
-                  }}
-              />
-              <path className="cls-2" d="M428.28 468.5h2"/>
             </g>
             <g id="FWD_Cargo">
               <path className="cls-2" d="M430.28 154.67h-2"/>
@@ -170,7 +155,7 @@ export const GroundServiceOutline = ({ className }: {className: string}) => (
           </g>
           <path id="Rudder" className="cls-4" d="M388.5 796.17s-6-61-6-87.33 2.5-75.5 6-75.5h.07c3.5 0 5.93 49.17 5.93 75.5s-6 87.33-6 87.33"/>
         </g>
-        <g id="Wings" transform="matrix(1, 0, 0, 1, 0, 35.40001)" >
+        <g id="Wings" transform="matrix(1, 0, 0, 1, 0, 15.600006)" >
           <g id="Right_Wing">
             <g id="Right_Slats">
               <path id="Inner_Slats" className="cls-1" d="M436.35 283.52v10.37L500.48 327l4.56-7.85"/>
