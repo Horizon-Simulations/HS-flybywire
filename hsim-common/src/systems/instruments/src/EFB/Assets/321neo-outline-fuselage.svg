@@ -1,35 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   id="Layer_1"
-   data-name="Layer 1"
-   viewBox="0 0 700.00002 548.92"
-   version="1.1"
-   sodipodi:docname="A321neo-outline-fuselage.svg"
-   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
-   width="700"
-   height="548.91998"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1293"
-     pagecolor="#505050"
-     bordercolor="#eeeeee"
-     borderopacity="1"
-     inkscape:pageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     showgrid="false"
-     inkscape:zoom="2"
-     inkscape:cx="318.5"
-     inkscape:cy="275"
-     inkscape:window-width="2560"
-     inkscape:window-height="1417"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="Layer_1" />
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700.00002 548.92">
   <defs
      id="defs4">
     <style
