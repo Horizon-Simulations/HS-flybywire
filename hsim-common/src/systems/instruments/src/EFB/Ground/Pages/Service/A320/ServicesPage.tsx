@@ -17,7 +17,7 @@ import {
 } from 'react-bootstrap-icons';
 import { ActionCreatorWithOptionalPayload } from '@reduxjs/toolkit';
 import { t } from '../../../../translation';
-import { GroundServiceOutline } from '../../../../Assets/A318GroundServiceOutline';
+import { GroundServiceOutline } from '../../../../../../Assets/GroundServiceOutline';
 import { useAppDispatch, useAppSelector } from '../../../../Store/store';
 import {
     setAftDoorButtonState,
@@ -102,7 +102,7 @@ const GroundServiceButton: React.FC<GroundServiceButtonProps> = ({ children, nam
     );
 };
 
-export const A318ServicesPage = () => {
+export const A320ServicesPage = () => {
     const dispatch = useAppDispatch();
 
     // Flight state
