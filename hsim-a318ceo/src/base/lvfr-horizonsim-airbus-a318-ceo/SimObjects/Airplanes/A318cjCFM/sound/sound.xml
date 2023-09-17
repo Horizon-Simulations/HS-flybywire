@@ -4,10 +4,10 @@
 <SoundInfo Version="0.1">
 
     <WwisePackages>
-        <MainPackage Name="Asobo_A320_NEO" /> 
-        <AdditionalPackage Name="Horizon_A319" /> 
-        <AdditionalPackage Name="FBW_A320_NEO_1" /> 
-        <AdditionalPackage Name="FBW_A320_NEO_2" /> 
+        <MainPackage Name="Asobo_A320_NEO" />
+        <AdditionalPackage Name="Horizon_A319" />
+        <AdditionalPackage Name="FBW_A320_NEO_1" />
+        <AdditionalPackage Name="FBW_A320_NEO_2" />
     </WwisePackages>
 
     <AcousticParameters>
@@ -192,7 +192,7 @@
             <WwiseRTPC SimVar="TRAILING EDGE FLAPS LEFT PERCENT" Units="percent" Index="0" RTPCName="SIMVAR_LEADING_EDGE_FLAPS_LEFT_PERCENT" />
             <WwiseRTPC SimVar="TURB ENG N1" Units="percent" Index="2" RTPCName="SIMVAR_TURB_ENG_N1" />
         </Sound>
-        
+
         <Sound WwiseData="true" WwiseEvent="slatsmovement" NodeName="HublotIn" Continuous="true" FadeOutType="1" FadeOutTime="0.1" LocalVar="A32NX_IS_SLATS_MOVING" Units="BOOL" Index="1">
             <Range LowerBound="1" />
         </Sound>
