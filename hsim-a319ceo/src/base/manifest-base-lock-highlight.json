@@ -9,7 +9,7 @@
     "title": "A319HS - Lock Highlights",
     "dependencies": [
       {
-        "package_version": "2.0.2",
+        "package_version": "2.2.0",
         "name": "horizonsim-lvfr-airbus-a319-ceo"
       }
     ],
