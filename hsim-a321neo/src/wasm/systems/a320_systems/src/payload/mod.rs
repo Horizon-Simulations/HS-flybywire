@@ -103,7 +103,7 @@ impl A320Payload {
             pax_id: "PAX_D",
             payload_id: "PAYLOAD_STATION_4_REQ",
         },
-                PaxInfo {
+        PaxInfo {
             max_pax: 30,
             position: (-27., 0., 5.5),
             pax_id: "PAX_E",
@@ -187,15 +187,15 @@ impl A320Payload {
         let boarding_agents = [
             BoardingAgent::new(
                 context.get_identifier("INTERACTIVE POINT OPEN:0".to_owned()),
-                [0, 1, 2, 3, 4, 5, 6, 7],
+                [3, 2, 1, 0, 7, 6, 5, 4],
             ),
             BoardingAgent::new(
                 context.get_identifier("INTERACTIVE POINT OPEN:1".to_owned()),
-                [0, 1, 2, 3, 4, 5, 6, 7],
+                [3, 2, 1, 0, 7, 6, 5, 4],
             ),
             BoardingAgent::new(
                 context.get_identifier("INTERACTIVE POINT OPEN:2".to_owned()),
-                [7, 6, 5, 4, 3, 2, 1, 0],
+                [4, 5, 6, 7, 0, 1, 2, 3],
             ),
         ];
 
