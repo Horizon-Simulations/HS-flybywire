@@ -109,11 +109,12 @@ const GroundServiceButton: React.FC<GroundServiceButtonProps> = ({ children, nam
 export const A318Services: React.FC = () => {
     const dispatch = useAppDispatch();
 
+
     // Flight state
     const [simOnGround] = useSimVar('SIM ON GROUND', 'bool', 250);
     const [aircraftIsStationary] = useSimVar('L:A32NX_IS_STATIONARY', 'bool', 250);
     const [pushBackAttached] = useSimVar('Pushback Attached', 'enum', 250);
-    const groundServicesAvailable = simOnGround && aircraftIsStationary && !pushBackAttached;
+    const groundServicesAvailable = simOnGround && !pushBackAttached;
 
     // Ground Services
     const [cabinLeftDoorOpen] = useSimVar('A:INTERACTIVE POINT OPEN:0', 'Percent over 100', 100);
