@@ -17,13 +17,15 @@ import {
 } from 'react-bootstrap-icons';
 import { ActionCreatorWithOptionalPayload } from '@reduxjs/toolkit';
 import { t } from '../../../../translation';
-import { GroundServiceOutline } from '../../../../Assets/A318GroundServiceOutline';
+import { GroundServiceOutline } from '../../../../Assets/GroundServiceOutline';
 import { useAppDispatch, useAppSelector } from '../../../../Store/store';
 import {
-    setAftDoorButtonState,
+    setBoarding1DoorButtonState,
+    setBoarding2DoorButtonState,
+    setBoarding3DoorButtonState,
+    setServiceDoorButtonState,
+    setCargo1DoorButtonState,
     setBaggageButtonState,
-    setCabinDoorButtonState,
-    setCargoDoorButtonState,
     setCateringButtonState,
     setFuelTruckButtonState,
     setGpuButtonState,
@@ -48,13 +50,15 @@ const ServiceButtonWrapper: FC<ServiceButtonWrapperProps> = ({ children, classNa
 );
 
 enum ServiceButton {
-    CabinDoor,
+    CabinLeftDoor,
+    CabinRightDoor,
     JetBridge,
     FuelTruck,
     Gpu,
     CargoDoor,
     BaggageTruck,
-    AftDoor,
+    AftLeftDoor,
+    AftRightDoor,
     CateringTruck
 }
 
@@ -102,18 +106,20 @@ const GroundServiceButton: React.FC<GroundServiceButtonProps> = ({ children, nam
     );
 };
 
-export const A318ServicesPage = () => {
+export const A321Services: React.FC = () => {
     const dispatch = useAppDispatch();
 
     // Flight state
     const [simOnGround] = useSimVar('SIM ON GROUND', 'bool', 250);
     const [aircraftIsStationary] = useSimVar('L:A32NX_IS_STATIONARY', 'bool', 250);
     const [pushBackAttached] = useSimVar('Pushback Attached', 'enum', 250);
-    const groundServicesAvailable = simOnGround && !pushBackAttached;
+    const groundServicesAvailable = simOnGround && aircraftIsStationary && !pushBackAttached;
 
     // Ground Services
-    const [cabinDoorOpen] = useSimVar('A:INTERACTIVE POINT OPEN:0', 'Percent over 100', 100);
-    const [aftDoorOpen] = useSimVar('A:INTERACTIVE POINT OPEN:3', 'Percent over 100', 100);
+    const [cabinLeftDoorOpen] = useSimVar('A:INTERACTIVE POINT OPEN:0', 'Percent over 100', 100);
+    const [cabinRightDoorOpen] = useSimVar('A:INTERACTIVE POINT OPEN:1', 'Percent over 100', 100);
+    const [aftLeftDoorOpen] = useSimVar('A:INTERACTIVE POINT OPEN:2', 'Percent over 100', 100);
+    const [aftRightDoorOpen] = useSimVar('A:INTERACTIVE POINT OPEN:3', 'Percent over 100', 100);
     const [cargoDoorOpen] = useSimVar('A:INTERACTIVE POINT OPEN:5', 'Percent over 100', 100);
     const [gpuActive] = useSimVar('A:INTERACTIVE POINT OPEN:8', 'Percent over 100', 100);
     const [fuelingActive] = useSimVar('A:INTERACTIVE POINT OPEN:9', 'Percent over 100', 100);
@@ -126,27 +132,31 @@ export const A318ServicesPage = () => {
     const conesVisible = conesEnabled && isGroundEquipmentVisible;
 
     // Service events
-    const toggleCabinDoor = () => SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 1);
+    const toggleCabinLeftDoor = () => SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 1);
+    const toggleCabinRightDoor = () => SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 2);
     const toggleJetBridgeAndStairs = () => {
         SimVar.SetSimVarValue('K:TOGGLE_JETWAY', 'bool', false);
         SimVar.SetSimVarValue('K:TOGGLE_RAMPTRUCK', 'bool', false);
     };
     const toggleCargoDoor = () => SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 6);
     const toggleBaggageTruck = () => SimVar.SetSimVarValue('K:REQUEST_LUGGAGE', 'bool', true);
-    const toggleAftDoor = () => SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 4);
+    const toggleAftLeftDoor = () => SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 3);
+    const toggleAftRightDoor = () => SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 4);
     const toggleCateringTruck = () => SimVar.SetSimVarValue('K:REQUEST_CATERING', 'bool', true);
     const toggleFuelTruck = () => SimVar.SetSimVarValue('K:REQUEST_FUEL_KEY', 'bool', true);
     const toggleGpu = () => SimVar.SetSimVarValue('K:REQUEST_POWER_SUPPLY', 'bool', true);
 
     // Button states
     const {
-        cabinDoorButtonState,
+        boarding1DoorButtonState,
+        boarding2DoorButtonState,
+        boarding3DoorButtonState,
+        serviceDoorButtonState,
+        cargo1DoorButtonState,
         jetWayButtonState,
         fuelTruckButtonState,
         gpuButtonState,
-        cargoDoorButtonState,
         baggageButtonState,
-        aftDoorButtonState,
         cateringButtonState,
     } = useAppSelector((state) => state.groundServicePage);
 
@@ -265,17 +275,25 @@ export const A318ServicesPage = () => {
     // Centralized handler for managing clicks to any button
     const handleButtonClick = (id: ServiceButton) => {
         switch (id) {
-        case ServiceButton.CabinDoor:
-            handleDoors(cabinDoorButtonState, setCabinDoorButtonState);
-            toggleCabinDoor();
+        case ServiceButton.CabinLeftDoor:
+            handleDoors(boarding1DoorButtonState, setBoarding1DoorButtonState);
+            toggleCabinLeftDoor();
+            break;
+        case ServiceButton.CabinRightDoor:
+            handleDoors(boarding2DoorButtonState, setBoarding2DoorButtonState);
+            toggleCabinRightDoor();
             break;
         case ServiceButton.CargoDoor:
-            handleDoors(cargoDoorButtonState, setCargoDoorButtonState);
+            handleDoors(cargo1DoorButtonState, setCargo1DoorButtonState);
             toggleCargoDoor();
             break;
-        case ServiceButton.AftDoor:
-            handleDoors(aftDoorButtonState, setAftDoorButtonState);
-            toggleAftDoor();
+        case ServiceButton.AftLeftDoor:
+            handleDoors(boarding3DoorButtonState, setBoarding3DoorButtonState);
+            toggleAftLeftDoor();
+            break;
+        case ServiceButton.AftRightDoor:
+            handleDoors(serviceDoorButtonState, setServiceDoorButtonState);
+            toggleAftRightDoor();
             break;
         case ServiceButton.FuelTruck:
             handleSimpleService(ServiceButton.FuelTruck, fuelTruckButtonState, setFuelTruckButtonState);
@@ -288,22 +306,22 @@ export const A318ServicesPage = () => {
         case ServiceButton.JetBridge:
             handleComplexService(ServiceButton.JetBridge,
                 jetWayButtonStateRef, setJetWayButtonState,
-                cabinDoorButtonState, setCabinDoorButtonState,
-                cabinDoorOpen);
+                boarding1DoorButtonState, setBoarding1DoorButtonState,
+                cabinLeftDoorOpen);
             toggleJetBridgeAndStairs();
             break;
         case ServiceButton.BaggageTruck:
             handleComplexService(ServiceButton.BaggageTruck,
                 baggageButtonStateRef, setBaggageButtonState,
-                cargoDoorButtonState, setCargoDoorButtonState,
+                cargo1DoorButtonState, setCargo1DoorButtonState,
                 cargoDoorOpen);
             toggleBaggageTruck();
             break;
         case ServiceButton.CateringTruck:
             handleComplexService(ServiceButton.CateringTruck,
                 cateringButtonStateRef, setCateringButtonState,
-                aftDoorButtonState, setAftDoorButtonState,
-                aftDoorOpen);
+                serviceDoorButtonState, setServiceDoorButtonState,
+                aftRightDoorOpen);
             toggleCateringTruck();
             break;
         default:
@@ -383,10 +401,12 @@ export const A318ServicesPage = () => {
 
     // Doors
     useEffect(() => {
-        simpleServiceListenerHandling(cabinDoorButtonState, setCabinDoorButtonState, cabinDoorOpen);
-        simpleServiceListenerHandling(cargoDoorButtonState, setCargoDoorButtonState, cargoDoorOpen);
-        simpleServiceListenerHandling(aftDoorButtonState, setAftDoorButtonState, aftDoorOpen);
-    }, [cabinDoorOpen, cargoDoorOpen, aftDoorOpen]);
+        simpleServiceListenerHandling(boarding1DoorButtonState, setBoarding1DoorButtonState, cabinLeftDoorOpen);
+        simpleServiceListenerHandling(boarding2DoorButtonState, setBoarding2DoorButtonState, cabinRightDoorOpen);
+        simpleServiceListenerHandling(boarding3DoorButtonState, setBoarding3DoorButtonState, aftLeftDoorOpen);
+        simpleServiceListenerHandling(serviceDoorButtonState, setServiceDoorButtonState, aftRightDoorOpen);
+        simpleServiceListenerHandling(cargo1DoorButtonState, setCargo1DoorButtonState, cargoDoorOpen);
+    }, [cabinRightDoorOpen, cabinLeftDoorOpen, cargoDoorOpen, aftLeftDoorOpen, aftRightDoorOpen]);
 
     // Fuel
     useEffect(() => {
@@ -403,73 +423,87 @@ export const A318ServicesPage = () => {
         complexServiceListenerHandling(
             jetWayButtonStateRef,
             setJetWayButtonState,
-            cabinDoorButtonState,
-            setCabinDoorButtonState,
-            cabinDoorOpen,
+            boarding1DoorButtonState,
+            setBoarding1DoorButtonState,
+            cabinLeftDoorOpen,
         );
-    }, [cabinDoorOpen]);
+    }, [cabinLeftDoorOpen]);
 
     // Cargo Door listener for Baggage Button
     useEffect(() => {
         complexServiceListenerHandling(
             baggageButtonStateRef,
             setBaggageButtonState,
-            cargoDoorButtonState,
-            setCargoDoorButtonState,
+            cargo1DoorButtonState,
+            setCargo1DoorButtonState,
             cargoDoorOpen,
         );
     }, [cargoDoorOpen]);
 
-    // Aft Cabin Door listener fo rCatering Button
+    // Aft Cabin Door listener for Catering Button
     useEffect(() => {
         complexServiceListenerHandling(
             cateringButtonStateRef,
             setCateringButtonState,
-            aftDoorButtonState,
-            setAftDoorButtonState,
-            aftDoorOpen,
+            serviceDoorButtonState,
+            setServiceDoorButtonState,
+            aftRightDoorOpen,
         );
-    }, [aftDoorOpen]);
+    }, [aftRightDoorOpen]);
 
     // Pushback or movement start --> disable buttons and close doors
     // Enable buttons if all have been disabled before
     useEffect(() => {
         if (!groundServicesAvailable) {
-            dispatch(setCabinDoorButtonState(ServiceButtonState.DISABLED));
+            dispatch(setBoarding1DoorButtonState(ServiceButtonState.DISABLED));
+            dispatch(setBoarding2DoorButtonState(ServiceButtonState.DISABLED));
             dispatch(setJetWayButtonState(ServiceButtonState.DISABLED));
             dispatch(setFuelTruckButtonState(ServiceButtonState.DISABLED));
             dispatch(setGpuButtonState(ServiceButtonState.DISABLED));
-            dispatch(setCargoDoorButtonState(ServiceButtonState.DISABLED));
+            dispatch(setCargo1DoorButtonState(ServiceButtonState.DISABLED));
             dispatch(setBaggageButtonState(ServiceButtonState.DISABLED));
-            dispatch(setAftDoorButtonState(ServiceButtonState.DISABLED));
+            dispatch(setBoarding3DoorButtonState(ServiceButtonState.DISABLED));
+            dispatch(setServiceDoorButtonState(ServiceButtonState.DISABLED));
             dispatch(setCateringButtonState(ServiceButtonState.DISABLED));
-            if (cabinDoorOpen === 1) {
-                SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 1);
+            if (cabinLeftDoorOpen === 1) {
+                toggleCabinLeftDoor();
             }
-            if (aftDoorOpen === 1) {
-                SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 4);
+            if (cabinRightDoorOpen === 1) {
+                toggleCabinRightDoor();
+            }
+            if (aftLeftDoorOpen === 1) {
+                toggleAftLeftDoor();
+            }
+            if (aftRightDoorOpen === 1) {
+                toggleAftRightDoor();
             }
             if (cargoDoorOpen === 1) {
-                SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 6);
+                toggleCargoDoor();
             }
         } else if (
-            [cateringButtonState,
+            [
+                boarding1DoorButtonState,
+                boarding2DoorButtonState,
+                boarding3DoorButtonState,
+                serviceDoorButtonState,
+                cargo1DoorButtonState,
+                cateringButtonState,
                 jetWayButtonState,
                 fuelTruckButtonState,
                 gpuButtonState,
-                cargoDoorButtonState,
                 baggageButtonState,
-                aftDoorButtonState,
                 cateringButtonState]
                 .every((buttonState) => buttonState === ServiceButtonState.DISABLED)
         ) {
-            dispatch(setCabinDoorButtonState(ServiceButtonState.INACTIVE));
+            dispatch(setBoarding1DoorButtonState(ServiceButtonState.INACTIVE));
+            dispatch(setBoarding2DoorButtonState(ServiceButtonState.INACTIVE));
             dispatch(setJetWayButtonState(ServiceButtonState.INACTIVE));
             dispatch(setFuelTruckButtonState(ServiceButtonState.INACTIVE));
             dispatch(setGpuButtonState(ServiceButtonState.INACTIVE));
-            dispatch(setCargoDoorButtonState(ServiceButtonState.INACTIVE));
+            dispatch(setCargo1DoorButtonState(ServiceButtonState.INACTIVE));
             dispatch(setBaggageButtonState(ServiceButtonState.INACTIVE));
-            dispatch(setAftDoorButtonState(ServiceButtonState.INACTIVE));
+            dispatch(setBoarding3DoorButtonState(ServiceButtonState.INACTIVE));
+            dispatch(setServiceDoorButtonState(ServiceButtonState.INACTIVE));
             dispatch(setCateringButtonState(ServiceButtonState.INACTIVE));
         }
     }, [groundServicesAvailable]);
@@ -478,15 +512,21 @@ export const A318ServicesPage = () => {
 
     return (
         <div className="relative h-content-section-reduced">
-            <GroundServiceOutline className="inset-x-0 mx-auto w-full h-full text-theme-text" />
+            <GroundServiceOutline
+                cabinLeftStatus={cabinLeftDoorOpen >= 1.0}
+                cabinRightStatus={cabinRightDoorOpen >= 1.0}
+                aftLeftStatus={aftLeftDoorOpen >= 1.0}
+                aftRightStatus={aftRightDoorOpen >= 1.0}
+                className="inset-x-0 mx-auto w-full h-full text-theme-text"
+            />
 
-            <ServiceButtonWrapper xr={880} y={64}>
+            <ServiceButtonWrapper xr={930} y={24}>
 
                 {/* CABIN DOOR */}
                 <GroundServiceButton
                     name={t('Ground.Services.DoorFwd')}
-                    state={cabinDoorButtonState}
-                    onClick={() => handleButtonClick(ServiceButton.CabinDoor)}
+                    state={boarding1DoorButtonState}
+                    onClick={() => handleButtonClick(ServiceButton.CabinLeftDoor)}
                 >
                     <DoorClosedFill size={36} />
                 </GroundServiceButton>
@@ -511,7 +551,27 @@ export const A318ServicesPage = () => {
 
             </ServiceButtonWrapper>
 
-            <ServiceButtonWrapper xl={850} y={64} className="">
+            <ServiceButtonWrapper xr={930} y={600} className="">
+                {/* AFT DOOR */}
+                <GroundServiceButton
+                    name={t('Ground.Services.DoorAft')}
+                    state={boarding3DoorButtonState}
+                    onClick={() => handleButtonClick(ServiceButton.AftLeftDoor)}
+                >
+                    <DoorClosedFill size={36} />
+                </GroundServiceButton>
+            </ServiceButtonWrapper>
+
+            <ServiceButtonWrapper xl={900} y={24} className="">
+
+                {/* CABIN DOOR */}
+                <GroundServiceButton
+                    name={t('Ground.Services.DoorFwd')}
+                    state={boarding2DoorButtonState}
+                    onClick={() => handleButtonClick(ServiceButton.CabinRightDoor)}
+                >
+                    <DoorClosedFill size={36} />
+                </GroundServiceButton>
 
                 {/* GPU */}
                 <GroundServiceButton
@@ -525,7 +585,7 @@ export const A318ServicesPage = () => {
                 {/* CARGO DOOR */}
                 <GroundServiceButton
                     name={t('Ground.Services.DoorCargo')}
-                    state={cargoDoorButtonState}
+                    state={cargo1DoorButtonState}
                     onClick={() => handleButtonClick(ServiceButton.CargoDoor)}
                 >
                     <DoorClosedFill size={36} />
@@ -542,13 +602,13 @@ export const A318ServicesPage = () => {
 
             </ServiceButtonWrapper>
 
-            <ServiceButtonWrapper xl={850} y={600} className="">
+            <ServiceButtonWrapper xl={900} y={600} className="">
 
                 {/* AFT DOOR */}
                 <GroundServiceButton
                     name={t('Ground.Services.DoorAft')}
-                    state={aftDoorButtonState}
-                    onClick={() => handleButtonClick(ServiceButton.AftDoor)}
+                    state={serviceDoorButtonState}
+                    onClick={() => handleButtonClick(ServiceButton.AftRightDoor)}
                 >
                     <DoorClosedFill size={36} />
                 </GroundServiceButton>
@@ -599,7 +659,7 @@ export const A318ServicesPage = () => {
                     TUG
                 </div>
             )}
-            {!!cabinDoorOpen && (
+            {cabinLeftDoorOpen >= 1.0 && (
                 <div
                     className={serviceIndicationCss}
                     style={{ position: 'absolute', left: 500, right: 0, top: 100 }}
@@ -607,7 +667,23 @@ export const A318ServicesPage = () => {
                     CABIN
                 </div>
             )}
-            {!!aftDoorOpen && (
+            {cabinRightDoorOpen >= 1.0 && (
+                <div
+                    className={serviceIndicationCss}
+                    style={{ position: 'absolute', left: 700, right: 0, top: 100 }}
+                >
+                    CABIN
+                </div>
+            )}
+            {aftLeftDoorOpen >= 1.0 && (
+                <div
+                    className={serviceIndicationCss}
+                    style={{ position: 'absolute', left: 500, right: 0, top: 665 }}
+                >
+                    CABIN
+                </div>
+            )}
+            {aftRightDoorOpen >= 1.0 && (
                 <div
                     className={serviceIndicationCss}
                     style={{ position: 'absolute', left: 700, right: 0, top: 665 }}
@@ -615,7 +691,7 @@ export const A318ServicesPage = () => {
                     CABIN
                 </div>
             )}
-            {!!cargoDoorOpen && (
+            {cargoDoorOpen >= 1.0 && (
                 <div
                     className={serviceIndicationCss}
                     style={{ position: 'absolute', left: 700, right: 0, top: 165 }}
