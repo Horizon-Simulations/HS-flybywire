@@ -121,7 +121,7 @@
               1.0,
               1.0
             ],
-            "name": "CAPTAIN_AVATAR"
+            "name": "PILOT_0"
           },
           {
             "translation": [
@@ -140,7 +140,7 @@
               1.0,
               1.0
             ],
-            "name": "FIRSTOFFICER_AVATAR"
+            "name": "PILOT_1"
           }
         ]
       }
