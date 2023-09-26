@@ -421,6 +421,19 @@ function _correctMass(m) {
 }
 
 /**
+ * Ensure gross weight (mass) is withing valid range (with 5t step for Vls)
+ * @param m {number} mass: gross weight
+ * @returns {number} mass: gross weight
+ * @private
+ */
+function _correctMass2(m) {
+    const min = 40;
+    const max = 80;
+    const step = 5;
+    return Math.ceil(((m > max ? max : m) - min) / step);
+}
+
+/**
  * Calculate green dot speed
  * Calculation:
  * Gross weight (t) * 2 + 85 when below FL200
@@ -557,7 +570,8 @@ class NXSpeeds {
     constructor(m, fPos, gPos, isTo, wind = 0) {
         const cm = _correctMass(m);
         this.vs = vs[fPos][cm](m, gPos);
-        this.vls = (isTo ? vlsTo : vls)[fPos][cm](m, gPos);
+        const cm2 = _correctMass2(m);
+        this.vls = (isTo ? vlsTo : vls)[fPos][cm2](m, gPos);
         this.vapp = this.vls + _addWindComponent(wind);
         this.f = f[cm](m);
         this.s = s[cm](m);
@@ -596,7 +610,8 @@ class NXSpeedsApp {
      */
     constructor(m, isConf3, wind = 0) {
         const cm = _correctMass(m);
-        this.vls = vls[isConf3 ? 3 : 4][cm](m, 1);
+        const cm2 = _correctMass2(m);
+        this.vls = vls[isConf3 ? 3 : 4][cm2](m, 1);
         this.vapp = this.vls + NXSpeedsUtils.addWindComponent(wind / 3);
         this.f = f[cm](m);
         this.s = s[cm](m);
