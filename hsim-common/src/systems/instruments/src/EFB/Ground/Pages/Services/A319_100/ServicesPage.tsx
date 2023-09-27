@@ -565,13 +565,13 @@ export const A319Services: React.FC = () => {
             <ServiceButtonWrapper xl={900} y={24} className="">
 
                 {/* CABIN DOOR */}
-                <GroundServiceButton
+                {/* <GroundServiceButton
                     name={t('Ground.Services.DoorFwd')}
                     state={boarding2DoorButtonState}
                     onClick={() => handleButtonClick(ServiceButton.CabinRightDoor)}
                 >
                     <DoorClosedFill size={36} />
-                </GroundServiceButton>
+                </GroundServiceButton> */}
 
                 {/* GPU */}
                 <GroundServiceButton
@@ -667,14 +667,14 @@ export const A319Services: React.FC = () => {
                     CABIN
                 </div>
             )}
-            {cabinRightDoorOpen >= 1.0 && (
+            {/* {cabinRightDoorOpen >= 1.0 && (
                 <div
                     className={serviceIndicationCss}
                     style={{ position: 'absolute', left: 700, right: 0, top: 100 }}
                 >
                     CABIN
                 </div>
-            )}
+            )} */}
             {aftLeftDoorOpen >= 1.0 && (
                 <div
                     className={serviceIndicationCss}

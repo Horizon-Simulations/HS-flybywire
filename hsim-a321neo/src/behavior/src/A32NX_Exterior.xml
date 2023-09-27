@@ -5,8 +5,8 @@
     <Template Name="A32NX_ENGINE_Turbine_Template">
         <DefaultTemplateParameters>
             <ID>1</ID>
-            <MIN_N1_PCT_FOR_SLOW>7</MIN_N1_PCT_FOR_SLOW>
-            <MIN_N1_PCT_FOR_BLUR>110</MIN_N1_PCT_FOR_BLUR>
+            <MIN_N1_PCT_FOR_SLOW>30000</MIN_N1_PCT_FOR_SLOW>
+            <MIN_N1_PCT_FOR_BLUR>30000</MIN_N1_PCT_FOR_BLUR>
             <FROSTED>False</FROSTED>
         </DefaultTemplateParameters>
         <UseTemplate Name="A32NX_ENGINE_Turbine_SubTemplate"/>
