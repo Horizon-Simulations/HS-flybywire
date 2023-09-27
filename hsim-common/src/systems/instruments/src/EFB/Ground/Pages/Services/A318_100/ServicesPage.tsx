@@ -566,13 +566,13 @@ export const A318Services: React.FC = () => {
             <ServiceButtonWrapper xl={900} y={24} className="">
 
                 {/* CABIN DOOR */}
-                <GroundServiceButton
+                {/* <GroundServiceButton
                     name={t('Ground.Services.DoorFwd')}
                     state={boarding2DoorButtonState}
                     onClick={() => handleButtonClick(ServiceButton.CabinRightDoor)}
                 >
                     <DoorClosedFill size={36} />
-                </GroundServiceButton>
+                </GroundServiceButton> */}
 
                 {/* GPU */}
                 <GroundServiceButton

@@ -39,7 +39,7 @@ let initialState: ButtonSelectionState = {
 const setInitialState = () => {
     initialState = {
         boarding1DoorButtonState: (SimVar.GetSimVarValue('A:INTERACTIVE POINT OPEN:0', 'Percent over 100') === 1.0 ? ServiceButtonState.ACTIVE : ServiceButtonState.INACTIVE),
-        boarding2DoorButtonState: ServiceButtonState.INACTIVE, //(SimVar.GetSimVarValue('A:INTERACTIVE POINT OPEN:1', 'Percent over 100') === 1.0 ? ServiceButtonState.ACTIVE : ServiceButtonState.INACTIVE),
+        boarding2DoorButtonState: (SimVar.GetSimVarValue('A:INTERACTIVE POINT OPEN:1', 'Percent over 100') === 1.0 ? ServiceButtonState.ACTIVE : ServiceButtonState.INACTIVE),
         boarding3DoorButtonState: (SimVar.GetSimVarValue('A:INTERACTIVE POINT OPEN:2', 'Percent over 100') === 1.0 ? ServiceButtonState.ACTIVE : ServiceButtonState.INACTIVE),
         cargo1DoorButtonState: (SimVar.GetSimVarValue('A:INTERACTIVE POINT OPEN:5', 'Percent over 100') === 1.0 ? ServiceButtonState.ACTIVE : ServiceButtonState.INACTIVE),
         serviceDoorButtonState: (SimVar.GetSimVarValue('A:INTERACTIVE POINT OPEN:3', 'Percent over 100') === 1.0 ? ServiceButtonState.ACTIVE : ServiceButtonState.INACTIVE),
