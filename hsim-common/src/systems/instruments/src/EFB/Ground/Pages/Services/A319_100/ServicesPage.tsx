@@ -667,14 +667,14 @@ export const A319Services: React.FC = () => {
                     CABIN
                 </div>
             )}
-            {cabinRightDoorOpen >= 1.0 && (
+            {/* {cabinRightDoorOpen >= 1.0 && (
                 <div
                     className={serviceIndicationCss}
                     style={{ position: 'absolute', left: 700, right: 0, top: 100 }}
                 >
                     CABIN
                 </div>
-            )}
+            )} */}
             {aftLeftDoorOpen >= 1.0 && (
                 <div
                     className={serviceIndicationCss}
