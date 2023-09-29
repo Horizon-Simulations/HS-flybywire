@@ -126,11 +126,11 @@ export const A318Services: React.FC = () => {
     const [fuelingActive] = useSimVar('A:INTERACTIVE POINT OPEN:9', 'Percent over 100', 100);
 
     // Wheel Chocks and Cones
-    const [isGroundEquipmentVisible] = useSimVar('L:A32NX_GND_EQP_IS_VISIBLE', 'bool', 500);
-    const [wheelChocksEnabled] = useSimVar('L:A32NX_MODEL_WHEELCHOCKS_ENABLED', 'bool', 500);
-    const [conesEnabled] = useSimVar('L:A32NX_MODEL_CONES_ENABLED', 'bool', 500);
-    const wheelChocksVisible = wheelChocksEnabled && isGroundEquipmentVisible;
-    const conesVisible = conesEnabled && isGroundEquipmentVisible;
+    // const [isGroundEquipmentVisible] = useSimVar('L:A32NX_GND_EQP_IS_VISIBLE', 'bool', 500);
+    // const [wheelChocksEnabled] = useSimVar('L:A32NX_MODEL_WHEELCHOCKS_ENABLED', 'bool', 500);
+    // const [conesEnabled] = useSimVar('L:A32NX_MODEL_CONES_ENABLED', 'bool', 500);
+    // const wheelChocksVisible = wheelChocksEnabled && isGroundEquipmentVisible;
+    // const conesVisible = conesEnabled && isGroundEquipmentVisible;
 
     // Service events
     const toggleCabinLeftDoor = () => SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 1);
