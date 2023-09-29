@@ -126,11 +126,11 @@ export const A318Services: React.FC = () => {
     const [fuelingActive] = useSimVar('A:INTERACTIVE POINT OPEN:9', 'Percent over 100', 100);
 
     // Wheel Chocks and Cones
-    const [isGroundEquipmentVisible] = useSimVar('L:A32NX_GND_EQP_IS_VISIBLE', 'bool', 500);
-    const [wheelChocksEnabled] = useSimVar('L:A32NX_MODEL_WHEELCHOCKS_ENABLED', 'bool', 500);
-    const [conesEnabled] = useSimVar('L:A32NX_MODEL_CONES_ENABLED', 'bool', 500);
-    const wheelChocksVisible = wheelChocksEnabled && isGroundEquipmentVisible;
-    const conesVisible = conesEnabled && isGroundEquipmentVisible;
+    // const [isGroundEquipmentVisible] = useSimVar('L:A32NX_GND_EQP_IS_VISIBLE', 'bool', 500);
+    // const [wheelChocksEnabled] = useSimVar('L:A32NX_MODEL_WHEELCHOCKS_ENABLED', 'bool', 500);
+    // const [conesEnabled] = useSimVar('L:A32NX_MODEL_CONES_ENABLED', 'bool', 500);
+    // const wheelChocksVisible = wheelChocksEnabled && isGroundEquipmentVisible;
+    // const conesVisible = conesEnabled && isGroundEquipmentVisible;
 
     // Service events
     const toggleCabinLeftDoor = () => SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 1);
@@ -627,7 +627,7 @@ export const A318Services: React.FC = () => {
 
             {/* Wheel Chocks and Security Cones are only visual information. To reuse styling */}
             {/* the ServiceButtonWrapper has been re-used. */}
-            <ServiceButtonWrapper xr={800} y={600} className="border-0 divide-y-0">
+            {/* <ServiceButtonWrapper xr={800} y={600} className="border-0 divide-y-0">
                 {!!wheelChocksEnabled && (
                     <div className={`flex flex-row items-center space-x-6 py-6 px-6 cursor-pointer ${(wheelChocksVisible) ? 'text-green-500' : 'text-gray-500'}`}>
                         <div className={`flex justify-center items-end -ml-2 -mr-[2px] ${(wheelChocksVisible) ? 'text-green-500' : 'text-gray-500'}`}>
@@ -649,7 +649,7 @@ export const A318Services: React.FC = () => {
                         </h1>
                     </div>
                 )}
-            </ServiceButtonWrapper>
+            </ServiceButtonWrapper> */}
 
             {/* Visual indications for tug and doors */}
             {!!pushBackAttached && (
