@@ -11,8 +11,8 @@ import { toast } from 'react-toastify';
 import { getAirframeType } from '../../Efb';
 import { AC_TYPE } from '../../Enum/Airframe';
 import { fetchSimbriefDataAction, isSimbriefDataLoaded } from '../../Store/features/simBrief';
-
 import { useAppSelector, useAppDispatch } from '../../Store/store';
+
 import { ScrollableContainer } from '../../UtilComponents/ScrollableContainer';
 import { t } from '../../translation';
 
@@ -69,7 +69,8 @@ const NoSimBriefDataOverlay = ({ simbriefDataLoaded, simbriefDataPending, fetchD
 export const FlightWidget = () => {
     const { data } = useAppSelector((state) => state.simbrief);
     const [simbriefDataPending, setSimbriefDataPending] = useState(false);
-    const [simbriefUserId] = usePersistentProperty('CONFIG_SIMBRIEF_USERID');
+    const [navigraphUsername] = usePersistentProperty('NAVIGRAPH_USERNAME');
+    const [overrideSimBriefUserID] = usePersistentProperty('CONFIG_OVERRIDE_SIMBRIEF_USERID');
     const [airframe] = useState(getAirframeType());
 
     const {
@@ -115,7 +116,7 @@ export const FlightWidget = () => {
         setSimbriefDataPending(true);
 
         try {
-            const action = await fetchSimbriefDataAction(simbriefUserId ?? '');
+            const action = await fetchSimbriefDataAction(navigraphUsername ?? '', overrideSimBriefUserID ?? '');
 
             dispatch(action);
         } catch (e) {
