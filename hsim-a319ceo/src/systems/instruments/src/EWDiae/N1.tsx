@@ -82,9 +82,9 @@ export class AvailRev extends DisplayComponent<AvailRevProps> {
     render(): VNode {
         return (
             <g visibility={this.visibility}>
-                <rect x={-17} y={-16} width={96} height={34} class="DarkGreyBox BackgroundFill" />
-                <text class={this.revClass} visibility={this.revVisible} x={34} y={13}>{this.revText}</text>
-                <text class="Huge End Green" visibility={this.availVisible} x={79} y={13}>AVAIL</text>
+                <rect x={-44} y={-14} width={96} height={32} class="DarkGreyBox BackgroundFill" />
+                <text class={this.revClass} visibility={this.revVisible} x={0} y={11}>{this.revText}</text>
+                <text class="Huge End Green" visibility={this.availVisible} x={52} y={11}>AVAIL</text>
             </g>
         );
     }
