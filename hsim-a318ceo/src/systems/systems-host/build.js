@@ -6,28 +6,8 @@
 
 const esbuild = require('esbuild');
 const path = require('path');
+const { esbuildModuleBuild } = require('#build-utils');
 
-const rootDir = path.join(__dirname, '..', '..', '..');
-const outFile = 'out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/SystemsHost';
+const outFile = 'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/SystemsHost';
 
-const isProductionBuild = process.env.A32NX_PRODUCTION_BUILD === '1';
-
-esbuild.build({
-    absWorkingDir: __dirname,
-
-    define: { DEBUG: 'false' },
-
-    entryPoints: ['./index.ts'],
-    bundle: true,
-    treeShaking: false,
-    minify: isProductionBuild,
-
-    outdir: path.join(rootDir, outFile),
-
-    format: 'iife',
-
-    sourcemap: isProductionBuild ? 'linked' : undefined,
-
-    // Target approximate CoherentGT WebKit version
-    target: 'safari11',
-});
+esbuild.build(esbuildModuleBuild('build-a318ceo', undefined, path.join(__dirname, './index.ts'), outFile));
