@@ -6,30 +6,8 @@
 
 const esbuild = require('esbuild');
 const path = require('path');
+const { esbuildModuleBuild } = require('#build-utils');
 
-require('dotenv').config();
+const outFile = 'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/sentry-client/sentry-client.js';
 
-const rootDir = path.join(__dirname, '..', '..', '..');
-const outFile = 'out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/sentry-client/sentry-client.js';
-
-const isProductionBuild = process.env.A32NX_PRODUCTION_BUILD === '1';
-
-esbuild.build({
-    absWorkingDir: __dirname,
-
-    define: { 'DEBUG': 'false', 'process.env.SENTRY_DSN': `'${process.env.SENTRY_DSN}'` },
-
-    entryPoints: ['src/index.ts'],
-    bundle: true,
-    treeShaking: false,
-    minify: isProductionBuild,
-
-    outfile: path.join(rootDir, outFile),
-
-    format: 'iife',
-
-    sourcemap: isProductionBuild ? 'linked' : undefined,
-
-    // Target approximate CoherentGT WebKit version
-    target: 'safari11',
-});
+esbuild.build(esbuildModuleBuild('build-a321neo', undefined, path.join(__dirname, 'src/index.ts'), outFile));

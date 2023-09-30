@@ -68,6 +68,7 @@ Cargo.toml
 !/hsim-common/src/**
 
 /hsim-a318ceo/*
+/hsim-a318ceo/.env.local
 !/hsim-a318ceo/README.md
 !/hsim-a318ceo/mach.config.js
 !/hsim-a318ceo/.env
@@ -96,6 +97,7 @@ Cargo.toml
 /build-a318ceo/src/systems/instruments/src/EFBcfm/web/
 
 /hsim-a319ceo/*
+/hsim-a319ceo/.env.local
 !/hsim-a319ceo/README.md
 !/hsim-a319ceo/mach.config.js
 !/hsim-a319ceo/.env
@@ -126,6 +128,7 @@ Cargo.toml
 /build-a319ceo/src/systems/instruments/src/EFBiae/web/
 
 /hsim-a320ceo/*
+/hsim-a320ceo/.env.local
 !/hsim-a320ceo/README.md
 !/hsim-a320ceo/mach.config.js
 !/hsim-a320ceo/.env
@@ -154,6 +157,7 @@ Cargo.toml
 /build-a320ceo/src/systems/instruments/src/EFB/web/
 
 /hsim-a321neo/*
+/hsim-a321neo/.env.local
 !/hsim-a321neo/README.md
 !/hsim-a321neo/mach.config.js
 !/hsim-a321neo/.env
@@ -182,6 +186,8 @@ Cargo.toml
 /build-a321neo/src/systems/instruments/src/EFB/web/
 
 !/scripts/**
+
+!/build-utils.js
 
 !/tools/**
 /tools/fdr2csv/*.exe
