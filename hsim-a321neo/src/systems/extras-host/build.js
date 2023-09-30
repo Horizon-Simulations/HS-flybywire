@@ -8,6 +8,6 @@ const esbuild = require('esbuild');
 const path = require('path');
 const { esbuildModuleBuild } = require('#build-utils');
 
-const outFile = 'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/ExtrasHost';
+const outFile = 'build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/ExtrasHost/index.js';
 
 esbuild.build(esbuildModuleBuild('build-a321neo', undefined, path.join(__dirname, './index.ts'), outFile));
