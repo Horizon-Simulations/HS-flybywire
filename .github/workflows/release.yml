@@ -64,14 +64,14 @@ jobs:
         run: |
           ./scripts/dev-env/run.sh node ./scripts/fragment_a318ceo.js
           cp ./build-a318ceo/out/build-modules/modules.json ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/install.json
-          ./scripts/dev-env/run.sh node ./scripts/install-source.js
+          ./scripts/dev-env/run.sh node ./scripts/install-source-a318ceo.js
           mkdir ./${{ env.BUILD_DIR_NAME }}
           cd ./build-a318ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }} ./lvfr-horizonsim-airbus-a318-ceo/
           cd ../../
       - name: Upload to CloudFlare CDN
         env:
-          CLOUDFLARE_BUCKET_PASSWORD: ${{ secrets.CLOUDFLARE_BUCKET_PASSWORD }}
+          CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
           CDN_BUCKET_DESTINATION: addons/lvfr-a318ceo/release
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a318ceo/out/build-modules
@@ -138,14 +138,14 @@ jobs:
         run: |
             ./scripts/dev-env/run.sh node ./scripts/fragment_a319ceo.js
             cp ./build-a319ceo/out/build-modules/modules.json ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/install.json
-            ./scripts/dev-env/run.sh node ./scripts/install-source.js
+            ./scripts/dev-env/run.sh node ./scripts/install-source-a319ceo.js
             mkdir ./${{ env.BUILD_DIR_NAME }}
             cd ./build-a319ceo/out/
             zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }} ./lvfr-horizonsim-airbus-a319-ceo/
             cd ../../
       - name: Upload to CloudFlare CDN
         env:
-          CLOUDFLARE_BUCKET_PASSWORD: ${{ secrets.CLOUDFLARE_BUCKET_PASSWORD }}
+          CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
           CDN_BUCKET_DESTINATION: addons/lvfr-a319ceo/release
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a319ceo/out/build-modules
@@ -212,14 +212,14 @@ jobs:
         run: |
           ./scripts/dev-env/run.sh node ./scripts/fragment_a320ceo.js
           cp ./build-a320ceo/out/build-modules/modules.json ./build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/install.json
-          ./scripts/dev-env/run.sh node ./scripts/install-source.js
+          ./scripts/dev-env/run.sh node ./scripts/install-source-a320ceo.js
           mkdir ./${{ env.BUILD_DIR_NAME }}
           cd ./build-a320ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} ./lvfr-horizonsim-airbus-a320-ceo/
           cd ../../
       - name: Upload to CloudFlare CDN
         env:
-          CLOUDFLARE_BUCKET_PASSWORD: ${{ secrets.CLOUDFLARE_BUCKET_PASSWORD }}
+          CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
           CDN_BUCKET_DESTINATION: addons/lvfr-a320ceo/release
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a320ceo/out/build-modules
@@ -286,14 +286,14 @@ jobs:
         run: |
           ./scripts/dev-env/run.sh node ./scripts/fragment_a321neo.js
           cp ./build-a321neo/out/build-modules/modules.json ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/install.json
-          ./scripts/dev-env/run.sh node ./scripts/install-source.js
+          ./scripts/dev-env/run.sh node ./scripts/install-source-a321neo.js
           mkdir ./${{ env.BUILD_DIR_NAME }}
           cd ./build-a321neo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }} ./lvfr-horizonsim-airbus-a321-neo/
           cd ../../
       - name: Upload to CloudFlare CDN
         env:
-          CLOUDFLARE_BUCKET_PASSWORD: ${{ secrets.CLOUDFLARE_BUCKET_PASSWORD }}
+          CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
           CDN_BUCKET_DESTINATION: addons/lvfr-a321neo/release
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a321neo/out/build-modules
