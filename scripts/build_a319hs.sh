@@ -10,6 +10,9 @@ ORIGINAL_GROUP_ID=$(stat -c '%g' /external)
 if [ "${GITHUB_ACTIONS}" == "true" ]; then
   chown -R root:root /external
   rm -rf /external/flybywire
+  rm -rf /external/hsim-a318ceo
+  rm -rf /external/hsim-a320ceo
+  rm -rf /external/hsim-a321neo
 fi
 
 # permission fix

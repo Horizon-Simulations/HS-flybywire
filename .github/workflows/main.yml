@@ -71,7 +71,7 @@ jobs:
           CLOUDFLARE_BUCKET_PASSWORD: ${{ secrets.CLOUDFLARE_BUCKET_PASSWORD }}
           CDN_BUCKET_DESTINATION: addons/lvfr-a318ceo/development
         run: |
-          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a318ceo/build-modules
+          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a318ceo/out/build-modules
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
@@ -145,7 +145,7 @@ jobs:
           CLOUDFLARE_BUCKET_PASSWORD: ${{ secrets.CLOUDFLARE_BUCKET_PASSWORD }}
           CDN_BUCKET_DESTINATION: addons/lvfr-a319ceo/development
         run: |
-          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a319ceo/build-modules
+          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a319ceo/out/build-modules
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
@@ -219,7 +219,7 @@ jobs:
           CLOUDFLARE_BUCKET_PASSWORD: ${{ secrets.CLOUDFLARE_BUCKET_PASSWORD }}
           CDN_BUCKET_DESTINATION: addons/lvfr-a320ceo/development
         run: |
-          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a320ceo/build-modules
+          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a320ceo/out/build-modules
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
@@ -293,7 +293,7 @@ jobs:
           CLOUDFLARE_BUCKET_PASSWORD: ${{ secrets.CLOUDFLARE_BUCKET_PASSWORD }}
           CDN_BUCKET_DESTINATION: addons/lvfr-a321neo/development
         run: |
-          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a321neo/build-modules
+          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a321neo/out/build-modules
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
