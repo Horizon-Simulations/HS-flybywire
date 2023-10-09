@@ -50,7 +50,7 @@ jobs:
           fail-if-no-release: false
       - name: Setup Package
         run:  |
-          ./scripts/dev-env/run.sh ./scripts/setup.sh
+          ./scripts/dev-env/run.sh ./scripts/setup.sh --clean
       - name: Copy Sources
         run: |
           ./scripts/dev-env/run.sh ./scripts/copy_a318hs.sh
@@ -124,7 +124,7 @@ jobs:
           fail-if-no-release: false
       - name: Setup Package
         run:  |
-          ./scripts/dev-env/run.sh ./scripts/setup.sh
+          ./scripts/dev-env/run.sh ./scripts/setup.sh --clean
       - name: Copy Sources
         run: |
           ./scripts/dev-env/run.sh ./scripts/copy_a319hs.sh
@@ -198,7 +198,7 @@ jobs:
           fail-if-no-release: false
       - name: Setup Package
         run:  |
-          ./scripts/dev-env/run.sh ./scripts/setup.sh
+          ./scripts/dev-env/run.sh ./scripts/setup.sh --clean
       - name: Copy Sources
         run: |
           ./scripts/dev-env/run.sh ./scripts/copy_a320hs.sh
@@ -272,7 +272,7 @@ jobs:
           fail-if-no-release: false
       - name: Setup Package
         run:  |
-          ./scripts/dev-env/run.sh ./scripts/setup.sh
+          ./scripts/dev-env/run.sh ./scripts/setup.sh --clean
       - name: Copy Sources
         run: |
           ./scripts/dev-env/run.sh ./scripts/copy_a321hs.sh

@@ -218,7 +218,7 @@
     "@vitejs/plugin-react": "^1.2.0",
     "autoprefixer": "^10.4.2",
     "dotenv": "^8.2.0",
-    "esbuid": "^0.19.4",
+    "esbuild": "^0.19.4",
     "eslint": "^7.21.0",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jest": "^27.4.2",
@@ -246,8 +246,8 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
-    "vite-plugin-replace": "^0.1.12",
-    "vite-tsconfig-paths": "^4.2.1",
+    "vite-plugin-filter-replace": "^0.1.12",
+    "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
     "@flybywiresim/api-client": "^0.16.2",
