@@ -6,8 +6,8 @@
 
 const esbuild = require('esbuild');
 const path = require('path');
-const { esbuildModuleBuild } = require('#build-utils');
+const { createModuleBuild  } = require('#build-utils');
 
 const outFile = 'build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/SystemsHost/index.js';
 
-esbuild.build(esbuildModuleBuild('build-a318ceo', undefined, path.join(__dirname, './index.ts'), outFile));
+esbuild.build(createModuleBuild('build-a318ceo', undefined, path.join(__dirname, './index.ts'), outFile, __dirname));

@@ -6,8 +6,8 @@
 
 const esbuild = require('esbuild');
 const path = require('path');
-const { esbuildModuleBuild } = require('#build-utils');
+const { createModuleBuild  } = require('#build-utils');
 
 const outFile = 'build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/html_ui/JS/A320HS/simbridge-client/simbridge-client.js';
 
-esbuild.build(esbuildModuleBuild('build-a320ceo', 'SimBridgeClient', path.join(__dirname, 'src/index.ts'), outFile));
+esbuild.build(createModuleBuild('build-a320ceo', 'SimBridgeClient', path.join(__dirname, 'src/index.ts'), outFile, __dirname));
