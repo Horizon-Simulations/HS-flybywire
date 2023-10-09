@@ -1,7 +1,7 @@
 #!/bin/bash
 
-CDN_URL="http://worker.horizonsimulations.com"
-CDN_PURGE_LINK="http://worker.horizonsimulations.com/purgeCache?url=http://worker.horizonsimulations.com"
+CDN_URL="https://worker.horizonsimulations.com"
+CDN_PURGE_LINK="https://worker.horizonsimulations.com/purgeCache?url=https://worker.horizonsimulations.com"
 CDN_DIR=${1:-"addons/lfvr/test-3"}
 LOCAL_DIR=${2:-"./build-modules"}
 
