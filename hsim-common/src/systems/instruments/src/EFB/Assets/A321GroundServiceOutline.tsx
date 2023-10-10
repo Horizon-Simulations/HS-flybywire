@@ -2,7 +2,7 @@
 import * as React from 'react';
 // viewBox="0 0 777 814"
 export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightStatus, aftLeftStatus, aftRightStatus }: {className: string, cabinLeftStatus: boolean, cabinRightStatus: boolean, aftLeftStatus: boolean, aftRightStatus: boolean}) => (
-<svg id="SVG" className={className} width="920" height="964" viewBox="0 0 920 964" xmlns="http://www.w3.org/2000/svg">
+<svg id="SVG" className={className} width="777" height="814" viewBox="0 0 777 814" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
         {
@@ -10,7 +10,7 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
         }
     </style>
   </defs>
-  <g id="SVG_Detail_Lines">
+  <g id="SVG_Detail_Lines" transform="matrix(0.844233, 0, 0, 0.844233, 60.247921, 69.855316)">
     <g id="Engines" >
       <g id="ENG_1">
         <g id="Strakes">
@@ -173,7 +173,7 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
       </g>
     </g>
   </g>
-  <g id="SVG_Main_Lines" transform="matrix(0.844233, 0, 0, 0.844233, 2.977408, 0.467301)">
+  <g id="SVG_Main_Lines"  transform="matrix(0.844233, 0, 0, 0.844233, 60.662922, 75.730957)">
     <g id="Rear_Stablizer" transform="matrix(1, 0, 0, 1, 0, 59.200413)">
       <g id="Right_Fin">
         <path id="Right_Elevator" className="cls-1" d="m409.78 769.69 3.03-21.36 109.98 38.56"/>

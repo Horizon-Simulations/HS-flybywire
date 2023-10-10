@@ -7,7 +7,7 @@
         }
     </style>
   </defs>
-  <g id="SVG_Detail_Lines" style="transform-origin: 388.825px 375.605px;" transform="matrix(0.844233, 0, 0, 0.844233, 2.977408, 0.467301)">
+  <g id="SVG_Detail_Lines" transform="matrix(0.844233, 0, 0, 0.844233, 60.247921, 69.855316)">
     <g id="Engines" style="pointer-events: none;">
       <g id="ENG_1">
         <g id="Strakes">
@@ -100,7 +100,7 @@
       </g>
     </g>
   </g>
-  <g id="SVG_Main_Lines" style="transform-origin: 388.24px 407.45px;" transform="matrix(0.844233, 0, 0, 0.844233, 2.977408, 0.467301)">
+  <g id="SVG_Main_Lines" transform="matrix(0.844233, 0, 0, 0.844233, 60.662922, 75.730957)">
     <g id="Rear_Stablizer" transform="matrix(1, 0, 0, 1, 0, 59.200413)">
       <g id="Right_Fin">
         <path id="Right_Elevator" classname="cls-1" d="m409.78 769.69 3.03-21.36 109.98 38.56"/>
