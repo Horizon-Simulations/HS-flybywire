@@ -2,7 +2,7 @@
 import * as React from 'react';
 // viewBox="0 0 777 814"
 export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightStatus, aftLeftStatus, aftRightStatus }: {className: string, cabinLeftStatus: boolean, cabinRightStatus: boolean, aftLeftStatus: boolean, aftRightStatus: boolean}) => (
-<svg id="SVG" className={className} width="777" height="814" viewBox="0 0 777 814" xmlns="http://www.w3.org/2000/svg">
+<svg id="SVG" className={className} width="920" height="964" viewBox="0 0 920 964" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
         {
@@ -10,7 +10,7 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
         }
     </style>
   </defs>
-  <g id="SVG_Detail_Lines" transform="matrix(0.844233, 0, 0, 0.844233, 2.977408, 0.467301)">
+  <g id="SVG_Detail_Lines">
     <g id="Engines" >
       <g id="ENG_1">
         <g id="Strakes">
