@@ -17,7 +17,7 @@ import {
 } from 'react-bootstrap-icons';
 import { ActionCreatorWithOptionalPayload } from '@reduxjs/toolkit';
 import { t } from '../../../../translation';
-import { GroundServiceOutline } from '../../../../Assets/A318GroundServiceOutline';
+import { GroundServiceOutline } from '../../../../Assets/A319GroundServiceOutline';
 import { useAppDispatch, useAppSelector } from '../../../../Store/store';
 import {
     setBoarding1DoorButtonState,
