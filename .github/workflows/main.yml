@@ -57,7 +57,6 @@ jobs:
       - name: Build A318HS Package
         run: |
           ./scripts/dev-env/run.sh ./scripts/build_a318hs.sh --no-tty -j 4
-          docker system prune -af
       - name: Build A318HS ZIP files
         run: |
           node ./scripts/fragment_a318ceo.js
@@ -206,7 +205,6 @@ jobs:
       - name: Build A320HS Package
         run: |
           ./scripts/dev-env/run.sh ./scripts/build_a320hs.sh --no-tty -j 4
-          docker system prune -af
       - name: Build A320HS ZIP files
         run: |
           node ./scripts/fragment_a320ceo.js
@@ -281,7 +279,6 @@ jobs:
       - name: Build A21NHS Package
         run: |
             ./scripts/dev-env/run.sh ./scripts/build_a321hs.sh --no-tty -j 4
-            docker system prune -af
       - name: Build A21NHS ZIP files
         run: |
           node ./scripts/fragment_a321neo.js
