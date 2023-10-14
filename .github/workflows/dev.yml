@@ -15,7 +15,7 @@ jobs:
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vdev
-      ZIP_NAME_A318: lvfr-horizonsim-airbus-a318-ceo-dev.zip
+      ZIP_NAME_A318: lvfr-horizonsim-airbus-a318-ceo-preview.zip
       BUILD_DIR_NAME: dev
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -60,11 +60,12 @@ jobs:
       - name: Build A318HS Package
         run: |
           ./scripts/dev-env/run.sh ./scripts/build_a318hs.sh --no-tty -j 4
+          docker system prune -af
       - name: Build A318HS ZIP files
         run: |
-          ./scripts/dev-env/run.sh node ./scripts/fragment_a318ceo.js
+          node ./scripts/fragment_a318ceo.js
           cp ./build-a318ceo/out/build-modules/modules.json ./build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/install.json
-          ./scripts/dev-env/run.sh node ./scripts/install-source-a318ceo.js
+          node ./scripts/install-source-a318ceo.js
           mkdir ./${{ env.BUILD_DIR_NAME }}
           cd ./build-a318ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }} ./lvfr-horizonsim-airbus-a318-ceo/
@@ -89,7 +90,7 @@ jobs:
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vdev
-      ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo-dev.zip
+      ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo-preview.zip
       BUILD_DIR_NAME: dev
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -134,11 +135,12 @@ jobs:
       - name: Build A319HS Package
         run: |
             ./scripts/dev-env/run.sh ./scripts/build_a319hs.sh --no-tty -j 4
+            docker system prune -af
       - name: Build A319HS ZIP files
         run: |
-            ./scripts/dev-env/run.sh node ./scripts/fragment_a319ceo.js
+            node ./scripts/fragment_a319ceo.js
             cp ./build-a319ceo/out/build-modules/modules.json ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/install.json
-            ./scripts/dev-env/run.sh node ./scripts/install-source-a319ceo.js
+            node ./scripts/install-source-a319ceo.js
             mkdir ./${{ env.BUILD_DIR_NAME }}
             cd ./build-a319ceo/out/
             zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }} ./lvfr-horizonsim-airbus-a319-ceo/
@@ -163,7 +165,7 @@ jobs:
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vdev
-      ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo-dev.zip
+      ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo-preview.zip
       BUILD_DIR_NAME: dev
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -208,11 +210,12 @@ jobs:
       - name: Build A320HS Package
         run: |
           ./scripts/dev-env/run.sh ./scripts/build_a320hs.sh --no-tty -j 4
+          docker system prune -af
       - name: Build A320HS ZIP files
         run: |
-          ./scripts/dev-env/run.sh node ./scripts/fragment_a320ceo.js
+          node ./scripts/fragment_a320ceo.js
           cp ./build-a320ceo/out/build-modules/modules.json ./build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/install.json
-          ./scripts/dev-env/run.sh node ./scripts/install-source-a320ceo.js
+          node ./scripts/install-source-a320ceo.js
           mkdir ./${{ env.BUILD_DIR_NAME }}
           cd ./build-a320ceo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} ./lvfr-horizonsim-airbus-a320-ceo/
@@ -237,7 +240,7 @@ jobs:
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vdev
-      ZIP_NAME_A321: lvfr-horizonsim-airbus-a321-neo-dev.zip
+      ZIP_NAME_A321: lvfr-horizonsim-airbus-a321-neo-preview.zip
       BUILD_DIR_NAME: dev
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -282,11 +285,12 @@ jobs:
       - name: Build A21NHS Package
         run: |
             ./scripts/dev-env/run.sh ./scripts/build_a321hs.sh --no-tty -j 4
+            docker system prune -af
       - name: Build A21NHS ZIP files
         run: |
-          ./scripts/dev-env/run.sh node ./scripts/fragment_a321neo.js
+          node ./scripts/fragment_a321neo.js
           cp ./build-a321neo/out/build-modules/modules.json ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/install.json
-          ./scripts/dev-env/run.sh node ./scripts/install-source-a321neo.js
+          node ./scripts/install-source-a321neo.js
           mkdir ./${{ env.BUILD_DIR_NAME }}
           cd ./build-a321neo/out/
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }} ./lvfr-horizonsim-airbus-a321-neo/
