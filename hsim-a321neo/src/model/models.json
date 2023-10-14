@@ -20,6 +20,11 @@
         "bin": "./fire-button/fire-button.bin"
       },
       {
+        "gltf": "./cockpit-decals/A320_CockpitDecals2.gltf",
+        "bin": "./cockpit-decals/A320_CockpitDecals2.bin",
+        "maxLod": 0
+      },
+      {
         "gltf": "./trim-decals/trim-decals.gltf",
         "bin": "./trim-decals/trim-decals.bin",
         "maxLod": 0
