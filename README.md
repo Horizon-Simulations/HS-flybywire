@@ -1,7 +1,7 @@
 ![FlyByWire Simulations](./branding/Horizon_Simulations.png)
-# Horizon Simulations - FlyByWire - LVFR A318ceo A319ceo A320ceo A321neo
+# Horizon Simulations - FlyByWire - Airbus A32(X)
 
-The FlyByWire Compatibility for LatinVFR Airbus series is a project based on [FlyByWire Simulations](https://flybywiresim.com/) A32NX Project.
+The Horizon Simulations is an Airbus aircraft project based on [FlyByWire Simulations](https://flybywiresim.com/) A32NX.
 
 The following aircraft configuration is currently simulated or targeted:
 
