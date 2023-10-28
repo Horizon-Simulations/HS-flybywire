@@ -280,7 +280,7 @@
     "react-dom": "^17.0.0",
     "react-error-boundary": "^3.1.4",
     "react-i18next": "^11.16.2",
-    "react-leaflet": "~3.0.5",
+    "react-leaflet": "~3.2.5",
     "react-redux": "^7.2.6",
     "react-router": "~5.2.0",
     "react-router-dom": "~5.2.0",
