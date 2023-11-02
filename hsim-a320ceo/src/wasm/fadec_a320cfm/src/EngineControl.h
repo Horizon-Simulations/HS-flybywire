@@ -660,8 +660,6 @@ class EngineControl {
     double b = 0;
     double fuelBurn1 = 0;
     double fuelBurn2 = 0;
-    double apuBurn1 = 0;
-    double apuBurn2 = 0;
 
     double refuelRate = simVars->getRefuelRate();
     double refuelStartedByUser = simVars->getRefuelStartedByUser();
@@ -814,20 +812,17 @@ class EngineControl {
       }
       //-----------------------------------------------------------
       // Cross-feed Logic
-      // isTankClosed = 0, x-feed valve closed
+      // isTankClosed = 0, both tanks can supply fuel
       // isTankClosed = 1, left tank does not supply fuel
       // isTankClosed = 2, right tank does not supply fuel
       // isTankClosed = 3, left & right tanks do not supply fuel
-      // isTankClosed = 4, both tanks supply fuel
       if (xFeedValve > 0.0) {
+        if (leftPump1 == 0 && leftPump2 == 0)
+          isTankClosed = 1;
+        if (rightPump1 == 0 && rightPump2 == 0)
+          isTankClosed = 2;
         if (leftPump1 == 0 && leftPump2 == 0 && rightPump1 == 0 && rightPump2 == 0)
           isTankClosed = 3;
-        else if (leftPump1 == 0 && leftPump2 == 0)
-          isTankClosed = 1;
-        else if (rightPump1 == 0 && rightPump2 == 0)
-          isTankClosed = 2;
-        else
-          isTankClosed = 4;
       }
 
       //--------------------------------------------
@@ -889,8 +884,6 @@ class EngineControl {
         case 1:
           fuelBurn2 = fuelBurn1 + fuelBurn2;
           fuelBurn1 = 0;
-          apuBurn1 = 0;
-          apuBurn2 = apuFuelConsumption;
           break;
         case 2:
           fuelBurn1 = fuelBurn1 + fuelBurn2;
@@ -924,6 +917,9 @@ class EngineControl {
         xfrCenterToLeft = fuelCenterPre - centerQuantity;
       else if (xfrValveCenterRightOpen)
         xfrCenterToRight = fuelCenterPre - centerQuantity;
+
+      /// apu fuel consumption for this frame in pounds
+      double apuFuelConsumption = simVars->getLineFlow(18) * fuelWeightGallon * deltaTime;
 
       //--------------------------------------------
       // Final Fuel levels for left and right inner tanks
