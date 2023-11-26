@@ -17,6 +17,8 @@ jobs:
       PRE_RELEASE_TAG: vdev
       ZIP_NAME_A318: lvfr-horizonsim-airbus-a318-ceo-preview.zip
       BUILD_DIR_NAME: dev
+      CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
+      CDN_BUCKET_DESTINATION: addons/lvfr-a318ceo/stage
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
@@ -70,11 +72,15 @@ jobs:
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }} ./lvfr-horizonsim-airbus-a318-ceo/
           cd ../../
       - name: Upload to CloudFlare CDN
-        env:
-          CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
-          CDN_BUCKET_DESTINATION: addons/lvfr-a318ceo/stage
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a318ceo/out/build-modules
+      - name: Upload Release Config to CloudFlare CDN  
+        run: |
+          mkdir -p ./build-a318ceo/out/config
+          echo "releases:" >> ./build-a318ceo/out/config/releases.yaml
+          echo "  - name: $GITHUB_REF_NAME" >> ./build-a318ceo/out/config/releases.yaml
+          echo "    date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> ./build-a318ceo/out/config/releases.yaml
+          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a318ceo/out/config
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
@@ -91,6 +97,8 @@ jobs:
       PRE_RELEASE_TAG: vdev
       ZIP_NAME_A319: lvfr-horizonsim-airbus-a319-ceo-preview.zip
       BUILD_DIR_NAME: dev
+      CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
+      CDN_BUCKET_DESTINATION: addons/lvfr-a319ceo/stage
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
@@ -144,11 +152,15 @@ jobs:
             zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }} ./lvfr-horizonsim-airbus-a319-ceo/
             cd ../../
       - name: Upload to CloudFlare CDN
-        env:
-          CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
-          CDN_BUCKET_DESTINATION: addons/lvfr-a319ceo/stage
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a319ceo/out/build-modules
+      - name: Upload Release Config to CloudFlare CDN  
+        run: |
+          mkdir -p ./build-a319ceo/out/config
+          echo "releases:" >> ./build-a319ceo/out/config/releases.yaml
+          echo "  - name: $GITHUB_REF_NAME" >> ./build-a319ceo/out/config/releases.yaml
+          echo "    date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> ./build-a319ceo/out/config/releases.yaml
+          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a319ceo/out/config
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
@@ -165,6 +177,8 @@ jobs:
       PRE_RELEASE_TAG: vdev
       ZIP_NAME_A320: lvfr-horizonsim-airbus-a320-ceo-preview.zip
       BUILD_DIR_NAME: dev
+      CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
+      CDN_BUCKET_DESTINATION: addons/lvfr-a320ceo/stage
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
@@ -218,11 +232,15 @@ jobs:
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }} ./lvfr-horizonsim-airbus-a320-ceo/
           cd ../../
       - name: Upload to CloudFlare CDN
-        env:
-          CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
-          CDN_BUCKET_DESTINATION: addons/lvfr-a320ceo/stage
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a320ceo/out/build-modules
+      - name: Upload Release Config to CloudFlare CDN  
+        run: |
+          mkdir -p ./build-a320ceo/out/config
+          echo "releases:" >> ./build-a320ceo/out/config/releases.yaml
+          echo "  - name: $GITHUB_REF_NAME" >> ./build-a320ceo/out/config/releases.yaml
+          echo "    date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> ./build-a320ceo/out/config/releases.yaml
+          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a320ceo/out/config
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
@@ -239,6 +257,8 @@ jobs:
       PRE_RELEASE_TAG: vdev
       ZIP_NAME_A321: lvfr-horizonsim-airbus-a321-neo-preview.zip
       BUILD_DIR_NAME: dev
+      CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
+      CDN_BUCKET_DESTINATION: addons/lvfr-a321neo/stage
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
@@ -292,11 +312,15 @@ jobs:
           zip -r ../../${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }} ./lvfr-horizonsim-airbus-a321-neo/
           cd ../../
       - name: Upload to CloudFlare CDN
-        env:
-          CLOUDFLARE_WORKER_PASSWORD: ${{ secrets.CLOUDFLARE_WORKER_PASSWORD }}
-          CDN_BUCKET_DESTINATION: addons/lvfr-a321neo/stage
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a321neo/out/build-modules
+      - name: Upload Release Config to CloudFlare CDN  
+        run: |
+          mkdir -p ./build-a321neo/out/config
+          echo "releases:" >> ./build-a321neo/out/config/releases.yaml
+          echo "  - name: $GITHUB_REF_NAME" >> ./build-a321neo/out/config/releases.yaml
+          echo "    date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> ./build-a321neo/out/config/releases.yaml
+          ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a321neo/out/config
       - name: Upload to Google Drive
         uses: adityak74/google-drive-upload-git-action@main
         with:
