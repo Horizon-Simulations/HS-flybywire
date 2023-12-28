@@ -1,7 +1,4 @@
 {
-  "index": "./index.tsx",
-  "isInteractive": false,
-  "additionalImports": [
-    "/JS/A320HS/fmgc/LzUtf8.js"
-  ]
+  "index": "./instrument.tsx",
+  "isInteractive": false
 }

@@ -35,10 +35,10 @@ export default new TaskOfTasks("all", [
         new TaskOfTasks(
             "build",
             [
-                new ExecTask("model", "npm run build-a321neo:model", [
-                    "build-a321neo/src/model",
-                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/AirPlanes/A321neoLEAP/model",
-                ]),
+                // new ExecTask("model", "npm run build-a321neo:model", [
+                //     "build-a321neo/src/model",
+                //     "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/AirPlanes/A321neoLEAP/model",
+                // ]),
                 new ExecTask("behavior", "npm run build-a321neo:behavior", [
                     "build-a321neo/src/behavior",
                     "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/ModelBehaviorDefs/A21NHS/generated",
