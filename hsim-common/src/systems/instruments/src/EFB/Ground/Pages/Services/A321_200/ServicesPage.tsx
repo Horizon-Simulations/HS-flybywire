@@ -523,6 +523,7 @@ export const A321Services: React.FC = () => {
             dispatch(setBoarding3DoorButtonState(ServiceButtonState.INACTIVE));
             dispatch(setServiceDoorButtonState(ServiceButtonState.INACTIVE));
             dispatch(setCateringButtonState(ServiceButtonState.INACTIVE));
+            dispatch(setAsuButtonState(ServiceButtonState.INACTIVE));
         }
     }, [groundServicesAvailable]);
 
