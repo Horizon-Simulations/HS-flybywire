@@ -37,7 +37,7 @@ Cargo.toml
 !hsim-a320ceo/src/base/manifest-base.json
 !hsim-a321neo/src/base/manifest-base.json
 !package.json
-!package-lock.json
+!pnpm-lock.yaml
 
 !jest.config.js
 !/jest/**
