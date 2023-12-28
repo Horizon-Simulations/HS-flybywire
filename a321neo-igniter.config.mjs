@@ -147,7 +147,7 @@ export default new TaskOfTasks("all", [
                     "terronnd",
                     [
                         "fbw-common/src/wasm/terronnd/build.sh",
-                        "wasm-opt -O1 -o build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/terronnd.wasm fbw-common/src/wasm/terronnd/out/terronnd.wasm",
+                        "wasm-opt -O1 --signext-lowering -o build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/terronnd.wasm fbw-common/src/wasm/terronnd/out/terronnd.wasm",
                     ],
                     [
                         "fbw-common/src/wasm/terronnd",
