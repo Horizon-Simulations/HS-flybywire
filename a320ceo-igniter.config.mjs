@@ -35,10 +35,10 @@ export default new TaskOfTasks("all", [
         new TaskOfTasks(
             "build",
             [
-                new ExecTask("model", "npm run build-a320ceo:model", [
-                    "build-a320ceo/src/model",
-                    "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/SimObjects/AirPlanes/A320ceoCFM/model",
-                ]),
+                // new ExecTask("model", "npm run build-a320ceo:model", [
+                //     "build-a320ceo/src/model",
+                //     "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/SimObjects/AirPlanes/A320ceoCFM/model",
+                // ]),
                 new ExecTask("behavior", "npm run build-a320ceo:behavior", [
                     "build-a320ceo/src/behavior",
                     "build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/ModelBehaviorDefs/A320HS/generated",

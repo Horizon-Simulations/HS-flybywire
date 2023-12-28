@@ -35,10 +35,10 @@ export default new TaskOfTasks("all", [
         new TaskOfTasks(
             "build",
             [
-                new ExecTask("model", "npm run build-a318ceo:model", [
-                    "build-a318ceo/src/model",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/AirPlanes/A318ceoCFM/model",
-                ]),
+                // new ExecTask("model", "npm run build-a318ceo:model", [
+                //     "build-a318ceo/src/model",
+                //     "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/AirPlanes/A318ceoCFM/model",
+                // ]),
                 new ExecTask("behavior", "npm run build-a318ceo:behavior", [
                     "build-a318ceo/src/behavior",
                     "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/ModelBehaviorDefs/A318HS/generated",
