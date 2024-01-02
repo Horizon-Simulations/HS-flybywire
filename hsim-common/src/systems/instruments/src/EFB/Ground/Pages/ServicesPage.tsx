@@ -3,10 +3,10 @@
 // SPDX-License-Identifier: GPL-3.0
 import React, { useState } from 'react';
 import { getAirframeType } from '../../Efb';
-import { A318Services } from './Services/A318_100/ServicesPage';
-import { A319Services } from './Services/A319_100/ServicesPage';
-import { A320Services } from './Services/A320_200/ServicesPage';
-import { A321Services } from './Services/A321_200/ServicesPage';
+import { A318Services } from './Services/A318_100/A318Services';
+import { A319Services } from './Services/A319_100/A319Services';
+import { A320Services } from './Services/A320_200/A320Services';
+import { A321Services } from './Services/A321_200/A321Services';
 
 
 export const ServicesPage = () => {
