@@ -8,7 +8,7 @@ use systems::{
         AdirsToAirCondInterface, Air, AirConditioningOverheadShared, AirConditioningPack, CabinFan,
         Channel, DuctTemperature, MixerUnit, OutflowValveSignal, OutletAir, OverheadFlowSelector,
         PackFlowControllers, PressurizationConstants, PressurizationOverheadShared, TrimAirSystem,
-        ZoneType,
+        VcmShared, ZoneType,
     },
     overhead::{
         AutoManFaultPushButton, NormalOnPushButton, OnOffFaultPushButton, OnOffPushButton,
@@ -33,7 +33,7 @@ use systems::{
 use std::time::Duration;
 use uom::si::{
     f64::*, pressure::hectopascal, ratio::percent, thermodynamic_temperature::degree_celsius,
-    velocity::knot,
+    velocity::knot, volume::cubic_meter, volume_rate::liter_per_second,
 };
 
 use crate::payload::A320Pax;
@@ -177,7 +177,7 @@ impl A320Cabin {
     fn update(
         &mut self,
         context: &UpdateContext,
-        air_conditioning_system: &(impl OutletAir + DuctTemperature),
+        air_conditioning_system: &(impl OutletAir + DuctTemperature + VcmShared),
         lgciu: [&impl LgciuWeightOnWheels; 2],
         number_of_passengers: &impl NumberOfPassengers,
         pressurization: &A320PressurizationSystem,
@@ -203,10 +203,13 @@ impl A320Cabin {
     fn update_number_of_passengers(&mut self, number_of_passengers: &impl NumberOfPassengers) {
         self.number_of_passengers[1] =
             (number_of_passengers.number_of_passengers(A320Pax::A.into())
-                + number_of_passengers.number_of_passengers(A320Pax::B.into())) as u8;
-        self.number_of_passengers[2] =
-            (number_of_passengers.number_of_passengers(A320Pax::C.into())
+                + number_of_passengers.number_of_passengers(A320Pax::B.into())
+                + number_of_passengers.number_of_passengers(A320Pax::C.into())
                 + number_of_passengers.number_of_passengers(A320Pax::D.into())) as u8;
+        self.number_of_passengers[2] =
+            (number_of_passengers.number_of_passengers(A320Pax::E.into())
+                + number_of_passengers.number_of_passengers(A320Pax::F.into())
+                + number_of_passengers.number_of_passengers(A320Pax::G.into())) as u8;
     }
 }
 
@@ -252,6 +255,8 @@ pub struct A320AirConditioningSystem {
 }
 
 impl A320AirConditioningSystem {
+    const CAB_FAN_DESIGN_FLOW_RATE_L_S: f64 = 325.; // litres/sec
+
     pub(crate) fn new(context: &mut InitContext, cabin_zones: &[ZoneType; 3]) -> Self {
         Self {
             acs_interface: [
@@ -299,15 +304,29 @@ impl A320AirConditioningSystem {
                 ),
             ],
             cabin_fans: [
-                CabinFan::new(1, ElectricalBusType::AlternatingCurrent(1)),
-                CabinFan::new(2, ElectricalBusType::AlternatingCurrent(2)),
+                CabinFan::new(
+                    1,
+                    VolumeRate::new::<liter_per_second>(Self::CAB_FAN_DESIGN_FLOW_RATE_L_S),
+                    ElectricalBusType::AlternatingCurrent(1),
+                ),
+                CabinFan::new(
+                    2,
+                    VolumeRate::new::<liter_per_second>(Self::CAB_FAN_DESIGN_FLOW_RATE_L_S),
+                    ElectricalBusType::AlternatingCurrent(2),
+                ),
             ],
             mixer_unit: MixerUnit::new(cabin_zones),
             packs: [
-                AirConditioningPack::new(Pack(1)),
-                AirConditioningPack::new(Pack(2)),
+                AirConditioningPack::new(context, Pack(1)),
+                AirConditioningPack::new(context, Pack(2)),
             ],
-            trim_air_system: TrimAirSystem::new(context, cabin_zones, &[1]),
+            trim_air_system: TrimAirSystem::new(
+                context,
+                cabin_zones,
+                &[1],
+                Volume::new::<cubic_meter>(4.),
+                Volume::new::<cubic_meter>(0.03),
+            ),
 
             air_conditioning_overhead: A320AirConditioningSystemOverhead::new(context, cabin_zones),
         }
@@ -424,9 +443,9 @@ impl A320AirConditioningSystem {
         self.trim_air_system.update(
             context,
             &self.mixer_unit,
-            &[
-                &self.acsc[0].trim_air_pressure_regulating_valve_controller(),
-                &self.acsc[1].trim_air_pressure_regulating_valve_controller(),
+            [
+                self.acsc[0].trim_air_pressure_regulating_valve_controller(),
+                self.acsc[1].trim_air_pressure_regulating_valve_controller(),
             ],
             &[&self.acsc[0], &self.acsc[1], &self.acsc[1]],
         );
@@ -481,8 +500,13 @@ impl OutletAir for A320AirConditioningSystem {
         outlet_air.set_temperature(self.duct_temperature().iter().average());
 
         outlet_air
+
+        // TODO: This should use self.trim_air_system.outlet_air()
     }
 }
+
+// This is not used in the A320
+impl VcmShared for A320AirConditioningSystem {}
 
 impl SimulationElement for A320AirConditioningSystem {
     fn accept<V: SimulationElementVisitor>(&mut self, visitor: &mut V) {
@@ -490,6 +514,7 @@ impl SimulationElement for A320AirConditioningSystem {
         accept_iterable!(self.acsc, visitor);
         self.trim_air_system.accept(visitor);
         accept_iterable!(self.cabin_fans, visitor);
+        accept_iterable!(self.packs, visitor);
 
         self.air_conditioning_overhead.accept(visitor);
 
@@ -550,7 +575,7 @@ impl AirConditioningSystemInterfaceUnit {
             self.discrete_word_1.set_bit(21, acsc.channel_1_inop());
             self.discrete_word_1.set_bit(22, acsc.channel_2_inop());
             self.discrete_word_1
-                .set_bit(23, acs_overhead.hot_air_pushbutton_is_on());
+                .set_bit(23, acs_overhead.hot_air_pushbutton_is_on(1));
             self.discrete_word_1.set_bit(24, acsc.galley_fan_fault());
             self.discrete_word_1.set_bit(25, cabin_fans[0].has_fault());
             self.discrete_word_1.set_bit(26, cabin_fans[1].has_fault());
@@ -637,7 +662,7 @@ impl<const ZONES: usize> AirConditioningOverheadShared
         self.pack_pbs.iter().map(|pack| pack.is_on()).collect()
     }
 
-    fn hot_air_pushbutton_is_on(&self) -> bool {
+    fn hot_air_pushbutton_is_on(&self, _hot_air_id: usize) -> bool {
         self.hot_air_pb.is_on()
     }
 
@@ -828,8 +853,10 @@ struct A320PressurizationConstants;
 
 impl PressurizationConstants for A320PressurizationConstants {
     // Volume data from A320 AIRCRAFT CHARACTERISTICS - AIRPORT AND MAINTENANCE PLANNING
-    const CABIN_VOLUME_CUBIC_METER: f64 = 139.; // m3
+    const CABIN_ZONE_VOLUME_CUBIC_METER: f64 = 139.; // m3
     const COCKPIT_VOLUME_CUBIC_METER: f64 = 9.; // m3
+    const FWD_CARGO_ZONE_VOLUME_CUBIC_METER: f64 = 0.; // m3 Not used in A320
+    const BULK_CARGO_ZONE_VOLUME_CUBIC_METER: f64 = 0.; // m3 Not used in A320
     const PRESSURIZED_FUSELAGE_VOLUME_CUBIC_METER: f64 = 330.; // m3
     const CABIN_LEAKAGE_AREA: f64 = 0.0003; // m2
     const OUTFLOW_VALVE_SIZE: f64 = 0.05; // m2
@@ -864,7 +891,7 @@ impl A320PressurizationOverheadPanel {
         Self {
             mode_sel: AutoManFaultPushButton::new_auto(context, "PRESS_MODE_SEL"),
             man_vs_ctl_switch: SpringLoadedSwitch::new(context, "PRESS_MAN_VS_CTL"),
-            ldg_elev_knob: ValueKnob::new_with_value(context, "PRESS_LDG_ELEV", -2000.),
+            ldg_elev_knob: ValueKnob::new_with_value(context, "PRESS_LDG_ELEV", -4000.),
             ditching: NormalOnPushButton::new_normal(context, "PRESS_DITCHING"),
         }
     }
@@ -911,7 +938,7 @@ impl PressurizationOverheadShared for A320PressurizationOverheadPanel {
 
     fn ldg_elev_is_auto(&self) -> bool {
         let margin = 100.;
-        (self.ldg_elev_knob.value() + 2000.).abs() < margin
+        self.ldg_elev_knob.value() < -(2000. + margin)
     }
 
     fn ldg_elev_knob_value(&self) -> f64 {
@@ -2221,7 +2248,7 @@ mod tests {
 
             assert_eq!(test_bed.landing_elevation(), Length::new::<foot>(1000.));
 
-            test_bed = test_bed.command_ldg_elev_knob_value(-2000.).and_run();
+            test_bed = test_bed.command_ldg_elev_knob_value(-4000.).and_run();
 
             assert_eq!(test_bed.landing_elevation(), Length::default());
         }
