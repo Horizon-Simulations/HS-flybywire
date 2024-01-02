@@ -14,10 +14,11 @@ import {
     TriangleFill as Chock,
     Truck,
     VinylFill as Wheel,
+    Fan,
 } from 'react-bootstrap-icons';
 import { ActionCreatorWithOptionalPayload } from '@reduxjs/toolkit';
 import { t } from '../../../../translation';
-import { GroundServiceOutline } from '../../../../Assets/A318GroundServiceOutline';
+import { GroundServiceOutline } from '../../../../Assets/GroundServiceOutline';
 import { useAppDispatch, useAppSelector } from '../../../../Store/store';
 import {
     setBoarding1DoorButtonState,
@@ -30,6 +31,7 @@ import {
     setFuelTruckButtonState,
     setGpuButtonState,
     setJetWayButtonState,
+    setAsuButtonState,
 } from '../../../../Store/features/groundServicePage';
 
 interface ServiceButtonWrapperProps {
@@ -59,7 +61,8 @@ enum ServiceButton {
     BaggageTruck,
     AftLeftDoor,
     AftRightDoor,
-    CateringTruck
+    CateringTruck,
+    AirStarterUnit
 }
 
 // Possible states of buttons
@@ -106,7 +109,7 @@ const GroundServiceButton: React.FC<GroundServiceButtonProps> = ({ children, nam
     );
 };
 
-export const A318Services: React.FC = () => {
+export const A320Services: React.FC = () => {
     const dispatch = useAppDispatch();
 
 
@@ -124,6 +127,7 @@ export const A318Services: React.FC = () => {
     const [cargoDoorOpen] = useSimVar('A:INTERACTIVE POINT OPEN:5', 'Percent over 100', 100);
     const [gpuActive] = useSimVar('A:INTERACTIVE POINT OPEN:8', 'Percent over 100', 100);
     const [fuelingActive] = useSimVar('A:INTERACTIVE POINT OPEN:9', 'Percent over 100', 100);
+    const [asuActive, setAsuActive] = useSimVar('L:A32NX_ASU_TURNED_ON', 'Bool', 100);
 
     // Wheel Chocks and Cones
     // const [isGroundEquipmentVisible] = useSimVar('L:A32NX_GND_EQP_IS_VISIBLE', 'bool', 500);
@@ -146,6 +150,7 @@ export const A318Services: React.FC = () => {
     const toggleCateringTruck = () => SimVar.SetSimVarValue('K:REQUEST_CATERING', 'bool', true);
     const toggleFuelTruck = () => SimVar.SetSimVarValue('K:REQUEST_FUEL_KEY', 'bool', true);
     const toggleGpu = () => SimVar.SetSimVarValue('K:REQUEST_POWER_SUPPLY', 'bool', true);
+    const toggleAsu = () => setAsuActive(!asuActive);
 
     // Button states
     const {
@@ -159,6 +164,7 @@ export const A318Services: React.FC = () => {
         gpuButtonState,
         baggageButtonState,
         cateringButtonState,
+        asuButtonState,
     } = useAppSelector((state) => state.groundServicePage);
 
     // Required so these can be used inside the useTimeout callback
@@ -325,6 +331,10 @@ export const A318Services: React.FC = () => {
                 aftRightDoorOpen);
             toggleCateringTruck();
             break;
+        case ServiceButton.AirStarterUnit:
+            handleSimpleService(ServiceButton.AirStarterUnit, asuButtonState, setAsuButtonState);
+            toggleAsu();
+            break;
         default:
             break;
         }
@@ -452,6 +462,11 @@ export const A318Services: React.FC = () => {
         );
     }, [aftRightDoorOpen]);
 
+    // Asu
+    useEffect(() => {
+        simpleServiceListenerHandling(asuButtonState, setAsuButtonState, asuActive);
+    }, [asuActive]);
+
     // Pushback or movement start --> disable buttons and close doors
     // Enable buttons if all have been disabled before
     useEffect(() => {
@@ -466,6 +481,8 @@ export const A318Services: React.FC = () => {
             dispatch(setBoarding3DoorButtonState(ServiceButtonState.DISABLED));
             dispatch(setServiceDoorButtonState(ServiceButtonState.DISABLED));
             dispatch(setCateringButtonState(ServiceButtonState.DISABLED));
+            dispatch(setAsuButtonState(ServiceButtonState.DISABLED));
+
             if (cabinLeftDoorOpen === 1) {
                 toggleCabinLeftDoor();
             }
@@ -493,7 +510,8 @@ export const A318Services: React.FC = () => {
                 fuelTruckButtonState,
                 gpuButtonState,
                 baggageButtonState,
-                cateringButtonState]
+                cateringButtonState,
+                asuButtonState]
                 .every((buttonState) => buttonState === ServiceButtonState.DISABLED)
         ) {
             dispatch(setBoarding1DoorButtonState(ServiceButtonState.INACTIVE));
@@ -506,6 +524,7 @@ export const A318Services: React.FC = () => {
             dispatch(setBoarding3DoorButtonState(ServiceButtonState.INACTIVE));
             dispatch(setServiceDoorButtonState(ServiceButtonState.INACTIVE));
             dispatch(setCateringButtonState(ServiceButtonState.INACTIVE));
+            dispatch(setAsuButtonState(ServiceButtonState.INACTIVE));
         }
     }, [groundServicesAvailable]);
 
@@ -548,6 +567,15 @@ export const A318Services: React.FC = () => {
                     onClick={() => handleButtonClick(ServiceButton.FuelTruck)}
                 >
                     <Truck size={36} />
+                </GroundServiceButton>
+
+                {/* Air Starter Unit */}
+                <GroundServiceButton
+                    name={t('Ground.Services.AirStarterUnit')}
+                    state={asuButtonState}
+                    onClick={() => handleButtonClick(ServiceButton.AirStarterUnit)}
+                >
+                    <Fan size={36} />
                 </GroundServiceButton>
 
             </ServiceButtonWrapper>
