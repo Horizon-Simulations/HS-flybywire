@@ -335,7 +335,7 @@ const Efb = () => {
                                     <Route path="/performance" component={Performance} />
                                     <Route path="/navigation" component={Navigation} />
                                     <Route path="/atc" component={ATC} />
-                                    {/* <Route path="/failures" component={Failures} /> */}
+                                    <Route path="/failures" component={Failures} />
                                     <Route path="/checklists" component={Checklists} />
                                     <Route path="/presets" component={Presets} />
                                     <Route path="/settings" component={Settings} />
