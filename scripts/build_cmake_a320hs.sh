@@ -33,29 +33,11 @@ while [ $# -gt 0 ]; do
 shift
 done
 
-A318_WASM_OUT_DIR="../build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel"
-if [ ! -d "$A318_WASM_OUT_DIR" ]; then
-  echo "$A318_WASM_OUT_DIR directory does not exist."
-  mkdir -p $A318_WASM_OUT_DIR
-  echo "$A318_WASM_OUT_DIR directory created."
-fi
-A319_WASM_OUT_DIR="../build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo/SimObjects/Airplanes/A319ceoCFM/panel"
-if [ ! -d "$A319_WASM_OUT_DIR" ]; then
-  echo "$A319_WASM_OUT_DIR directory does not exist."
-  mkdir -p $A319_WASM_OUT_DIR
-  echo "$A319_WASM_OUT_DIR directory created."
-fi
 A320_WASM_OUT_DIR="../build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/SimObjects/Airplanes/A320ceoCFM/panel"
 if [ ! -d "$A320_WASM_OUT_DIR" ]; then
   echo "$A320_WASM_OUT_DIR directory does not exist."
   mkdir -p $A320_WASM_OUT_DIR
   echo "$A320_WASM_OUT_DIR directory created."
-fi
-A21N_WASM_OUT_DIR="../build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel"
-if [ ! -d "$A21N_WASM_OUT_DIR" ]; then
-  echo "$A21N_WASM_OUT_DIR directory does not exist."
-  mkdir -p $A21N_WASM_OUT_DIR
-  echo "$A21N_WASM_OUT_DIR directory created."
 fi
 
 echo "Toolchain versions:"

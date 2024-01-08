@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach",
+            "type": "cppvsdbg",
+            "request": "attach",
+            "processId": "${command:pickProcess}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal",
+            "sourceFileMap": {
+                // Yes it's ugly, but it's the only way we could think of to
+                // ensure source mapping works with MSFS installed in different drives
+                "a:/external/": "${workspaceFolder}/",
+                "b:/external/": "${workspaceFolder}/",
+                "c:/external/": "${workspaceFolder}/",
+                "d:/external/": "${workspaceFolder}/",
+                "e:/external/": "${workspaceFolder}/",
+                "f:/external/": "${workspaceFolder}/",
+                "g:/external/": "${workspaceFolder}/",
+                "h:/external/": "${workspaceFolder}/",
+                "i:/external/": "${workspaceFolder}/",
+                "j:/external/": "${workspaceFolder}/",
+                "k:/external/": "${workspaceFolder}/",
+                "l:/external/": "${workspaceFolder}/",
+                "m:/external/": "${workspaceFolder}/",
+                "n:/external/": "${workspaceFolder}/",
+                "o:/external/": "${workspaceFolder}/",
+                "p:/external/": "${workspaceFolder}/",
+                "q:/external/": "${workspaceFolder}/",
+                "r:/external/": "${workspaceFolder}/",
+                "s:/external/": "${workspaceFolder}/",
+                "t:/external/": "${workspaceFolder}/",
+                "u:/external/": "${workspaceFolder}/",
+                "v:/external/": "${workspaceFolder}/",
+                "w:/external/": "${workspaceFolder}/",
+                "x:/external/": "${workspaceFolder}/",
+                "y:/external/": "${workspaceFolder}/",
+                "z:/external/": "${workspaceFolder}/",
+            }
+        }
+    ]
+    }

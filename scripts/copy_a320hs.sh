@@ -76,4 +76,4 @@ rm -rvf ./build-a320ceo/src/systems/instruments/src/EWD
 
 chmod +x ./build-a320ceo/src/wasm/fbw_a320/build.sh
 chmod +x ./build-a320ceo/src/wasm/fadec_a320/build.sh
-chmod +x ./build-a320ceo/src/wasm/flypad-backend/build.sh
+chmod +x ./build-a320ceo/src/wasm/extra-backend-a32nx/build.sh

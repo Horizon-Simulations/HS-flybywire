@@ -3,7 +3,7 @@
 # get directory of this script relative to root
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 COMMON_DIR="${DIR}/../../../../fbw-common/src/wasm"
-OUTPUT="${DIR}/../../../../build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/SimObjects/Airplanes/A320ceoCFM/panel/flypad-backend.wasm"
+OUTPUT="${DIR}/../../../../build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo/SimObjects/Airplanes/A320ceoCFM/panel/extra-backend-a32nx.wasm"
 
 if [ "$1" == "--debug" ]; then
   CLANG_ARGS="-g -DDEBUG"
@@ -39,16 +39,21 @@ clang++ \
   -fvisibility=hidden \
   -I "${MSFS_SDK}/WASM/include" \
   -I "${MSFS_SDK}/SimConnect SDK/include" \
-  -I "${COMMON_DIR}/fbw_common/src/inih" \
   -I "${DIR}/src" \
-  -I "${DIR}/src/Lighting" \
-  -I "${DIR}/src/Aircraft" \
-  -I "${DIR}/src/Pushback" \
-  "${DIR}/src/FlyPadBackend.cpp" \
-  "${DIR}/src/Lighting/LightPreset.cpp" \
-  "${DIR}/src/Aircraft/AircraftPreset.cpp" \
-  "${DIR}/src/Pushback/Pushback.cpp" \
-  "${DIR}/src/Pushback/InertialDampener.cpp"
+  -I "${DIR}/src/AircraftPresets" \
+  -I "${DIR}/src/LightingPresets" \
+  -I "${COMMON_DIR}/cpp-msfs-framework/" \
+  -I "${COMMON_DIR}/cpp-msfs-framework/Example" \
+  -I "${COMMON_DIR}/cpp-msfs-framework/lib" \
+  -I "${COMMON_DIR}/cpp-msfs-framework/MsfsHandler" \
+  -I "${COMMON_DIR}/cpp-msfs-framework/MsfsHandler/DataTypes" \
+  -I "${COMMON_DIR}/extra-backend/" \
+  "${DIR}/src/Gauge_Extra_Backend.cpp" \
+  "${DIR}/src/LightingPresets/LightingPresets_A32NX.cpp" \
+  "${COMMON_DIR}/cpp-msfs-framework/Example/ExampleModule.cpp" \
+  "${COMMON_DIR}/extra-backend/Pushback/Pushback.cpp" \
+  "${COMMON_DIR}/extra-backend/AircraftPresets/AircraftPresets.cpp" \
+  "${COMMON_DIR}/extra-backend/LightingPresets/LightingPresets.cpp"
 
 # restore directory
 popd

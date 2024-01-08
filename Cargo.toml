@@ -3,9 +3,9 @@ resolver = "2"
 exclude = ["a32nx"]
 
 members = [
-    "build-a318ceo/src/wasm/systems/a320_systems",
-    "build-a318ceo/src/wasm/systems/a320_systems_wasm",
-    "build-a318ceo/src/wasm/systems/a320_hydraulic_simulation_graphs",
+    "build-a319ceo/src/wasm/systems/a320_systems",
+    "build-a319ceo/src/wasm/systems/a320_systems_wasm",
+    "build-a319ceo/src/wasm/systems/a320_hydraulic_simulation_graphs",
     "fbw-common/src/wasm/systems/systems",
     "fbw-common/src/wasm/systems/systems_wasm",
 ]
