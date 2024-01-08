@@ -118,7 +118,7 @@ The following aircraft configuration is currently simulated or targeted:
  ```
 
 ## How to build
-Make sure docker are isntalled. Prefferably with WSL2 backend.
+Make sure docker is installed. Prefferably with WSL2 backend.
 
 ### Software requirements
 - Docker Desktop or native on WSL2
