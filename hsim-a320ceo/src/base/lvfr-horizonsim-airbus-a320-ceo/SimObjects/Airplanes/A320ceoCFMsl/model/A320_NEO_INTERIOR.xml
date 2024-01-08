@@ -13,6 +13,8 @@
         <LOD minSize="60" ModelFile="..\..\A320ceoCFMsl\model\A320_NEO_INTERIOR_LOD02.gltf"/>
         <LOD minSize="20" ModelFile="..\..\A320ceoCFMsl\model\A320_NEO_INTERIOR_LOD03.gltf"/>
         <LOD minSize="10" ModelFile="..\..\A320ceoCFMsl\model\A320_NEO_INTERIOR_LOD04.gltf"/>
+        <LOD minSize="1" ModelFile="..\..\A320ceoCFMsl\model\A320_NEO_INTERIOR_LOD05.gltf"/>
+        <LOD minSize="0.1" ModelFile="..\..\A320ceoCFMsl\model\A320_NEO_INTERIOR_LOD06.gltf"/>
     </LODS>
 
     <Behaviors>
