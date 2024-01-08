@@ -25,11 +25,11 @@ jobs:
         with:
           tool-cache: false
           android: true
-          dotnet: false
-          haskell: false
-          large-packages: false
+          dotnet: true
+          haskell: true
+          large-packages: true
           docker-images: false
-          swap-storage: false
+          swap-storage: true
       - name: Checkout source
         uses: actions/checkout@v3
         with:
@@ -105,11 +105,11 @@ jobs:
         with:
           tool-cache: false
           android: true
-          dotnet: false
-          haskell: false
-          large-packages: false
+          dotnet: true
+          haskell: true
+          large-packages: true
           docker-images: false
-          swap-storage: false
+          swap-storage: true
       - name: Checkout source
         uses: actions/checkout@v3
         with:
@@ -185,11 +185,11 @@ jobs:
         with:
           tool-cache: false
           android: true
-          dotnet: false
-          haskell: false
-          large-packages: false
+          dotnet: true
+          haskell: true
+          large-packages: true
           docker-images: false
-          swap-storage: false
+          swap-storage: true
       - name: Checkout source
         uses: actions/checkout@v3
         with:
@@ -265,11 +265,11 @@ jobs:
         with:
           tool-cache: false
           android: true
-          dotnet: false
-          haskell: false
-          large-packages: false
+          dotnet: true
+          haskell: true
+          large-packages: true
           docker-images: false
-          swap-storage: false
+          swap-storage: true
       - name: Checkout source
         uses: actions/checkout@v3
         with:

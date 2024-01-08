@@ -25,11 +25,11 @@ jobs:
         with:
           tool-cache: false
           android: true
-          dotnet: false
-          haskell: false
-          large-packages: false
+          dotnet: true
+          haskell: true
+          large-packages: true
           docker-images: false
-          swap-storage: false
+          swap-storage: true
       - name: Checkout source
         uses: actions/checkout@v3
         with:
@@ -74,7 +74,7 @@ jobs:
       - name: Upload to CloudFlare CDN
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a318ceo/out/build-modules
-      - name: Upload Release Config to CloudFlare CDN  
+      - name: Upload Release Config to CloudFlare CDN
         run: |
           mkdir -p ./build-a318ceo/out/config
           echo "releases:" >> ./build-a318ceo/out/config/releases.yaml
@@ -105,11 +105,11 @@ jobs:
         with:
           tool-cache: false
           android: true
-          dotnet: false
-          haskell: false
-          large-packages: false
+          dotnet: true
+          haskell: true
+          large-packages: true
           docker-images: false
-          swap-storage: false
+          swap-storage: true
       - name: Checkout source
         uses: actions/checkout@v3
         with:
@@ -154,7 +154,7 @@ jobs:
       - name: Upload to CloudFlare CDN
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a319ceo/out/build-modules
-      - name: Upload Release Config to CloudFlare CDN  
+      - name: Upload Release Config to CloudFlare CDN
         run: |
           mkdir -p ./build-a319ceo/out/config
           echo "releases:" >> ./build-a319ceo/out/config/releases.yaml
@@ -185,11 +185,11 @@ jobs:
         with:
           tool-cache: false
           android: true
-          dotnet: false
-          haskell: false
-          large-packages: false
+          dotnet: true
+          haskell: true
+          large-packages: true
           docker-images: false
-          swap-storage: false
+          swap-storage: true
       - name: Checkout source
         uses: actions/checkout@v3
         with:
@@ -234,7 +234,7 @@ jobs:
       - name: Upload to CloudFlare CDN
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a320ceo/out/build-modules
-      - name: Upload Release Config to CloudFlare CDN  
+      - name: Upload Release Config to CloudFlare CDN
         run: |
           mkdir -p ./build-a320ceo/out/config
           echo "releases:" >> ./build-a320ceo/out/config/releases.yaml
@@ -265,11 +265,11 @@ jobs:
         with:
           tool-cache: false
           android: true
-          dotnet: false
-          haskell: false
-          large-packages: false
+          dotnet: true
+          haskell: true
+          large-packages: true
           docker-images: false
-          swap-storage: false
+          swap-storage: true
       - name: Checkout source
         uses: actions/checkout@v3
         with:
@@ -314,7 +314,7 @@ jobs:
       - name: Upload to CloudFlare CDN
         run: |
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a321neo/out/build-modules
-      - name: Upload Release Config to CloudFlare CDN  
+      - name: Upload Release Config to CloudFlare CDN
         run: |
           mkdir -p ./build-a321neo/out/config
           echo "releases:" >> ./build-a321neo/out/config/releases.yaml
