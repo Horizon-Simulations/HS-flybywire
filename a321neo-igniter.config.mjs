@@ -144,10 +144,9 @@ export default new TaskOfTasks("all", [
                     "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/fbw.wasm",
                 ]),
                 new ExecTask(
-                    "terronnd",
+                    "systems-terronnd",
                     [
-                        "fbw-common/src/wasm/terronnd/build.sh",
-                        "wasm-opt -O1 --signext-lowering -o build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/terronnd.wasm fbw-common/src/wasm/terronnd/out/terronnd.wasm",
+                        "npm run build-a321neo:terronnd",
                     ],
                     [
                         "fbw-common/src/wasm/terronnd",
@@ -156,12 +155,13 @@ export default new TaskOfTasks("all", [
                     ]
                 ),
                 new ExecTask(
-                    "flypad-backend",
-                    "npm run build-a321neo:flypad-backend",
+                    "extra-backend-a32nx",
+                    "npm run build-a321neo:extra-backend-a32nx",
                     [
-                        "build-a321neo/src/wasm/flypad-backend",
-                        "fbw-common/src/wasm/fbw_common",
-                        "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/flypad-backend.wasm",
+                        'fbw-common/src/wasm/cpp-msfs-framework',
+                        'fbw-common/src/wasm/extra-backend',
+                        "build-a321neo/src/wasm/extra-backend-a32nx",
+                        "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/extra-backend-a32nx.wasm",
                     ]
                 ),
                 new ExecTask("systems",
@@ -185,8 +185,8 @@ export default new TaskOfTasks("all", [
                 new ExecTask("fadec-pw", "npm run build-a321neo:copy-fadec-pw"),
                 new ExecTask("fbw", "npm run build-a321neo:copy-fbw"),
                 new ExecTask(
-                    "flypad-backend",
-                    "npm run build-a321neo:copy-flypad-backend"
+                    "extra-backend-a32nx",
+                    "npm run build-a321neo:copy-extra-backend-a32nx"
                 ),
                 new ExecTask("systems", "npm run build-a321neo:copy-systems"),
                 new ExecTask("terronnd", "npm run build-a321neo:copy-terronnd"),
