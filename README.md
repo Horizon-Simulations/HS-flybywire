@@ -118,14 +118,14 @@ The following aircraft configuration is currently simulated or targeted:
  ```
 
 ## How to build
-Make sure docker is installed. Prefferably with WSL2 backend.
+Make sure docker is installed. Preferably with WSL2 backend.
 
 ### Software requirements
 - Docker Desktop or native on WSL2
 - NodeJS (latest LTS version)
 - Git for Windows
 
-### 1. First, run following command on powershell. This will install the A32NX docker images and node modules.
+### 1. First, run the following command in PowerShell. This will install the A32NX Docker images and Node modules.
 
 For powershell:
 ```shell
@@ -141,7 +141,7 @@ git submodule init
 git submodule update flybywire
 ./scripts/dev-env/run.sh ./scripts/setup.sh
 ```
-### 2. As next step we will copy the original source files and copy-over our source files.
+### 2. As next step, we will copy the original source files and copy-over our source files.
 #### A318ceo
 For powershell:
 ```shell
@@ -178,7 +178,7 @@ For Git Bash/Linux:
 ```shell
 ./scripts/dev-env/run.sh ./scripts/copy_a321hs.sh
 ```
-### 3. Build all A32NX module by running following command on powershell.
+### 3. Build the entire A32NX module by running following command in PowerShell.
 #### A318ceo
 For powershell:
 ```shell
@@ -216,9 +216,9 @@ For Git Bash/Linux:
 ./scripts/dev-env/run.sh ./scripts/build_a321hs.sh
 ```
 
-### 4. The package is now ready to use. Copy the folder "build_a32x/out/lvfr-horizonsim-airbus-axx" to your CommunityPackage folder in MSFS.
+### 4. The package is now ready to use. Copy the folder "build_a32x/out/lvfr-horizonsim-airbus-axx" to your Community Folder in MSFS.
 
-### (Optional) If you want to use the MSFS Dev Tools you can run the following command (after build completed) to copy the files to the PackageSources.
+### (Optional) If you want to use the MSFS Dev Tools, you can run the following command (after the build is completed) to copy the files to the PackageSources.
 
 For powershell:
 ```shell
