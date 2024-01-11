@@ -291,9 +291,9 @@ class FMCMainDisplay extends BaseAirliners {
                 this.flightPlanManager.updateCurrentApproach();
                 const callback = () => {
                     this.flightPlanManager.createNewFlightPlan();
-                    SimVar.SetSimVarValue("L:AIRLINER_V1_SPEED", "Knots", NaN);
-                    SimVar.SetSimVarValue("L:AIRLINER_V2_SPEED", "Knots", NaN);
-                    SimVar.SetSimVarValue("L:AIRLINER_VR_SPEED", "Knots", NaN);
+                    this.v1Speed = undefined;
+                    this.vRSpeed = undefined;
+                    this.v2Speed = undefined;
                     const cruiseAlt = Math.floor(this.flightPlanManager.cruisingAltitude / 100);
                     console.log("FlightPlan Cruise Override. Cruising at FL" + cruiseAlt + " instead of default FL" + this.cruiseFlightLevel);
                     if (cruiseAlt > 0) {
@@ -582,10 +582,6 @@ class FMCMainDisplay extends BaseAirliners {
             this.unconfirmedVRSpeed = undefined;
             this.unconfirmedV2Speed = undefined;
             this._toFlexChecked = true;
-            // Reset SimVars
-            SimVar.SetSimVarValue("L:AIRLINER_V1_SPEED", "Knots", NaN);
-            SimVar.SetSimVarValue("L:AIRLINER_V2_SPEED", "Knots", NaN);
-            SimVar.SetSimVarValue("L:AIRLINER_VR_SPEED", "Knots", NaN);
         }
 
         this.arincBusOutputs.forEach((word) => {
@@ -1679,7 +1675,7 @@ class FMCMainDisplay extends BaseAirliners {
         const dhValid = !mdaValid && inRange && typeof this.perfApprDH === 'number';
 
         const mdaSsm = mdaValid ? Arinc429Word.SignStatusMatrix.NormalOperation : Arinc429Word.SignStatusMatrix.NoComputedData;
-        const dhSsm = dhValid ? Arinc429Word.SignStatusMatrix.NormalOperation : Arinc429Word.SignStatusMatrix.NoComputedData
+        const dhSsm = dhValid ? Arinc429Word.SignStatusMatrix.NormalOperation : Arinc429Word.SignStatusMatrix.NoComputedData;
 
         this.arincMDA.setBnrValue(mdaValid ? this.perfApprMDA : 0, mdaSsm, 17, 131072, 0);
         this.arincDH.setBnrValue(dhValid ? this.perfApprDH : 0, dhSsm, 16, 8192, 0);
@@ -2920,6 +2916,33 @@ class FMCMainDisplay extends BaseAirliners {
         this.arincDiscreteWord3.ssm = Arinc429Word.SignStatusMatrix.NormalOperation;
     }
 
+    get v1Speed() {
+        return this._v1Speed;
+    }
+
+    set v1Speed(speed) {
+        this._v1Speed = speed;
+        SimVar.SetSimVarValue('L:AIRLINER_V1_SPEED', 'knots', speed ? speed : NaN);
+    }
+
+    get vRSpeed() {
+        return this._vRSpeed;
+    }
+
+    set vRSpeed(speed) {
+        this._vRSpeed = speed;
+        SimVar.SetSimVarValue('L:AIRLINER_VR_SPEED', 'knots', speed ? speed : NaN);
+    }
+
+    get v2Speed() {
+        return this._v2Speed;
+    }
+
+    set v2Speed(speed) {
+        this._v2Speed = speed;
+        SimVar.SetSimVarValue('L:AIRLINER_V2_SPEED', 'knots', speed ? speed : NaN);
+    }
+
     //Needs PR Merge #3082
     trySetV1Speed(s) {
         if (s === FMCMainDisplay.clrValue) {
@@ -2938,7 +2961,6 @@ class FMCMainDisplay extends BaseAirliners {
         this.removeMessageFromQueue(NXSystemMessages.checkToData.text);
         this.unconfirmedV1Speed = undefined;
         this.v1Speed = v;
-        SimVar.SetSimVarValue("L:AIRLINER_V1_SPEED", "Knots", this.v1Speed);
         return true;
     }
 
@@ -2960,7 +2982,6 @@ class FMCMainDisplay extends BaseAirliners {
         this.removeMessageFromQueue(NXSystemMessages.checkToData.text);
         this.unconfirmedVRSpeed = undefined;
         this.vRSpeed = v;
-        SimVar.SetSimVarValue("L:AIRLINER_VR_SPEED", "Knots", this.vRSpeed);
         return true;
     }
 
@@ -2982,7 +3003,6 @@ class FMCMainDisplay extends BaseAirliners {
         this.removeMessageFromQueue(NXSystemMessages.checkToData.text);
         this.unconfirmedV2Speed = undefined;
         this.v2Speed = v;
-        SimVar.SetSimVarValue("L:AIRLINER_V2_SPEED", "Knots", this.v2Speed);
         return true;
     }
 
@@ -3055,7 +3075,7 @@ class FMCMainDisplay extends BaseAirliners {
         const accAlt = match[4] !== undefined ? FMCMainDisplay.round(parseInt(match[4]), 10) : undefined;
 
         const origin = this.flightPlanManager.getPersistentOrigin();
-        let elevation = origin.infos.elevation !== undefined ? origin.infos.elevation : 0;
+        const elevation = origin.infos.elevation !== undefined ? origin.infos.elevation : 0;
         const minimumAltitude = elevation + 400;
 
         const newThrRed = thrRed !== undefined ? thrRed : plan.thrustReductionAltitude;
@@ -3110,7 +3130,7 @@ class FMCMainDisplay extends BaseAirliners {
         const accAlt = parseInt(match[1]);
 
         const origin = this.flightPlanManager.getPersistentOrigin();
-        let elevation = origin.infos.elevation !== undefined ? origin.infos.elevation : 0;
+        const elevation = origin.infos.elevation !== undefined ? origin.infos.elevation : 0;
         const minimumAltitude = elevation + 400;
 
         if (accAlt < minimumAltitude || accAlt > 45000) {
@@ -3154,7 +3174,7 @@ class FMCMainDisplay extends BaseAirliners {
         const accAlt = match[4] !== undefined ? FMCMainDisplay.round(parseInt(match[4]), 10) : undefined;
 
         const destination = this.flightPlanManager.getDestination();
-        let elevation = destination.infos.elevation !== undefined ? destination.infos.elevation : 0;
+        const elevation = destination.infos.elevation !== undefined ? destination.infos.elevation : 0;
         const minimumAltitude = elevation + 400;
 
         const newThrRed = thrRed !== undefined ? thrRed : plan.missedThrustReductionAltitude;
@@ -3209,7 +3229,7 @@ class FMCMainDisplay extends BaseAirliners {
         const accAlt = parseInt(match[1]);
 
         const destination = this.flightPlanManager.getDestination();
-        let elevation = destination.infos.elevation !== undefined ? destination.infos.elevation : 0;
+        const elevation = destination.infos.elevation !== undefined ? destination.infos.elevation : 0;
         const minimumAltitude = elevation + 400;
 
         if (accAlt < minimumAltitude || accAlt > 45000) {
@@ -3274,14 +3294,14 @@ class FMCMainDisplay extends BaseAirliners {
             originTransitionAltitude !== undefined ? originTransitionAltitude : 0,
             originTransitionAltitude !== undefined ? Arinc429Word.SignStatusMatrix.NormalOperation : Arinc429Word.SignStatusMatrix.NoComputedData,
             17, 131072, 0,
-        )
+        );
 
         const destinationTansitionLevel = this.flightPlanManager.destinationTransitionLevel;
         this.arincTransitionLevel.setBnrValue(
             destinationTansitionLevel !== undefined ? destinationTansitionLevel : 0,
             destinationTansitionLevel !== undefined ? Arinc429Word.SignStatusMatrix.NormalOperation : Arinc429Word.SignStatusMatrix.NoComputedData,
             9, 512, 0,
-        )
+        );
     }
 
     //Needs PR Merge #3082
@@ -3760,7 +3780,7 @@ class FMCMainDisplay extends BaseAirliners {
         const spd = parseInt(s);
         if (!Number.isFinite(spd)) {
             this.setScratchpadMessage(NXSystemMessages.formatError);
-            return false
+            return false;
         }
 
         if (spd < 100 || spd > 350) {
@@ -4996,7 +5016,7 @@ class FMCMainDisplay extends BaseAirliners {
     }
 
     getV2Speed() {
-        return SimVar.GetSimVarValue("L:AIRLINER_V2_SPEED", "knots");
+        return this.v2Speed;
     }
 
     getTropoPause() {
@@ -5159,7 +5179,7 @@ class FMCMainDisplay extends BaseAirliners {
             if (Number.isFinite(mach)) {
                 if (mach < 0.15 || mach > 0.82) {
                     this.setScratchpadMessage(NXSystemMessages.entryOutOfRange);
-                    return false
+                    return false;
                 }
 
                 this.managedSpeedDescendMachPilot = mach;
@@ -5172,7 +5192,7 @@ class FMCMainDisplay extends BaseAirliners {
             if (Number.isFinite(mach)) {
                 if (mach < 0.15 || mach > 0.82) {
                     this.setScratchpadMessage(NXSystemMessages.entryOutOfRange);
-                    return false
+                    return false;
                 }
 
                 this.managedSpeedDescendMachPilot = mach;
