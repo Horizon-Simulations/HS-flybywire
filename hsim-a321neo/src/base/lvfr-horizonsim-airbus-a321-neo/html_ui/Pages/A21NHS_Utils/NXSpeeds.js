@@ -443,21 +443,21 @@ function _correctMass(m) {
 /**
  * Calculate green dot speed
  * Calculation:
- * Gross weight (t) * 2 + 85 when below FL200
+ * Gross weight (t) * 1.5 + 110 when below FL100
  * @returns {number}
  */
 function _computeGD(m) {
-    return m * 2 + 85;
+    return m * 1.5 + 110;
 }
 
 /**
- * Corrects velocity for mach effect by adding 1kt for every 1000ft above FL200
+ * Corrects velocity for mach effect by adding 1kt for every 1000ft above FL100
  * @param v {number} velocity in kt (CAS)
  * @param alt {number} altitude in feet (baro)
  * @returns {number} Mach corrected velocity in kt (CAS)
  */
 function _compensateForMachEffect(v, alt) {
-    return Math.ceil(alt > 20000 ? v + (alt - 20000) / 1000 : v);
+    return Math.ceil(alt > 10000 ? v + (alt - 10000) / 1000 : v);
 }
 
 /**
