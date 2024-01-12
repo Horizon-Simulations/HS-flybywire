@@ -293,6 +293,6 @@ export class FlightModel {
         altitude: number,
         weight: Kilograms,
     ): Knots {
-        return weight / 500 + 85 + Math.max(0, (altitude - 20000) / 1000);
+        return weight / 667 + 110 + Math.max(0, (altitude - 10000) / 1000);
     }
 }
