@@ -42,7 +42,7 @@ Cargo.toml
 !jest.config.js
 !/jest/**
 
-!CMakeLists.txt
+!CMakeLists*.txt
 
 !/branding/*
 
