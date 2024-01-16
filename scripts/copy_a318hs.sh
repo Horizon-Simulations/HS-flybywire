@@ -65,4 +65,3 @@ cp -rva ./hsim-a318ceo/src/base/lvfr-horizonsim-airbus-a318-ceo-lock-highlight/.
 
 chmod +x ./build-a318ceo/src/wasm/fbw_a320/build.sh
 chmod +x ./build-a318ceo/src/wasm/fadec_a320/build.sh
-chmod +x ./build-a318ceo/src/wasm/extra-backend-a32nx/build.sh

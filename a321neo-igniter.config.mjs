@@ -13,6 +13,10 @@ export default new TaskOfTasks("all", [
                     "copy-cargo-config",
                     "npm run build-a321neo:copy-cargo-config"
                 ),
+                new ExecTask(
+                    "copy-cmake-config",
+                    "npm run build-a321neo:copy-cmake-config"
+                ),
                 new TaskOfTasks(
                     "localization",
                     [
@@ -156,7 +160,7 @@ export default new TaskOfTasks("all", [
                 ),
                 new ExecTask(
                     "extra-backend-a32nx",
-                    "npm run build-a321neo:extra-backend-a32nx",
+                    "npm run build-a321neo:cpp-wasm-cmake",
                     [
                         'fbw-common/src/wasm/cpp-msfs-framework',
                         'fbw-common/src/wasm/extra-backend',

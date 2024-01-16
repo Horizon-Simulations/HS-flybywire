@@ -53,13 +53,4 @@ add_definitions(
 add_subdirectory(fbw-common/src/wasm)
 
 # add the A318 components
-add_subdirectory(hsim-a318ceo/src/wasm)
-
-# add the A319 components
-add_subdirectory(hsim-a319ceo/src/wasm)
-
-# add the A320 components
-add_subdirectory(hsim-a320ceo/src/wasm)
-
-# add the A321 components
-add_subdirectory(hsim-a321neo/src/wasm)
+add_subdirectory(build-a318ceo/src/wasm)

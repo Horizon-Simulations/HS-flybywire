@@ -68,4 +68,3 @@ cp -rva ./hsim-a321neo/src/base/lvfr-horizonsim-airbus-a321-neo-lock-highlight/.
 
 chmod +x ./build-a321neo/src/wasm/fbw_a320/build.sh
 chmod +x ./build-a321neo/src/wasm/fadec_a320/build.sh
-chmod +x ./build-a321neo/src/wasm/extra-backend-a32nx/build.sh
