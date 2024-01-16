@@ -83,13 +83,6 @@ jobs:
           echo "  - name: $SHA" >> ./build-a318ceo/out/config/releases.yaml
           echo "    date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> ./build-a318ceo/out/config/releases.yaml
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a318ceo/out/config
-      - name: Upload to Google Drive
-        uses: adityak74/google-drive-upload-git-action@main
-        with:
-          credentials: ${{ secrets.GDRIVE_CREDS_A318 }}
-          filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A318 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDA318 }}
-          overwrite: "true" # optional boolean
   build-a319:
     runs-on: ubuntu-latest
     env:
@@ -168,13 +161,6 @@ jobs:
           echo "  - name: $SHA" >> ./build-a319ceo/out/config/releases.yaml
           echo "    date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> ./build-a319ceo/out/config/releases.yaml
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a319ceo/out/config
-      - name: Upload to Google Drive
-        uses: adityak74/google-drive-upload-git-action@main
-        with:
-          credentials: ${{ secrets.GDRIVE_CREDS_A319 }}
-          filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A319 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDA319 }}
-          overwrite: "true" # optional boolean
   build-a320:
     runs-on: ubuntu-latest
     env:
@@ -253,13 +239,6 @@ jobs:
           echo "  - name: $SHA" >> ./build-a320ceo/out/config/releases.yaml
           echo "    date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> ./build-a320ceo/out/config/releases.yaml
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a320ceo/out/config
-      - name: Upload to Google Drive
-        uses: adityak74/google-drive-upload-git-action@main
-        with:
-          credentials: ${{ secrets.GDRIVE_CREDS_A320 }}
-          filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A320 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDA320 }}
-          overwrite: "true" # optional boolean
   build-a321:
     runs-on: ubuntu-latest
     env:
@@ -338,10 +317,3 @@ jobs:
           echo "  - name: $SHA" >> ./build-a321neo/out/config/releases.yaml
           echo "    date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> ./build-a321neo/out/config/releases.yaml
           ./scripts/cdn.sh $CDN_BUCKET_DESTINATION ./build-a321neo/out/config
-      - name: Upload to Google Drive
-        uses: adityak74/google-drive-upload-git-action@main
-        with:
-          credentials: ${{ secrets.GDRIVE_CREDS_A321 }}
-          filename: ./${{ env.BUILD_DIR_NAME }}/${{ env.ZIP_NAME_A321 }}
-          folderId: ${{ secrets.GDRIVEFOLDERIDA321 }}
-          overwrite: "true" # optional boolean
