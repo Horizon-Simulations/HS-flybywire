@@ -399,7 +399,11 @@ class A320_Neo_FCU_Speed extends A320_Neo_FCU_Component {
                     }
                     this.textValueContent = value;
                 } else {
-                    this.textValueContent = "---";
+                    if (_machActive) {
+                        this.textValueContent = "-.--";
+                    } else {
+                        this.textValueContent = "---";
+                    }
                 }
             }
             this.setElementVisibility(this.illuminator, this.isManaged);
@@ -1480,7 +1484,6 @@ class A320_Neo_FCU_SmallScreen extends NavSystemElement {
 //                Earth-Sun distance, angular diameter of Sun
 //        p. L2:  Greenwich mean sidereal time (ignoring T^2, T^3 terms)
 
-
 //   Authors:  Dr. Joe Michalsky (joe@asrc.albany.edu)
 //             Dr. Lee Harrison (lee@asrc.albany.edu)
 //             Atmospheric Sciences Research Center
@@ -1491,7 +1494,6 @@ class A320_Neo_FCU_SmallScreen extends NavSystemElement {
 //                 NASA Goddard Space Flight Center
 //                 Code 913
 //                 Greenbelt, MD 20771
-
 
 //   WARNING:  Do not use this routine outside the year range
 //             1950-2050.  The approximations become increasingly
@@ -1521,7 +1523,6 @@ class A320_Neo_FCU_SmallScreen extends NavSystemElement {
 //      LONG     longitude [degrees]
 //               (REAL; range -180.0 to 180.0; east is positive)
 
-
 //   Output:
 
 //      AZ       solar azimuth angle (measured east from north,
@@ -1535,7 +1536,6 @@ class A320_Neo_FCU_SmallScreen extends NavSystemElement {
 //      SOLDST   distance to sun [Astronomical Units, AU]
 //               (1 AU = mean Earth-sun distance = 1.49597871E+11 m
 //                in IAU 1976 System of Astronomical Constants)
-
 
 //   Local Variables:
 
@@ -1645,7 +1645,7 @@ function calculateSunAzimuthElevation(utcTime, lat, lon, out = undefined) {
 
     // current Julian date (actually add 2,400,000 for true JD);  LEAP = leap days since 1949;
     // 32916.5 is midnite 0 jan 1949 minus 2.4e6
-    const delta  = year - 1949;
+    const delta = year - 1949;
     const leap = delta / 4;
     let jd = 32916.5 + (delta * 365 + leap + day) + hour / 24;
 
@@ -1659,7 +1659,7 @@ function calculateSunAzimuthElevation(utcTime, lat, lon, out = undefined) {
 
     // ecliptic coordinates
     // 51545.0 + 2.4e6 = noon 1 jan 2000
-    const time  = jd - 51545.0;
+    const time = jd - 51545.0;
 
     // force mean longitude between 0 and 360 degs
     let meanLon = (280.460 + 0.9856474 * time) % 360;
@@ -1683,7 +1683,7 @@ function calculateSunAzimuthElevation(utcTime, lat, lon, out = undefined) {
     }
     ecLong = ecLong * rpd;
 
-    let obiquityEc = (23.439 - 0.0000004 * time) * rpd;
+    const obiquityEc = (23.439 - 0.0000004 * time) * rpd;
 
     // right ascension
     const NUM = Math.cos(obiquityEc) * Math.sin(ecLong);
@@ -1692,9 +1692,9 @@ function calculateSunAzimuthElevation(utcTime, lat, lon, out = undefined) {
 
     // Force right ascension between 0 and 2*pi
     if (DEN < 0.0) {
-        RA  = RA + Math.PI;
+        RA = RA + Math.PI;
     } else if (NUM < 0) {
-        RA  = RA + Math.PI * 2;
+        RA = RA + Math.PI * 2;
     }
 
     // declination
@@ -1710,7 +1710,7 @@ function calculateSunAzimuthElevation(utcTime, lat, lon, out = undefined) {
     }
 
     // local mean sidereal time in radians
-    let  LMST = (GMST + lon / 15) % 24;
+    let LMST = (GMST + lon / 15) % 24;
     if (LMST < 0) {
         LMST += 24;
     }
@@ -1744,8 +1744,8 @@ function calculateSunAzimuthElevation(utcTime, lat, lon, out = undefined) {
     }
 
     // Convert elevation and azimuth to degrees
-    solarElevation /= rpd
-    solarAzimuth /= rpd
+    solarElevation /= rpd;
+    solarAzimuth /= rpd;
 
     //  ======== Refraction correction for U.S. Standard Atmos. ==========
     //      (assumes elevation in degs) (3.51823=1013.25 mb/288 K)
@@ -1757,7 +1757,7 @@ function calculateSunAzimuthElevation(utcTime, lat, lon, out = undefined) {
                 (1. + solarElevation * (0.505 + 0.0845 * solarElevation));
     }
 
-    solarElevation = solarElevation + REFRAC
+    solarElevation = solarElevation + REFRAC;
     // ===================================================================
     // distance to sun in A.U. & diameter in degs
     const solarDistance = 1.00014 - 0.01671 * Math.cos(meanAnomaly) - 0.00014 * Math.cos(2 * meanAnomaly);
@@ -1838,7 +1838,7 @@ class Subject {
             if (initialNotify) {
                 newSub.handler(this.value);
             }
-        }
+        };
         newSub.unsub = () => this.subs.splice(this.subs.indexOf(newSub), 1);
 
         this.subs.push(newSub);
