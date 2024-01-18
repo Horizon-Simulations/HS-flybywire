@@ -1,6 +1,6 @@
 {
   "name": "horizon-simulations-fbw",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Horizon Simulations FlyByWire Compatibility Core Repository",
   "imports": {
     "#build-utils": "./build-utils.js"
