@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModelInfo>
+  <LODS>
+    <!-- Highest LOD -->
+    <!-- minimum display size in % (should be bounding sphere vertical screen size, sphere will
+    often be slightly larger than you expect) -->
+    <!-- default minSize is 0 -->
+    <LOD minSize="150" ModelFile="A320_CEO_CFM_LOD00.gltf">
+      <AttachModel id="FA1" />
+      <AttachModel id="FA2" />
+      <AttachModel id="FA3" />
+      <AttachModel id="FA4" />
+      <AttachModel id="PAX1" />
+      <AttachModel id="PAX1B" />
+      <AttachModel id="PAX1C" />
+      <AttachModel id="PAX1D" />
+      <AttachModel id="PAX2" />
+      <AttachModel id="PAX2B" />
+      <AttachModel id="PAX2C" />
+      <AttachModel id="PAX2D" />
+      <AttachModel id="PAX3" />
+      <AttachModel id="PAX3B" />
+      <AttachModel id="PAX3C" />
+      <AttachModel id="PAX3D" />
+      <AttachModel id="PAX4" />
+      <AttachModel id="PAX4B" />
+      <AttachModel id="PAX4C" />
+      <AttachModel id="PAX4D" />
+      <AttachModel id="PAX5B" />
+      <AttachModel id="PAX5C" />
+      <AttachModel id="PAX5D" />
+      <AttachModel id="PAX6B" />
+      <AttachModel id="PAX6C" />
+      <AttachModel id="PAX6D" />
+      <AttachModel id="PAX7B" />
+      <AttachModel id="PAX7C" />
+      <AttachModel id="PAX7D" />
+      <AttachModel id="PAX8" />
+      <AttachModel id="PAX8B" />
+      <AttachModel id="PAX8C" />
+      <AttachModel id="PAX9" />
+      <AttachModel id="PAX9B" />
+      <AttachModel id="PAX9C" />
+      <AttachModel id="PAX10" />
+      <AttachModel id="PAX10B" />
+      <AttachModel id="PAX10C" />
+      <AttachModel id="PAX10D" />
+      <AttachModel id="PAX11" />
+      <AttachModel id="PAX11B" />
+      <AttachModel id="PAX11C" />
+      <AttachModel id="PAX11D" />
+      <AttachModel id="PAX12" />
+      <AttachModel id="PAX12B" />
+      <AttachModel id="PAX12C" />
+    </LOD>
+    <LOD ModelFile="A320_CEO_CFM_LOD01.gltf" minSize="80" />
+  </LODS>
+
+
+  <ModelAttachments>
+    <ModelAttachment id="FA1">
+      <AttachToNode>sittingfemaleFA</AttachToNode>
+      <Model>..\model.PAX\FAsittingwoman.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="FA2">
+      <AttachToNode>sittingmaleFA</AttachToNode>
+      <Model>..\model.PAX\FAsittingmale.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="FA3">
+      <AttachToNode>standingfemaleFA</AttachToNode>
+      <Model>..\model.PAX\FAstandingwoman1.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="FA4">
+      <AttachToNode>standingmaleFA</AttachToNode>
+      <Model>..\model.PAX\FAstandingmale1.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX1">
+      <AttachToNode>1PAX1</AttachToNode>
+      <Model>..\model.PAX\PAX1.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX1B">
+      <AttachToNode>1PAX002</AttachToNode>
+      <Model>..\model.PAX\PAX1.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX1C">
+      <AttachToNode>1PAX003</AttachToNode>
+      <Model>..\model.PAX\PAX1.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX1D">
+      <AttachToNode>1PAX004</AttachToNode>
+      <Model>..\model.PAX\PAX1.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX2">
+      <AttachToNode>2PAX</AttachToNode>
+      <Model>..\model.PAX\PAX2.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX2B">
+      <AttachToNode>2PAX001</AttachToNode>
+      <Model>..\model.PAX\PAX2.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX2C">
+      <AttachToNode>2PAX002</AttachToNode>
+      <Model>..\model.PAX\PAX2.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX2D">
+      <AttachToNode>2PAX003</AttachToNode>
+      <Model>..\model.PAX\PAX2.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX3">
+      <AttachToNode>3PAX</AttachToNode>
+      <Model>..\model.PAX\PAX3.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX3B">
+      <AttachToNode>3PAX001</AttachToNode>
+      <Model>..\model.PAX\PAX3.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX3C">
+      <AttachToNode>3PAX002</AttachToNode>
+      <Model>..\model.PAX\PAX3.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX3D">
+      <AttachToNode>3PAX003</AttachToNode>
+      <Model>..\model.PAX\PAX3.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX4">
+      <AttachToNode>4PAX00</AttachToNode>
+      <Model>..\model.PAX\PAX4.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX4B">
+      <AttachToNode>4PAX01</AttachToNode>
+      <Model>..\model.PAX\PAX4.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX4C">
+      <AttachToNode>4PAX02</AttachToNode>
+      <Model>..\model.PAX\PAX4.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX4D">
+      <AttachToNode>4PAX03</AttachToNode>
+      <Model>..\model.PAX\PAX4.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX5B">
+      <AttachToNode>5PAX001</AttachToNode>
+      <Model>..\model.PAX\PAX5.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX5C">
+      <AttachToNode>5PAX002</AttachToNode>
+      <Model>..\model.PAX\PAX5.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX5D">
+      <AttachToNode>5PAX003</AttachToNode>
+      <Model>..\model.PAX\PAX5.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX6B">
+      <AttachToNode>6PAX001</AttachToNode>
+      <Model>..\model.PAX\PAX6.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX6C">
+      <AttachToNode>6PAX002</AttachToNode>
+      <Model>..\model.PAX\PAX6.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX6D">
+      <AttachToNode>6PAX003</AttachToNode>
+      <Model>..\model.PAX\PAX6.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX7B">
+      <AttachToNode>7PAX001</AttachToNode>
+      <Model>..\model.PAX\PAX7.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX7C">
+      <AttachToNode>7PAX002</AttachToNode>
+      <Model>..\model.PAX\PAX7.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX7D">
+      <AttachToNode>7PAX003</AttachToNode>
+      <Model>..\model.PAX\PAX7.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX8">
+      <AttachToNode>8PAX</AttachToNode>
+      <Model>..\model.PAX\PAX8.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX8B">
+      <AttachToNode>8PAX001</AttachToNode>
+      <Model>..\model.PAX\PAX8.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX8C">
+      <AttachToNode>8PAX002</AttachToNode>
+      <Model>..\model.PAX\PAX8.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX9">
+      <AttachToNode>9PAX</AttachToNode>
+      <Model>..\model.PAX\PAX9.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX9B">
+      <AttachToNode>9PAX001</AttachToNode>
+      <Model>..\model.PAX\PAX9.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX9C">
+      <AttachToNode>9PAX002</AttachToNode>
+      <Model>..\model.PAX\PAX9.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX10">
+      <AttachToNode>10PAX</AttachToNode>
+      <Model>..\model.PAX\PAX10.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX10B">
+      <AttachToNode>10PAX001</AttachToNode>
+      <Model>..\model.PAX\PAX10.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX10C">
+      <AttachToNode>10PAX002</AttachToNode>
+      <Model>..\model.PAX\PAX10.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX10D">
+      <AttachToNode>10PAX003</AttachToNode>
+      <Model>..\model.PAX\PAX10.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX11">
+      <AttachToNode>11PAX</AttachToNode>
+      <Model>..\model.PAX\PAX11.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX11B">
+      <AttachToNode>11PAX001</AttachToNode>
+      <Model>..\model.PAX\PAX11.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX11C">
+      <AttachToNode>11PAX002</AttachToNode>
+      <Model>..\model.PAX\PAX11.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX11D">
+      <AttachToNode>11PAX003</AttachToNode>
+      <Model>..\model.PAX\PAX11.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX12">
+      <AttachToNode>12PAX</AttachToNode>
+      <Model>..\model.PAX\PAX12.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX12B">
+      <AttachToNode>12PAX001</AttachToNode>
+      <Model>..\model.PAX\PAX12.xml</Model>
+    </ModelAttachment>
+    <ModelAttachment id="PAX12C">
+      <AttachToNode>12PAX002</AttachToNode>
+      <Model>..\model.PAX\PAX12.xml</Model>
+    </ModelAttachment>
+  </ModelAttachments>
+
+  <!-- Custom animation definition. -->
+  <!-- This can be used when node movement depends on the simvars in a more complex way. -->
+  <!-- >>>>> CURRENTLY HARDCODED FOR WINGFLEX <<<<< -->
+  <NodeAnimation type="WingFlex">
+    <!-- Nice to have: script simulation variables to do rotation/translation (type="Custom") -->
+    <!-- Alternatively we could script the angles for the wingflex -->
+    <!-- Just define some nodes/bones to move for now (this configuration will likely change at some
+    point) -->
+    <!-- 	order	:	node 															-->
+    <!-- 	0	:	the left wing bone closest to the center 							-->
+    <!-- 	1	:	in between 															-->
+    <!-- 	2	:	in between 															-->
+    <!-- 	3	:	the left wing bone furthest from the center 						-->
+    <!-- 	4	:	the right wing bone closest to the center 							-->
+    <!-- 	5	:	in between 															-->
+    <!-- 	6	:	in between 															-->
+    <!-- 	7	:	the right wing bone furthest from the center 						-->
+    <!-- 	8	:	the left wing engine pivot node closest to the center 				-->
+    <!-- 	9	:	the left wing engine pivot node furthest from the center 			-->
+    <!-- 	10	:	the right wing engine pivot node closest to the center 				-->
+    <!-- 	11	:	the right wing engine pivot node furthest from the center 			-->
+    <Node>WING_BONE_LEFT_01</Node>
+    <!-- the left wing bone closest to the center 		-->
+    <Node>WING_BONE_LEFT_02</Node>
+    <!-- in between -->
+    <Node>WING_BONE_LEFT_03</Node>
+    <!-- in between -->
+    <Node>WING_BONE_LEFT_04</Node>
+    <!-- the left wing bone furthest from the center -->
+    <Node>WING_BONE_RIGHT_01</Node>
+    <!-- the right wing bone closest to the center -->
+    <Node>WING_BONE_RIGHT_02</Node>
+    <!-- in between -->
+    <Node>WING_BONE_RIGHT_03</Node>
+    <!-- in between -->
+    <Node>WING_BONE_RIGHT_04</Node>
+    <!-- the right wing bone furthest from the center -->
+    <Node>Engine_PIVOT_LEFT_1</Node>
+    <!-- the left wing engine pivot node closest to the center -->
+    <Node>Engine_PIVOT_LEFT_2</Node>
+    <!-- the left wing engine pivot node furthest from the center -->
+    <Node>Engine_PIVOT_RIGHT_1</Node>
+    <!-- the right wing engine pivot node closest to the center -->
+    <Node>Engine_PIVOT_RIGHT_2</Node>
+    <!-- the right wing engine pivot node furthest from the center -->
+  </NodeAnimation>
+  <Behaviors>
+    <Include ModelBehaviorFile="A320HS\Exterior\A32NX_Exterior_Includes.xml" />
+    <Include ModelBehaviorFile="Asobo\Exterior.xml" />
+    <Include RelativeFile="A320_NEO_FX.xml" />
+    <Include Path="A320HS\generated\A32NX_Exterior.xml" />
+    <Component ID="LIGHTING">
+      <UseTemplate Name="ASOBO_LIGHTING_Exterior_Retractable_Light_Template">
+        <LIGHT_TYPE>LANDING</LIGHT_TYPE>
+        <ID>2</ID>
+        <ANIM_NAME>opening_landing_light_left</ANIM_NAME>
+      </UseTemplate>
+      <UseTemplate Name="ASOBO_LIGHTING_Exterior_Retractable_Light_Template">
+        <LIGHT_TYPE>LANDING</LIGHT_TYPE>
+        <ID>3</ID>
+        <ANIM_NAME>opening_landing_light_right</ANIM_NAME>
+      </UseTemplate>
+    </Component>
+    <Component ID="LVFR_VIZ">
+      <Component ID="LVFR_320_GPU" Node="LVFR_320_GPU">
+        <UseTemplate Name="ASOBO_GT_Visibility">
+          <VISIBILITY_CODE>(Z:LVFR_GPU, bool) if{ 1 } els{ 0 }</VISIBILITY_CODE>
+        </UseTemplate>
+      </Component>
+      <Component ID="LVFR_320_AC" Node="LVFR_320_AC">
+        <UseTemplate Name="ASOBO_GT_Visibility">
+          <VISIBILITY_CODE>(Z:LVFR_AC, bool) if{ 1 } els{ 0 }</VISIBILITY_CODE>
+        </UseTemplate>
+      </Component>
+      <Component ID="LVFR_320_Stairs_Rear" Node="LVFR_320_Stairs_Rear">
+        <UseTemplate Name="ASOBO_GT_Visibility">
+          <VISIBILITY_CODE>(Z:LVFR_STAIRS_REAR, bool) if{ 1 } els{ 0 }</VISIBILITY_CODE>
+        </UseTemplate>
+      </Component>
+      <Component ID="LVFR_320_Stairs_Front" Node="LVFR_320_Stairs_Front">
+        <UseTemplate Name="ASOBO_GT_Visibility">
+          <VISIBILITY_CODE>(Z:LVFR_STAIRS_FRONT, bool) if{ 1 } els{ 0 }</VISIBILITY_CODE>
+        </UseTemplate>
+      </Component>
+      <Component ID="LVFR_320_Cones" Node="LVFR_320_Cones">
+        <UseTemplate Name="ASOBO_GT_Visibility">
+          <VISIBILITY_CODE>(Z:LVFR_CONES, bool) if{ 1 } els{ 0 }</VISIBILITY_CODE>
+        </UseTemplate>
+      </Component>
+      <Component ID="LVFR_320_Loader" Node="LVFR_320_Loader">
+        <UseTemplate Name="ASOBO_GT_Visibility">
+          <VISIBILITY_CODE>(Z:LVFR_LOADER, bool) if{ 1 } els{ 0 }</VISIBILITY_CODE>
+        </UseTemplate>
+      </Component>
+      <Component ID="LVFR_320_animated_pax" Node="animatedpax">
+        <UseTemplate Name="ASOBO_GT_Visibility">
+          <VISIBILITY_CODE>(Z:LVFR_ANIMATED_PAX, bool) if{ 1 } els{ 0 }</VISIBILITY_CODE>
+        </UseTemplate>
+      </Component>
+
+      <Component ID="HANDLING">
+        <UseTemplate Name="ASOBO_HANDLING_Elevator_Template">
+          <ANIM_NAME>elevator_percent_key</ANIM_NAME>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_HANDLING_Slats_Template">
+          <ANIM_NAME_LEFT>l_slat_percent_key</ANIM_NAME_LEFT>
+          <ANIM_NAME_RIGHT>r_slat_percent_key</ANIM_NAME_RIGHT>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_HANDLING_Elevator_Template">
+          <TRIM_ONLY>True</TRIM_ONLY>
+          <ANIM_NAME_TRIM>trimtab_elevator_key</ANIM_NAME_TRIM>
+        </UseTemplate>
+        <UseTemplate Name="FBW_HANDLING_Aileron_Template">
+          <ANIM_NAME_LEFT>l_aileron_percent_key</ANIM_NAME_LEFT>
+          <ANIM_NAME_RIGHT>r_aileron_percent_key</ANIM_NAME_RIGHT>
+        </UseTemplate>
+        <UseTemplate Name="FBW_HANDLING_Rudder_Template">
+          <ANIM_NAME>rudder_percent_key</ANIM_NAME>
+          <USE_INTEGRATED_TRIM>True</USE_INTEGRATED_TRIM>
+        </UseTemplate>
+        <UseTemplate Name="FBW_HANDLING_Spoiler_Template">
+          <ANIM_NAME_LEFT>l_spoiler_key</ANIM_NAME_LEFT>
+          <ANIM_NAME_RIGHT>r_spoiler_key</ANIM_NAME_RIGHT>
+          <!-- ANIM_EVENTS -->
+          <ANIM_EVENT_EFFECT_NAME>CAM_SPOILERS</ANIM_EVENT_EFFECT_NAME>
+          <NORMALIZED_TIME>0.5</NORMALIZED_TIME>
+          <DIRECTION>Both</DIRECTION>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_HANDLING_Flaps_Template">
+          <ANIM_NAME_LEFT>l_flap_percent_key</ANIM_NAME_LEFT>
+          <ANIM_NAME_RIGHT>r_flap_percent_key</ANIM_NAME_RIGHT>
+          <!-- ANIM_EVENTS -->
+          <ANIM_EVENT_EFFECT_NAME_1>CAM_FLAPS01</ANIM_EVENT_EFFECT_NAME_1>
+          <NORMALIZED_TIME_1>0.01</NORMALIZED_TIME_1>
+          <DIRECTION_1>Both</DIRECTION_1>
+          <ANIM_EVENT_EFFECT_NAME_2>CAM_FLAPS02</ANIM_EVENT_EFFECT_NAME_2>
+          <NORMALIZED_TIME_2>0.15</NORMALIZED_TIME_2>
+          <DIRECTION_2>Both</DIRECTION_2>
+          <ANIM_EVENT_EFFECT_NAME_3>CAM_FLAPS03</ANIM_EVENT_EFFECT_NAME_3>
+          <NORMALIZED_TIME_3>0.29</NORMALIZED_TIME_3>
+          <DIRECTION_3>Both</DIRECTION_3>
+          <ANIM_EVENT_EFFECT_NAME_4>CAM_FLAPS04</ANIM_EVENT_EFFECT_NAME_4>
+          <NORMALIZED_TIME_4>0.43</NORMALIZED_TIME_4>
+          <DIRECTION_4>Both</DIRECTION_4>
+          <ANIM_EVENT_EFFECT_NAME_5>CAM_FLAPS05</ANIM_EVENT_EFFECT_NAME_5>
+          <NORMALIZED_TIME_5>0.58</NORMALIZED_TIME_5>
+          <DIRECTION_5>Both</DIRECTION_5>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_HANDLING_Wipers_Template">
+          <CIRCUIT_ID_WIPERS>77</CIRCUIT_ID_WIPERS>
+        </UseTemplate>
+      </Component>
+      <Component ID="GEARS">
+        <UseTemplate Name="ASOBO_GEAR_Center_Template">
+          <ANIM_NAME>c_gear</ANIM_NAME>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GEAR_Left_Template">
+          <ANIM_NAME>l_gear</ANIM_NAME>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GEAR_Right_Template">
+          <ANIM_NAME>r_gear</ANIM_NAME>
+          <!-- ANIM EVENTS -->
+          <ANIM_EVENT_EFFECT_NAME>CAM_LANDINGGEARS</ANIM_EVENT_EFFECT_NAME>
+          <NORMALIZED_TIME>0.5</NORMALIZED_TIME>
+          <DIRECTION>Both</DIRECTION>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GEAR_Center_Tire_Template">
+          <ANIM_NAME>c_tire_anim</ANIM_NAME>
+          <NODE_ID_STILL>WHEELS_C</NODE_ID_STILL>
+          <NODE_ID_BLURRED>C_WHEELS_BLURRED</NODE_ID_BLURRED>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GEAR_Left_Tire_Template">
+          <ANIM_NAME>l_tire_anim</ANIM_NAME>
+          <NODE_ID_STILL>WHEEL_LEFT</NODE_ID_STILL>
+          <NODE_ID_BLURRED>WHEEL_LEFT_BLURRED</NODE_ID_BLURRED>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GEAR_Right_Tire_Template">
+          <ANIM_NAME>r_tire_anim</ANIM_NAME>
+          <NODE_ID_STILL>WHEEL_RIGHT</NODE_ID_STILL>
+          <NODE_ID_BLURRED>WHEEL_RIGHT_BLURRED</NODE_ID_BLURRED>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GEAR_Steering_Template">
+          <ANIM_NAME>c_wheel</ANIM_NAME>
+        </UseTemplate>
+      </Component>
+      <Component ID="ENGINE">
+        <UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+          <ID>1</ID>
+          <ANIM_NODE_ID>N1_1_anim</ANIM_NODE_ID>
+          <ANIM_NAME>N1_1_anim</ANIM_NAME>
+          <STILL_NODE_ID>PROP_STILL_LEFT</STILL_NODE_ID>
+          <SLOW_NODE_ID>PROP_SLOW_LEFT</SLOW_NODE_ID>
+          <BLURRED_NODE_ID>PROP_BLURRED_LEFT</BLURRED_NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="A32NX_ENGINE_Turbine_Template">
+          <ID>2</ID>
+          <ANIM_NODE_ID>N1_2_anim</ANIM_NODE_ID>
+          <ANIM_NAME>N1_2_anim</ANIM_NAME>
+          <STILL_NODE_ID>PROP_STILL_RIGHT</STILL_NODE_ID>
+          <SLOW_NODE_ID>PROP_SLOW_RIGHT</SLOW_NODE_ID>
+          <BLURRED_NODE_ID>PROP_BLURRED_RIGHT</BLURRED_NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GT_Anim">
+          <ANIM_NAME>thrust_rev_1</ANIM_NAME>
+          <ANIM_CODE>(L:A32NX_REVERSER_1_POSITION) 100 *</ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GT_Anim">
+          <ANIM_NAME>thrust_rev_2</ANIM_NAME>
+          <ANIM_CODE>(L:A32NX_REVERSER_2_POSITION) 100 *</ANIM_CODE>
+          <ANIM_LENGTH>100</ANIM_LENGTH>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_GT_Anim">
+          <ANIM_NAME>N1_1_anim</ANIM_NAME>
+          <ANIM_CODE>20 (A:ANIMATION DELTA TIME, seconds) * </ANIM_CODE>
+          <ANIM_LENGTH>360</ANIM_LENGTH>
+          <ANIM_WRAP>1</ANIM_WRAP>
+          <ANIM_DELTA>1</ANIM_DELTA>
+        </UseTemplate>
+
+        <UseTemplate Name="ASOBO_GT_Anim">
+          <ANIM_NAME>N1_2_anim</ANIM_NAME>
+          <ANIM_CODE>20 (A:ANIMATION DELTA TIME, seconds) * </ANIM_CODE>
+          <ANIM_LENGTH>360</ANIM_LENGTH>
+          <ANIM_WRAP>1</ANIM_WRAP>
+          <ANIM_DELTA>1</ANIM_DELTA>
+        </UseTemplate>
+      </Component>
+      <Component ID="INTERACTIVE_POINTS">
+        <UseTemplate Name="ASOBO_DOOR_InteractivePoint_Template">
+          <ID>5</ID>
+          <ANIM_NAME>door_cargo</ANIM_NAME>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_DOOR_InteractivePoint_Template">
+          <ID>0</ID>
+          <ANIM_NAME>door_passenger</ANIM_NAME>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_DOOR_InteractivePoint_Template">
+          <ID>2</ID>
+          <ANIM_NAME>door_passenger_rear</ANIM_NAME>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_DOOR_InteractivePoint_Template">
+          <ID>3</ID>
+          <ANIM_NAME>door_rear</ANIM_NAME>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_FuelHose_InteractivePoint_Template">
+          <ID>9</ID>
+          <NODE_ID>GROUND_FUELPIPE</NODE_ID>
+        </UseTemplate>
+        <UseTemplate Name="ASOBO_FuelHose_InteractivePoint_Template">
+          <ID>8</ID>
+          <NODE_ID>GROUND_GPUPIPE</NODE_ID>
+        </UseTemplate>
+      </Component>
+    </Component>
+    <Component ID="FX">
+      <UseTemplate Name="ASOBO_A320_FX" />
+    </Component>
+    <Component ID="Satcom">
+      <UseTemplate Name="FBW_Satcom">
+        <NODE_ID>satcom</NODE_ID>
+        <SAT_ENABLE>(L:A32NX_SATCOM_ENABLED, bool)</SAT_ENABLE>
+      </UseTemplate>
+    </Component>
+  </Behaviors>
+</ModelInfo>

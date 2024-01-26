@@ -41,11 +41,11 @@ export default new TaskOfTasks("all", [
             [
                 // new ExecTask("model", "npm run build-a318ceo:model", [
                 //     "build-a318ceo/src/model",
-                //     "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/AirPlanes/A318ceoCFM/model",
+                //     "build-a318ceo/out/horizonsim-airbus-a318-ceo/SimObjects/AirPlanes/Horizon_A318_115/model",
                 // ]),
                 new ExecTask("behavior", "npm run build-a318ceo:behavior", [
                     "build-a318ceo/src/behavior",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/ModelBehaviorDefs/A318HS/generated",
+                    "build-a318ceo/out/horizonsim-airbus-a318-ceo/ModelBehaviorDefs/A318HS/generated",
                 ]),
 
                 new TaskOfTasks("atsu", [
@@ -54,7 +54,7 @@ export default new TaskOfTasks("all", [
                         "npm run build-a318ceo:atsu-common",
                         [
                             "build-a318ceo/src/systems/atsu/common",
-                            "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/atsu/common.js",
+                            "build-a318ceo/out/horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/atsu/common.js",
                         ]
                     ),
                     new ExecTask(
@@ -63,7 +63,7 @@ export default new TaskOfTasks("all", [
                         [
                             "build-a318ceo/src/systems/atsu/common",
                             "build-a318ceo/src/systems/atsu/fmsclient",
-                            "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/atsu/fmsclient.js",
+                            "build-a318ceo/out/horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/atsu/fmsclient.js",
                         ]
                     ),
                 ]),
@@ -72,23 +72,23 @@ export default new TaskOfTasks("all", [
                     "npm run build-a318ceo:extras-host",
                     [
                         "build-a318ceo/src/systems/extras-host",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/ExtrasHost",
+                        "build-a318ceo/out/horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/ExtrasHost",
                     ]
                 ),
                 new ExecTask("failures", "npm run build-a318ceo:failures", [
                     "build-a318ceo/src/systems/failures",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/failures/failures.js",
+                    "build-a318ceo/out/horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/failures/failures.js",
                 ]),
                 new ExecTask("fmgc", "npm run build-a318ceo:fmgc", [
                     "build-a318ceo/src/systems/fmgc",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/fmgc",
+                    "build-a318ceo/out/horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/fmgc",
                 ]),
                 new ExecTask(
                     "sentry-client",
                     "npm run build-a318ceo:sentry-client",
                     [
                         "build-a318ceo/src/systems/sentry-client",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/sentry-client",
+                        "build-a318ceo/out/horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/sentry-client",
                     ]
                 ),
                 new ExecTask(
@@ -96,7 +96,7 @@ export default new TaskOfTasks("all", [
                     "npm run build-a318ceo:simbridge-client",
                     [
                         "build-a318ceo/src/systems/simbridge-client",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/simbridge-client",
+                        "build-a318ceo/out/horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/simbridge-client",
                     ]
                 ),
                 new ExecTask(
@@ -105,12 +105,12 @@ export default new TaskOfTasks("all", [
                     [
                         "build-a318ceo/src/systems/systems-host",
                         "fbw-common/src/systems/datalink",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/SystemsHost",
+                        "build-a318ceo/out/horizonsim-airbus-a318-ceo/html_ui/Pages/VCockpit/Instruments/A318HS/SystemsHost",
                     ]
                 ),
                 new ExecTask("tcas", "npm run build-a318ceo:tcas", [
                     "build-a318ceo/src/systems/tcas",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/tcas",
+                    "build-a318ceo/out/horizonsim-airbus-a318-ceo/html_ui/JS/A318HS/tcas",
                 ]),
 
                 new TaskOfTasks(
@@ -130,12 +130,12 @@ export default new TaskOfTasks("all", [
                     "build-a318ceo/src/wasm/fadec_a318cfm",
                     "fbw-common/src/wasm/fbw_common",
                     "fbw-common/src/wasm/fadec_common",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/fadec.wasm",
+                    "build-a318ceo/out/horizonsim-airbus-a318-ceo/SimObjects/Airplanes/Horizon_A318_115/panel/fadec.wasm",
                 ]),
                 new ExecTask("fbw", "npm run build-a318ceo:fbw", [
                     "build-a318ceo/src/wasm/fbw_a320",
                     "fbw-common/src/wasm/fbw_common",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/fbw.wasm",
+                    "build-a318ceo/out/horizonsim-airbus-a318-ceo/SimObjects/Airplanes/Horizon_A318_115/panel/fbw.wasm",
                 ]),
                 new ExecTask(
                     "systems-terronnd",
@@ -144,7 +144,7 @@ export default new TaskOfTasks("all", [
                     ],
                     [
                         "fbw-common/src/wasm/terronnd",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/terronnd.wasm",
+                        "build-a318ceo/out/horizonsim-airbus-a318-ceo/SimObjects/Airplanes/Horizon_A318_115/panel/terronnd.wasm",
                         "fbw-common/src/wasm/terronnd/out/terronnd.wasm",
                     ]
                 ),
@@ -155,7 +155,7 @@ export default new TaskOfTasks("all", [
                         'fbw-common/src/wasm/cpp-msfs-framework',
                         'fbw-common/src/wasm/extra-backend',
                         "build-a318ceo/src/wasm/extra-backend-a32nx",
-                        "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/extra-backend-a32nx.wasm",
+                        "build-a318ceo/out/horizonsim-airbus-a318-ceo/SimObjects/Airplanes/Horizon_A318_115/panel/extra-backend-a32nx.wasm",
                     ]
                 ),
                 new ExecTask("systems",
@@ -165,7 +165,7 @@ export default new TaskOfTasks("all", [
                     "fbw-common/src/wasm/systems",
                     "Cargo.lock",
                     "Cargo.toml",
-                    "build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo/SimObjects/Airplanes/A318ceoCFM/panel/systems.wasm"
+                    "build-a318ceo/out/horizonsim-airbus-a318-ceo/SimObjects/Airplanes/Horizon_A318_115/panel/systems.wasm"
              ]),
             ],
             true

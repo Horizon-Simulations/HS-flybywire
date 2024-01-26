@@ -41,11 +41,11 @@ export default new TaskOfTasks("all", [
             [
                 // new ExecTask("model", "npm run build-a321neo:model", [
                 //     "build-a321neo/src/model",
-                //     "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/AirPlanes/A321neoLEAP/model",
+                //     "build-a321neo/out/horizonsim-airbus-a321-neo/SimObjects/AirPlanes/A321neoLEAP/model",
                 // ]),
                 new ExecTask("behavior", "npm run build-a321neo:behavior", [
                     "build-a321neo/src/behavior",
-                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/ModelBehaviorDefs/A21NHS/generated",
+                    "build-a321neo/out/horizonsim-airbus-a321-neo/ModelBehaviorDefs/A21NHS/generated",
                 ]),
 
                 new TaskOfTasks("atsu", [
@@ -54,7 +54,7 @@ export default new TaskOfTasks("all", [
                         "npm run build-a321neo:atsu-common",
                         [
                             "build-a321neo/src/systems/atsu/common",
-                            "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/atsu/common.js",
+                            "build-a321neo/out/horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/atsu/common.js",
                         ]
                     ),
                     new ExecTask(
@@ -63,7 +63,7 @@ export default new TaskOfTasks("all", [
                         [
                             "build-a321neo/src/systems/atsu/common",
                             "build-a321neo/src/systems/atsu/fmsclient",
-                            "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/atsu/fmsclient.js",
+                            "build-a321neo/out/horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/atsu/fmsclient.js",
                         ]
                     ),
                 ]),
@@ -72,27 +72,27 @@ export default new TaskOfTasks("all", [
                     "npm run build-a321neo:extras-host",
                     [
                         "build-a321neo/src/systems/extras-host",
-                        "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/ExtrasHost",
+                        "build-a321neo/out/horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/ExtrasHost",
                     ]
                 ),
                 new ExecTask("failures", "npm run build-a321neo:failures", [
                     "build-a321neo/src/systems/failures",
-                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/failures/failures.js",
+                    "build-a321neo/out/horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/failures/failures.js",
                 ]),
                 new ExecTask("fmgc-leap", "npm run build-a321neo:fmgc", [
                     "build-a321neo/src/systems/fmgc",
-                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/fmgc",
+                    "build-a321neo/out/horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/fmgc",
                 ]),
                 new ExecTask("fmgc-pw", "npm run build-a321neo:fmgcPW", [
                     "build-a321neo/src/systems/fmgcPW",
-                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/fmgc",
+                    "build-a321neo/out/horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/fmgc",
                 ]),
                 new ExecTask(
                     "sentry-client",
                     "npm run build-a321neo:sentry-client",
                     [
                         "build-a321neo/src/systems/sentry-client",
-                        "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/sentry-client",
+                        "build-a321neo/out/horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/sentry-client",
                     ]
                 ),
                 new ExecTask(
@@ -100,7 +100,7 @@ export default new TaskOfTasks("all", [
                     "npm run build-a321neo:simbridge-client",
                     [
                         "build-a321neo/src/systems/simbridge-client",
-                        "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/simbridge-client",
+                        "build-a321neo/out/horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/simbridge-client",
                     ]
                 ),
                 new ExecTask(
@@ -109,12 +109,12 @@ export default new TaskOfTasks("all", [
                     [
                         "build-a321neo/src/systems/systems-host",
                         "fbw-common/src/systems/datalink",
-                        "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/SystemsHost",
+                        "build-a321neo/out/horizonsim-airbus-a321-neo/html_ui/Pages/VCockpit/Instruments/A21NHS/SystemsHost",
                     ]
                 ),
                 new ExecTask("tcas", "npm run build-a321neo:tcas", [
                     "build-a321neo/src/systems/tcas",
-                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/tcas",
+                    "build-a321neo/out/horizonsim-airbus-a321-neo/html_ui/JS/A21NHS/tcas",
                 ]),
 
                 new TaskOfTasks(
@@ -134,18 +134,18 @@ export default new TaskOfTasks("all", [
                     "build-a321neo/src/wasm/fadec_a320leap",
                     "fbw-common/src/wasm/fbw_common",
                     "fbw-common/src/wasm/fadec_common",
-                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/fadec.wasm",
+                    "build-a321neo/out/horizonsim-airbus-a321-neo/SimObjects/Airplanes/Horizon_A321_251N/panel/fadec.wasm",
                 ]),
                 new ExecTask("fadec-pw", "npm run build-a321neo:fadec-pw", [
                     "build-a321neo/src/wasm/fadec_a320pw",
                     "fbw-common/src/wasm/fbw_common",
                     "fbw-common/src/wasm/fadec_common",
-                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/aircrafta321neopw/panel/fadec.wasm",
+                    "build-a321neo/out/horizonsim-airbus-a321-neo/SimObjects/Airplanes/Horizon_A321_271N/panel/fadec.wasm",
                 ]),
                 new ExecTask("fbw", "npm run build-a321neo:fbw", [
                     "build-a321neo/src/wasm/fbw_a320",
                     "fbw-common/src/wasm/fbw_common",
-                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/fbw.wasm",
+                    "build-a321neo/out/horizonsim-airbus-a321-neo/SimObjects/Airplanes/Horizon_A321_251N/panel/fbw.wasm",
                 ]),
                 new ExecTask(
                     "systems-terronnd",
@@ -154,7 +154,7 @@ export default new TaskOfTasks("all", [
                     ],
                     [
                         "fbw-common/src/wasm/terronnd",
-                        "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/terronnd.wasm",
+                        "build-a321neo/out/horizonsim-airbus-a321-neo/SimObjects/Airplanes/Horizon_A321_251N/panel/terronnd.wasm",
                         "fbw-common/src/wasm/terronnd/out/terronnd.wasm",
                     ]
                 ),
@@ -165,7 +165,7 @@ export default new TaskOfTasks("all", [
                         'fbw-common/src/wasm/cpp-msfs-framework',
                         'fbw-common/src/wasm/extra-backend',
                         "build-a321neo/src/wasm/extra-backend-a32nx",
-                        "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/extra-backend-a32nx.wasm",
+                        "build-a321neo/out/horizonsim-airbus-a321-neo/SimObjects/Airplanes/Horizon_A321_251N/panel/extra-backend-a32nx.wasm",
                     ]
                 ),
                 new ExecTask("systems",
@@ -175,7 +175,7 @@ export default new TaskOfTasks("all", [
                     "fbw-common/src/wasm/systems",
                     "Cargo.lock",
                     "Cargo.toml",
-                    "build-a321neo/out/lvfr-horizonsim-airbus-a321-neo/SimObjects/Airplanes/A321neoLEAP/panel/systems.wasm"
+                    "build-a321neo/out/horizonsim-airbus-a321-neo/SimObjects/Airplanes/Horizon_A321_251N/panel/systems.wasm"
                 ]),
             ],
             true
