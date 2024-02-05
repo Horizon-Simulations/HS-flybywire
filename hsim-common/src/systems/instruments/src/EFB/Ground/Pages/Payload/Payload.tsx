@@ -47,271 +47,286 @@ export const Payload = () => {
     case 'A318_115':
         return (
             <A318Payload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A318_ACJ':
         return (
             <ACJPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A318_BAW':
         return (
             <BAWPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A319_115':
         return (
             <A319CFMPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A319_115_ACJ':
         return (
             <A319CFMACJPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A319_133':
         return (
             <A319IAEPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A319_133_ACJ':
         return (
             <A319IAEACJPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A320_214':
         return (
             <A320CFMPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A320_214_SL':
         return (
             <A320CFMSLPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A320_232':
         return (
             <A320IAEPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A320_232_SL':
         return (
             <A320IAESLPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A321_251N':
         return (
             <A21NLEAPPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A321_251N_LR':
         return (
             <A21NLEAPLRPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A321_251NX':
         return (
             <A21NLEAPFLEXPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A321_271N':
         return (
             <A21NPWPayload
-                simbriefUnits={simbriefUnits}
-                simbriefBagWeight={simbriefBagWeight}
-                simbriefPaxWeight={simbriefPaxWeight}
-                simbriefPax={simbriefPax}
-                simbriefBag={simbriefBag}
-                simbriefFreight={simbriefFreight}
-                simbriefDataLoaded={simbriefDataLoaded}
-                massUnitForDisplay={massUnitForDisplay}
-                isOnGround={isOnGround}
-                boardingStarted={boardingStarted}
-                boardingRate={boardingRate}
-                setBoardingStarted={setBoardingStarted}
-                setBoardingRate={setBoardingRate}
+            simbriefUnits={simbriefUnits}
+            simbriefBagWeight={simbriefBagWeight}
+            simbriefPaxWeight={simbriefPaxWeight}
+            simbriefPax={simbriefPax}
+            simbriefBag={simbriefBag}
+            simbriefFreight={simbriefFreight}
+            simbriefDataLoaded={simbriefDataLoaded}
+            payloadImported={payloadImported}
+            massUnitForDisplay={massUnitForDisplay}
+            isOnGround={isOnGround}
+            boardingStarted={boardingStarted}
+            boardingRate={boardingRate}
+            setBoardingStarted={setBoardingStarted}
+            setBoardingRate={setBoardingRate}
             />
         );
     case 'A321_271N_LR':
@@ -324,6 +339,7 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
+                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
