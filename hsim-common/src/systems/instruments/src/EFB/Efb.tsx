@@ -37,7 +37,7 @@ const BATTERY_DURATION_DISCHARGE_MIN = 540;
 
 const LoadingScreen = () => (
     <div className="bg-theme-statusbar flex h-screen w-screen items-center justify-center">
-        <FbwLogo width={128} height={120} className="text-theme-text" />
+        <HSLogo width={128} height={120} className="text-theme-text" />
     </div>
 );
 

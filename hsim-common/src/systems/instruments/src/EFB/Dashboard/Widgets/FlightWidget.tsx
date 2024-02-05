@@ -11,10 +11,10 @@ import { usePersistentProperty } from '@flybywiresim/fbw-sdk';
 import { toast } from 'react-toastify';
 import { fetchSimbriefDataAction, isSimbriefDataLoaded, setPayloadImported, setFuelImported } from '../../Store/features/simBrief';
 import { useAppSelector, useAppDispatch } from '../../Store/store';
-
 import { ScrollableContainer } from '../../UtilComponents/ScrollableContainer';
 import { t } from '../../translation';
 import { getAirframeType } from '../../Efb';
+import { AC_TYPE } from '../../Enum/Airframe';
 
 interface InformationEntryProps {
     title: string;

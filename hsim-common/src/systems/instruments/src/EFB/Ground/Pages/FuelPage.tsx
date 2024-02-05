@@ -16,6 +16,8 @@ import { SelectGroup, SelectItem } from '../../UtilComponents/Form/Select';
 import { ProgressBar } from '../../UtilComponents/Progress/Progress';
 import { SimpleInput } from '../../UtilComponents/Form/SimpleInput/SimpleInput';
 import { OverWingOutline } from '../../Assets/OverWingOutline';
+import { getAirframeType } from '../../Efb';
+import { Fuel } from './Fuel/Constants'
 
 interface TankReadoutProps {
     title: string;
