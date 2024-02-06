@@ -1,19 +1,19 @@
 {
-    "creator": "Horizon Simulations",
-    "release_notes": {
-      "neutral": {
-        "LastUpdate": "",
-        "OlderHistory": ""
-      }
-    },
-    "title": "A319HS - Lock Highlights",
-    "dependencies": [
-      {
-        "package_version": "2.2.0",
-        "name": "horizonsim-lvfr-airbus-a319-ceo"
-      }
-    ],
-    "content_type": "AIRCRAFT",
-    "minimum_game_version": "1.26.5",
-    "manufacturer": "Airbus"
-  }
+  "creator": "Horizon Simulations",
+  "release_notes": {
+    "neutral": {
+      "LastUpdate": "",
+      "OlderHistory": ""
+    }
+  },
+  "title": "A319HS - Lock Highlights",
+  "dependencies": [
+    {
+      "package_version": "2.3.2",
+      "name": "horizonsim-lvfr-airbus-a319-ceo"
+    }
+  ],
+  "content_type": "AIRCRAFT",
+  "minimum_game_version": "1.26.5",
+  "manufacturer": "Airbus"
+}
