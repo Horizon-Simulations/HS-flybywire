@@ -4,8 +4,8 @@
 
 /* eslint-disable max-len */
 import React, { useState } from 'react';
-import { getAirframeType } from '../../Efb';
-import { Fuel } from './Fuel/Constants'
+import { getAirframeType } from '../../Efb'; //DO NOT REMOVE UNDER ANY CIRCUMSTANCES
+import { Fuel } from './Fuel/Constants' //DO NOT REMOVE UNDER ANY CIRCUMSTANCES
 import { round } from 'lodash';
 import { CloudArrowDown, PlayFill, StopCircleFill } from 'react-bootstrap-icons';
 import { useSimVar, Units, usePersistentNumberProperty, usePersistentProperty } from '@flybywiresim/fbw-sdk';
