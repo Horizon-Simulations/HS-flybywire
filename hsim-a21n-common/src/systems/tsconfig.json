@@ -18,8 +18,7 @@
       "@fmgc/*": ["../../../build-a321neo/src/systems/fmgc/src/*"],
       "@shared/*": ["../../../build-a321neo/src/systems/shared/src/*"],
       "@typings/*": ["../typings/*"],
-      "@flybywiresim/fbw-sdk": ["../../../fbw-common/src/systems/index.ts"],
-      "@flybywiresim/clock": ["../../../fbw-common/src/systems/instruments/src/Clock/index.ts"],
+      "@flybywiresim/fbw-sdk": ["./index.ts"]
     }
-  },
+  }
 }
