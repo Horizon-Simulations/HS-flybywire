@@ -18,7 +18,8 @@
       "@fmgc/*": ["../../../build-a320ceo/src/systems/fmgc/src/*"],
       "@shared/*": ["../../../build-a320ceo/src/systems/shared/src/*"],
       "@typings/*": ["../typings/*"],
-      "@flybywiresim/fbw-sdk": ["./index.ts"]
+      "@flybywiresim/fbw-sdk": ["../../../fbw-common/src/systems/index.ts"],
+      "@flybywiresim/clock": ["../../../fbw-common/src/systems/instruments/src/Clock/index.ts"],
     }
-  }
+  },
 }

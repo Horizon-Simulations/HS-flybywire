@@ -18,7 +18,8 @@
       "@fmgc/*": ["../../../build-a318ceo/src/systems/fmgc/src/*"],
       "@shared/*": ["../../../build-a318ceo/src/systems/shared/src/*"],
       "@typings/*": ["../typings/*"],
-      "@flybywiresim/fbw-sdk": ["./index.ts"]
+      "@flybywiresim/fbw-sdk": ["../../../fbw-common/src/systems/index.ts"],
+      "@flybywiresim/clock": ["../../../fbw-common/src/systems/instruments/src/Clock/index.ts"],
     }
-  }
+  },
 }
