@@ -1,6 +1,5 @@
+import { ClockRoot, ClockSimvarPublisher } from '@flybywiresim/clock';
 import { EventBus, FSComponent, HEventPublisher } from '@microsoft/msfs-sdk';
-import { ClockSimvarPublisher } from './shared/ClockSimvarPublisher';
-import { ClockRoot } from './Clock';
 
 // eslint-disable-next-line camelcase
 class A32NX_Clock extends BaseInstrument {
