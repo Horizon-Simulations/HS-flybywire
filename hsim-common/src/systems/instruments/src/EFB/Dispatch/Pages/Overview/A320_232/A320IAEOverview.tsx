@@ -1,13 +1,11 @@
-// Copyright (c) 2021-2023 FlyByWire Simulations
-//
+// Copyright (c) 2023-2024 FlyByWire Simulations
 // SPDX-License-Identifier: GPL-3.0
 
 import React, { FC } from 'react';
 import { IconPlane } from '@tabler/icons';
 import { Box, LightningFill, PeopleFill, Rulers, Speedometer2 } from 'react-bootstrap-icons';
 import { useSimVar, Units } from '@flybywiresim/fbw-sdk';
-import { t } from '../../../../translation';
-import { NoseOutline } from '../../../../Assets/NoseOutline';
+import { t, A320NoseOutline } from '@flybywiresim/flypad';
 
 interface InformationEntryProps {
     title: string;
@@ -45,15 +43,15 @@ export const A320IAEOverviewPage = () => {
     };
 
     return (
-        <div className="overflow-hidden p-6 mr-3 w-min h-content-section-reduced rounded-lg border-2 border-theme-accent">
+        <div className="mr-3 h-content-section-reduced w-min overflow-hidden rounded-lg border-2 border-theme-accent p-6">
             <h1 className="font-bold">Airbus A320ceo</h1>
             <p>{airline}</p>
 
-            <div className="flex justify-center items-center mt-6">
-                <NoseOutline className="mr-32 -ml-96 h-64 text-theme-text flip-horizontal" />
+            <div className="mt-6 flex items-center justify-center">
+                <A320NoseOutline className="flip-horizontal -ml-96 mr-32 h-64 text-theme-text" />
             </div>
 
-            <div className="flex flex-row mt-8 space-x-16">
+            <div className="mt-8 flex flex-row space-x-16">
                 <div className="flex flex-col space-y-8">
                     <InformationEntry title={t('Dispatch.Overview.Model')} info="A320-232 [A320]">
                         <IconPlane className="fill-current" size={23} stroke={1.5} strokeLinejoin="miter" />
