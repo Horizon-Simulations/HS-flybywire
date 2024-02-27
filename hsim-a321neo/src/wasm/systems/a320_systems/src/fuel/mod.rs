@@ -52,22 +52,27 @@ impl A320Fuel {
         FuelInfo {
             fuel_tank_id: "FUEL TANK CENTER QUANTITY",
             position: (-20.53, 0., 1.),
+            total_capacity_gallons: 2117.,
         },
         FuelInfo {
             fuel_tank_id: "FUEL TANK LEFT MAIN QUANTITY",
             position: (-21.73, -16., 2.),
+            total_capacity_gallons: 1816.,
         },
         FuelInfo {
             fuel_tank_id: "FUEL TANK LEFT AUX QUANTITY",
             position: (-29.63, -35., 3.),
+            total_capacity_gallons: 228.,
         },
         FuelInfo {
             fuel_tank_id: "FUEL TANK RIGHT MAIN QUANTITY",
             position: (-21.73, 16., 2.),
+            total_capacity_gallons: 1816.,
         },
         FuelInfo {
             fuel_tank_id: "FUEL TANK RIGHT AUX QUANTITY",
             position: (-29.63, 35., 3.),
+            total_capacity_gallons: 228.,
         },
     ];
 
