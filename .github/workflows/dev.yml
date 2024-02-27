@@ -11,7 +11,7 @@ jobs:
   build-a318:
     runs-on: ubuntu-latest
     env:
-      A32NX_PRODUCTION_BUILD: 1
+      FBW_PRODUCTION_BUILD: 1
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vdev
@@ -38,7 +38,7 @@ jobs:
         run: echo "BUILT_DATE_TIME=$(date -u -Iseconds)" >> $GITHUB_ENV
       - name: Create .env file
         run: |
-          echo A32NX_PRODUCTION_BUILD=1 >> hsim-a318ceo/.env
+          echo FBW_PRODUCTION_BUILD=1 >> hsim-a318ceo/.env
           echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a318ceo/.env
           echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a318ceo/.env
           echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a318ceo/.env
@@ -84,7 +84,7 @@ jobs:
   build-a319:
     runs-on: ubuntu-latest
     env:
-      A32NX_PRODUCTION_BUILD: 1
+      FBW_PRODUCTION_BUILD: 1
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vdev
@@ -111,7 +111,7 @@ jobs:
         run: echo "BUILT_DATE_TIME=$(date -u -Iseconds)" >> $GITHUB_ENV
       - name: Create .env file
         run: |
-          echo A32NX_PRODUCTION_BUILD=1 >> hsim-a319ceo/.env
+          echo FBW_PRODUCTION_BUILD=1 >> hsim-a319ceo/.env
           echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a319ceo/.env
           echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a319ceo/.env
           echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a319ceo/.env
@@ -157,7 +157,7 @@ jobs:
   build-a320:
     runs-on: ubuntu-latest
     env:
-      A32NX_PRODUCTION_BUILD: 1
+      FBW_PRODUCTION_BUILD: 1
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vdev
@@ -184,7 +184,7 @@ jobs:
         run: echo "BUILT_DATE_TIME=$(date -u -Iseconds)" >> $GITHUB_ENV
       - name: Create .env file
         run: |
-          echo A32NX_PRODUCTION_BUILD=1 >> hsim-a320ceo/.env
+          echo FBW_PRODUCTION_BUILD=1 >> hsim-a320ceo/.env
           echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a320ceo/.env
           echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a320ceo/.env
           echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a320ceo/.env
@@ -230,7 +230,7 @@ jobs:
   build-a321:
     runs-on: ubuntu-latest
     env:
-      A32NX_PRODUCTION_BUILD: 1
+      FBW_PRODUCTION_BUILD: 1
       A32NX_INSTRUMENTS_BUILD_WORKERS: 2
       PRE_RELEASE_ID: 64125785
       PRE_RELEASE_TAG: vdev
@@ -257,7 +257,7 @@ jobs:
         run: echo "BUILT_DATE_TIME=$(date -u -Iseconds)" >> $GITHUB_ENV
       - name: Create .env file
         run: |
-          echo A32NX_PRODUCTION_BUILD=1 >> hsim-a321neo/.env
+          echo FBW_PRODUCTION_BUILD=1 >> hsim-a321neo/.env
           echo CLIENT_ID=\"${{ secrets.NAVIGRAPH_CLIENT_ID }}\" >> hsim-a321neo/.env
           echo CLIENT_SECRET=\"${{ secrets.NAVIGRAPH_CLIENT_SECRET }}\" >> hsim-a321neo/.env
           echo SENTRY_DSN=\"${{ secrets.SENTRY_DSN }}\" >> hsim-a321neo/.env

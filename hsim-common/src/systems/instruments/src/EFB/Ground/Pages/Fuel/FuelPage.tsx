@@ -1,23 +1,19 @@
-// Copyright (c) 2021-2023 FlyByWire Simulations
-//
-// SPDX-License-Identifier: GPL-3.0
-
 /* eslint-disable max-len */
 import React, { useState } from 'react';
-import { getAirframeType } from '../../Efb'; //DO NOT REMOVE UNDER ANY CIRCUMSTANCES
-import { Fuel } from './Fuel/Constants' //DO NOT REMOVE UNDER ANY CIRCUMSTANCES
+import { getAirframeType } from '../../../Efb'; //DO NOT REMOVE UNDER ANY CIRCUMSTANCES
+import { Fuel } from './Constants' //DO NOT REMOVE UNDER ANY CIRCUMSTANCES
 import { round } from 'lodash';
 import { CloudArrowDown, PlayFill, StopCircleFill } from 'react-bootstrap-icons';
 import { useSimVar, Units, usePersistentNumberProperty, usePersistentProperty } from '@flybywiresim/fbw-sdk';
 import Slider from 'rc-slider';
-import { t } from '../../translation';
-import { TooltipWrapper } from '../../UtilComponents/TooltipWrapper';
-import { isSimbriefDataLoaded } from '../../Store/features/simBrief';
-import { useAppSelector } from '../../Store/store';
-import { SelectGroup, SelectItem } from '../../UtilComponents/Form/Select';
-import { ProgressBar } from '../../UtilComponents/Progress/Progress';
-import { SimpleInput } from '../../UtilComponents/Form/SimpleInput/SimpleInput';
-import { OverWingOutline } from '../../Assets/OverWingOutline';
+import { t } from '../../../translation';
+import { TooltipWrapper } from '../../../UtilComponents/TooltipWrapper';
+import { isSimbriefDataLoaded } from '../../../Store/features/simBrief';
+import { useAppSelector } from '../../../Store/store';
+import { SelectGroup, SelectItem } from '../../../UtilComponents/Form/Select';
+import { ProgressBar } from '../../../UtilComponents/Progress/Progress';
+import { SimpleInput } from '../../../UtilComponents/Form/SimpleInput/SimpleInput';
+import { OverWingOutline } from '../../../Assets/OverWingOutline';
 
 interface TankReadoutProps {
     title: string;

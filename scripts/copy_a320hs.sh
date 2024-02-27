@@ -8,6 +8,7 @@ rm -rf ./fbw-common
 # copy from FBW COMMON source and HDW COMMON into one src
 cp -ra ./flybywire/fbw-common/. ./fbw-common
 cp -ra ./hsim-a320-common/. ./fbw-common
+cp -ra ./hsim-common/. ./fbw-common
 
 #remove directory if it exist
 rm -rf ./build-a320ceo
@@ -40,9 +41,6 @@ cp -ra ./hsim-a320ceo/src/localization/. ./build-a320ceo/src/localization
 cp -ra ./hsim-a320ceo/src/model/. ./build-a320ceo/src/model
 cp -ra ./hsim-a320ceo/src/systems/. ./build-a320ceo/src/systems
 cp -ra ./hsim-a320ceo/src/wasm/. ./build-a320ceo/src/wasm
-
-# copy common modules into A320HS build
-cp -ra ./hsim-common/src/systems/. ./build-a320ceo/src/systems
 
 mkdir -p ./build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo
 mkdir -p ./build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo-lock-highlight

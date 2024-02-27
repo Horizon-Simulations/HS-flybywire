@@ -1,19 +1,20 @@
+// Copyright (c) 2023-2024 FlyByWire Simulations
+// SPDX-License-Identifier: GPL-3.0
+
 /* eslint-disable max-len */
+import { SeatFlags, Units, usePersistentNumberProperty, usePersistentProperty, useSeatFlags, useSimVar } from '@flybywiresim/fbw-sdk';
+import { Card, PromptModal, SelectGroup, SelectItem, TooltipWrapper, t, useModals } from '@flybywiresim/flypad';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { CloudArrowDown } from 'react-bootstrap-icons';
-import { SeatFlags, Units, usePersistentNumberProperty, usePersistentProperty, useSeatFlags, useSimVar } from '@flybywiresim/fbw-sdk';
-import { SeatOutlineBg } from 'instruments/src/EFB/Assets/SeatOutlineBg';
-import { BoardingInput, MiscParamsInput, PayloadInputTable } from '../PayloadElements';
-import { CargoWidget } from './CargoWidget';
+import { SeatOutlineBg } from '../../../../Assets/SeatOutlineBg';
 import { ChartWidget } from '../Chart/ChartWidget';
+import { BoardingInput, MiscParamsInput, PayloadInputTable } from '../PayloadElements';
 import { CargoStationInfo, PaxStationInfo } from '../Seating/Constants';
-import { t } from '../../../../translation';
-import { TooltipWrapper } from '../../../../UtilComponents/TooltipWrapper';
+import { CargoWidget } from './CargoWidget';
+
 import Loadsheet from './a21nlrwv071.json';
-import Card from '../../../../UtilComponents/Card/Card';
-import { SelectGroup, SelectItem } from '../../../../UtilComponents/Form/Select';
+
 import { SeatMapWidget } from './SeatMapWidget';
-import { PromptModal, useModals } from '../../../../UtilComponents/Modals/Modals';
 
 interface A320Props {
     simbriefUnits: string,

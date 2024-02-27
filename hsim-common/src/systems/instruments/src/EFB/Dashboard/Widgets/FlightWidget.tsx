@@ -1,5 +1,4 @@
-// Copyright (c) 2021-2023 FlyByWire Simulations
-//
+// Copyright (c) 2023-2024 FlyByWire Simulations
 // SPDX-License-Identifier: GPL-3.0
 
 /* eslint-disable max-len */
@@ -12,7 +11,7 @@ import { fetchSimbriefDataAction, isSimbriefDataLoaded } from '../../Store/featu
 import { useAppSelector, useAppDispatch } from '../../Store/store';
 
 import { ScrollableContainer } from '../../UtilComponents/ScrollableContainer';
-import { t } from '../../translation';
+import { t } from '../../Localization/translation';
 import { getAirframeType } from '../../Efb';
 import { AC_TYPE } from '../../Enum/Airframe';
 
@@ -22,8 +21,8 @@ interface InformationEntryProps {
 }
 
 const InformationEntry = ({ title, info }: InformationEntryProps) => (
-    <div className="flex flex-col items-center w-full justify-content">
-        <h3 className="font-light text-center">{title}</h3>
+    <div className="justify-content flex w-full flex-col items-center">
+        <h3 className="text-center font-light">{title}</h3>
         <h2 className="font-bold">{info}</h2>
     </div>
 );
@@ -130,7 +129,7 @@ export const FlightWidget = () => {
 
     return (
         <div className="w-1/2">
-            <div className="flex flex-row justify-between items-center mb-4">
+            <div className="mb-4 flex flex-row items-center justify-between">
                 <h1 className="font-bold">{t('Dashboard.YourFlight.Title')}</h1>
                 {simbriefDataLoaded && (
                     <h1>
@@ -138,7 +137,7 @@ export const FlightWidget = () => {
                         {' '}
                         |
                         {' '}
-                        {(airframe !== null ? AC_TYPE[airframe] : 'A320-214')}
+                        {(airframe !== null ? AC_TYPE[airframe] : 'A320-214')} //DO NOT TOUCH
                     </h1>
                 )}
             </div>
@@ -151,19 +150,19 @@ export const FlightWidget = () => {
                                 <p className="w-52 text-sm">{departingName}</p>
                             </div>
                             <div>
-                                <h1 className="text-4xl font-bold text-right">{arrivingAirport}</h1>
-                                <p className="w-52 text-sm text-right">{arrivingName}</p>
+                                <h1 className="text-right text-4xl font-bold">{arrivingAirport}</h1>
+                                <p className="w-52 text-right text-sm">{arrivingName}</p>
                             </div>
                         </div>
                         <div>
-                            <div className="flex flex-row items-center w-full">
+                            <div className="flex w-full flex-row items-center">
                                 <p className={`font-body ${flightPlanProgress > 1 ? 'text-theme-highlight' : 'text-theme-text'}`}>
                                     {schedOutParsed}
                                 </p>
                                 <div className="flex relative flex-row mx-6 w-full h-1">
                                     <div className="absolute inset-x-0 border-b-4 border-dashed border-theme-text" />
 
-                                    <div className="relative w-full bg-theme-highlight" style={{ width: `${flightPlanProgress}%` }}>
+                                    <div className="bg-theme-highlight relative w-full" style={{ width: `${flightPlanProgress}%` }}>
                                         {!!flightPlanProgress && (
                                             <IconPlane
                                                 className="absolute right-0 transform translate-x-1/2 -translate-y-1/2 fill-current text-theme-highlight"
@@ -173,13 +172,13 @@ export const FlightWidget = () => {
                                         )}
                                     </div>
                                 </div>
-                                <p className={`text-right font-body ${Math.round(flightPlanProgress) >= 98 ? 'text-theme-highlight' : 'text-theme-text'}`}>
+                                <p className={`font-body text-right ${Math.round(flightPlanProgress) >= 98 ? 'text-theme-highlight' : 'text-theme-text'}`}>
                                     {schedInParsed}
                                 </p>
                             </div>
                         </div>
                         <div>
-                            <div className="flex flex-row justify-around mb-4">
+                            <div className="mb-4 flex flex-row justify-around">
                                 <InformationEntry title={t('Dashboard.YourFlight.Alternate')} info={altIcao ?? 'NONE'} />
                                 <div className="my-auto mx-4 w-1 h-8 bg-theme-accent" />
                                 <InformationEntry title={t('Dashboard.YourFlight.CompanyRoute')} info={departingIata + arrivingIata} />
@@ -199,7 +198,7 @@ export const FlightWidget = () => {
                             <h5 className="mb-2 text-2xl font-bold">{t('Dashboard.YourFlight.Route')}</h5>
                             <ScrollableContainer height={15}>
                                 <p className="font-mono text-2xl">
-                                    <span className="text-2xl text-theme-highlight">
+                                    <span className="text-theme-highlight text-2xl">
                                         {departingAirport}
                                         /
                                         {departingRunway}
@@ -207,7 +206,7 @@ export const FlightWidget = () => {
                                     {' '}
                                     {route}
                                     {' '}
-                                    <span className="text-2xl text-theme-highlight">
+                                    <span className="text-theme-highlight text-2xl">
                                         {arrivingAirport}
                                         /
                                         {arrivingRunway}
