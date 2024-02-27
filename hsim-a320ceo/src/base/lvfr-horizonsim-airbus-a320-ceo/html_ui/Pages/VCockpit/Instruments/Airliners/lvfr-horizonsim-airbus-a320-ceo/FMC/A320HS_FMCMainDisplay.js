@@ -70,6 +70,7 @@ class FMCMainDisplay extends BaseAirliners {
         this._routeAltFuelEntered = undefined;
         this._minDestFob = undefined;
         this._minDestFobEntered = undefined;
+        this._isBelowMinDestFob = undefined;
         this._defaultRouteFinalTime = undefined;
         this._fuelPredDone = undefined;
         this._fuelPlanningPhase = undefined;
@@ -414,6 +415,7 @@ class FMCMainDisplay extends BaseAirliners {
         this._routeAltFuelEntered = false;
         this._minDestFob = 0;
         this._minDestFobEntered = false;
+        this._isBelowMinDestFob = false;
         this._defaultRouteFinalTime = 45;
         this._fuelPredDone = false;
         this._fuelPlanningPhase = this._fuelPlanningPhases.PLANNING;
@@ -643,6 +645,7 @@ class FMCMainDisplay extends BaseAirliners {
             this.updateMinimums();
             this.updateIlsCourse();
             this.updatePerfPageAltPredictions();
+            this.checkEFOBBelowMin();
         }
 
         this.A32NXCore.update();
@@ -665,7 +668,6 @@ class FMCMainDisplay extends BaseAirliners {
         if (this.efisSymbols) {
             this.efisSymbols.update(_deltaTime);
         }
-
         this.arincBusOutputs.forEach((word) => word.writeToSimVarIfDirty());
     }
 
@@ -1686,7 +1688,7 @@ class FMCMainDisplay extends BaseAirliners {
         const dhValid = !mdaValid && inRange && typeof this.perfApprDH === 'number';
 
         const mdaSsm = mdaValid ? Arinc429Word.SignStatusMatrix.NormalOperation : Arinc429Word.SignStatusMatrix.NoComputedData;
-        const dhSsm = dhValid ? Arinc429Word.SignStatusMatrix.NormalOperation : Arinc429Word.SignStatusMatrix.NoComputedData;
+        const dhSsm = dhValid ? Arinc429Word.SignStatusMatrix.NormalOperation : Arinc429Word.SignStatusMatrix.NoComputedData
 
         this.arincMDA.setBnrValue(mdaValid ? this.perfApprMDA : 0, mdaSsm, 17, 131072, 0);
         this.arincDH.setBnrValue(dhValid ? this.perfApprDH : 0, dhSsm, 16, 8192, 0);
@@ -2191,7 +2193,7 @@ class FMCMainDisplay extends BaseAirliners {
         if (isFinite(value)) {
             if (this.isMinDestFobInRange(value)) {
                 this._minDestFobEntered = true;
-                if (value < this._minDestFob) {
+                if (value < this._routeAltFuelWeight + this.getRouteFinalFuelWeight()) {
                     this.addMessageToQueue(NXSystemMessages.checkMinDestFob);
                 }
                 this._minDestFob = value;
@@ -3086,7 +3088,7 @@ class FMCMainDisplay extends BaseAirliners {
         const accAlt = match[4] !== undefined ? FMCMainDisplay.round(parseInt(match[4]), 10) : undefined;
 
         const origin = this.flightPlanManager.getPersistentOrigin();
-        const elevation = origin.infos.elevation !== undefined ? origin.infos.elevation : 0;
+        let elevation = origin.infos.elevation !== undefined ? origin.infos.elevation : 0;
         const minimumAltitude = elevation + 400;
 
         const newThrRed = thrRed !== undefined ? thrRed : plan.thrustReductionAltitude;
@@ -3141,7 +3143,7 @@ class FMCMainDisplay extends BaseAirliners {
         const accAlt = parseInt(match[1]);
 
         const origin = this.flightPlanManager.getPersistentOrigin();
-        const elevation = origin.infos.elevation !== undefined ? origin.infos.elevation : 0;
+        let elevation = origin.infos.elevation !== undefined ? origin.infos.elevation : 0;
         const minimumAltitude = elevation + 400;
 
         if (accAlt < minimumAltitude || accAlt > 45000) {
@@ -3185,7 +3187,7 @@ class FMCMainDisplay extends BaseAirliners {
         const accAlt = match[4] !== undefined ? FMCMainDisplay.round(parseInt(match[4]), 10) : undefined;
 
         const destination = this.flightPlanManager.getDestination();
-        const elevation = destination.infos.elevation !== undefined ? destination.infos.elevation : 0;
+        let elevation = destination.infos.elevation !== undefined ? destination.infos.elevation : 0;
         const minimumAltitude = elevation + 400;
 
         const newThrRed = thrRed !== undefined ? thrRed : plan.missedThrustReductionAltitude;
@@ -3240,7 +3242,7 @@ class FMCMainDisplay extends BaseAirliners {
         const accAlt = parseInt(match[1]);
 
         const destination = this.flightPlanManager.getDestination();
-        const elevation = destination.infos.elevation !== undefined ? destination.infos.elevation : 0;
+        let elevation = destination.infos.elevation !== undefined ? destination.infos.elevation : 0;
         const minimumAltitude = elevation + 400;
 
         if (accAlt < minimumAltitude || accAlt > 45000) {
@@ -3305,14 +3307,14 @@ class FMCMainDisplay extends BaseAirliners {
             originTransitionAltitude !== undefined ? originTransitionAltitude : 0,
             originTransitionAltitude !== undefined ? Arinc429Word.SignStatusMatrix.NormalOperation : Arinc429Word.SignStatusMatrix.NoComputedData,
             17, 131072, 0,
-        );
+        )
 
         const destinationTansitionLevel = this.flightPlanManager.destinationTransitionLevel;
         this.arincTransitionLevel.setBnrValue(
             destinationTansitionLevel !== undefined ? destinationTansitionLevel : 0,
             destinationTansitionLevel !== undefined ? Arinc429Word.SignStatusMatrix.NormalOperation : Arinc429Word.SignStatusMatrix.NoComputedData,
             9, 512, 0,
-        );
+        )
     }
 
     //Needs PR Merge #3082
@@ -3791,7 +3793,7 @@ class FMCMainDisplay extends BaseAirliners {
         const spd = parseInt(s);
         if (!Number.isFinite(spd)) {
             this.setScratchpadMessage(NXSystemMessages.formatError);
-            return false;
+            return false
         }
 
         if (spd < 100 || spd > 350) {
@@ -4280,26 +4282,43 @@ class FMCMainDisplay extends BaseAirliners {
         if (!this._minDestFobEntered) {
             this.tryUpdateMinDestFob();
         }
-        const EFOBBelMin = this.isAnEngineOn() ? this.getDestEFOB(true) : this.getDestEFOB(false);
 
-        if (EFOBBelMin < this._minDestFob) {
-            if (this.isAnEngineOn()) {
-                setTimeout(() => {
-                    this.addMessageToQueue(NXSystemMessages.destEfobBelowMin, () => {
-                        return this._EfobBelowMinClr === true;
-                    }, () => {
-                        this._EfobBelowMinClr = true;
-                    });
-                }, 180000);
+        if (this._minDestFob) {
+            // round & only use 100kgs precision since thats how it is displayed in fuel pred
+            const destEfob = Math.round(this.getDestEFOB(this.isAnEngineOn()) * 10) / 10;
+            const roundedMinDestFob = Math.round(this._minDestFob * 10) / 10;
+            if (!this._isBelowMinDestFob) {
+                if (destEfob < roundedMinDestFob) {
+                    this._isBelowMinDestFob = true;
+                    // TODO should be in flight only and if fuel is below min dest efob for 2 minutes
+                    if (this.isAnEngineOn()) {
+                        setTimeout(() => {
+                            this.addMessageToQueue(NXSystemMessages.destEfobBelowMin, () => {
+                                return this._EfobBelowMinClr === true;
+                            }, () => {
+                                this._EfobBelowMinClr = true;
+                            });
+                        }, 120000);
+                    } else {
+                        this.addMessageToQueue(NXSystemMessages.destEfobBelowMin, () => {
+                            return this._EfobBelowMinClr === true;
+                        }, () => {
+                            this._EfobBelowMinClr = true;
+                        });
+                    }
+                }
             } else {
-                this.addMessageToQueue(NXSystemMessages.destEfobBelowMin, () => {
-                    return this._EfobBelowMinClr === true;
-                }, () => {
-                    this._EfobBelowMinClr = true;
-                });
+                // check if we are at least 300kgs above min dest efob to show green again & the ability to trigger the message
+                if (roundedMinDestFob) {
+                    if (destEfob - roundedMinDestFob >= 0.3) {
+                        this._isBelowMinDestFob = false;
+                        this.removeMessageFromQueue(NXSystemMessages.destEfobBelowMin)
+                    }
+                }
             }
         }
     }
+}
 
     updateTowerHeadwind() {
         if (isFinite(this.perfApprWindSpeed) && isFinite(this.perfApprWindHeading)) {
@@ -5190,7 +5209,7 @@ class FMCMainDisplay extends BaseAirliners {
             if (Number.isFinite(mach)) {
                 if (mach < 0.15 || mach > 0.82) {
                     this.setScratchpadMessage(NXSystemMessages.entryOutOfRange);
-                    return false;
+                    return false
                 }
 
                 this.managedSpeedDescendMachPilot = mach;
@@ -5203,7 +5222,7 @@ class FMCMainDisplay extends BaseAirliners {
             if (Number.isFinite(mach)) {
                 if (mach < 0.15 || mach > 0.82) {
                     this.setScratchpadMessage(NXSystemMessages.entryOutOfRange);
-                    return false;
+                    return false
                 }
 
                 this.managedSpeedDescendMachPilot = mach;

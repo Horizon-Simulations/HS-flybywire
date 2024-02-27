@@ -9,7 +9,7 @@ class CDUFuelPredPage {
         let destTimeCell = "----";
         let destTimeCellColor = "[color]white";
         let destEFOBCell = "---.-";
-        let destEFOBCellColor = "[color]white";
+        const destEFOBCellColor = "[color]white";
 
         let altIdentCell = "NONE";
         let altTimeCell = "----";
@@ -160,7 +160,7 @@ class CDUFuelPredPage {
                 if (mcdu.altDestination) {
                     altIdentCell = mcdu.altDestination.ident;
                     altEFOBCell = (NXUnits.kgToUser(mcdu.getAltEFOB(true))).toFixed(1);
-                    altEFOBCellColor = mcdu.getAltEFOB(true) < mcdu._minDestFob ? "[color]amber" : "[color]green";
+                    altEFOBCellColor = "[color]green";
                 }
 
                 mcdu.tryUpdateRouteTrip(isFlying);
@@ -168,7 +168,8 @@ class CDUFuelPredPage {
                 if (dest) {
                     destIdentCell = dest.ident;
                 }
-                destEFOBCell = (NXUnits.kgToUser(mcdu.getDestEFOB(true))).toFixed(1);
+                const efob = mcdu.getDestEFOB(true);
+                destEFOBCell = (NXUnits.kgToUser(efob)).toFixed(1);
                 // Should we use predicted values or liveETATo and liveUTCto?
                 destTimeCell = isFlying ? FMCMainDisplay.secondsToUTC(utcTime + FMCMainDisplay.minuteToSeconds(mcdu._routeTripTime))
                     : destTimeCell = FMCMainDisplay.minutesTohhmm(mcdu._routeTripTime);
@@ -176,7 +177,7 @@ class CDUFuelPredPage {
                 if (mcdu.altDestination) {
                     if (mcdu.getRouteAltFuelTime()) {
                         altTimeCell = isFlying ? FMCMainDisplay.secondsToUTC(utcTime + FMCMainDisplay.minuteToSeconds(mcdu._routeTripTime) + FMCMainDisplay.minuteToSeconds(mcdu.getRouteAltFuelTime()))
-                        : FMCMainDisplay.minutesTohhmm(mcdu.getRouteAltFuelTime());
+                            : FMCMainDisplay.minutesTohhmm(mcdu.getRouteAltFuelTime());
                         altTimeCellColor = "[color]green";
                     } else {
                         altTimeCell = "----";
@@ -184,9 +185,7 @@ class CDUFuelPredPage {
                     }
                 }
 
-                destEFOBCellColor = "[color]green";
                 destTimeCellColor = "[color]green";
-
 
                 rteRsvWeightCell = "{sp}{sp}" + (NXUnits.kgToUser(mcdu.getRouteReservedWeight())).toFixed(1);
                 if (!mcdu._rteReservedWeightEntered) {
@@ -199,13 +198,12 @@ class CDUFuelPredPage {
                     rteRsvPctColor = "{white}";
                 } else {
                     rteRsvPercentCell = mcdu.getRouteReservedPercent().toFixed(1);
-                    if (isFlying || (!mcdu._rteReservedPctEntered && mcdu.routeReservedEntered()) ) {
+                    if (isFlying || (!mcdu._rteReservedPctEntered && mcdu.routeReservedEntered())) {
                         rteRsvPercentCell = "{small}" + rteRsvPercentCell + "{end}";
                     }
-                    rteRsvPctColor = isFlying? "{green}" : "{cyan}";
-                    rteRSvCellColor = isFlying? "[color]green" : "[color]cyan";
+                    rteRsvPctColor = isFlying ? "{green}" : "{cyan}";
+                    rteRSvCellColor = isFlying ? "[color]green" : "[color]cyan";
                 }
-
 
                 mcdu.onLeftInput[2] = async (value, scratchpadCallback) => {
                     if (await mcdu.trySetRouteReservedFuel(value)) {
