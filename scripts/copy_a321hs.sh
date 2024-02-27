@@ -8,6 +8,7 @@ rm -rf ./fbw-common
 # copy from FBW COMMON source and HDW COMMON into one src
 cp -ra ./flybywire/fbw-common/. ./fbw-common
 cp -ra ./hsim-a21n-common/. ./fbw-common
+cp -ra ./hsim-common/. ./fbw-common
 
 #remove directory if it exist
 rm -rf ./build-a321neo
@@ -34,9 +35,6 @@ cp -ra ./hsim-a321neo/src/localization/. ./build-a321neo/src/localization
 cp -ra ./hsim-a321neo/src/model/. ./build-a321neo/src/model
 cp -ra ./hsim-a321neo/src/systems/. ./build-a321neo/src/systems
 cp -ra ./hsim-a321neo/src/wasm/. ./build-a321neo/src/wasm
-
-# copy common modules into A21NHS build
-cp -ra ./hsim-common/src/systems/. ./build-a321neo/src/systems
 
 mkdir -p ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo
 mkdir -p ./build-a321neo/out/lvfr-horizonsim-airbus-a321-neo-lock-highlight

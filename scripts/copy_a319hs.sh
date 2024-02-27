@@ -8,6 +8,7 @@ rm -rf ./fbw-common
 # copy from FBW COMMON source and HDW COMMON into one src
 cp -ra ./flybywire/fbw-common/. ./fbw-common
 cp -ra ./hsim-a319-common/. ./fbw-common
+cp -ra ./hsim-common/. ./fbw-common
 
 #remove directory if it exist
 rm -rf ./build-a319ceo
@@ -39,9 +40,6 @@ cp -ra ./hsim-a319ceo/src/localization/. ./build-a319ceo/src/localization
 cp -ra ./hsim-a319ceo/src/model/. ./build-a319ceo/src/model
 cp -ra ./hsim-a319ceo/src/systems/. ./build-a319ceo/src/systems
 cp -ra ./hsim-a319ceo/src/wasm/. ./build-a319ceo/src/wasm
-
-# copy common modules into A319HS build
-cp -ra ./hsim-common/src/systems/. ./build-a319ceo/src/systems
 
 mkdir -p ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo
 mkdir -p ./build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo-lock-highlight
