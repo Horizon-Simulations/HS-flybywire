@@ -2,37 +2,33 @@
 // SPDX-License-Identifier: GPL-3.0
 
 /* eslint-disable no-console */
-import React, { FC, useEffect, useRef } from 'react';
 import { useSimVar } from '@flybywiresim/fbw-sdk';
 import {
-    ArchiveFill,
-    ConeStriped,
-    DoorClosedFill,
-    HandbagFill,
-    PersonPlusFill,
-    PlugFill,
-    TriangleFill as Chock,
-    Truck,
-    VinylFill as Wheel,
-    Fan,
-} from 'react-bootstrap-icons';
-import { ActionCreatorWithOptionalPayload } from '@reduxjs/toolkit';
-import { t } from '../../../../translation';
-import { GroundServiceOutline } from '../../../../Assets/GroundServiceOutline';
-import { useAppDispatch, useAppSelector } from '../../../../Store/store';
-import {
+    setAsuButtonState,
+    setBaggageButtonState,
     setBoarding1DoorButtonState,
     setBoarding2DoorButtonState,
     setBoarding3DoorButtonState,
-    setServiceDoorButtonState,
     setCargo1DoorButtonState,
-    setBaggageButtonState,
     setCateringButtonState,
     setFuelTruckButtonState,
     setGpuButtonState,
     setJetWayButtonState,
-    setAsuButtonState,
-} from '../../../../Store/features/groundServicePage';
+    setServiceDoorButtonState,
+    t, useAppDispatch, useAppSelector,
+} from '@flybywiresim/flypad';
+import { ActionCreatorWithOptionalPayload } from '@reduxjs/toolkit';
+import React, { FC, useEffect, useRef } from 'react';
+import {
+    ArchiveFill,
+    DoorClosedFill,
+    Fan,
+    HandbagFill,
+    PersonPlusFill,
+    PlugFill,
+    Truck
+} from 'react-bootstrap-icons';
+import { GroundServiceOutline } from '../../../../Assets/A320GroundServiceOutline';
 
 interface ServiceButtonWrapperProps {
     className?: string,
@@ -111,7 +107,6 @@ const GroundServiceButton: React.FC<GroundServiceButtonProps> = ({ children, nam
 
 export const A320Services: React.FC = () => {
     const dispatch = useAppDispatch();
-
 
     // Flight state
     const [simOnGround] = useSimVar('SIM ON GROUND', 'bool', 250);

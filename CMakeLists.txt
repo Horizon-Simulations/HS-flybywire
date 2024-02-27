@@ -52,5 +52,5 @@ add_definitions(
 # add the common components
 add_subdirectory(fbw-common/src/wasm)
 
-# add the A318 components
-add_subdirectory(build-a318ceo/src/wasm)
+# add the A321 components
+add_subdirectory(build-a321neo/src/wasm)

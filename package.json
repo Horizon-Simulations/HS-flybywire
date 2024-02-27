@@ -1,6 +1,6 @@
 {
   "name": "horizon-simulations-fbw",
-  "version": "2.3.2",
+  "version": "2.4.0",
   "description": "Horizon Simulations FlyByWire Compatibility Core Repository",
   "imports": {
     "#build-utils": "./build-utils.js"
@@ -23,7 +23,7 @@
     "build-a318ceo:copy-base-lock-highlight-package": "mkdir -p build-a318ceo/out/lvfr-horizonsim-airbus-a318-ceo-lock-highlight && (rsync -a hsim-a318ceo/src/base/lvfr-horizonsim-airbus-a318-ceo-lock-highlight build-a318ceo/out/ || cp -a -u hsim-a318ceo/src/base/lvfr-horizonsim-airbus-a318-ceo-lock-highlight build-a318ceo/out/)",
     "build-a318ceo:copy-base-files": "npm run build-a318ceo:copy-base-package && npm run build-a318ceo:copy-base-lock-highlight-package",
     "build-a318ceo:copy-cargo-config": "cp -rf Cargo_a318.toml Cargo.toml",
-    "build-a318ceo:efb-translation": "cd build-a318ceo/src/localization && node build-flypad-translation.js",
+    "build-a318ceo:efb-translation": "cd fbw-common/src/systems/instruments/src/EFB/Localization && node build-flypad-translation.js",
     "build-a318ceo:locPak-translation": "cd build-a318ceo/src/localization && node build-locPak-translation.js",
     "build-a318ceo:model": "node build-a318ceo/src/model/build.js",
     "build-a318ceo:model-ext": "node build-a318ceo/src/model/buildv2.js",
@@ -59,7 +59,7 @@
     "build-a319ceo:copy-base-lock-highlight-package": "mkdir -p build-a319ceo/out/lvfr-horizonsim-airbus-a319-ceo-lock-highlight && (rsync -a hsim-a319ceo/src/base/lvfr-horizonsim-airbus-a319-ceo-lock-highlight build-a319ceo/out/ || cp -a -u hsim-a319ceo/src/base/lvfr-horizonsim-airbus-a319-ceo-lock-highlight build-a319ceo/out/)",
     "build-a319ceo:copy-base-files": "npm run build-a319ceo:copy-base-package && npm run build-a319ceo:copy-base-lock-highlight-package",
     "build-a319ceo:copy-cargo-config": "cp -rf Cargo_a319.toml Cargo.toml",
-    "build-a319ceo:efb-translation": "cd build-a319ceo/src/localization && node build-flypad-translation.js",
+    "build-a319ceo:efb-translation": "cd fbw-common/src/systems/instruments/src/EFB/Localization && node build-flypad-translation.js",
     "build-a319ceo:locPak-translation": "cd build-a319ceo/src/localization && node build-locPak-translation.js",
     "build-a319ceo:model": "node build-a319ceo/src/model/build.js",
     "build-a319ceo:model-ext": "node build-a319ceo/src/model/buildv2.js",
@@ -96,7 +96,7 @@
     "build-a320ceo:copy-base-lock-highlight-package": "mkdir -p build-a320ceo/out/lvfr-horizonsim-airbus-a320-ceo-lock-highlight && (rsync -a hsim-a320ceo/src/base/lvfr-horizonsim-airbus-a320-ceo-lock-highlight build-a320ceo/out/ || cp -a -u hsim-a320ceo/src/base/lvfr-horizonsim-airbus-a320-ceo-lock-highlight build-a320ceo/out/)",
     "build-a320ceo:copy-base-files": "npm run build-a320ceo:copy-base-package && npm run build-a320ceo:copy-base-lock-highlight-package",
     "build-a320ceo:copy-cargo-config": "cp -rf Cargo_a320.toml Cargo.toml",
-    "build-a320ceo:efb-translation": "cd build-a320ceo/src/localization && node build-flypad-translation.js",
+    "build-a320ceo:efb-translation": "cd fbw-common/src/systems/instruments/src/EFB/Localization && node build-flypad-translation.js",
     "build-a320ceo:locPak-translation": "cd build-a320ceo/src/localization && node build-locPak-translation.js",
     "build-a320ceo:model": "node build-a320ceo/src/model/build.js",
     "build-a320ceo:model-ext": "node build-a320ceo/src/model/buildv2.js",
@@ -134,7 +134,7 @@
     "build-a321neo:copy-base-lock-highlight-package": "mkdir -p build-a321neo/out/lvfr-horizonsim-airbus-a321-neo-lock-highlight && (rsync -a hsim-a321neo/src/base/lvfr-horizonsim-airbus-a321-neo-lock-highlight build-a321neo/out/ || cp -a -u hsim-a321neo/src/base/lvfr-horizonsim-airbus-a321-neo-lock-highlight build-a321neo/out/)",
     "build-a321neo:copy-base-files": "npm run build-a321neo:copy-base-package && npm run build-a321neo:copy-base-lock-highlight-package",
     "build-a321neo:copy-cargo-config": "cp -rf Cargo_a321.toml Cargo.toml",
-    "build-a321neo:efb-translation": "cd build-a321neo/src/localization && node build-flypad-translation.js",
+    "build-a321neo:efb-translation": "cd fbw-common/src/systems/instruments/src/EFB/Localization && node build-flypad-translation.js",
     "build-a321neo:locPak-translation": "cd build-a321neo/src/localization && node build-locPak-translation.js",
     "build-a321neo:model": "node build-a321neo/src/model/build.js",
     "build-a321neo:model-ext": "node build-a321neo/src/model/buildv2.js",

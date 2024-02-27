@@ -82,6 +82,7 @@ impl A320Fuel {
                 context,
                 f.fuel_tank_id,
                 Vector3::new(f.position.0, f.position.1, f.position.2),
+                false,
             )
         });
         A320Fuel {
