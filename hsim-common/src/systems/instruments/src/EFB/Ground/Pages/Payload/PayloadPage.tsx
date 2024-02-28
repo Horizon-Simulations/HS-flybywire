@@ -3,9 +3,15 @@
 // SPDX-License-Identifier: GPL-3.0
 
 /* eslint-disable max-len */
-import React, { useState } from 'react';
 import { Units, usePersistentProperty, useSimVar } from '@flybywiresim/fbw-sdk';
-import { getAirframeType } from '../../../Efb';
+import { getAirframeType, isSimbriefDataLoaded, useAppSelector } from '@flybywiresim/flypad';
+import React, { useState } from 'react';
+import { A21NLEAPPayload } from './A21N_251N/A21NPayload';
+import { A21NLEAPFLEXPayload } from './A21N_251NX/A21NPayload';
+import { A21NLEAPLRPayload } from './A21N_251N_LR/A21NPayload';
+import { A21NPWPayload } from './A21N_271N/A21NPayload';
+import { A21NPWFLEXPayload } from './A21N_271NX/A21NPayload';
+import { A21NPWLRPayload } from './A21N_271N_LR/A21NPayload';
 import { A318Payload } from './A318_115/A318Payload';
 import { ACJPayload } from './A318_ACJ/A318Payload';
 import { BAWPayload } from './A318_BAW/A318Payload';
@@ -17,16 +23,8 @@ import { A320CFMPayload } from './A320_214/A320Payload';
 import { A320CFMSLPayload } from './A320_214_SL/A320Payload';
 import { A320IAEPayload } from './A320_232/A320Payload';
 import { A320IAESLPayload } from './A320_232_SL/A320Payload';
-import { A21NLEAPPayload } from './A21N_251N/A21NPayload';
-import { A21NLEAPLRPayload } from './A21N_251N_LR/A21NPayload';
-import { A21NLEAPFLEXPayload } from './A21N_251NX/A21NPayload';
-import { A21NPWPayload } from './A21N_271N/A21NPayload';
-import { A21NPWLRPayload } from './A21N_271N_LR/A21NPayload';
-import { A21NPWFLEXPayload } from './A21N_271NX/A21NPayload';
-import { useAppSelector } from '../../../Store/store';
-import { isSimbriefDataLoaded } from '../../../Store/features/simBrief';
 
-export const Payload = () => {
+export const PayloadPage = () => {
     const simbriefUnits = useAppSelector((state) => state.simbrief.data.units);
     const simbriefBagWeight = parseInt(useAppSelector((state) => state.simbrief.data.weights.bagWeight));
     const simbriefPaxWeight = parseInt(useAppSelector((state) => state.simbrief.data.weights.passengerWeight));
@@ -37,7 +35,6 @@ export const Payload = () => {
     const [isOnGround] = useSimVar('SIM ON GROUND', 'Bool', 8_059);
     const [boardingStarted, setBoardingStarted] = useSimVar('L:A32NX_BOARDING_STARTED_BY_USR', 'Bool', 509);
     const [boardingRate, setBoardingRate] = usePersistentProperty('CONFIG_BOARDING_RATE', 'REAL');
-    const payloadImported = useAppSelector((state) => state.simbrief.payloadImported);
 
     const simbriefDataLoaded = isSimbriefDataLoaded();
 
@@ -54,7 +51,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -73,7 +69,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -92,7 +87,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -111,7 +105,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -130,7 +123,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -149,7 +141,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -168,7 +159,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -187,7 +177,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -206,7 +195,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -222,10 +210,9 @@ export const Payload = () => {
                 simbriefBagWeight={simbriefBagWeight}
                 simbriefPaxWeight={simbriefPaxWeight}
                 simbriefPax={simbriefPax}
-               simbriefBag={simbriefBag}
+                simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -244,7 +231,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -263,7 +249,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -282,7 +267,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -301,7 +285,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -320,7 +303,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -339,7 +321,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -358,7 +339,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}
@@ -377,7 +357,6 @@ export const Payload = () => {
                 simbriefBag={simbriefBag}
                 simbriefFreight={simbriefFreight}
                 simbriefDataLoaded={simbriefDataLoaded}
-                payloadImported={payloadImported}
                 massUnitForDisplay={massUnitForDisplay}
                 isOnGround={isOnGround}
                 boardingStarted={boardingStarted}

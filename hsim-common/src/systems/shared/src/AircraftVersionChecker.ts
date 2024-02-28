@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 
 /* eslint-disable no-console */
-import { CommitInfo, ReleaseInfo } from '@flybywiresim/api-client';
+import { CommitInfo, GitVersions, ReleaseInfo } from '@flybywiresim/api-client';
 import { NotificationManager, PopUpDialog } from '@flybywiresim/fbw-sdk';
 import Compare from 'semver/functions/compare';
 
@@ -149,9 +149,9 @@ export class AircraftVersionChecker {
      * @private
      */
     private static async initialize(aircraft: string) {
-        // this.releaseInfo = await GitVersions.getReleases('flybywiresim', aircraft, false, 0, 1);
-        // this.newestCommit = await GitVersions.getNewestCommit('flybywiresim', aircraft, 'master');
-        // this.newestExpCommit = await GitVersions.getNewestCommit('flybywiresim', aircraft, 'experimental');
+        this.releaseInfo = await GitVersions.getReleases('Horizon-Simulations', aircraft, false, 0, 1);
+        this.newestCommit = await GitVersions.getNewestCommit('Horizon-Simulations', aircraft, 'main');
+        this.newestExpCommit = await GitVersions.getNewestCommit('Horizon-Simulations', aircraft, 'experimental');
         this.buildInfo = await AircraftVersionChecker.getBuildInfo(aircraft);
     }
 
