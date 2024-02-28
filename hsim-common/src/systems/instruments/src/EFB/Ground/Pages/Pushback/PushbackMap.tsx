@@ -19,7 +19,7 @@ import {
     setCenterPlaneMode,
     setMapRange,
 } from '../../../Store/features/pushback';
-import { AicraftLength } from './Pushback/Constants';
+import { AicraftLength } from './Constants';
 interface TurningRadiusIndicatorProps {
     turningRadius: number;
 }
@@ -66,8 +66,6 @@ const TurningRadiusIndicator = ({ turningRadius }: TurningRadiusIndicatorProps) 
 export const PushbackMap = () => {
     const dispatch = useAppDispatch();
 
-    const [airframe] = useState(getAirframeType());
-
     const [planeHeadingTrue] = useSimVar('PLANE HEADING DEGREES TRUE', 'degrees', 50);
     const [planeLatitude] = useSimVar('A:PLANE LATITUDE', 'degrees latitude', 50);
     const [planeLongitude] = useSimVar('A:PLANE LONGITUDE', 'degrees longitude', 50);
@@ -99,8 +97,8 @@ export const PushbackMap = () => {
     // Aircraft wheelbase in meters
     // Source: https://www.airbus.com/sites/g/files/jlcbta136/files/2021-11/Airbus-Commercial-Aircraft-AC-A320.pdf
     // Source: https://www.airbus.com/sites/g/files/jlcbta136/files/2022-02/Airbus-A380-Facts-and-Figures-February-2022.pdf
-    const aircraftWheelBase = getAirframeType() === 12.64;
-    const aircraftLengthMeter = AicraftLength[airframe];
+    const aircraftWheelBase = 12.64;
+    const aircraftLengthMeter = AicraftLength[getAirframeType()];
 
     // Map
     const [mouseDown, setMouseDown] = useState(false);
