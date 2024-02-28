@@ -6,6 +6,5 @@
     "compilerOptions": {
         "jsx": "react"
     },
-    "exclude": ["node_modules",
-                "hsim-common"]
+    "exclude": ["node_modules"]
   }

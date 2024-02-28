@@ -4,6 +4,7 @@
 /* eslint-disable no-console */
 import { useSimVar } from '@flybywiresim/fbw-sdk';
 import {
+    A321GroundServiceOutline,
     setAsuButtonState,
     setBaggageButtonState,
     setBoarding1DoorButtonState,
@@ -28,7 +29,6 @@ import {
     PlugFill,
     Truck
 } from 'react-bootstrap-icons';
-import { GroundServiceOutline } from '../../../../Assets/A321GroundServiceOutline';
 
 interface ServiceButtonWrapperProps {
     className?: string,
@@ -527,7 +527,7 @@ export const A321Services: React.FC = () => {
 
     return (
         <div className="relative h-content-section-reduced">
-            <GroundServiceOutline
+            <A321GroundServiceOutline
                 cabinLeftStatus={cabinLeftDoorOpen >= 1.0}
                 cabinRightStatus={cabinRightDoorOpen >= 1.0}
                 aftLeftStatus={aftLeftDoorOpen >= 1.0}

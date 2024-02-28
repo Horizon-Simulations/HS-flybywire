@@ -1,14 +1,14 @@
 /* eslint-disable max-len */
 import * as React from 'react';
 // viewBox="0 0 777 814"
-export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightStatus, aftLeftStatus, aftRightStatus }: {className: string, cabinLeftStatus: boolean, cabinRightStatus: boolean, aftLeftStatus: boolean, aftRightStatus: boolean}) => (
-    <svg 
-        id="SVG" 
+export const A319GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightStatus, aftLeftStatus, aftRightStatus }: {className: string, cabinLeftStatus: boolean, cabinRightStatus: boolean, aftLeftStatus: boolean, aftRightStatus: boolean}) => (
+    <svg
+        id="SVG"
         className={className}
         xmlns="http://www.w3.org/2000/svg"
-        width="777" 
-        height="814" 
-        viewBox="0 0 777 814" 
+        width="777"
+        height="814"
+        viewBox="0 0 777 814"
     >
   <defs>
     <style>
@@ -82,7 +82,7 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
                             strokeMiterlimit: 10,
                         }}
                         />
-        <path id="AFT_Right_CAT" className="cls-2" d="M424.48 650.21h-5.13c-1.55 0-2.74-1.36-2.54-2.9l1.55-11.75a2.558 2.558 0 0 1 2.54-2.23h6.16"                  
+        <path id="AFT_Right_CAT" className="cls-2" d="M424.48 650.21h-5.13c-1.55 0-2.74-1.36-2.54-2.9l1.55-11.75a2.558 2.558 0 0 1 2.54-2.23h6.16"
         style={{
                     stroke: '#6bbe45',
                     strokeWidth: 2,
@@ -126,7 +126,7 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
       <g id="Cargo_Doors">
         <g id="BLK_Cargo" transform="matrix(1, 0, 0, 1, 0, 16.969982)">
           <path className="cls-2" d="M430.19 553.33h-2"/>
-          <path d="M423.87 553.33h-7.83c-1.4 0-2.54 1.14-2.54 2.54v15.25c0 1.4 1.14 2.54 2.54 2.54h9.99" 
+          <path d="M423.87 553.33h-7.83c-1.4 0-2.54 1.14-2.54 2.54v15.25c0 1.4 1.14 2.54 2.54 2.54h9.99"
                                 style={{
                                     strokeDasharray: '0 0 4.32 4.32',
                                     stroke: '#6bbe45',
@@ -139,7 +139,7 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
         </g>
         <g id="AFT_Cargo" transform="matrix(1, 0, 0, 1, 0, 35)" >
           <path className="cls-2" d="M430.18 503h-2"/>
-          <path d="M424.16 503h-14.91c-1.98 0-3.58-1.6-3.58-3.58v-27.33c0-1.98 1.6-3.58 3.58-3.58h17.02" 
+          <path d="M424.16 503h-14.91c-1.98 0-3.58-1.6-3.58-3.58v-27.33c0-1.98 1.6-3.58 3.58-3.58h17.02"
           style={{
                     strokeDasharray: '0 0 4.08 4.08',
                     stroke: '#6bbe45',
@@ -152,7 +152,7 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
         </g>
         <g id="FWD_Cargo" transform="matrix(1, 0, 0, 1, 0, 35.030003)" >
           <path className="cls-2" d="M430.28 154.67h-2"/>
-          <path d="M424.2 154.67h-15.17c-2.13 0-3.86 1.73-3.86 3.86v26.94c0 2.13 1.73 3.86 3.86 3.86h17.21"                             
+          <path d="M424.2 154.67h-15.17c-2.13 0-3.86 1.73-3.86 3.86v26.94c0 2.13 1.73 3.86 3.86 3.86h17.21"
           style={{
                                 strokeDasharray: '0 0 4.08 4.08',
                                 stroke: '#6bbe45',

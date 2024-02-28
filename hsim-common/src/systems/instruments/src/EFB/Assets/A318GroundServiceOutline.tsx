@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import * as React from 'react';
 // viewBox="0 0 777 814"
-export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightStatus, aftLeftStatus, aftRightStatus }: {className: string, cabinLeftStatus: boolean, cabinRightStatus: boolean, aftLeftStatus: boolean, aftRightStatus: boolean}) => (
+export const A318GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightStatus, aftLeftStatus, aftRightStatus }: {className: string, cabinLeftStatus: boolean, cabinRightStatus: boolean, aftLeftStatus: boolean, aftRightStatus: boolean}) => (
     <svg
         id="SVG"
         className={className}
@@ -26,34 +26,34 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
                   className="cls-5"
                   d="m245.67 265.78 1.36 21.31-6.67.39c.61-8.46 2.21-16.4 5.3-21.71Z"
                 />
-                <path 
-                  id="Inner_Strake" 
-                  className="cls-5" 
+                <path
+                  id="Inner_Strake"
+                  className="cls-5"
                   d="m276.83 265.78-1.36 21.31 6.67.39c-.61-8.46-2.21-16.4-5.3-21.71Z"
                 />
               </g>
               <g id="Reverser_Door">
-                <path 
-                  id="Outer_Side" 
-                  className="cls-5" 
+                <path
+                  id="Outer_Side"
+                  className="cls-5"
                   d="M256.92 295.91c-7.92 0-14.42-.09-19.83-.7"
                 />
-                <path 
-                  id="Inner_Side" 
-                  className="cls-5" 
+                <path
+                  id="Inner_Side"
+                  className="cls-5"
                   d="M265.58 295.91c7.92 0 14.42-.09 19.83-.7"
                 />
               </g>
               <g id="Engine_Mount">
                 <g id="Connections">
-                  <path 
+                  <path
                     id="Fan_Connection"
                     className="cls-7"
                     d="m238.37 261.87.37-2.34c14.97-1.51 30.05-1.51 45.02 0l.37 2.34"
                   />
-                  <path 
-                    id="Middle_Connection" 
-                    className="cls-7" 
+                  <path
+                    id="Middle_Connection"
+                    className="cls-7"
                     d="M261.25 252.6v5.8"
                   />
                 </g>
@@ -63,9 +63,9 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
                   <path id="Front_Mount" className="cls-5" d="M255.06 260.72h12.33"/>
                 </g>
               </g>
-                <path 
-                  id="Wing_Mount" 
-                  className="cls-5" 
+                <path
+                  id="Wing_Mount"
+                  className="cls-5"
                   d="m272.64 321.82-7.6 3.97-9.98 9.57"
                 />
             </g>
@@ -102,9 +102,9 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
           </g>
           <g id="Doors" >
             <g id="Rear_Doors" transform="matrix(1, 0, 0, 1, 0, -70.830019)" >
-              <path 
-                  id="AFT_Left_PS_PSS" 
-                  className="cls-2" 
+              <path
+                  id="AFT_Left_PS_PSS"
+                  className="cls-2"
                   d="M352.06 650.21h5.13c1.55 0 2.74-1.36 2.54-2.9l-1.55-11.75a2.558 2.558 0 0 0-2.54-2.23h-6.16"
                   style={{
                       stroke: '#6bbe45',
@@ -113,9 +113,9 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
                       strokeMiterlimit: 10,
                   }}
               />
-              <path 
-                  id="AFT_Right_CAT" 
-                  className="cls-2" 
+              <path
+                  id="AFT_Right_CAT"
+                  className="cls-2"
                   d="M424.48 650.21h-5.13c-1.55 0-2.74-1.36-2.54-2.9l1.55-11.75a2.558 2.558 0 0 1 2.54-2.23h6.16"
                   style={{
                     stroke: '#6bbe45',
@@ -126,9 +126,9 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
               />
             </g>
             <g id="Emergency_Doors" transform="matrix(1, 0, 0, 1, 0, 70.829981)" >
-            <path 
-                id="FWD_Left_EMG" 
-                className="cls-2" 
+            <path
+                id="FWD_Left_EMG"
+                className="cls-2"
                 d="M 346.2 272.22 L 349.34 272.22 C 350.29 272.22 351.06 271.45 351.06 270.5 L 351.06 262.89 C 351.06 261.94 350.29 261.17 349.34 261.17 L 346.2 261.17"
                 style={{
                   stroke: '#6bbe45',
@@ -137,9 +137,9 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
                   strokeMiterlimit: 10,
                   }}
                 />
-          <path 
-              id="FWD_Right_EMG" 
-              className="cls-2" 
+          <path
+              id="FWD_Right_EMG"
+              className="cls-2"
               d="M 430.28 272.22 L 427.14 272.22 C 426.19 272.22 425.42 271.45 425.42 270.5 L 425.42 262.89 C 425.42 261.94 426.19 261.17 427.14 261.17 L 430.28 261.17"
               style={{
                 stroke: '#6bbe45',
@@ -150,9 +150,9 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
           />
             </g>
             <g id="Front_Doors" transform="matrix(1, 0, 0, 1, 0, 70.799998)" >
-              <path 
-                  id="FWD_Right_CAT" 
-                  className="cls-2" 
+              <path
+                  id="FWD_Right_CAT"
+                  className="cls-2"
                   d="M430.28 118.06h-9.08a2.67 2.67 0 0 1-2.67-2.67v-11.72a2.67 2.67 0 0 1 2.67-2.67h8.38"
                   style={{
                     stroke: '#6bbe45',
@@ -161,9 +161,9 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
                     strokeMiterlimit: 10,
                   }}
               />
-              <path 
-                  id="FWD_Left_PS_PSS" 
-                  className="cls-2" 
+              <path
+                  id="FWD_Left_PS_PSS"
+                  className="cls-2"
                   d="M346.2 118.06h9.08a2.67 2.67 0 0 0 2.67-2.67v-11.72a2.67 2.67 0 0 0-2.67-2.67h-8.38"
                   style={{
                     stroke: '#6bbe45',
@@ -176,7 +176,7 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
             <g id="Cargo_Doors" transform="matrix(1, 0, 0, 1, 0, 70.830004)" >
               <g id="BLK_Cargo" transform="matrix(1, 0, 0, 1, 0, -35.360021)">
                 <path className="cls-2" d="M430.19 553.33h-2" />
-                <path 
+                <path
                       d="M423.87 553.33h-7.83c-1.4 0-2.54 1.14-2.54 2.54v15.25c0 1.4 1.14 2.54 2.54 2.54h9.99"
                       style={{
                           strokeDasharray: '0 0 4.32 4.32',
@@ -190,7 +190,7 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
               </g>
               <g id="FWD_Cargo">
                 <path className="cls-2" d="M430.28 154.67h-2" />
-                <path 
+                <path
                   d="M424.2 154.67h-15.17c-2.13 0-3.86 1.73-3.86 3.86v26.94c0 2.13 1.73 3.86 3.86 3.86h17.21"
                   style={{
                     strokeDasharray: '0 0 4.08 4.08',
@@ -208,52 +208,52 @@ export const GroundServiceOutline = ({ className, cabinLeftStatus, cabinRightSta
         <g id="SVG_Main_Lines">
           <g id="Rear_Stablizer" transform="matrix(1, 0, 0, 1, 0, -70.839968)" >
             <g id="Right_Fin">
-              <path 
-                  id="Right_Elevator" 
-                  className="cls-1" 
+              <path
+                  id="Right_Elevator"
+                  className="cls-1"
                   d="m409.78 769.69 3.03-21.36 109.98 38.56"
               />
-              <path 
-                  id="Right_Fin_Outline" 
-                  className="cls-4" 
+              <path
+                  id="Right_Fin_Outline"
+                  className="cls-4"
                   d="M405.01 769.34c3.31-.08 7.06.74 8.21 1.02 3.98.98 109.58 24.53 109.58 24.53v-12.35c0-6.22-1.16-14.42-6.88-17.99.08.17-86.62-55.2-86.62-55.2-5.14-3.32-10.2-6.8-12.7-16.62"
               />
             </g>
             <g id="Left_Fin">
-              <path 
-                  id="Left_Elevator" 
-                  className="cls-1" 
+              <path
+                  id="Left_Elevator"
+                  className="cls-1"
                   d="m366.7 769.69-3.03-21.36-109.98 38.56"
               />
-              <path 
-                  id="Left_Fin_Outline" 
-                  className="cls-4" 
+              <path
+                  id="Left_Fin_Outline"
+                  className="cls-4"
                   d="M371.47 769.34c-3.31-.08-7.06.74-8.21 1.02-3.98.98-109.58 24.53-109.58 24.53v-12.35c0-6.22 1.16-14.42 6.88-17.99-.08.17 86.62-55.2 86.62-55.2 5.14-3.32 10.2-6.8 12.7-16.62"
               />
             </g>
-            <path 
-                  id="Rudder" 
-                  className="cls-4" 
+            <path
+                  id="Rudder"
+                  className="cls-4"
                   d="M388.5 796.17s-6-61-6-87.33 2.5-75.5 6-75.5h.07c3.5 0 5.93 49.17 5.93 75.5s-6 87.33-6 87.33"
             />
           </g>
           <g id="Wings" transform="matrix(1, 0, 0, 1, 0, 15.600006)" >
             <g id="Right_Wing">
               <g id="Right_Slats">
-                <path 
-                    id="Inner_Slats" 
-                    className="cls-1" 
+                <path
+                    id="Inner_Slats"
+                    className="cls-1"
                     d="M436.35 283.52v10.37L500.48 327l4.56-7.85"
                 />
                 <g id="Main_Slats">
-                  <path 
-                      id="Outer_Divider" 
-                      className="cls-1" 
+                  <path
+                      id="Outer_Divider"
+                      className="cls-1"
                       d="m692.06 423.46 3.29-5.59"
                   />
-                  <path 
-                      id="Middle_Divider" 
-                      className="cls-1" 
+                  <path
+                      id="Middle_Divider"
+                      className="cls-1"
                       d="m637.09 395.69 3.77-6.09"
                   />
                   <path id="Inner_Divider" className="cls-1" d="m582.46 368.11 3.63-6.92"/>

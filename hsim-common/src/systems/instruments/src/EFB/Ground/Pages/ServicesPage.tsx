@@ -1,8 +1,8 @@
 // Copyright (c) 2022-2023 Horizon Simulations
 //
 // SPDX-License-Identifier: GPL-3.0
+import { getAirframeType } from '@flybywiresim/flypad';
 import React, { useState } from 'react';
-import { getAirframeType } from '../../Efb';
 import { A318Services } from './Services/A318_100/A318Services';
 import { A319Services } from './Services/A319_100/A319Services';
 import { A320Services } from './Services/A320_200/A320Services';

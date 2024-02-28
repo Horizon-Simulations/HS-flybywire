@@ -4,6 +4,7 @@
 /* eslint-disable no-console */
 import { useSimVar } from '@flybywiresim/fbw-sdk';
 import {
+    GroundServiceOutline,
     setAsuButtonState,
     setBaggageButtonState,
     setBoarding1DoorButtonState,
@@ -15,7 +16,8 @@ import {
     setGpuButtonState,
     setJetWayButtonState,
     setServiceDoorButtonState,
-    t, useAppDispatch, useAppSelector,
+    t,
+    useAppDispatch, useAppSelector,
 } from '@flybywiresim/flypad';
 import { ActionCreatorWithOptionalPayload } from '@reduxjs/toolkit';
 import React, { FC, useEffect, useRef } from 'react';
@@ -28,7 +30,6 @@ import {
     PlugFill,
     Truck
 } from 'react-bootstrap-icons';
-import { GroundServiceOutline } from '../../../../Assets/A320GroundServiceOutline';
 
 interface ServiceButtonWrapperProps {
     className?: string,
