@@ -1,4 +1,4 @@
-export const Fuel = Object.freeze({
+export const FuelCapacity = Object.freeze({
     A318_115: { total: 6303, outer_cell: 228, inner_cell: 1816, center: 2215},
     A318_ACJ: { total: 6303, outer_cell: 228, inner_cell: 1816, center: 2215},
     A318_BAW: { total: 6303, outer_cell: 228, inner_cell: 1816, center: 2215},
