@@ -1,4 +1,4 @@
-// Copyright (c) 2022 FlyByWire Simulations
+// Copyright (c) 2023-2024 FlyByWire Simulations
 // SPDX-License-Identifier: GPL-3.0
 
 /* eslint-disable no-console */
@@ -16,18 +16,22 @@ import {
     setGpuButtonState,
     setJetWayButtonState,
     setServiceDoorButtonState,
-    t, useAppDispatch, useAppSelector
+    t,
+    useAppDispatch, useAppSelector,
 } from '@flybywiresim/flypad';
 import { ActionCreatorWithOptionalPayload } from '@reduxjs/toolkit';
 import React, { FC, useEffect, useRef } from 'react';
 import {
     ArchiveFill,
+    TriangleFill as Chock,
+    ConeStriped,
     DoorClosedFill,
     Fan,
     HandbagFill,
     PersonPlusFill,
     PlugFill,
-    Truck
+    Truck,
+    VinylFill as Wheel,
 } from 'react-bootstrap-icons';
 
 interface ServiceButtonWrapperProps {
@@ -40,7 +44,7 @@ interface ServiceButtonWrapperProps {
 // This groups buttons and sets a border and divider line
 const ServiceButtonWrapper: FC<ServiceButtonWrapperProps> = ({ children, className, xl, xr, y }) => (
     <div
-        className={`flex flex-col rounded-xl border-2 border-theme-accent divide-y-2 divide-theme-accent overflow-hidden ${className}`}
+        className={`flex flex-col divide-y-2 divide-theme-accent overflow-hidden rounded-xl border-2 border-theme-accent ${className}`}
         style={{ position: 'absolute', left: xl, right: xr, top: y }}
     >
         {children}
@@ -96,11 +100,11 @@ const GroundServiceButton: React.FC<GroundServiceButtonProps> = ({ children, nam
 
     return (
         <div
-            className={`flex flex-row items-center space-x-6 py-6 px-6 cursor-pointer ${buttonsStyles[state]} ${className}`}
+            className={`flex cursor-pointer flex-row items-center space-x-6 p-6 ${buttonsStyles[state]} ${className}`}
             onClick={state === ServiceButtonState.DISABLED ? undefined : onClick}
         >
             {children}
-            <h1 className="flex-shrink-0 text-2xl font-medium text-current">{name}</h1>
+            <h1 className="shrink-0 text-2xl font-medium text-current">{name}</h1>
         </div>
     );
 };
@@ -125,11 +129,11 @@ export const A318Services: React.FC = () => {
     const [asuActive, setAsuActive] = useSimVar('L:A32NX_ASU_TURNED_ON', 'Bool', 100);
 
     // Wheel Chocks and Cones
-    // const [isGroundEquipmentVisible] = useSimVar('L:A32NX_GND_EQP_IS_VISIBLE', 'bool', 500);
-    // const [wheelChocksEnabled] = useSimVar('L:A32NX_MODEL_WHEELCHOCKS_ENABLED', 'bool', 500);
-    // const [conesEnabled] = useSimVar('L:A32NX_MODEL_CONES_ENABLED', 'bool', 500);
-    // const wheelChocksVisible = wheelChocksEnabled && isGroundEquipmentVisible;
-    // const conesVisible = conesEnabled && isGroundEquipmentVisible;
+    const [isGroundEquipmentVisible] = useSimVar('L:A32NX_GND_EQP_IS_VISIBLE', 'bool', 500);
+    const [wheelChocksEnabled] = useSimVar('L:A32NX_MODEL_WHEELCHOCKS_ENABLED', 'bool', 500);
+    const [conesEnabled] = useSimVar('L:A32NX_MODEL_CONES_ENABLED', 'bool', 500);
+    const wheelChocksVisible = wheelChocksEnabled && isGroundEquipmentVisible;
+    const conesVisible = conesEnabled && isGroundEquipmentVisible;
 
     // Service events
     const toggleCabinLeftDoor = () => SimVar.SetSimVarValue('K:TOGGLE_AIRCRAFT_EXIT', 'enum', 1);
@@ -532,7 +536,7 @@ export const A318Services: React.FC = () => {
                 cabinRightStatus={cabinRightDoorOpen >= 1.0}
                 aftLeftStatus={aftLeftDoorOpen >= 1.0}
                 aftRightStatus={aftRightDoorOpen >= 1.0}
-                className="inset-x-0 mx-auto w-full h-full text-theme-text"
+                className="inset-x-0 mx-auto h-full w-full text-theme-text"
             />
 
             <ServiceButtonWrapper xr={930} y={24}>
@@ -584,18 +588,42 @@ export const A318Services: React.FC = () => {
                 >
                     <DoorClosedFill size={36} />
                 </GroundServiceButton>
+
+                {/* Wheel Chocks and Security Cones are only visual information. To reuse styling */}
+                {/* the ServiceButtonWrapper has been re-used. */}
+                {!!wheelChocksEnabled && (
+                    <div className={`flex cursor-pointer flex-row items-center space-x-6 p-6 ${(wheelChocksVisible) ? 'text-green-500' : 'text-gray-500'}`}>
+                        <div className={`-ml-2 -mr-[2px] flex items-end justify-center ${(wheelChocksVisible) ? 'text-green-500' : 'text-gray-500'}`}>
+                            <Chock size="12" stroke="4" />
+                            <Wheel size="36" stroke="5" className="-mx-0.5" />
+                            <Chock size="12" stroke="4" />
+                        </div>
+                        <h1 className="shrink-0 text-2xl font-medium text-current">
+                            {t('Ground.Services.WheelChocks')}
+                        </h1>
+                    </div>
+                )}
+
+                {!!conesEnabled && (
+                    <div className={`flex cursor-pointer flex-row items-center space-x-6 p-6 ${(conesVisible) ? 'text-green-500' : 'text-gray-500'}`}>
+                        <ConeStriped size="38" stroke="1.5" className="mr-2" />
+                        <h1 className="shrink-0 text-2xl font-medium text-current">
+                            {t('Ground.Services.Cones')}
+                        </h1>
+                    </div>
+                )}
             </ServiceButtonWrapper>
 
             <ServiceButtonWrapper xl={900} y={24} className="">
 
                 {/* CABIN DOOR */}
-                {/* <GroundServiceButton
+                <GroundServiceButton
                     name={t('Ground.Services.DoorFwd')}
                     state={boarding2DoorButtonState}
                     onClick={() => handleButtonClick(ServiceButton.CabinRightDoor)}
                 >
                     <DoorClosedFill size={36} />
-                </GroundServiceButton> */}
+                </GroundServiceButton>
 
                 {/* GPU */}
                 <GroundServiceButton
@@ -648,32 +676,6 @@ export const A318Services: React.FC = () => {
 
             </ServiceButtonWrapper>
 
-            {/* Wheel Chocks and Security Cones are only visual information. To reuse styling */}
-            {/* the ServiceButtonWrapper has been re-used. */}
-            {/* <ServiceButtonWrapper xr={800} y={600} className="border-0 divide-y-0">
-                {!!wheelChocksEnabled && (
-                    <div className={`flex flex-row items-center space-x-6 py-6 px-6 cursor-pointer ${(wheelChocksVisible) ? 'text-green-500' : 'text-gray-500'}`}>
-                        <div className={`flex justify-center items-end -ml-2 -mr-[2px] ${(wheelChocksVisible) ? 'text-green-500' : 'text-gray-500'}`}>
-                            <Chock size="12" stroke="4" />
-                            <Wheel size="36" stroke="5" className="-mx-0.5" />
-                            <Chock size="12" stroke="4" />
-                        </div>
-                        <h1 className="flex-shrink-0 text-2xl font-medium text-current">
-                            {t('Ground.Services.WheelChocks')}
-                        </h1>
-                    </div>
-                )}
-
-                {!!conesEnabled && (
-                    <div className={`flex flex-row items-center space-x-6 py-6 px-6 cursor-pointer ${(conesVisible) ? 'text-green-500' : 'text-gray-500'}`}>
-                        <ConeStriped size="38" stroke="1.5" className="mr-2" />
-                        <h1 className="flex-shrink-0 text-2xl font-medium text-current">
-                            {t('Ground.Services.Cones')}
-                        </h1>
-                    </div>
-                )}
-            </ServiceButtonWrapper> */}
-
             {/* Visual indications for tug and doors */}
             {!!pushBackAttached && (
                 <div
@@ -691,14 +693,14 @@ export const A318Services: React.FC = () => {
                     CABIN
                 </div>
             )}
-            {/* {cabinRightDoorOpen >= 1.0 && (
+            {cabinRightDoorOpen >= 1.0 && (
                 <div
                     className={serviceIndicationCss}
                     style={{ position: 'absolute', left: 700, right: 0, top: 100 }}
                 >
                     CABIN
                 </div>
-            )} */}
+            )}
             {aftLeftDoorOpen >= 1.0 && (
                 <div
                     className={serviceIndicationCss}
