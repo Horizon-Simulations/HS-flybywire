@@ -3,7 +3,8 @@
 /// <summary>
 /// SimConnect data types to send to Sim Updated
 /// </summary>
-enum DataTypesID {
+enum DataTypesID
+{
   FuelLeftMain,
   FuelRightMain,
   FuelCenterMain,
@@ -19,16 +20,19 @@ enum DataTypesID {
   AcftInfo,
 };
 
-struct SimulationData {
+struct SimulationData
+{
   double simulationTime;
   double simulationRate;
 };
 
-struct SimulationDataLivery {
+struct SimulationDataLivery
+{
   char atc_id[32] = "";
 };
 
-enum Events {
+enum Events
+{
   Engine1StarterToggled,
   Engine2StarterToggled,
 };
@@ -36,8 +40,9 @@ enum Events {
 /// <summary>
 /// A collection of SimVar unit enums.
 /// </summary>
-class Units {
- public:
+class Units
+{
+public:
   ENUM Percent = get_units_enum("Percent");
   ENUM Pounds = get_units_enum("Pounds");
   ENUM Psi = get_units_enum("Psi");
@@ -60,9 +65,10 @@ class Units {
 /// <summary>
 /// A collection of SimVars and LVars for the A32NX
 /// </summary>
-class SimVars {
- public:
-  Units* m_Units;
+class SimVars
+{
+public:
+  Units *m_Units;
 
   /// <summary>
   /// Collection of SimVars for the A32NX
@@ -162,12 +168,15 @@ class SimVars {
   ID Eng1StarterPressurized;
   ID Eng2StarterPressurized;
   ID APUrpmPercent;
+  ID StartState;
 
   SimVars() { this->initializeVars(); }
 
-  void initializeVars() {
+  void initializeVars()
+  {
     DevVar = register_named_variable("A32NX_DEVELOPER_STATE");
     IsReady = register_named_variable("A32NX_IS_READY");
+    StartState = register_named_variable("A32NX_START_STATE");
     FlexTemp = register_named_variable("AIRLINER_TO_FLEX_TEMP");
     Engine1N2 = register_named_variable("A32NX_ENGINE_N2:1");
     Engine2N2 = register_named_variable("A32NX_ENGINE_N2:2");
@@ -315,6 +324,7 @@ class SimVars {
   // Collection of SimVar/LVar 'get' Functions
   FLOAT64 getDeveloperState() { return get_named_variable_value(DevVar); }
   FLOAT64 getIsReady() { return get_named_variable_value(IsReady); }
+  FLOAT64 getStartState() { return get_named_variable_value(StartState); }
   FLOAT64 getFlexTemp() { return get_named_variable_value(FlexTemp); }
   FLOAT64 getEngine1N2() { return get_named_variable_value(Engine1N2); }
   FLOAT64 getEngine2N2() { return get_named_variable_value(Engine2N2); }
@@ -354,7 +364,8 @@ class SimVars {
   FLOAT64 getPacksState1() { return get_named_variable_value(PacksState1); }
   FLOAT64 getPacksState2() { return get_named_variable_value(PacksState2); }
   FLOAT64 getThrustLimitType() { return get_named_variable_value(ThrustLimitType); }
-  FLOAT64 getStarterPressurized(int engine) {
+  FLOAT64 getStarterPressurized(int engine)
+  {
     return get_named_variable_value(engine == 1 ? Eng1StarterPressurized : Eng2StarterPressurized);
   }
   FLOAT64 getRightSystemPressure() { return get_named_variable_value(Eng2StarterPressurized); }
