@@ -2,17 +2,15 @@
 // SPDX-License-Identifier: GPL-3.0
 
 /* eslint-disable max-len */
-import { MathUtils, usePersistentNumberProperty, useSimVar, useSplitSimVar } from '@flybywiresim/fbw-sdk';
-import { PromptModal, Toggle, TooltipWrapper, t, useModals } from '@flybywiresim/flypad';
-import Slider from 'rc-slider';
 import React, { useEffect, useRef } from 'react';
+import { MathUtils, usePersistentNumberProperty, useSimVar, useSplitSimVar } from '@flybywiresim/fbw-sdk';
 import {
     ArrowDown,
     ArrowLeft,
     ArrowRight,
-    ArrowUp,
     ArrowsAngleContract,
     ArrowsAngleExpand,
+    ArrowUp,
     ChevronDoubleDown,
     ChevronDoubleUp,
     ChevronLeft,
@@ -25,7 +23,9 @@ import {
     ToggleOn,
     TruckFlatbed,
 } from 'react-bootstrap-icons';
+import Slider from 'rc-slider';
 import { toast } from 'react-toastify';
+import { t, PromptModal, useModals, TooltipWrapper, Toggle } from '@flybywiresim/flypad';
 import { PushbackMap } from './PushbackMap';
 
 export const PushbackPage = () => {
@@ -152,7 +152,7 @@ export const PushbackPage = () => {
         });
     }, []);
 
-    // Update commanded heading and speed from input
+    // Update commanded heading from input
     useEffect(() => {
         if (!pushbackActive || !useControllerInput) {
             return;
@@ -163,13 +163,20 @@ export const PushbackPage = () => {
         } else {
             setCmdHdgFactor(rudderPosition / 100);
         }
+    }, [rudderPosition]);
+
+    // Update commanded speed from input
+    useEffect(() => {
+        if (!pushbackActive || !useControllerInput) {
+            return;
+        }
         // create deadzone
         if (elevatorPosition > -0.05 && elevatorPosition < 0.05) {
             setCmdSpdFactor(0);
         } else {
             setCmdSpdFactor(-elevatorPosition);
         }
-    }, [rudderPosition, elevatorPosition]);
+    }, [elevatorPosition]);
 
     // Make sure to deactivate the pushback system completely when leaving ground
     useEffect(() => {
