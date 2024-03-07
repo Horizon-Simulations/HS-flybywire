@@ -2,16 +2,18 @@
 // SPDX-License-Identifier: GPL-3.0
 
 /* eslint-disable max-len */
+import { SeatFlags, Units, usePersistentNumberProperty, usePersistentProperty, useSeatFlags, useSimVar } from '@flybywiresim/fbw-sdk';
+import { Card, PromptModal, SelectGroup, SelectItem, TooltipWrapper, t, useModals } from '@flybywiresim/flypad';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { CloudArrowDown } from 'react-bootstrap-icons';
-import { SeatFlags, Units, usePersistentNumberProperty, usePersistentProperty, useSeatFlags, useSimVar } from '@flybywiresim/fbw-sdk';
-import { setPayloadImported, useAppDispatch, Card, t, TooltipWrapper, SelectGroup, SelectItem, PromptModal, useModals } from '@flybywiresim/flypad';
 import { SeatOutlineBg } from '../../../../Assets/SeatOutlineBg';
-import { BoardingInput, MiscParamsInput, PayloadInputTable } from '../PayloadElements';
-import { CargoWidget } from './CargoWidget';
 import { ChartWidget } from '../Chart/ChartWidget';
+import { BoardingInput, MiscParamsInput, PayloadInputTable } from '../PayloadElements';
 import { CargoStationInfo, PaxStationInfo } from '../Seating/Constants';
+import { CargoWidget } from './CargoWidget';
+
 import Loadsheet from './a21nwv071.json';
+
 import { SeatMapWidget } from './SeatMapWidget';
 
 interface A320Props {
@@ -22,7 +24,6 @@ interface A320Props {
     simbriefBag: number,
     simbriefFreight: number,
     simbriefDataLoaded: boolean,
-    payloadImported: boolean,
     massUnitForDisplay: string,
     isOnGround: boolean,
 
@@ -39,7 +40,6 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
     simbriefBag,
     simbriefFreight,
     simbriefDataLoaded,
-    payloadImported,
     massUnitForDisplay,
     isOnGround,
     boardingStarted,
@@ -138,7 +138,6 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
     const [_, setGsxNumPassengers] = useSimVar('L:FSDT_GSX_NUMPASSENGERS', 'Number', 223);
     const [gsxBoardingState] = useSimVar('L:FSDT_GSX_BOARDING_STATE', 'Number', 227);
     const [gsxDeBoardingState] = useSimVar('L:FSDT_GSX_DEBOARDING_STATE', 'Number', 229);
-    const gsxInProgress = () => gsxDeBoardingState >= 4 && gsxDeBoardingState < 6 || gsxBoardingState >= 4 && gsxBoardingState < 6;
     const gsxStates = {
         AVAILABLE: 1,
         NOT_AVAILABLE: 2,
@@ -147,15 +146,6 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
         PERFORMING: 5,
         COMPLETED: 6,
     };
-
-    const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        if (simbriefDataLoaded === true && payloadImported === false) {
-            setSimBriefValues();
-            dispatch(setPayloadImported(true));
-        }
-    }, []);
 
     const setSimBriefValues = () => {
         if (simbriefUnits === 'kgs') {
@@ -260,18 +250,15 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
     }, [emptyWeight, paxWeight, paxBagWeight, maxPax, maxCargo, gw, zfw]);
 
     const onClickCargo = useCallback((cargoStation, e) => {
-        if (gsxInProgress() || boardingStarted) {
+        if (gsxPayloadSyncEnabled === 1 && boardingStarted) {
             return;
         }
         const cargoPercent = Math.min(Math.max(0, e.nativeEvent.offsetX / cargoMap[cargoStation].progressBarWidth), 1);
         setCargoDesired[cargoStation](Math.round(cargoMap[cargoStation].weight * cargoPercent));
-    }, [cargoMap, boardingStarted,
-        gsxBoardingState,
-        gsxDeBoardingState,
-        gsxPayloadSyncEnabled]);
+    }, [cargoMap]);
 
     const onClickSeat = useCallback((stationIndex: number, seatId: number) => {
-        if (gsxInProgress() || boardingStarted) {
+        if (gsxPayloadSyncEnabled === 1 && boardingStarted) {
             return;
         }
 
@@ -295,10 +282,6 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
         ...cargoDesired,
         ...desiredFlags,
         totalPaxDesired,
-        boardingStarted,
-        gsxBoardingState,
-        gsxDeBoardingState,
-        gsxPayloadSyncEnabled,
     ]);
 
     const handleDeboarding = useCallback(() => {
@@ -398,11 +381,35 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
 
     useEffect(() => {
         if (gsxPayloadSyncEnabled === 1) {
+            switch (gsxBoardingState) {
+            // If boarding has been requested, performed or completed
+            case gsxStates.REQUESTED:
+            case gsxStates.PERFORMING:
+            case gsxStates.COMPLETED:
+                setBoardingStarted(true);
+                break;
+            default:
+                break;
+            }
+        }
+    }, [gsxBoardingState]);
+
+    useEffect(() => {
+        if (gsxPayloadSyncEnabled === 1) {
             switch (gsxDeBoardingState) {
             case gsxStates.REQUESTED:
                 // If Deboarding has been requested, set target pax to 0 for boarding backend
                 setTargetPax(0);
                 setTargetCargo(0, 0);
+                setBoardingStarted(true);
+                break;
+            case gsxStates.PERFORMING:
+                // If deboarding is being performed
+                setBoardingStarted(true);
+                break;
+            case gsxStates.COMPLETED:
+                // If deboarding is completed
+                setBoardingStarted(false);
                 break;
             default:
                 break;
@@ -432,11 +439,16 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
             );
         }
 
-        if (gsxInProgress() || boardingStarted) {
-            setShowSimbriefButton(false);
-        } else {
+        if (gsxPayloadSyncEnabled === 1) {
+            if (boardingStarted) {
+                setShowSimbriefButton(false);
+                return;
+            }
+
             setShowSimbriefButton(simbriefStatus);
+            return;
         }
+        setShowSimbriefButton(simbriefStatus);
     }, [
         simbriefUnits,
         simbriefFreight,
@@ -480,7 +492,7 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
 
     return (
         <div>
-            <div className="h-content-section-reduced relative">
+            <div className="relative h-content-section-reduced">
                 <div className="mb-10">
                     <div className="relative flex flex-col">
                         <SeatOutlineBg stroke={getTheme(theme)[0]} highlight="#69BD45" />
@@ -497,8 +509,9 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
                                     loadsheet={Loadsheet}
                                     emptyWeight={emptyWeight}
                                     massUnitForDisplay={massUnitForDisplay}
+                                    gsxPayloadSyncEnabled={gsxPayloadSyncEnabled === 1}
                                     displayZfw={displayZfw}
-                                    BoardingInProgress={gsxInProgress() || boardingStarted}
+                                    boardingStarted={boardingStarted}
                                     totalPax={totalPax}
                                     totalPaxDesired={totalPaxDesired}
                                     maxPax={maxPax}
@@ -522,7 +535,7 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
                                 <hr className="mb-4 border-gray-700" />
                                 <div className="flex flex-row items-center justify-start">
                                     <MiscParamsInput
-                                        disable={gsxInProgress() || boardingStarted}
+                                        disable={gsxPayloadSyncEnabled === 1 && boardingStarted}
                                         minPaxWeight={Math.round(Loadsheet.specs.pax.minPaxWeight)}
                                         maxPaxWeight={Math.round(Loadsheet.specs.pax.maxPaxWeight)}
                                         defaultPaxWeight={Math.round(Loadsheet.specs.pax.defaultPaxWeight)}
@@ -544,9 +557,9 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
                                 && (
                                     <TooltipWrapper text={t('Ground.Payload.TT.FillPayloadFromSimbrief')}>
                                         <div
-                                            className={`border-theme-highlight bg-theme-highlight text-theme-body hover:bg-theme-body hover:text-theme-highlight flex
-                                                       h-auto items-center justify-center
-                                                       rounded-md rounded-l-none border-2 px-2 transition duration-100`}
+                                            className={`flex h-auto items-center justify-center rounded-md rounded-l-none
+                                                       border-2 border-theme-highlight bg-theme-highlight
+                                                       px-2 text-theme-body transition duration-100 hover:bg-theme-body hover:text-theme-highlight`}
                                             onClick={setSimBriefValues}
                                         >
                                             <CloudArrowDown size={26} />
@@ -609,7 +622,7 @@ export const A21NLEAPPayload: React.FC<A320Props> = ({
                             </div>
                         )}
                     </div>
-                    <div className="col-1 border-theme-accent border">
+                    <div className="col-1 border border-theme-accent">
                         <ChartWidget
                             width={525}
                             height={511}
