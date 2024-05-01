@@ -2,12 +2,12 @@
 //
 // SPDX-License-Identifier: GPL-3.0
 
-import { ClockEvents, EventBus, DisplayComponent, FSComponent, Subject, VNode } from '@microsoft/msfs-sdk';
 import { Arinc429Word } from '@flybywiresim/fbw-sdk';
-import { EwdSimvars } from './shared/EwdSimvarPublisher';
-import { Arinc429Values } from './shared/ArincValueProvider';
+import { ClockEvents, DisplayComponent, EventBus, Subject, VNode } from '@microsoft/msfs-sdk';
 import { Layer } from '../MsfsAvionicsCommon/Layer';
 import { getEprFromN1Value } from './N1';
+import { Arinc429Values } from './shared/ArincValueProvider';
+import { EwdSimvars } from './shared/EwdSimvarPublisher';
 
 interface N1LimitProps {
     bus: EventBus;
@@ -53,7 +53,7 @@ export class N1Limit extends DisplayComponent<N1LimitProps> {
         });
 
         sub.on('autoThrustLimit').whenChanged().handle((l) => {
-            this.autoThrustLimit = l;
+            this.autoThrustLimit = Math.abs(l);
         });
 
         sub.on('thrustLimitType').whenChanged().handle((l) => {

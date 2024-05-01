@@ -12,13 +12,13 @@
 !/.vscode/**
 
 !.editorconfig
-!.eslintrc
+!.eslintrc.js
 !.gitattributes
 !.gitignore
 !.gitmodules
 !.npmrc
 !.prettierignore
-!.prettierrc.json
+!.prettierrc
 
 !igniter.config.mjs
 !a318ceo-igniter.config.mjs
