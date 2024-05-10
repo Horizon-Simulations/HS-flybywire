@@ -1,7 +1,7 @@
 // Copyright (c) 2024 FlyByWire Simulations
 // SPDX-License-Identifier: GPL-3.0
 // =======================================================================================
-// This is the base airframe configuration file for A320-251N
+// This is the base airframe configuration file for A318-115
 // Any keys prefixed by underscore (_) should be considered read-only and not overwritable.
 //
 // NOTE: * This is currently a WIP * ! The override functionality has not been completed yet !
@@ -27,7 +27,7 @@
     "designLimits": {
         "weights": {
             "maxGw": 68000,     // kg
-            "maxZfw": 64300,    // kg
+            "maxZfw": 54500,    // kg
             "minZfw": 42500,    // kg
             "maxGwCg": 40,      // %CG MAC
             "maxZfwCg": 40,     // %CG MAC
@@ -35,7 +35,7 @@
             "maxFuel": 23859,   // kg
         },
         "endurance": {
-            "range": 3400,   // nm
+            "range": 3100,   // nm
             "mmo": "0.82",        // mach
         },
         "performanceEnvelope": {
