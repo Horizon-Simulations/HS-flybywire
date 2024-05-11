@@ -23,12 +23,12 @@
     "_engines": "CFM56-5B9/P",
     "_developer": "Horizon Simulations",
     "msnReference": "MSN 9XXX",
-    "weightVariant": "WV055",
+    "weightVariant": "WV005",
     "designLimits": {
         "weights": {
             "maxGw": 68000,     // kg
             "maxZfw": 54500,    // kg
-            "minZfw": 42500,    // kg
+            "minZfw": 39508,    // kg
             "maxGwCg": 40,      // %CG MAC
             "maxZfwCg": 40,     // %CG MAC
             "maxCargo": 9435,   // kg
