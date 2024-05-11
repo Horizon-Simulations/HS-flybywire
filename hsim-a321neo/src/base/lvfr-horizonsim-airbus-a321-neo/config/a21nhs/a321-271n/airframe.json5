@@ -17,18 +17,18 @@
 {
     "configMajorVersion": 0,
     "configMinorVersion": 1,
-    "_variant": "A320-251N",
+    "_variant": "A321-271N",
     "_icao": "A21N",
     "_name": "Airbus A321neo",
     "_engines": "PW1100G-JM",
-    "_developer": "FBW",
+    "_developer": "Horizon Simulations",
     "msnReference": "MSN 9XXX",
-    "weightVariant": "WV055",
+    "weightVariant": "WV071",
     "designLimits": {
         "weights": {
-            "maxGw": 79000,     // kg
-            "maxZfw": 64300,    // kg
-            "minZfw": 42500,    // kg
+            "maxGw": 97400,     // kg
+            "maxZfw": 75600,    // kg
+            "minZfw": 50121,    // kg
             "maxGwCg": 40,      // %CG MAC
             "maxZfwCg": 40,     // %CG MAC
             "maxCargo": 9435,   // kg
