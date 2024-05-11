@@ -1,7 +1,7 @@
 // Copyright (c) 2024 FlyByWire Simulations
 // SPDX-License-Identifier: GPL-3.0
 // =======================================================================================
-// This is the base cabin configuration file for A320-251N
+// This is the base cabin configuration file for A321-251N
 // Any keys prefixed by underscore (_) should be considered read-only and not overwritable.
 //
 // NOTE: * This is currently a WIP * ! The override functionality has not been completed yet !
