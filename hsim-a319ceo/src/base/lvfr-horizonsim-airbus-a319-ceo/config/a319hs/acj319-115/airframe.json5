@@ -17,18 +17,18 @@
 {
     "configMajorVersion": 0,
     "configMinorVersion": 1,
-    "_variant": "A320-251N",
+    "_variant": "ACJ319-115",
     "_icao": "A319",
     "_name": "Airbus A319ceo",
     "_engines": "CFM56-5B7/P",
-    "_developer": "FBW",
+    "_developer": "Horizon Simulations",
     "msnReference": "MSN 9XXX",
-    "weightVariant": "WV055",
+    "weightVariant": "WV007",
     "designLimits": {
         "weights": {
-            "maxGw": 79000,     // kg
-            "maxZfw": 64300,    // kg
-            "minZfw": 42500,    // kg
+            "maxGw": 75900,     // kg
+            "maxZfw": 57000,    // kg
+            "minZfw": 40300,    // kg
             "maxGwCg": 40,      // %CG MAC
             "maxZfwCg": 40,     // %CG MAC
             "maxCargo": 9435,   // kg
