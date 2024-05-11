@@ -35,7 +35,7 @@
             "maxFuel": 23721,   // kg
         },
         "endurance": {
-            "range": 3400,   // nm
+            "range": 4000,   // nm
             "mmo": "0.82",        // mach
         },
         "performanceEnvelope": {
