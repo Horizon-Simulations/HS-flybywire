@@ -17,17 +17,17 @@
 {
     "configMajorVersion": 0,
     "configMinorVersion": 1,
-    "_variant": "A320-251N",
+    "_variant": "A320-232",
     "_icao": "A320",
     "_name": "Airbus A320ceo",
     "_engines": "IAE V2527-A5",
-    "_developer": "FBW",
+    "_developer": "Horizon Simulations",
     "msnReference": "MSN 9XXX",
     "weightVariant": "WV055",
     "designLimits": {
         "weights": {
-            "maxGw": 79000,     // kg
-            "maxZfw": 64300,    // kg
+            "maxGw": 73500,     // kg
+            "maxZfw": 64500,    // kg
             "minZfw": 42500,    // kg
             "maxGwCg": 40,      // %CG MAC
             "maxZfwCg": 40,     // %CG MAC
