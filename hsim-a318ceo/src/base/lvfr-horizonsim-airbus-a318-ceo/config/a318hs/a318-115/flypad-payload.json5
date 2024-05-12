@@ -25,11 +25,11 @@
     },
     "chartLimits": {
         "weight": {
-            "min": 35000,
-            "max": 80000,
+            "min": 40000,
+            "max": 70000,
             "lines": 9,
             "scale": 5000,
-            "values": [ 80, 70, 60, 50, 40]
+            "values": [ 70, 60, 50, 40, 30]
         },
         "cg": {
             "angleRad": 0.014025,
