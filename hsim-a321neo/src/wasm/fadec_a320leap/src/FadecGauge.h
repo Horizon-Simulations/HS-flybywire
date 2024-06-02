@@ -53,9 +53,9 @@ private:
       SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelLeftMain, "FUEL TANK LEFT MAIN QUANTITY", "Gallons");
       SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelRightMain, "FUEL TANK RIGHT MAIN QUANTITY", "Gallons");
       SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelCenterMain, "FUEL TANK CENTER QUANTITY", "Gallons");
-      SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelCenterAdd1, "FUEL TANK ACT 1 QUANTITY", "Gallons");
-      SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelCenterAdd2, "FUEL TANK ACT 2 QUANTITY", "Gallons");
-      SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelCenterAdd4, "FUEL TANK ACT 4 QUANTITY", "Gallons");
+      SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelCenterAdd1, "FUEL TANK CENTER2 QUANTITY", "Gallons");   // Additional Center Tank 1
+      SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelCenterAdd2, "FUEL TANK CENTER3 QUANTITY", "Gallons");   // Additional Center Tank 2
+      SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelCenterAdd4, "FUEL TANK EXTERNAL1 QUANTITY", "Gallons"); // Additional Center Tank 4
       SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelLeftAux, "FUEL TANK LEFT AUX QUANTITY", "Gallons");
       SimConnect_AddToDataDefinition(hSimConnect, DataTypesID::FuelRightAux, "FUEL TANK RIGHT AUX QUANTITY", "Gallons");
 

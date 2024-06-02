@@ -830,9 +830,9 @@ private:
     double leftAuxQuantity = simVars->getFuelTankQuantity(4) * fuelWeightGallon;  // LBS
     double rightAuxQuantity = simVars->getFuelTankQuantity(5) * fuelWeightGallon; // LBS
     double centerQuantity = simVars->getFuelTankQuantity(1) * fuelWeightGallon;   // LBS
-    double act1Quantity = simVars->getFuelTankQuantity(6) * fuelWeightGallon;     // LBS
-    double act2Quantity = simVars->getFuelTankQuantity(7) * fuelWeightGallon;     // LBS
-    double act4Quantity = simVars->getFuelTankQuantity(8) * fuelWeightGallon;     // LBS
+    double act1Quantity = simVars->getFuelTankQuantity(7) * fuelWeightGallon;     // LBS
+    double act2Quantity = simVars->getFuelTankQuantity(8) * fuelWeightGallon;     // LBS
+    double act4Quantity = simVars->getFuelTankQuantity(9) * fuelWeightGallon;     // LBS
     /// Left inner tank fuel quantity in pounds
     double fuelLeft = 0;
     /// Right inner tank fuel quantity in pounds
@@ -1390,9 +1390,9 @@ public:
     double rightQuantity = simVars->getFuelTankQuantity(3);    // gal
     double leftAuxQuantity = simVars->getFuelTankQuantity(4);  // gal
     double rightAuxQuantity = simVars->getFuelTankQuantity(5); // gal
-    double act1Quantity = simVars->getFuelTankQuantity(6);     // gal
-    double act2Quantity = simVars->getFuelTankQuantity(7);     // gal
-    double act4Quantity = simVars->getFuelTankQuantity(8);     // gal
+    double act1Quantity = simVars->getFuelTankQuantity(7);     // gal
+    double act2Quantity = simVars->getFuelTankQuantity(8);     // gal
+    double act4Quantity = simVars->getFuelTankQuantity(9);     // gal
 
     double fuelWeightGallon = simVars->getFuelWeightGallon(); // weight of gallon of jet A in lbs
 
