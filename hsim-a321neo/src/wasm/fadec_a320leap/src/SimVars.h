@@ -215,9 +215,9 @@ public:
     FuelAuxLeftPre = register_named_variable("A32NX_FUEL_AUX_LEFT_PRE");
     FuelAuxRightPre = register_named_variable("A32NX_FUEL_AUX_RIGHT_PRE");
     FuelCenterPre = register_named_variable("A32NX_FUEL_CENTER_PRE");
-    FuelACT1Pre = register_named_variable("A32NX_FUEL_CENTER_ACT1_PRE");
-    FuelACT2Pre = register_named_variable("A32NX_FUEL_CENTER_ACT2_PRE");
-    FuelACT4Pre = register_named_variable("A32NX_FUEL_CENTER_ACT4_PRE");
+    FuelACT1Pre = register_named_variable("A32NX_FUEL_ACT1_PRE");
+    FuelACT2Pre = register_named_variable("A32NX_FUEL_ACT2_PRE");
+    FuelACT4Pre = register_named_variable("A32NX_FUEL_ACT4_PRE");
     RefuelRate = register_named_variable("A32NX_EFB_REFUEL_RATE_SETTING");
     RefuelStartedByUser = register_named_variable("A32NX_REFUEL_STARTED_BY_USR");
     Engine1State = register_named_variable("A32NX_ENGINE_STATE:1");
