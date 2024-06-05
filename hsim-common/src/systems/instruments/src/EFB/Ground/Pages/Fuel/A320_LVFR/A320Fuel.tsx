@@ -460,6 +460,7 @@ export const A320Fuel: React.FC<FuelProps> = ({
                 {/* FIXME TODO: Replace with Tailwind JIT values later */}
                 <div className="absolute inset-x-0 bottom-0" style={{ transform: 'translate(0px, -150px)' }}>
                     // ? Maybe replace with a custom SVG for different airframes? This will help with displaying ACT tanks.
+                    // * For reference: https://github.com/flybywiresim/aircraft/blob/master/fbw-common/src/systems/instruments/src/EFB/Assets/FuelOutline.tsx
                     <OverWingOutline className="absolute bottom-0 left-0 z-20" />
 
                     <div
