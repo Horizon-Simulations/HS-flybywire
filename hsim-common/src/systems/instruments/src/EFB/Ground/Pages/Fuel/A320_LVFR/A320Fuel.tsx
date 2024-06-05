@@ -483,14 +483,14 @@ export const A320Fuel: React.FC<FuelProps> = ({
                         className="absolute z-0"
                         style={{ width: '122px', height: '98px', bottom: '100px', right: '138px', background: formatFuelFilling(ROutCurrent, OUTER_CELL_GALLONS) }}
                     />
-                    // TODO: Fix positioning for ACT tanks
+                    // TODO: Fix positioning for ACT tanks (a.k.a bottom and left)
                     <div
                         className="absolute z-0"
                         style={{ width: '122px', height: '98px', bottom: '100px', left: '0', background: formatFuelFilling(ACT1Current, ACT1_TANK_GALLONS) }}
                     />
                     <div
                         className="absolute z-0"
-                        style={{ width: '122px', height: '98px', bottom: '130px', right: '0', background: formatFuelFilling(ACT2Current, ACT2_TANK_GALLONS) }}
+                        style={{ width: '122px', height: '98px', bottom: '130px', left: '0', background: formatFuelFilling(ACT2Current, ACT2_TANK_GALLONS) }}
                     />
                     <div
                         className="absolute z-0"
