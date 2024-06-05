@@ -10,7 +10,7 @@ export const FuelCapacity = Object.freeze({
     A320_214_SL: { total: 6303, outer_cell: 228, inner_cell: 1816, center: 2215},
     A320_232: { total: 6303, outer_cell: 228, inner_cell: 1816, center: 2215},
     A320_232_SL: { total: 6303, outer_cell: 228, inner_cell: 1816, center: 2215},
-    A321_251N: { total: 6205, outer_cell: 228, inner_cell: 1816, center: 2117},
+    A321_251N: { total: 6205, outer_cell: 228, inner_cell: 1816, center: 2117, act1: 2117, act2: 2117, act4: 2117},
     A321_251NX: { total: 6205, outer_cell: 228, inner_cell: 1816, center: 2117},
     A321_251N_LR: { total: 7786, outer_cell: 228, inner_cell: 1816, center: 3698},
     A321_271N: { total: 6205, outer_cell: 228, inner_cell: 1816, center: 2117},
