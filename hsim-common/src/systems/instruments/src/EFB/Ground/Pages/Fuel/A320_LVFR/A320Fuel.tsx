@@ -71,6 +71,7 @@ export const A320Fuel: React.FC<FuelProps> = ({
     const ACT4_TANK_GALLONS = FuelCapacity[(airframe !== null ? airframe : 'A320_214')].act4;
     const wingTotalRefuelTimeSeconds = 1020;
     const CenterTotalRefuelTimeSeconds = 1200;
+    const ACTTotalRefuelTimeSeconds = 300; // ? Check that this is correct (Only placeholder value for now)
 
     const [galToKg] = useSimVar('FUEL WEIGHT PER GALLON', 'kilograms', 1_000);
     const outerCell = () => OUTER_CELL_GALLONS * galToKg * convertUnit;
@@ -229,7 +230,40 @@ export const A320Fuel: React.FC<FuelProps> = ({
             setACT4Target(0);
             return;
         }
-        setCenterTarget(fuel);
+        if (fuel <= CENTER_TANK_GALLONS) {
+            setCenterTarget(fuel);
+            setACT1Target(0);
+            setACT2Target(0);
+            setACT4Target(0);
+            return;
+        }
+        fuel -= CENTER_TANK_GALLONS;
+        const centerTank = Math.min(fuel, CENTER_TANK_GALLONS);
+        setCenterTarget(centerTank);
+        if (fuel <= 0) {
+            setACT1Target(0);
+            setACT2Target(0);
+            setACT4Target(0);
+            return;
+        }
+        fuel -= CENTER_TANK_GALLONS;
+        const act1Tank = Math.min(fuel, ACT1_TANK_GALLONS);
+        setACT1Target(act1Tank);
+        if (fuel <= 0) {
+            setACT2Target(0);
+            setACT4Target(0);
+            return;
+        }
+        fuel -= ACT1_TANK_GALLONS;
+        const act2Tank = Math.min(fuel, ACT2_TANK_GALLONS);
+        setACT2Target(act2Tank);
+        if (fuel <= 0) {
+            setACT4Target(0);
+            return;
+        }
+        fuel -= ACT2_TANK_GALLONS;
+        const act4Tank = Math.min(fuel, ACT4_TANK_GALLONS);
+        setACT4Target(act4Tank);
     };
 
     const updateDesiredFuel = (value: string) => {
@@ -268,9 +302,16 @@ export const A320Fuel: React.FC<FuelProps> = ({
         const totalWingFuel = TOTAL_FUEL_GALLONS - CENTER_TANK_GALLONS;
         const differentialFuelWings = Math.abs(currentWingFuel() - targetWingFuel());
         const differentialFuelCenter = Math.abs(centerTarget - centerCurrent);
+        const differentialFuelACT1 = Math.abs(ACT1Target - ACT1Current);
+        const differentialFuelACT2 = Math.abs(ACT2Target - ACT2Current);
+        const differentialFuelACT4 = Math.abs(ACT4Target - ACT4Current);
         const estimatedTimeSecondsWing = (differentialFuelWings / totalWingFuel) * wingTotalRefuelTimeSeconds;
         const estimatedTimeSecondsCenter = (differentialFuelCenter / CENTER_TANK_GALLONS) * CenterTotalRefuelTimeSeconds;
-        estimatedTimeSeconds = Math.max(estimatedTimeSecondsWing, estimatedTimeSecondsCenter);
+        const estimatedTimeSecondsACT1 = (differentialFuelACT1 / ACT1_TANK_GALLONS) * ACTTotalRefuelTimeSeconds;
+        const estimatedTimeSecondsACT2 = (differentialFuelACT2 / ACT2_TANK_GALLONS) * ACTTotalRefuelTimeSeconds;
+        const estimatedTimeSecondsACT4 = (differentialFuelACT4 / ACT4_TANK_GALLONS) * ACTTotalRefuelTimeSeconds;
+
+        estimatedTimeSeconds = Math.max(estimatedTimeSecondsWing, estimatedTimeSecondsCenter, estimatedTimeSecondsACT1, estimatedTimeSecondsACT2, estimatedTimeSecondsACT4);
         if (refuelRate === '1') { // fast
             estimatedTimeSeconds /= 5;
         }
@@ -334,6 +375,43 @@ export const A320Fuel: React.FC<FuelProps> = ({
                         inlinedTitle
                         width={420}
                     />
+                    // TODO: Fix styling for ACT tanks
+                    <TankReadoutWidget
+                        title={t('Ground.Fuel.ACT1Tank')}
+                        current={ACT1Current}
+                        target={ACT1Target}
+                        capacity={ACT1_TANK_GALLONS}
+                        currentUnit={massUnitForDisplay}
+                        tankValue={ACT1Tank()}
+                        convertedFuelValue={convertFuelValueCenter(ACT1Current)}
+                        className="border-theme-accent overflow-hidden rounded-2xl border-2"
+                        inlinedTitle
+                        width={420}
+                    />
+                    <TankReadoutWidget
+                        title={t('Ground.Fuel.ACT2Tank')}
+                        current={ACT2Current}
+                        target={ACT2Target}
+                        capacity={ACT2_TANK_GALLONS}
+                        currentUnit={massUnitForDisplay}
+                        tankValue={ACT2Tank()}
+                        convertedFuelValue={convertFuelValueCenter(ACT2Current)}
+                        className="border-theme-accent overflow-hidden rounded-2xl border-2"
+                        inlinedTitle
+                        width={420}
+                    />
+                    <TankReadoutWidget
+                        title={t('Ground.Fuel.ACT4Tank')}
+                        current={ACT4Current}
+                        target={ACT4Target}
+                        capacity={ACT4_TANK_GALLONS}
+                        currentUnit={massUnitForDisplay}
+                        tankValue={ACT4Tank()}
+                        convertedFuelValue={convertFuelValueCenter(ACT4Current)}
+                        className="border-theme-accent overflow-hidden rounded-2xl border-2"
+                        inlinedTitle
+                        width={420}
+                    />
                 </div>
                 <div className="absolute inset-x-0 top-40 flex flex-row justify-between">
                     <div className="divide-theme-accent border-theme-accent w-min divide-y overflow-hidden rounded-2xl border-2">
@@ -381,6 +459,7 @@ export const A320Fuel: React.FC<FuelProps> = ({
             <div className="flex flex-col items-center justify-end">
                 {/* FIXME TODO: Replace with Tailwind JIT values later */}
                 <div className="absolute inset-x-0 bottom-0" style={{ transform: 'translate(0px, -150px)' }}>
+                    // ? Maybe replace with a custom SVG for different airframes? This will help with displaying ACT tanks.
                     <OverWingOutline className="absolute bottom-0 left-0 z-20" />
 
                     <div
@@ -402,6 +481,19 @@ export const A320Fuel: React.FC<FuelProps> = ({
                     <div
                         className="absolute z-0"
                         style={{ width: '122px', height: '98px', bottom: '100px', right: '138px', background: formatFuelFilling(ROutCurrent, OUTER_CELL_GALLONS) }}
+                    />
+                    // TODO: Fix positioning for ACT tanks
+                    <div
+                        className="absolute z-0"
+                        style={{ width: '122px', height: '98px', bottom: '100px', left: '0', background: formatFuelFilling(ACT1Current, ACT1_TANK_GALLONS) }}
+                    />
+                    <div
+                        className="absolute z-0"
+                        style={{ width: '122px', height: '98px', bottom: '130px', right: '0', background: formatFuelFilling(ACT2Current, ACT2_TANK_GALLONS) }}
+                    />
+                    <div
+                        className="absolute z-0"
+                        style={{ width: '122px', height: '98px', bottom: '160px', left: '0', background: formatFuelFilling(ACT4Current, ACT4_TANK_GALLONS) }}
                     />
                     {/* tl overlay */}
                     <div
