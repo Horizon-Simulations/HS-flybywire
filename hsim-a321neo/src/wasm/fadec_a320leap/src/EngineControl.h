@@ -832,9 +832,9 @@ private:
     double leftAuxQuantity = simVars->getFuelTankQuantity(4) * fuelWeightGallon;  // LBS
     double rightAuxQuantity = simVars->getFuelTankQuantity(5) * fuelWeightGallon; // LBS
     double centerQuantity = simVars->getFuelTankQuantity(1) * fuelWeightGallon;   // LBS
-    double act1Quantity = simVars->getFuelTankQuantity(7) * fuelWeightGallon;     // LBS
-    double act2Quantity = simVars->getFuelTankQuantity(8) * fuelWeightGallon;     // LBS
-    double act4Quantity = simVars->getFuelTankQuantity(9) * fuelWeightGallon;     // LBS
+    double act1Quantity = simVars->getFuelTankQuantity(6) * fuelWeightGallon;     // LBS
+    double act2Quantity = simVars->getFuelTankQuantity(7) * fuelWeightGallon;     // LBS
+    double act4Quantity = simVars->getFuelTankQuantity(8) * fuelWeightGallon;     // LBS
     /// Left inner tank fuel quantity in pounds
     double fuelLeft = 0;
     /// Right inner tank fuel quantity in pounds
@@ -1121,7 +1121,7 @@ private:
       // ACT to Centre transfer routine
       if (centerQuantity < 11300 && ACTToCenterValve > 0.0)
       {
-        double flowRate = 0.0;
+        double flowRate = 0;
         if (act4Quantity > 0)
         {
           ACTToCenterFlow = min(12700, act4Quantity);
