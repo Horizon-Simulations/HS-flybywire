@@ -806,6 +806,7 @@ private:
     double ACTToCenterValve = simVars->getValve(13);
     double lineLeftToCenterFlow = simVars->getLineFlow(27);
     double lineRightToCenterFlow = simVars->getLineFlow(28);
+    double lineACTToCenterFlow = simVars->getLineFlow(42);
     double lineFlowRatio = 0;
 
     double engine1PreFF = simVars->getEngine1PreFF(); // KG/H
@@ -1120,22 +1121,26 @@ private:
       // ACT to Centre transfer routine
       if (centerQuantity < 11300 && ACTToCenterValve > 0.0)
       {
+        double flowRate = 0.0;
         if (act4Quantity > 0)
         {
           ACTToCenterFlow = min(12700, act4Quantity);
-          act4Quantity -= ACTToCenterFlow;
+          flowRate = ACTToCenterFlow * lineACTToCenterFlow;
+          act4Quantity -= flowRate;
         }
         else if (act2Quantity > 0)
         {
           ACTToCenterFlow = min(12700, act2Quantity);
-          act2Quantity -= ACTToCenterFlow;
+          flowRate = ACTToCenterFlow * lineACTToCenterFlow;
+          act2Quantity -= flowRate;
         }
         else if (act1Quantity > 0)
         {
           ACTToCenterFlow = min(12700, act1Quantity);
+          flowRate = ACTToCenterFlow * lineACTToCenterFlow;
           act1Quantity -= ACTToCenterFlow;
         }
-        centerQuantity += ACTToCenterFlow;
+        centerQuantity += flowRate;
       }
 
       //--------------------------------------------
