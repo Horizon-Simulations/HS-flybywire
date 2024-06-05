@@ -803,6 +803,7 @@ private:
     double xfrValveOuterLeft2 = simVars->getValve(4);
     double xfrValveOuterRight1 = simVars->getValve(7);
     double xfrValveOuterRight2 = simVars->getValve(5);
+    double ACTToCenterValve = simVars->getValve(13);
     double lineLeftToCenterFlow = simVars->getLineFlow(27);
     double lineRightToCenterFlow = simVars->getLineFlow(28);
     double lineFlowRatio = 0;
@@ -843,6 +844,7 @@ private:
     double fuelACT1 = 0;
     double fuelACT2 = 0;
     double fuelACT4 = 0;
+    double ACTToCenterFlow = 0;
     double xfrCenterToLeft = 0;
     double xfrCenterToRight = 0;
     double xfrAuxLeft = 0;
@@ -1113,6 +1115,28 @@ private:
         xfrCenterToLeft = fuelCenterPre - centerQuantity;
       else if (xfrValveCenterRightOpen)
         xfrCenterToRight = fuelCenterPre - centerQuantity;
+
+      //--------------------------------------------
+      // ACT to Centre transfer routine
+      if (centerQuantity < 11300 && ACTToCenterValve > 0.0)
+      {
+        if (act4Quantity > 0)
+        {
+          ACTToCenterFlow = min(12700, act4Quantity);
+          act4Quantity -= ACTToCenterFlow;
+        }
+        else if (act2Quantity > 0)
+        {
+          ACTToCenterFlow = min(12700, act2Quantity);
+          act2Quantity -= ACTToCenterFlow;
+        }
+        else if (act1Quantity > 0)
+        {
+          ACTToCenterFlow = min(12700, act1Quantity);
+          act1Quantity -= ACTToCenterFlow;
+        }
+        centerQuantity += ACTToCenterFlow;
+      }
 
       //--------------------------------------------
       // Final Fuel levels for left and right inner tanks
