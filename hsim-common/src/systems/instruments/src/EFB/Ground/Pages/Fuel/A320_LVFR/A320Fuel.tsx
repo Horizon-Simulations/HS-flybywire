@@ -486,15 +486,15 @@ export const A320Fuel: React.FC<FuelProps> = ({
                     // TODO: Fix positioning for ACT tanks (a.k.a bottom and left)
                     <div
                         className="absolute z-0"
-                        style={{ width: '122px', height: '98px', bottom: '100px', left: '0', background: formatFuelFilling(ACT1Current, ACT1_TANK_GALLONS) }}
+                        style={{ width: '122px', height: '98px', bottom: '100px', left: '572px', background: formatFuelFilling(ACT1Current, ACT1_TANK_GALLONS) }}
                     />
                     <div
                         className="absolute z-0"
-                        style={{ width: '122px', height: '98px', bottom: '130px', left: '0', background: formatFuelFilling(ACT2Current, ACT2_TANK_GALLONS) }}
+                        style={{ width: '122px', height: '98px', bottom: '130px', left: '572px', background: formatFuelFilling(ACT2Current, ACT2_TANK_GALLONS) }}
                     />
                     <div
                         className="absolute z-0"
-                        style={{ width: '122px', height: '98px', bottom: '160px', left: '0', background: formatFuelFilling(ACT4Current, ACT4_TANK_GALLONS) }}
+                        style={{ width: '122px', height: '98px', bottom: '160px', left: '572px', background: formatFuelFilling(ACT4Current, ACT4_TANK_GALLONS) }}
                     />
                     {/* tl overlay */}
                     <div
@@ -518,6 +518,7 @@ export const A320Fuel: React.FC<FuelProps> = ({
                     />
                 </div>
 
+                // ! Border is mentioned twice, kindly let me know which is correct as one was a typo
                 <div className="border-theme-accent border-2 absolute bottom-0 left-0 z-10 flex max-w-3xl flex-row overflow-x-hidden rounded-2xl border">
                     <div className="space-y-4 px-5 py-3">
                         <div className="flex flex-row items-center justify-between">
