@@ -78,7 +78,7 @@ pub struct A320Payload {
 impl A320Payload {
     // Note: These constants reflect flight_model.cfg values and will have to be updated in sync with the configuration
     pub const DEFAULT_PER_PAX_WEIGHT_KG: f64 = 79.;
-    const A320_PAX: [PaxInfo<'_>; 8] = [
+    const A320_PAX: [PaxInfo<'static>; 8] = [
         PaxInfo {
             max_pax: 30,
             position: (20.5, 0., 5.),
@@ -129,7 +129,7 @@ impl A320Payload {
         },
     ];
 
-    const A320_CARGO: [CargoInfo<'_>; 4] = [
+    const A320_CARGO: [CargoInfo<'static>; 4] = [
         CargoInfo {
             max_cargo_kg: 3402.,
             position: (13.43, 0., 0.9),
