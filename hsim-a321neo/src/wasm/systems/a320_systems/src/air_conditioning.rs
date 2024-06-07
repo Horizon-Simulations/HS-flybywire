@@ -3,7 +3,7 @@ use systems::{
     air_conditioning::{
         acs_controller::{AcscId, AirConditioningSystemController, Pack},
         cabin_air::CabinAirSimulation,
-        cabin_pressure_controller::CabinPressureController,
+        cabin_pressure_controller::{CabinPressureController, CpcId},
         pressure_valve::{OutflowValve, SafetyValve},
         AdirsToAirCondInterface, Air, AirConditioningOverheadShared, AirConditioningPack, CabinFan,
         Channel, DuctTemperature, MixerUnit, OutflowValveSignal, OutletAir, OverheadFlowSelector,
@@ -716,8 +716,8 @@ impl A320PressurizationSystem {
             active_cpc_sys_id: context.get_identifier("PRESS_ACTIVE_CPC_SYS".to_owned()),
 
             cpc: [
-                CabinPressureController::new(context),
-                CabinPressureController::new(context),
+                CabinPressureController::new(context, CpcId::Cpc1),
+                CabinPressureController::new(context, CpcId::Cpc2),
             ],
             // Sub-buses 206PP, 401PP (auto) and 301PP (manual)
             outflow_valve: [OutflowValve::new(
@@ -746,7 +746,7 @@ impl A320PressurizationSystem {
             .iter()
             .all(|&a| a.left_and_right_gear_compressed(true));
 
-        for controller in self.cpc.iter_mut() {
+        for (id, controller) in self.cpc.iter_mut().enumerate() {
             controller.update(
                 context,
                 adirs,
@@ -756,6 +756,7 @@ impl A320PressurizationSystem {
                 cabin_simulation,
                 self.outflow_valve.iter().collect(),
                 &self.safety_valve,
+                self.active_system - 1 == id,
             );
         }
 
