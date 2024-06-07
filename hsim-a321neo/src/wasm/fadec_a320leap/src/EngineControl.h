@@ -15,6 +15,9 @@
 #define CONFIGURATION_SECTION_FUEL "FUEL"
 
 #define CONFIGURATION_SECTION_FUEL_CENTER_QUANTITY "FUEL_CENTER_QUANTITY"
+#define CONFIGURATION_SECTION_FUEL_ACT1_QUANTITY "FUEL_ACT1_QUANTITY"
+#define CONFIGURATION_SECTION_FUEL_ACT2_QUANTITY "FUEL_ACT2_QUANTITY"
+#define CONFIGURATION_SECTION_FUEL_ACT4_QUANTITY "FUEL_ACT4_QUANTITY"
 #define CONFIGURATION_SECTION_FUEL_LEFT_QUANTITY "FUEL_LEFT_QUANTITY"
 #define CONFIGURATION_SECTION_FUEL_RIGHT_QUANTITY "FUEL_RIGHT_QUANTITY"
 #define CONFIGURATION_SECTION_FUEL_LEFT_AUX_QUANTITY "FUEL_LEFT_AUX_QUANTITY"
@@ -24,6 +27,9 @@
 struct Configuration
 {
   double fuelCenter = 0;
+  double fuelACT1 = fuelCenter;
+  double fuelACT2 = fuelCenter;
+  double fuelACT4 = fuelCenter;
   double fuelLeft = 411.34;
   double fuelRight = fuelLeft;
   double fuelLeftAux = 0;
@@ -797,8 +803,10 @@ private:
     double xfrValveOuterLeft2 = simVars->getValve(4);
     double xfrValveOuterRight1 = simVars->getValve(7);
     double xfrValveOuterRight2 = simVars->getValve(5);
+    double ACTToCenterValve = simVars->getValve(13);
     double lineLeftToCenterFlow = simVars->getLineFlow(27);
     double lineRightToCenterFlow = simVars->getLineFlow(28);
+    double lineACTToCenterFlow = simVars->getLineFlow(42);
     double lineFlowRatio = 0;
 
     double engine1PreFF = simVars->getEngine1PreFF(); // KG/H
@@ -816,11 +824,17 @@ private:
     double fuelAuxLeftPre = simVars->getFuelAuxLeftPre();                         // LBS
     double fuelAuxRightPre = simVars->getFuelAuxRightPre();                       // LBS
     double fuelCenterPre = simVars->getFuelCenterPre();                           // LBS
+    double fuelACT1Pre = simVars->getFuelACT1Pre();                               // LBS
+    double fuelACT2Pre = simVars->getFuelACT2Pre();                               // LBS
+    double fuelACT4Pre = simVars->getFuelACT4Pre();                               // LBS
     double leftQuantity = simVars->getFuelTankQuantity(2) * fuelWeightGallon;     // LBS
     double rightQuantity = simVars->getFuelTankQuantity(3) * fuelWeightGallon;    // LBS
     double leftAuxQuantity = simVars->getFuelTankQuantity(4) * fuelWeightGallon;  // LBS
     double rightAuxQuantity = simVars->getFuelTankQuantity(5) * fuelWeightGallon; // LBS
     double centerQuantity = simVars->getFuelTankQuantity(1) * fuelWeightGallon;   // LBS
+    double act1Quantity = simVars->getFuelTankQuantity(6) * fuelWeightGallon;     // LBS
+    double act2Quantity = simVars->getFuelTankQuantity(7) * fuelWeightGallon;     // LBS
+    double act4Quantity = simVars->getFuelTankQuantity(8) * fuelWeightGallon;     // LBS
     /// Left inner tank fuel quantity in pounds
     double fuelLeft = 0;
     /// Right inner tank fuel quantity in pounds
@@ -828,13 +842,17 @@ private:
     double fuelLeftAux = 0;
     double fuelRightAux = 0;
     double fuelCenter = 0;
+    double fuelACT1 = 0;
+    double fuelACT2 = 0;
+    double fuelACT4 = 0;
+    double ACTToCenterFlow = 0;
     double xfrCenterToLeft = 0;
     double xfrCenterToRight = 0;
     double xfrAuxLeft = 0;
     double xfrAuxRight = 0;
-    double fuelTotalActual = leftQuantity + rightQuantity + leftAuxQuantity + rightAuxQuantity + centerQuantity; // LBS
-    double fuelTotalPre = fuelLeftPre + fuelRightPre + fuelAuxLeftPre + fuelAuxRightPre + fuelCenterPre;         // LBS
-    double deltaFuelRate = abs(fuelTotalActual - fuelTotalPre) / (fuelWeightGallon * deltaTimeSeconds);          // LBS/ sec
+    double fuelTotalActual = leftQuantity + rightQuantity + leftAuxQuantity + rightAuxQuantity + centerQuantity + act1Quantity + act2Quantity + act4Quantity; // LBS
+    double fuelTotalPre = fuelLeftPre + fuelRightPre + fuelAuxLeftPre + fuelAuxRightPre + fuelCenterPre + fuelACT1Pre + fuelACT2Pre + fuelACT4Pre;            // LBS
+    double deltaFuelRate = abs(fuelTotalActual - fuelTotalPre) / (fuelWeightGallon * deltaTimeSeconds);                                                       // LBS/ sec
 
     double engine1State = simVars->getEngine1State();
     double engine2State = simVars->getEngine2State();
@@ -927,14 +945,23 @@ private:
       simVars->setFuelAuxLeftPre(fuelAuxLeftPre);   // in LBS
       simVars->setFuelAuxRightPre(fuelAuxRightPre); // in LBS
       simVars->setFuelCenterPre(fuelCenterPre);     // in LBS
+      simVars->setFuelACT1Pre(fuelACT1Pre);         // in LBS
+      simVars->setFuelACT2Pre(fuelACT2Pre);         // in LBS
+      simVars->setFuelACT4Pre(fuelACT4Pre);         // in LBS
 
       fuelLeft = (fuelLeftPre / fuelWeightGallon);         // USG
       fuelRight = (fuelRightPre / fuelWeightGallon);       // USG
       fuelCenter = (fuelCenterPre / fuelWeightGallon);     // USG
+      fuelACT1 = (fuelACT1Pre / fuelWeightGallon);         // USG
+      fuelACT2 = (fuelACT2Pre / fuelWeightGallon);         // USG
+      fuelACT4 = (fuelACT4Pre / fuelWeightGallon);         // USG
       fuelLeftAux = (fuelAuxLeftPre / fuelWeightGallon);   // USG
       fuelRightAux = (fuelAuxRightPre / fuelWeightGallon); // USG
 
       SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelCenterMain, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelCenter);
+      SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelCenterAdd1, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelACT1);
+      SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelCenterAdd2, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelACT2);
+      SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelCenterAdd4, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelACT4);
       SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelLeftMain, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelLeft);
       SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelRightMain, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelRight);
       SimConnect_SetDataOnSimObject(hSimConnect, DataTypesID::FuelLeftAux, SIMCONNECT_OBJECT_ID_USER, 0, 0, sizeof(double), &fuelLeftAux);
@@ -947,6 +974,9 @@ private:
       simVars->setFuelAuxLeftPre(leftAuxQuantity);   // in LBS
       simVars->setFuelAuxRightPre(rightAuxQuantity); // in LBS
       simVars->setFuelCenterPre(centerQuantity);     // in LBS
+      simVars->setFuelACT1Pre(act1Quantity);         // in LBS
+      simVars->setFuelACT2Pre(act2Quantity);         // in LBS
+      simVars->setFuelACT4Pre(act4Quantity);         // in LBS
     }
     else
     {
@@ -957,6 +987,9 @@ private:
         fuelAuxLeftPre = leftAuxQuantity;   // LBS
         fuelAuxRightPre = rightAuxQuantity; // LBS
         fuelCenterPre = centerQuantity;     // LBS
+        fuelACT1Pre = act1Quantity;         // LBS
+        fuelACT2Pre = act2Quantity;         // LBS
+        fuelACT4Pre = act4Quantity;         // LBS
       }
       //-----------------------------------------------------------
       // Cross-feed Logic
@@ -1085,6 +1118,32 @@ private:
         xfrCenterToRight = fuelCenterPre - centerQuantity;
 
       //--------------------------------------------
+      // ACT to Centre transfer routine
+      if (centerQuantity < 11300 && ACTToCenterValve > 0.0)
+      {
+        double flowRate = 0;
+        if (act4Quantity > 0)
+        {
+          ACTToCenterFlow = min(12700, act4Quantity);
+          flowRate = ACTToCenterFlow * lineACTToCenterFlow;
+          act4Quantity -= flowRate;
+        }
+        else if (act2Quantity > 0)
+        {
+          ACTToCenterFlow = min(12700, act2Quantity);
+          flowRate = ACTToCenterFlow * lineACTToCenterFlow;
+          act2Quantity -= flowRate;
+        }
+        else if (act1Quantity > 0)
+        {
+          ACTToCenterFlow = min(12700, act1Quantity);
+          flowRate = ACTToCenterFlow * lineACTToCenterFlow;
+          act1Quantity -= ACTToCenterFlow;
+        }
+        centerQuantity += flowRate;
+      }
+
+      //--------------------------------------------
       // Final Fuel levels for left and right inner tanks
       fuelLeft = (fuelLeftPre - (fuelBurn1 * KGS_TO_LBS)) + xfrAuxLeft + xfrCenterToLeft - apuBurn1;     // LBS
       fuelRight = (fuelRightPre - (fuelBurn2 * KGS_TO_LBS)) + xfrAuxRight + xfrCenterToRight - apuBurn2; // LBS
@@ -1098,6 +1157,9 @@ private:
       simVars->setFuelAuxLeftPre(leftAuxQuantity);   // in LBS
       simVars->setFuelAuxRightPre(rightAuxQuantity); // in LBS
       simVars->setFuelCenterPre(centerQuantity);     // in LBS
+      simVars->setFuelACT1Pre(act1Quantity);         // in LBS
+      simVars->setFuelACT2Pre(act2Quantity);         // in LBS
+      simVars->setFuelACT4Pre(act4Quantity);         // in LBS
 
       simVars->setFuelLeftPre(fuelLeft);   // in LBS
       simVars->setFuelRightPre(fuelRight); // in LBS
@@ -1121,6 +1183,9 @@ private:
       configuration.fuelLeft = simVars->getFuelLeftPre() / simVars->getFuelWeightGallon();
       configuration.fuelRight = simVars->getFuelRightPre() / simVars->getFuelWeightGallon();
       configuration.fuelCenter = simVars->getFuelCenterPre() / simVars->getFuelWeightGallon();
+      configuration.fuelACT1 = simVars->getFuelACT1Pre() / simVars->getFuelWeightGallon();
+      configuration.fuelACT2 = simVars->getFuelACT2Pre() / simVars->getFuelWeightGallon();
+      configuration.fuelACT4 = simVars->getFuelACT4Pre() / simVars->getFuelWeightGallon();
       configuration.fuelLeftAux = simVars->getFuelAuxLeftPre() / simVars->getFuelWeightGallon();
       configuration.fuelRightAux = simVars->getFuelAuxRightPre() / simVars->getFuelWeightGallon();
 
@@ -1354,12 +1419,18 @@ public:
     double rightQuantity = simVars->getFuelTankQuantity(3);    // gal
     double leftAuxQuantity = simVars->getFuelTankQuantity(4);  // gal
     double rightAuxQuantity = simVars->getFuelTankQuantity(5); // gal
+    double act1Quantity = simVars->getFuelTankQuantity(7);     // gal
+    double act2Quantity = simVars->getFuelTankQuantity(8);     // gal
+    double act4Quantity = simVars->getFuelTankQuantity(9);     // gal
 
     double fuelWeightGallon = simVars->getFuelWeightGallon(); // weight of gallon of jet A in lbs
 
     if (simVars->getStartState() == 2)
     {                                                                             // only loads saved fuel quantity on C/D spawn
       simVars->setFuelCenterPre(configuration.fuelCenter * fuelWeightGallon);     // in LBS
+      simVars->setFuelACT1Pre(configuration.fuelACT1 * fuelWeightGallon);         // in LBS
+      simVars->setFuelACT2Pre(configuration.fuelACT2 * fuelWeightGallon);         // in LBS
+      simVars->setFuelACT4Pre(configuration.fuelACT4 * fuelWeightGallon);         // in LBS
       simVars->setFuelLeftPre(configuration.fuelLeft * fuelWeightGallon);         // in LBS
       simVars->setFuelRightPre(configuration.fuelRight * fuelWeightGallon);       // in LBS
       simVars->setFuelAuxLeftPre(configuration.fuelLeftAux * fuelWeightGallon);   // in LBS
@@ -1368,6 +1439,9 @@ public:
     else
     {
       simVars->setFuelCenterPre(centerQuantity * fuelWeightGallon);     // in LBS
+      simVars->setFuelACT1Pre(act1Quantity * fuelWeightGallon);         // in LBS
+      simVars->setFuelACT2Pre(act2Quantity * fuelWeightGallon);         // in LBS
+      simVars->setFuelACT4Pre(act4Quantity * fuelWeightGallon);         // in LBS
       simVars->setFuelLeftPre(leftQuantity * fuelWeightGallon);         // in LBS
       simVars->setFuelRightPre(rightQuantity * fuelWeightGallon);       // in LBS
       simVars->setFuelAuxLeftPre(leftAuxQuantity * fuelWeightGallon);   // in LBS
@@ -1538,6 +1612,9 @@ public:
   {
     return {
         mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_CENTER_QUANTITY, 0),
+        mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_ACT1_QUANTITY, 0),
+        mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_ACT2_QUANTITY, 0),
+        mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_ACT4_QUANTITY, 0),
         mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_LEFT_QUANTITY, 411.34),
         mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_RIGHT_QUANTITY, 411.34),
         mINI::INITypeConversion::getDouble(structure, CONFIGURATION_SECTION_FUEL, CONFIGURATION_SECTION_FUEL_LEFT_AUX_QUANTITY, 0),
@@ -1554,6 +1631,9 @@ public:
     iniFile.read(stInitStructure);
 
     stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_CENTER_QUANTITY] = std::to_string(configuration.fuelCenter);
+    stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_ACT1_QUANTITY] = std::to_string(configuration.fuelACT1);
+    stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_ACT2_QUANTITY] = std::to_string(configuration.fuelACT2);
+    stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_ACT4_QUANTITY] = std::to_string(configuration.fuelACT4);
     stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_LEFT_QUANTITY] = std::to_string(configuration.fuelLeft);
     stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_RIGHT_QUANTITY] = std::to_string(configuration.fuelRight);
     stInitStructure[CONFIGURATION_SECTION_FUEL][CONFIGURATION_SECTION_FUEL_LEFT_AUX_QUANTITY] = std::to_string(configuration.fuelLeftAux);

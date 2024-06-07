@@ -8,6 +8,9 @@ enum DataTypesID
   FuelLeftMain,
   FuelRightMain,
   FuelCenterMain,
+  FuelCenterAdd1,
+  FuelCenterAdd2,
+  FuelCenterAdd4,
   FuelLeftAux,
   FuelRightAux,
   OilTempLeft,
@@ -147,6 +150,9 @@ public:
   ID FuelAuxLeftPre;
   ID FuelAuxRightPre;
   ID FuelCenterPre;
+  ID FuelACT1Pre;
+  ID FuelACT2Pre;
+  ID FuelACT4Pre;
   ID RefuelRate;
   ID RefuelStartedByUser;
   ID FuelOverflowLeft;
@@ -209,6 +215,9 @@ public:
     FuelAuxLeftPre = register_named_variable("A32NX_FUEL_AUX_LEFT_PRE");
     FuelAuxRightPre = register_named_variable("A32NX_FUEL_AUX_RIGHT_PRE");
     FuelCenterPre = register_named_variable("A32NX_FUEL_CENTER_PRE");
+    FuelACT1Pre = register_named_variable("A32NX_FUEL_ACT1_PRE");
+    FuelACT2Pre = register_named_variable("A32NX_FUEL_ACT2_PRE");
+    FuelACT4Pre = register_named_variable("A32NX_FUEL_ACT4_PRE");
     RefuelRate = register_named_variable("A32NX_EFB_REFUEL_RATE_SETTING");
     RefuelStartedByUser = register_named_variable("A32NX_REFUEL_STARTED_BY_USR");
     Engine1State = register_named_variable("A32NX_ENGINE_STATE:1");
@@ -262,6 +271,9 @@ public:
     this->setFuelAuxLeftPre(0);
     this->setFuelAuxRightPre(0);
     this->setFuelCenterPre(0);
+    this->setFuelACT1Pre(0);
+    this->setFuelACT2Pre(0);
+    this->setFuelACT4Pre(0);
     this->setEngine1State(0);
     this->setEngine2State(0);
     this->setEngine1Timer(0);
@@ -309,6 +321,9 @@ public:
   void setFuelAuxLeftPre(FLOAT64 value) { set_named_variable_value(FuelAuxLeftPre, value); }
   void setFuelAuxRightPre(FLOAT64 value) { set_named_variable_value(FuelAuxRightPre, value); }
   void setFuelCenterPre(FLOAT64 value) { set_named_variable_value(FuelCenterPre, value); }
+  void setFuelACT1Pre(FLOAT64 value) { set_named_variable_value(FuelACT1Pre, value); }
+  void setFuelACT2Pre(FLOAT64 value) { set_named_variable_value(FuelACT2Pre, value); }
+  void setFuelACT4Pre(FLOAT64 value) { set_named_variable_value(FuelACT4Pre, value); }
   void setEngine1State(FLOAT64 value) { set_named_variable_value(Engine1State, value); }
   void setEngine2State(FLOAT64 value) { set_named_variable_value(Engine2State, value); }
   void setEngine1Timer(FLOAT64 value) { set_named_variable_value(Engine1Timer, value); }
@@ -357,6 +372,9 @@ public:
   FLOAT64 getFuelAuxLeftPre() { return get_named_variable_value(FuelAuxLeftPre); }
   FLOAT64 getFuelAuxRightPre() { return get_named_variable_value(FuelAuxRightPre); }
   FLOAT64 getFuelCenterPre() { return get_named_variable_value(FuelCenterPre); }
+  FLOAT64 getFuelACT1Pre() { return get_named_variable_value(FuelACT1Pre); }
+  FLOAT64 getFuelACT2Pre() { return get_named_variable_value(FuelACT2Pre); }
+  FLOAT64 getFuelACT4Pre() { return get_named_variable_value(FuelACT4Pre); }
   FLOAT64 getRefuelRate() { return get_named_variable_value(RefuelRate); }
   FLOAT64 getRefuelStartedByUser() { return get_named_variable_value(RefuelStartedByUser); }
   FLOAT64 getPumpStateLeft() { return get_named_variable_value(PumpStateLeft); }
